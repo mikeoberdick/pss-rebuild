@@ -1,0 +1,108 @@
+/*------------------------------------------------*/
+/*-------------------[FONTS]----------------------*/
+/*------------------------------------------------*/
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	//color: $maroon;
+	//font-family: $pt-sans;
+}
+
+h1 {  
+  font-size: $mod_1*$mod_1*$mod_1*$mod_1 *1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h2 {  
+  font-size: $mod_1*$mod_1*$mod_1 *1rem; 
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1*$mod_1 *$min_font, $mod_2*$mod_2*$mod_2 *$min_font);
+}
+h3 { 
+  font-size: $mod_1*$mod_1 *1rem;
+  @include fluid-type($min_width, $max_width, $mod_1*$mod_1 *$min_font, $mod_2*$mod_2 *$min_font);
+}
+
+body {
+	color: #000;
+	//font-family: $pt-sans;
+}
+
+/*------------------------------------------------*/
+/*--------------------[LINKS]---------------------*/
+/*------------------------------------------------*/
+
+a {
+  //color: $maroon;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#main-menu {
+  a {
+    //font-family: $pt-sans;
+    //color: $maroon;
+  }
+}
+
+.mobileToggle {
+  //color: $maroon;
+}
+
+/*------------------------------------------------*/
+/*-------------------[BUTTONS]--------------------*/
+/*------------------------------------------------*/
+
+.btn {
+  white-space: normal;
+}
+
+.maroon-button {
+  //font-family: $pt-sans ;
+  text-transform: uppercase;
+  color: #fff !important;
+  //background-color: $maroon !important;
+  border: 0;
+  @include border-radius(5px);
+  padding: 10px 25px;
+  &:hover {
+    //background-color: darken( $maroon, 10% ) !important;
+    border: 0;
+    }
+}
+
+/*------------------------------------------------*/
+/*------------------[NINJA FORMS]-----------------*/
+/*------------------------------------------------*/
+
+.nf-form-cont {
+  label {
+    //font-family: $pt-sans;
+    font-weight: normal !important;
+    color: #707070;
+  }
+  .ninja-forms-req-symbol, .nf-error-msg {
+    color: #707070 !important;
+  }
+  .nf-error-msg {
+    margin-bottom: 25px;
+  }
+  .nf-response-msg {
+      //border: solid 1px $maroon;
+      padding: 10px 25px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+  }
+  input:not([type="button"]), textarea {
+    padding: 10px 15px;
+    //border: solid 1px $pink !important;
+    border-radius: 5px !important;
+
+  }
+}
