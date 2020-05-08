@@ -56,6 +56,12 @@ add_filter('widget_text', 'do_shortcode');
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
+        'page_title'    => 'Company Profile',
+        'menu_title'    => 'Company Profile',
+        'menu_slug'     => 'company-profile'
+    ));
+
+    acf_add_options_page(array(
         'page_title'    => 'General Content',
         'menu_title'    => 'General Content',
         'menu_slug'     => 'general-content'

@@ -44,31 +44,7 @@ get_header(); ?>
 					</div><!-- .container -->
 				</section><!-- #sectionTwo -->
 
-				<?php $sectionThree = get_field('section_three'); ?>
-				<section id="sectionThree" style = "background: url('<?php echo $sectionThree['background']['url']; ?>');" class = "py-5 d-flex flex-column justify-content-center">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12 text-center">
-								<a data-toggle="modal" data-target="#hpModal">
-								<h1 class="mb-3  text-shadow text-center"><?php echo $sectionThree['header']; ?></h1>
-								<i class="fa fa-youtube-play fa-5x" aria-hidden="true"></i>
-								</a>
-							</div><!-- .col-sm-12 -->
-							<div class="modal fade p-5" id="hpModal" tabindex="-1" role="dialog" aria-labelledby="About Parks Superior Video" aria-hidden="true">
-							  <div class="modal-dialog modal-xl" role="document">
-							    <div class="modal-content">
-							      <div class="modal-body p-5">
-							        <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
-										<div class = "text-center">
-											<?php echo $sectionThree['video']; ?>
-										</div>
-							      </div><!-- .modal-body -->
-							    </div><!-- .modal-content -->
-							  </div><!-- .modal-dialog -->
-							</div><!-- .modal -->
-						</div><!-- .row -->
-					</div><!-- .container -->
-				</section><!-- #sectionThree -->
+				<?php get_template_part( 'snippets/about_video'); ?>
 
 				<?php $sectionFour = get_field('section_four'); ?>
 				<section id="sectionFour" style = "background: url('<?php echo $sectionFour['background']['url']; ?>');" class = "py-5">

@@ -58,7 +58,7 @@ h3 {
 body {
 	color: #fff;
 	font-family: $roboto;
-  background: #000;
+  background-color: #262626;
 }
 
 .gold {
@@ -275,6 +275,14 @@ a {
     }
   }
 
+//GENERAL
+#aboutVideo {
+  height: 75vh;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
 //HOMEPAGE
 #homepage {
   section {
@@ -288,6 +296,9 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+  #sectionOne {
+    background: #000;
   }
   #sectionFour {
     #testimonialContent {

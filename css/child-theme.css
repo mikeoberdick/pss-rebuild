@@ -11700,7 +11700,7 @@ h3 {
 body {
   color: #fff;
   font-family: "Roboto", sans-serif;
-  background: #000; }
+  background-color: #262626; }
 
 .gold {
   color: #CC9F53; }
@@ -11898,6 +11898,12 @@ a {
   .modal-close i {
     color: #fff; }
 
+#aboutVideo {
+  height: 75vh;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important; }
+
 #homepage section {
   height: 75vh;
   background-size: contain !important;
@@ -11918,6 +11924,9 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
+
+#homepage #sectionOne {
+  background: #000; }
 
 #homepage #sectionFour #testimonialContent {
   color: #000; }

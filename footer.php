@@ -14,6 +14,20 @@ defined( 'ABSPATH' ) || exit;
 
 <div id="js-heightControl" style="height: 0;">&nbsp;</div>
 
+<div class="modal fade p-5" id="aboutVideoModal" tabindex="-1" role="dialog" aria-labelledby="About Parks Superior Video" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-5">
+        <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+			<div class = "text-center">
+				<?php $aboutVideoModal = get_field('about_video', 'option'); ?>
+				<?php echo $aboutVideoModal['video']; ?>
+			</div>
+      </div><!-- .modal-body -->
+    </div><!-- .modal-content -->
+  </div><!-- .modal-dialog -->
+</div><!-- .modal -->
+
 <footer id="wrapper-footer" class="wrapper pb-5">
 
 	<div id = "footerNavWrapper" class="container-fluid mb-5">
