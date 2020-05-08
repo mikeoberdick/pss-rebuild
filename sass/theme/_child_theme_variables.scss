@@ -1,8 +1,9 @@
 //COLORS
-$primary: #7C008C;
+$gold: #CC9F53;
 
 //Fonts
-//$pt-sans: 'PT Sans', sans-serif;
+$unica: 'Unica One', sans-serif;
+$roboto: 'Roboto', sans-serif;
 
 //Fluid Typography Variables
 $min_width: 320px;
@@ -11,12 +12,12 @@ $min_font: 14px;
 $max_font: 18px;
 
 // Fluid Header Variables
-$mod_1: 1.2; // mobile
-$mod_2: 1.5; // desktop
+$mod_1: 1.50; // mobile
+$mod_2: 1.75; // desktop
 
 //Drop Shadow
 @mixin shadow {
-  box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 1.5rem 1.5rem rgba(0,0,0,0.50) !important;
 }
 
 //Typography

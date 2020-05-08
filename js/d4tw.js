@@ -7,7 +7,7 @@ $(document).ready(function() {
 		console.log('on captcha');
     } else if ( window.location.href.indexOf(".d4tw") > -1) {
 		console.log('on d4tw');
-		alert('NEED TO UPDATE WP CONFIG FILE DB SETTINGS');
+		//alert('NEED TO UPDATE WP CONFIG FILE DB SETTINGS');
     	}
 	else {
     	alert('NEED TO REMOVE NOINDEX FROM HEADER & THIS LINE FROM JS');

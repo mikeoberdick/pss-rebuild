@@ -37,6 +37,7 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 //////////////////////////////////
 
 function d4tw_enqueue_files () {
+    wp_enqueue_style( 'Google Fonts', 'https://fonts.googleapis.com/css?family=Roboto|Unica+One&display=swap' );
     wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
 }
 
@@ -55,9 +56,9 @@ add_filter('widget_text', 'do_shortcode');
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
-        'page_title'    => 'Site Content',
-        'menu_title'    => 'Site Content',
-        'menu_slug'     => 'site-content'
+        'page_title'    => 'General Content',
+        'menu_title'    => 'General Content',
+        'menu_slug'     => 'general-content'
     )); 
 }
 
@@ -109,3 +110,62 @@ function d4tw_remove_page_templates( $templates ) {
     return $templates;
 }
 add_filter( 'theme_page_templates', 'd4tw_remove_page_templates' );
+
+///////////////////////////////////////////
+/////// REGISTER LEFT & RIGHT MENUS ///////
+///////////////////////////////////////////
+
+register_nav_menus( array(
+    'menu-left' => 'Desktop Menu Left',
+    'menu-right' => 'Desktop Menu Right',
+    'footer-menu' => 'Footer Menu'
+) );
+
+///////////////////////////////////////////
+////////// CAR CUSTOM POST TYPE ///////////
+///////////////////////////////////////////
+
+add_action( 'init', 'car_post_type', 0 );
+
+function car_post_type() {
+// Set UI labels
+  $labels = array(
+    'name'                => 'Cars',
+    'singular_name'       => 'Car',
+    'menu_name'           => 'Cars',
+    'parent_item_colon'   => 'Parent Car',
+    'all_items'           => 'All Cars',
+    'view_item'           => 'View Car',
+    'add_new_item'        => 'Add New Car',
+    'add_new'             => 'Add Car',
+    'edit_item'           => 'Edit Car',
+    'update_item'         => 'Update Car',
+    'search_items'        => 'Search Cars',
+    'not_found'           => 'No Cars Found',
+    'not_found_in_trash'  => 'No Cars Found in Trash',
+  );
+  
+// Set other options
+  $args = array(
+    'label'               => 'cars',
+    'description'         => 'cars',
+    'labels'              => $labels,
+    // Features this CPT supports in Post Editor
+    'supports'            => array( 'title', 'editor', 'author' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+  );
+  
+//Register the CPT
+  register_post_type( 'car', $args );
+}

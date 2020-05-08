@@ -8,8 +8,38 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	//color: $maroon;
-	//font-family: $pt-sans;
+	color: #fff;
+	font-family: $unica;
+  text-transform: uppercase;
+}
+
+.fancy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  &:before {
+    content: '';
+    display: block;
+    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_left.png);
+    margin-right: 2%;
+    height: 91px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &:after {
+    content: '';
+    display: block;
+    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_right.png);
+    margin-left: 2%;
+    height: 91px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 h1 {  
@@ -26,8 +56,13 @@ h3 {
 }
 
 body {
-	color: #000;
-	//font-family: $pt-sans;
+	color: #fff;
+	font-family: $roboto;
+  background: #000;
+}
+
+.gold {
+  color: $gold;
 }
 
 /*------------------------------------------------*/
@@ -35,21 +70,16 @@ body {
 /*------------------------------------------------*/
 
 a {
-  //color: $maroon;
+  color: $gold;
+  cursor: pointer;
   &:hover {
+    color: $gold;
     text-decoration: none;
   }
 }
 
-#main-menu {
-  a {
-    //font-family: $pt-sans;
-    //color: $maroon;
-  }
-}
-
 .mobileToggle {
-  //color: $maroon;
+  color: $gold;
 }
 
 /*------------------------------------------------*/
@@ -60,18 +90,42 @@ a {
   white-space: normal;
 }
 
-.maroon-button {
-  //font-family: $pt-sans ;
+.gold-button {
+  font-family: $unica;
+  font-size: 1.75rem;
   text-transform: uppercase;
-  color: #fff !important;
-  //background-color: $maroon !important;
+  color: #000 !important;
+  background-color: $gold !important;
   border: 0;
-  @include border-radius(5px);
-  padding: 10px 25px;
+  @include border-radius(65px);
+  padding: 10px 50px;
   &:hover {
-    //background-color: darken( $maroon, 10% ) !important;
+    background-color: darken( $gold, 10% ) !important;
     border: 0;
     }
+}
+
+.black-button {
+  font-family: $unica;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  color: $gold !important;
+  background-color: #000 !important;
+  border: 0;
+  @include border-radius(65px);
+  padding: 10px 50px;
+  &:hover {
+    background-color: darken( #000, 10% ) !important;
+    border: 0;
+    }
+}
+
+.text-shadow {
+  text-shadow: 0px 3px 6px rgba(0,0,0,0.50);
+}
+
+.inset {
+  box-shadow: rgba(0,0,0, .5) 0 0 0 500px inset;
 }
 
 /*------------------------------------------------*/
@@ -80,7 +134,7 @@ a {
 
 .nf-form-cont {
   label {
-    //font-family: $pt-sans;
+    font-family: $roboto;
     font-weight: normal !important;
     color: #707070;
   }
@@ -91,7 +145,7 @@ a {
     margin-bottom: 25px;
   }
   .nf-response-msg {
-      //border: solid 1px $maroon;
+      border: solid 1px $gold;
       padding: 10px 25px;
       margin-bottom: 15px;
       border-radius: 5px;
@@ -101,8 +155,153 @@ a {
   }
   input:not([type="button"]), textarea {
     padding: 10px 15px;
-    //border: solid 1px $pink !important;
+    border: solid 1px $gold !important;
     border-radius: 5px !important;
 
+  }
+}
+
+/*------------------------------------------------*/
+/*---------------------[HEADER]-------------------*/
+/*------------------------------------------------*/
+
+#wrapper-navbar {
+  background: #262626;
+  #menuLeft {
+    @include media-breakpoint-down(md) {
+      order: 3;
+    }
+  }
+  .underlined {
+    padding-bottom: 5px;
+    border-bottom: solid 2px #888888;
+  }
+  #main-menu-left, #main-menu-right {
+      width: 100%;
+      justify-content: space-between;
+    a {
+      font-family: $roboto;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+  #logo {
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+#floatingSocial {
+    position: fixed;
+    left: 15px;
+    top: 175px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    i {
+      font-size: 24px;
+      background: #fff;
+      padding: 15px;
+      border: solid 3px #262626;
+      border-radius: 25px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .youtube {
+      color: #c4302b;
+    }
+    .facebook {
+      color: #3b5998;
+    }
+    .linked-in {
+      color: #0e76a8;
+    }
+    .instagram {
+      color: #833AB4;
+    }
+}
+
+/*------------------------------------------------*/
+/*---------------------[FOOTER]-------------------*/
+/*------------------------------------------------*/
+
+#wrapper-footer {
+  background-color: #262626;
+  border-top: solid 4px $gold;
+  padding-top: 0;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  #footerNavWrapper {
+    border-bottom: solid 2px #888888;
+    .nav-link {
+      color: #fff;
+      text-transform: uppercase;
+      padding: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+//MODAL
+.modal-content {
+  background: #000;
+  border: 0;
+}
+.modal-close {
+    position: absolute;
+    background: #000;
+    border-radius: 0;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    i {
+      color: #fff;
+    }
+  }
+
+//HOMEPAGE
+#homepage {
+  section {
+    height: 75vh;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  #hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #sectionFour {
+    #testimonialContent {
+      color: #000;
+      h1 {
+        color: #000;
+      }
+      .button-gold {
+        background-color: black !important;
+        color: #cc9f53 !important;
+      }
+    }
+    iframe {
+      @include shadow;
+    }
   }
 }
