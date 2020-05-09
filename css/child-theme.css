@@ -11705,6 +11705,9 @@ body {
 .gold {
   color: #CC9F53; }
 
+.black {
+  color: #000; }
+
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
 /*------------------------------------------------*/
@@ -11723,33 +11726,42 @@ a {
 /*------------------------------------------------*/
 .btn,
 .wpcf7 input[type=submit] {
-  white-space: normal; }
+  white-space: normal !important;
+  font-family: "Unica One", sans-serif;
+  font-size: 1.75rem;
+  text-transform: uppercase !important;
+  border: 0 !important;
+  height: auto !important;
+  border-radius: 65px;
+  padding: 10px 50px; }
+  .btn:hover, .wpcf7 input:hover[type=submit] {
+    border: 0; }
 
 .gold-button {
-  font-family: "Unica One", sans-serif;
-  font-size: 1.75rem;
-  text-transform: uppercase;
   color: #000 !important;
-  background-color: #CC9F53 !important;
-  border: 0;
-  border-radius: 65px;
-  padding: 10px 50px; }
+  background-color: #CC9F53 !important; }
   .gold-button:hover {
-    background-color: #b68636 !important;
-    border: 0; }
+    background-color: #b68636 !important; }
 
 .black-button {
-  font-family: "Unica One", sans-serif;
-  font-size: 1.75rem;
-  text-transform: uppercase;
   color: #CC9F53 !important;
-  background-color: #000 !important;
-  border: 0;
-  border-radius: 65px;
-  padding: 10px 50px; }
+  background-color: #000 !important; }
   .black-button:hover {
-    background-color: black !important;
-    border: 0; }
+    background-color: black !important; }
+
+.white-outline-button {
+  color: #fff !important;
+  border: solid 5px #fff !important;
+  background-color: transparent !important; }
+  .white-outline-button:hover {
+    border: 3px; }
+
+.black-outline-button {
+  color: #000 !important;
+  border: solid 5px #000 !important;
+  background-color: transparent !important; }
+  .black-outline-button:hover {
+    border: 3px; }
 
 .text-shadow {
   text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5); }
@@ -11761,29 +11773,46 @@ a {
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
-.nf-form-cont label {
-  font-family: "Roboto", sans-serif;
-  font-weight: normal !important;
-  color: #707070; }
+.nf-form-fields-required {
+  display: none; }
 
-.nf-form-cont .ninja-forms-req-symbol, .nf-form-cont .nf-error-msg {
-  color: #707070 !important; }
-
-.nf-form-cont .nf-error-msg {
+#contactForm .nf-form-cont .nf-error-msg {
   margin-bottom: 25px; }
 
-.nf-form-cont .nf-response-msg {
+#contactForm .nf-form-cont .nf-response-msg {
   border: solid 1px #CC9F53;
   padding: 10px 25px;
   margin-bottom: 15px;
   border-radius: 5px; }
-  .nf-form-cont .nf-response-msg p:last-of-type {
+  #contactForm .nf-form-cont .nf-response-msg p:last-of-type {
     margin-bottom: 0; }
 
-.nf-form-cont input:not([type="button"]), .nf-form-cont textarea {
-  padding: 10px 15px;
-  border: solid 1px #CC9F53 !important;
-  border-radius: 5px !important; }
+#contactForm .nf-form-cont input:not([type="button"]) {
+  background: transparent;
+  border: 0;
+  border-bottom: solid #000;
+  color: #000;
+  font-weight: bold; }
+
+#contactForm .nf-form-cont ::-webkit-input-placeholder {
+  color: #000;
+  font-weight: bold; }
+
+#contactForm .nf-form-cont :-ms-input-placeholder {
+  color: #000;
+  font-weight: bold; }
+
+#contactForm .nf-form-cont ::-moz-placeholder {
+  color: #000;
+  font-weight: bold; }
+
+#contactForm .nf-form-cont ::-ms-input-placeholder {
+  color: #000;
+  font-weight: bold; }
+
+#contactForm .nf-form-cont ::placeholder {
+  color: #000;
+  font-weight: bold; }
 
 /*------------------------------------------------*/
 /*---------------------[HEADER]-------------------*/
@@ -11898,6 +11927,14 @@ a {
   .modal-close i {
     color: #fff; }
 
+.entry-header {
+  background-color: #4b4b4b; }
+
+.content-wrapper {
+  background: #fff; }
+  .content-wrapper * {
+    color: #000; }
+
 #aboutVideo {
   height: 75vh;
   background-size: contain !important;
@@ -11939,6 +11976,85 @@ a {
 #homepage #sectionFour iframe {
   -webkit-box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.5) !important;
           box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.5) !important; }
+
+#singleCar .hero-content iframe {
+  width: 100%; }
+
+#singleCar .price {
+  background: #4b4b4b;
+  padding: 25px;
+  border: solid #000; }
+
+#singleCar .contact-buttons button {
+  font-size: 1.25rem;
+  font-weight: bold; }
+
+#singleCar .spec {
+  background: black;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 15px; }
+
+#singleCar #carGallery .gallery-photo img {
+  width: 100%; }
+
+#singleCar #carGallery .hidden {
+  display: none; }
+
+#singleCar #carGallery .fa {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
+
+#singleCar #carGallery .rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+#singleCar .more-photos {
+  text-align: center;
+  border-top: solid 10px #CC9F53; }
+  #singleCar .more-photos h5 {
+    background: #cc9f53;
+    color: black;
+    display: inline-block;
+    padding: 10px 50px;
+    cursor: pointer; }
+
+#singleCar .callout {
+  border-top: solid 3px #CC9F53;
+  padding-top: 1rem; }
+  #singleCar .callout a {
+    color: #000; }
+
+#singleCar #specifications .nav-item {
+  background: #888888;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+  #singleCar #specifications .nav-item a {
+    color: #000; }
+  #singleCar #specifications .nav-item .active {
+    background: #CC9F53; }
+  #singleCar #specifications .nav-item:hover {
+    background: #CC9F53; }
+
+#singleCar #specifications ul li:not(:last-child) {
+  margin-right: 1rem; }
+
+#singleCar #financeBullets {
+  background: #f2e6d3;
+  padding: 15px;
+  text-align: center; }
+
+#singleCar #relatedCars {
+  background: #000; }
 
 /*
 * Use existing Bootstrap 4 classes and

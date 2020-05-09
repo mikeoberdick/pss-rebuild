@@ -65,6 +65,10 @@ body {
   color: $gold;
 }
 
+.black {
+  color: #000;
+}
+
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
 /*------------------------------------------------*/
@@ -87,37 +91,51 @@ a {
 /*------------------------------------------------*/
 
 .btn {
-  white-space: normal;
-}
-
-.gold-button {
+  white-space: normal !important;
   font-family: $unica;
   font-size: 1.75rem;
-  text-transform: uppercase;
-  color: #000 !important;
-  background-color: $gold !important;
-  border: 0;
+  text-transform: uppercase !important;
+  border: 0 !important;
+  height: auto !important;
   @include border-radius(65px);
   padding: 10px 50px;
   &:hover {
-    background-color: darken( $gold, 10% ) !important;
     border: 0;
+  }
+}
+
+.gold-button {
+  color: #000 !important;
+  background-color: $gold !important;
+  &:hover {
+    background-color: darken( $gold, 10% ) !important;
     }
 }
 
 .black-button {
-  font-family: $unica;
-  font-size: 1.75rem;
-  text-transform: uppercase;
   color: $gold !important;
   background-color: #000 !important;
-  border: 0;
-  @include border-radius(65px);
-  padding: 10px 50px;
   &:hover {
     background-color: darken( #000, 10% ) !important;
-    border: 0;
     }
+}
+
+.white-outline-button {
+  color: #fff !important;
+  border: solid 5px #fff !important;
+  background-color: transparent !important;
+  &:hover {
+    border: 3px;
+  }
+}
+
+.black-outline-button {
+  color: #000 !important;
+  border: solid 5px #000 !important;
+  background-color: transparent !important;
+  &:hover {
+    border: 3px;
+  }
 }
 
 .text-shadow {
@@ -131,33 +149,42 @@ a {
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
-
-.nf-form-cont {
-  label {
-    font-family: $roboto;
-    font-weight: normal !important;
-    color: #707070;
-  }
-  .ninja-forms-req-symbol, .nf-error-msg {
-    color: #707070 !important;
-  }
-  .nf-error-msg {
-    margin-bottom: 25px;
-  }
-  .nf-response-msg {
-      border: solid 1px $gold;
-      padding: 10px 25px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      p:last-of-type {
-        margin-bottom: 0;
-      }
-  }
-  input:not([type="button"]), textarea {
-    padding: 10px 15px;
-    border: solid 1px $gold !important;
-    border-radius: 5px !important;
-
+.nf-form-fields-required {
+  display: none;
+}
+#contactForm {
+  .nf-form-cont {
+    .nf-error-msg {
+      margin-bottom: 25px;
+    }
+    .nf-response-msg {
+        border: solid 1px $gold;
+        padding: 10px 25px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        p:last-of-type {
+          margin-bottom: 0;
+        }
+    }
+    input:not([type="button"]) {
+      background: transparent;
+      border: 0;
+      border-bottom: solid #000;
+      color: #000;
+      font-weight: bold;
+    }
+    ::-webkit-input-placeholder {
+      color: #000;
+      font-weight: bold;
+    }
+    :-ms-input-placeholder {
+      color: #000;
+      font-weight: bold;
+    }
+    ::placeholder {
+      color: #000;
+      font-weight: bold;
+    }
   }
 }
 
@@ -276,6 +303,17 @@ a {
   }
 
 //GENERAL
+.entry-header {
+  background-color: #4b4b4b;
+}
+
+.content-wrapper {
+  background: #fff;
+  * {
+    color: #000;
+  }
+}
+
 #aboutVideo {
   height: 75vh;
   background-size: contain !important;
@@ -314,5 +352,95 @@ a {
     iframe {
       @include shadow;
     }
+  }
+}
+
+//SINGLE CAR
+#singleCar {
+  .hero-content {
+    iframe {
+      width: 100%;
+    }
+  }
+  .price {
+    background: #4b4b4b;
+    padding: 25px;
+    border: solid #000;
+  }
+  .contact-buttons {
+    button {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+  .spec {
+    background: black;
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+  #carGallery {
+    .gallery-photo {
+      img {
+        width: 100%;
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    .fa {
+      transition: transform .5s;
+    }
+    .rotate {
+      transform: rotate(180deg);
+    }
+  }
+  .more-photos {
+      text-align: center;
+      border-top: solid 10px $gold;
+    h5 {
+      background: #cc9f53;
+      color: black;
+      display: inline-block;
+      padding: 10px 50px; 
+      cursor: pointer;  
+    }  
+  }
+  .callout {
+    border-top: solid 3px $gold;
+    padding-top: 1rem;
+    a {
+      color: #000;
+    }
+  }
+  #specifications {
+    .nav-item {
+      background: #888888;
+      flex: 1;
+      a {
+        color: #000;
+      }
+      .active {
+        background: $gold;
+      }
+      &:hover {
+        background: $gold;
+      }
+    }
+    ul {
+      li:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+  #financeBullets {
+    background: #f2e6d3;
+    padding: 15px;
+    text-align: center;
+  }
+  #relatedCars {
+    background: #000;
   }
 }
