@@ -25,6 +25,20 @@ $('.more-photos').on( 'click', function() {
     $(this).find('.fa-caret-down').toggleClass('rotate');
 });
 
+//NOW SHOWING ON ALL MODELS PAGE
+$( ".catButton" ).click(function() {
+	$( "span#currentCat" ).text( jQuery(this).text() );
+});
+
+//FULL CAR DIV CLICKABLE LINK
+$('.car article').on('click', function(e){
+  e.preventDefault();
+  window.location.href=$(this).data('link');
+});
+
+//MAKE SURE TO INCLUDE THE DATA-LINK ATTRIBUTE WITH THE URL
+
+
 //end of document ready call
 });
 

@@ -444,3 +444,43 @@ a {
     background: #000;
   }
 }
+
+//ALL MODELS
+#allModels {
+  #hero {
+    height: 75vh;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .fancy {
+    &:before, &:after {
+      margin: 0;
+    }
+  }
+  .catButton {
+    padding: 0 20px;
+    &:hover {
+      h4 {
+        color: $gold;  
+      } 
+    }
+  }
+  .mixitup-control-active {
+    h4 {
+      color: $gold;
+    }
+  }
+  #currentCat {
+    border-bottom: solid 3px $gold;
+  }
+  .car {
+    article {
+      cursor: pointer;
+    }
+  }
+}

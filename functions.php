@@ -39,6 +39,7 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 function d4tw_enqueue_files () {
     wp_enqueue_style( 'Google Fonts', 'https://fonts.googleapis.com/css?family=Roboto|Unica+One&display=swap' );
     wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
 }
 
 add_action('wp_enqueue_scripts', 'd4tw_enqueue_files');
@@ -174,4 +175,25 @@ function car_post_type() {
   
 //Register the CPT
   register_post_type( 'car', $args );
+}
+
+//Create the Model Category Taxonomy
+add_action( 'init', 'create_model_taxonomy' );
+function create_model_taxonomy() {
+  $labels = array(
+    'add_new_item' => 'Add New Model',
+    'view_item' => 'View Model',
+    'edit_item' => 'Edit Model',
+    'update_item' => 'Update Model',
+    'parent_item' => 'Parent Model',
+    'back_to_items' => '← Back to Models',
+
+  );
+  $args = array(
+    'label' => 'Models',
+    'rewrite' => array( 'slug' => 'model' ),
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'model', array( 'car' ), $args );
 }

@@ -122,6 +122,17 @@ defined( 'ABSPATH' ) || exit;
 
 <?php wp_footer(); ?>
 
+<?php if ( is_page( 'all-models' ) ) { ?>
+	<script>
+	    var containerEl = document.querySelector('#cars');
+	    var mixer = mixitup(containerEl, {
+	    	load: {
+	        	filter: '.all'
+	    	}
+		});
+	</script>
+<?php } ?>
+
 </body>
 
 </html>

@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) || exit;
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
     	<nav class="navbar navbar-expand-lg">
-			<div class="container">
+			<div class="container justify-content-around">
 				<div class="row w-100">
 					<div id = "menuLeft" class="col-md-4 d-flex flex-column">
 						<div class = "align-items-center underlined mb-3 d-none d-lg-flex">

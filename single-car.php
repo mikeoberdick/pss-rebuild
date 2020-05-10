@@ -20,7 +20,7 @@ get_header(); ?>
 				
 				<?php $images = get_field('images'); ?>
 
-				<div class="container">
+				<div class="container mt-3">
 					<div class="row mb-3">
 						<div class="col-sm-12 text-right">
 							<a href = "/inventory" class="back d-flex justify-content-end align-items-center">
