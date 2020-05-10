@@ -312,6 +312,41 @@ a {
   * {
     color: #000;
   }
+  .callout {
+    border-top: solid 3px $gold;
+    padding-top: 1rem;
+    a {
+      color: #000;
+    }
+  }
+}
+
+#carGallery {
+  .gallery-photo {
+    img {
+      width: 100%;
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .fa {
+    transition: transform .5s;
+  }
+  .rotate {
+    transform: rotate(180deg);
+  }
+  .more-photos {
+      text-align: center;
+      border-top: solid 10px $gold;
+    h5 {
+      background: #cc9f53;
+      color: black;
+      display: inline-block;
+      padding: 10px 50px; 
+      cursor: pointer;  
+    }  
+  }
 }
 
 #aboutVideo {
@@ -381,40 +416,6 @@ a {
     justify-content: space-between;
     padding: 10px 15px;
   }
-  #carGallery {
-    .gallery-photo {
-      img {
-        width: 100%;
-      }
-    }
-    .hidden {
-      display: none;
-    }
-    .fa {
-      transition: transform .5s;
-    }
-    .rotate {
-      transform: rotate(180deg);
-    }
-  }
-  .more-photos {
-      text-align: center;
-      border-top: solid 10px $gold;
-    h5 {
-      background: #cc9f53;
-      color: black;
-      display: inline-block;
-      padding: 10px 50px; 
-      cursor: pointer;  
-    }  
-  }
-  .callout {
-    border-top: solid 3px $gold;
-    padding-top: 1rem;
-    a {
-      color: #000;
-    }
-  }
   #specifications {
     .nav-item {
       background: #888888;
@@ -482,5 +483,19 @@ a {
     article {
       cursor: pointer;
     }
+  }
+}
+
+//TAXONOMY
+.tax-model {
+  #taxHero {
+    height: 50vh;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+  iframe {
+    width: 100%;
+    height: 500px;
   }
 }

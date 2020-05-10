@@ -197,3 +197,17 @@ function create_model_taxonomy() {
   );
   register_taxonomy( 'model', array( 'car' ), $args );
 }
+
+//REMOVE DESCRIPTION TEXT EDITOR FROM TAXONOMIES
+function wpse_hide_cat_descr() { ?>
+
+    <style type="text/css">
+       .term-description-wrap {
+           display: none;
+       }
+    </style>
+
+<?php } 
+
+add_action( 'admin_head-term.php', 'wpse_hide_cat_descr' );
+add_action( 'admin_head-edit-tags.php', 'wpse_hide_cat_descr' );

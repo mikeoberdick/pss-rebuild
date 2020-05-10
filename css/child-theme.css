@@ -11934,6 +11934,37 @@ a {
   background: #fff; }
   .content-wrapper * {
     color: #000; }
+  .content-wrapper .callout {
+    border-top: solid 3px #CC9F53;
+    padding-top: 1rem; }
+    .content-wrapper .callout a {
+      color: #000; }
+
+#carGallery .gallery-photo img {
+  width: 100%; }
+
+#carGallery .hidden {
+  display: none; }
+
+#carGallery .fa {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
+
+#carGallery .rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+#carGallery .more-photos {
+  text-align: center;
+  border-top: solid 10px #CC9F53; }
+  #carGallery .more-photos h5 {
+    background: #cc9f53;
+    color: black;
+    display: inline-block;
+    padding: 10px 50px;
+    cursor: pointer; }
 
 #aboutVideo {
   height: 75vh;
@@ -12001,38 +12032,6 @@ a {
           justify-content: space-between;
   padding: 10px 15px; }
 
-#singleCar #carGallery .gallery-photo img {
-  width: 100%; }
-
-#singleCar #carGallery .hidden {
-  display: none; }
-
-#singleCar #carGallery .fa {
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s; }
-
-#singleCar #carGallery .rotate {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg); }
-
-#singleCar .more-photos {
-  text-align: center;
-  border-top: solid 10px #CC9F53; }
-  #singleCar .more-photos h5 {
-    background: #cc9f53;
-    color: black;
-    display: inline-block;
-    padding: 10px 50px;
-    cursor: pointer; }
-
-#singleCar .callout {
-  border-top: solid 3px #CC9F53;
-  padding-top: 1rem; }
-  #singleCar .callout a {
-    color: #000; }
-
 #singleCar #specifications .nav-item {
   background: #888888;
   -webkit-box-flex: 1;
@@ -12091,6 +12090,16 @@ a {
 
 #allModels .car article {
   cursor: pointer; }
+
+.tax-model #taxHero {
+  height: 50vh;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important; }
+
+.tax-model iframe {
+  width: 100%;
+  height: 500px; }
 
 /*
 * Use existing Bootstrap 4 classes and

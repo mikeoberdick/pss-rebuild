@@ -11,33 +11,60 @@ defined( 'ABSPATH' ) || exit;
 
 get_header(); ?>
 
-<div id="modelTaxonomy" class = "py-5">
+<div id="modelTaxonomy" class = "page-wrapper">
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 				
-				<?php get_template_part( 'snippets/page_header'); ?>
-				
-				<div class="entry-content container">
-					<section class = "row mb-3 justify-content-center">
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-						<?php $id = get_the_ID(); ?>     
-						<div class="product <?php if ( $id == 131 || $id == 132) {echo 'offset-md-4 offset-right-4 col-md-4 ';} else {echo 'col-md-4 ';}; ?>mb-4 mb-md-0" > 
-							<div class="product-link d-flex flex-column justify-content-center align-items-center " data-link = "<?php the_permalink(); ?>">
-								<div class = "mb-3">
-									<?php the_post_thumbnail( 'medium' ); ?>	
-								</div>
-			    				<div class = "w-100">
-			    					<button role = 'button' class = 'w-100 btn black-button mb-3'><?php the_title(); ?></button>	
-			    				</div>	
-							</div><!-- .product-link -->
-		    				<div>
-		    					<p class = "product-description"><?php the_field('product_description'); ?></p>
-		    				</div>
-		    			</div><!-- .product -->
-					<?php endwhile; endif; wp_reset_query(); ?>
-					</section><!-- .row -->
+				<?php
+				get_template_part( 'snippets/page_header'); 
+				$term = get_queried_object();
+				$tax = 'model_' . $term->term_id;
+				$background = get_field('hero_image', $tax); ?>
+				<div id="taxHero" class = "mb-3" style = "background: url('<?php echo $background['url']; ?>');">
+				</div><!-- #taxHero -->
+
+				<h3 class="fancy mb-3">Description</h1>
+
+					<div class="container">
+						<div id = "description" class="row mb-5">
+							<div class="col-sm-12">
+								<div class="content-wrapper p-5">
+									<h3 class = "mb-3 text-center"><?php echo get_field('headline', $tax); ?></h3>
+									<p class = "mb-3"><?php echo get_field('copy', $tax); ?></p>
+									<?php $pdf = get_field('pdf', $tax); ?>
+									<div class="text-center mb-3">
+										<a href = '<?php echo $pdf['url']; ?>'><button role = 'button' class = 'btn gold-button'>Download PDF</button></a>
+									</div>
+									
+									<p class = "mb-0 callout">We love these cars...let us show you the Parks Difference! Call us today at <a href = 'tel:<?php echo $phone ?>'><?php the_field('phone_number', 'option'); ?>.</a></p>
+								</div><!-- .content-wrapper -->
+							</div><!-- .col-sm-12 -->
+						</div><!-- #description -->
+
+						<div class="row mb-3">
+							<div class="col-sm-12">
+								<?php echo get_field('video', $tax); ?>
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
+						
+						<?php $images = get_field('gallery', $tax); ?>
+						<div id = "carGallery" class="row mb-5">
+						<?php $i = 0; ?>
+						<?php foreach( $images as $image ): ?>
+				            <div class = "col-md-2 gallery-photo mb-3<?php if ( $i >= 12 ) {echo ' hidden';} ?>">
+				                <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+				            </div><!-- .col-md-2 -->
+				            <?php $i++; ?>
+				        <?php endforeach; ?>
+				        <div class="col-sm-12">
+				        	<div class="more-photos">
+				        		<h5><span>More Photos</span><i class="fa fa-caret-down ml-3" aria-hidden="true"></i></h5>
+				        	</div><!-- .more-photos -->
+				        </div><!-- .col-sm-12 -->
+					</div><!-- .row -->
 				</div><!-- .container -->
+				
 			</article>
 		</main><!-- .site-main -->
 	</div><!-- #content -->
