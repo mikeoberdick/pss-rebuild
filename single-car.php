@@ -48,7 +48,7 @@ get_header(); ?>
 							</div><!-- .contact-buttons -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Coachbuilder
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/coachbuilder.png" alt="" class="mr-3"> Coachbuilder
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('coachbuilder'); ?>
@@ -56,7 +56,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Drivetrain
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/drivetrain.png" alt="" class="mr-3"> Drivetrain
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('drivetrain'); ?>
@@ -64,7 +64,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Model
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/model.png" alt="" class="mr-3"> Model
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('model'); ?>
@@ -72,7 +72,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Miles
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/miles.png" alt="" class="mr-3"> Miles
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php echo get_field('miles') . ' miles'; ?>
@@ -80,7 +80,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Stock #
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/stock_number.png" alt="" class="mr-3"> Stock #
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('stock'); ?>
@@ -88,7 +88,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Transmission
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/transmission_type.png" alt="" class="mr-3"> Transmission
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('transmission'); ?>
@@ -96,7 +96,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="" alt="" class="mr-3"> Engine Size
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/engine_size.png" alt="" class="mr-3"> Engine
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('engine'); ?>
