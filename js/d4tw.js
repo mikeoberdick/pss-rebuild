@@ -36,8 +36,10 @@ $('.car article').on('click', function(e){
   window.location.href=$(this).data('link');
 });
 
-//MAKE SURE TO INCLUDE THE DATA-LINK ATTRIBUTE WITH THE URL
-
+//TOGGLE CHEVRON FLIP ON FAQ AUCTION QUESTIONS
+$('#auctionContent .question').on( 'click', function() {
+    $(this).find('.fa-chevron-down').toggleClass('rotate');
+});
 
 //end of document ready call
 });

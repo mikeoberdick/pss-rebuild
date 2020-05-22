@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   &:before {
     content: '';
     display: block;
-    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_left.png);
+    background: url('/wp-content/themes/understrap-child/img/fancy_left.png');
     margin-right: 2%;
     height: 91px;
     width: 100%;
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   &:after {
     content: '';
     display: block;
-    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_right.png);
+    background: url('/wp-content/themes/understrap-child/img/fancy_right.png');
     margin-left: 2%;
     height: 91px;
     width: 100%;
@@ -67,6 +67,14 @@ body {
 
 .black {
   color: #000;
+}
+
+.red {
+  color: #D80000 !important;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
 
 /*------------------------------------------------*/
@@ -333,9 +341,6 @@ a {
   .fa {
     transition: transform .5s;
   }
-  .rotate {
-    transform: rotate(180deg);
-  }
   .more-photos {
       text-align: center;
       border-top: solid 10px $gold;
@@ -516,5 +521,48 @@ a {
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+  }
+}
+
+//Auction
+#auction {
+  #auctionContent {
+    #auctionHeader {
+      text-align: center;
+      text-transform: uppercase;
+      padding-bottom: 1rem;
+      border-bottom: solid 3px $gold;
+      margin-bottom: 1rem;
+    }
+  }
+  #faqHeader {
+    background: #000;
+  }
+  #faqWrapper {
+    background: #4B4B4B;
+    .question-wrapper {
+      border-bottom: solid 3px $gold;
+      margin-bottom: 1rem;
+      .fa-chevron-down {
+        transition: transform .5s;
+      }
+      .answer {
+        .card-body {
+          position: relative;
+          min-width: 0;
+          word-wrap: break-word;
+          background-color: #fff;
+          background-clip: border-box;
+          border: 1px solid rgba(0,0,0,.125);
+          border-radius: .25rem;
+          a {
+            color: #D80000;
+          }  
+        }
+      }
+    }
+    .question-wrapper:last-of-type {
+      border: 0;
+    }
   }
 }

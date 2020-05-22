@@ -11646,7 +11646,7 @@ h1, h2, h3, h4, h5, h6,
   .fancy:before {
     content: '';
     display: block;
-    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_left.png);
+    background: url("/wp-content/themes/understrap-child/img/fancy_left.png");
     margin-right: 2%;
     height: 91px;
     width: 100%;
@@ -11656,7 +11656,7 @@ h1, h2, h3, h4, h5, h6,
   .fancy:after {
     content: '';
     display: block;
-    background: url(http://pss-rebuild.d4tw/wp-content/themes/understrap-child/img/fancy_right.png);
+    background: url("/wp-content/themes/understrap-child/img/fancy_right.png");
     margin-left: 2%;
     height: 91px;
     width: 100%;
@@ -11707,6 +11707,13 @@ body {
 
 .black {
   color: #000; }
+
+.red {
+  color: #D80000 !important; }
+
+.rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
@@ -11952,10 +11959,6 @@ a {
   transition: transform .5s;
   transition: transform .5s, -webkit-transform .5s; }
 
-#carGallery .rotate {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg); }
-
 #carGallery .more-photos {
   text-align: center;
   border-top: solid 10px #CC9F53; }
@@ -12114,6 +12117,39 @@ a {
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important; }
+
+#auction #auctionContent #auctionHeader {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  border-bottom: solid 3px #CC9F53;
+  margin-bottom: 1rem; }
+
+#auction #faqHeader {
+  background: #000; }
+
+#auction #faqWrapper {
+  background: #4B4B4B; }
+  #auction #faqWrapper .question-wrapper {
+    border-bottom: solid 3px #CC9F53;
+    margin-bottom: 1rem; }
+    #auction #faqWrapper .question-wrapper .fa-chevron-down {
+      -webkit-transition: -webkit-transform .5s;
+      transition: -webkit-transform .5s;
+      transition: transform .5s;
+      transition: transform .5s, -webkit-transform .5s; }
+    #auction #faqWrapper .question-wrapper .answer .card-body {
+      position: relative;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: .25rem; }
+      #auction #faqWrapper .question-wrapper .answer .card-body a {
+        color: #D80000; }
+  #auction #faqWrapper .question-wrapper:last-of-type {
+    border: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and
