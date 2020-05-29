@@ -43,8 +43,8 @@ get_header(); ?>
 							<h3 class="price mb-3"><?php echo '$' . get_field('price'); ?></h3>
 							<div class="contact-buttons mb-3">
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
-								<a href = 'tel:<?php echo $phone ?>'><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
-								<a href = '#'><button role = 'button' class = 'btn white-outline-button w-100'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
+								<a href = 'tel:<?php echo $phone ?>'><button id = "callUs" role = 'button' class = 'mr-2 btn gold-button'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
+								<a href = '#'><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
 							</div><!-- .contact-buttons -->
 							<div class="spec">
 								<div class="icon-title">
@@ -52,14 +52,6 @@ get_header(); ?>
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php the_field('coachbuilder'); ?>
-								</div><!-- .value -->
-							</div><!-- .spec -->
-							<div class="spec">
-								<div class="icon-title">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/drivetrain.png" alt="" class="mr-3"> Drivetrain
-								</div><!-- .icon-title -->
-								<div class="value">
-									<?php the_field('drivetrain'); ?>
 								</div><!-- .value -->
 							</div><!-- .spec -->
 							<div class="spec">
@@ -72,7 +64,7 @@ get_header(); ?>
 							</div><!-- .spec -->
 							<div class="spec">
 								<div class="icon-title">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/miles.png" alt="" class="mr-3"> Miles
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/miles.png" alt="" class="mr-3"> Mileage
 								</div><!-- .icon-title -->
 								<div class="value">
 									<?php echo get_field('miles') . ' miles'; ?>
@@ -86,22 +78,9 @@ get_header(); ?>
 									<?php the_field('stock'); ?>
 								</div><!-- .value -->
 							</div><!-- .spec -->
-							<div class="spec">
-								<div class="icon-title">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/transmission_type.png" alt="" class="mr-3"> Transmission
-								</div><!-- .icon-title -->
-								<div class="value">
-									<?php the_field('transmission'); ?>
-								</div><!-- .value -->
-							</div><!-- .spec -->
-							<div class="spec">
-								<div class="icon-title">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/engine_size.png" alt="" class="mr-3"> Engine
-								</div><!-- .icon-title -->
-								<div class="value">
-									<?php the_field('engine'); ?>
-								</div><!-- .value -->
-							</div><!-- .spec -->
+							<div class="jump-link">
+								<a href="#specifications"><h5 class = "gold text-center"><span>More Details</span> <i class="ml-1 fa fa-arrow-down" aria-hidden="true"></i></h5></a>
+							</div><!-- .jump-link -->
 						</div><!-- .col-md-4 -->
 					</div><!-- .row -->
 					<div id = "carGallery" class="row mb-3">
@@ -158,10 +137,7 @@ get_header(); ?>
 						
 						<ul class="nav mb-3 d-flex" id="pills-tab" role="tablist">
 						  <li class="nav-item">
-						    <a class="nav-link active" id="pills-mechanics-tab" data-toggle="pill" href="#pills-mechanics" role="tab" aria-controls="pills-mechanics" aria-selected="true"><h4 class = "text-center mb-0 black">Mechanics</h4></a>
-						  </li>
-						  <li class="nav-item">
-						    <a class="nav-link" id="pills-body-tab" data-toggle="pill" href="#pills-body" role="tab" aria-controls="pills-body" aria-selected="false"><h4 class = "text-center mb-0 black">Body</h4></a>
+						    <a class="nav-link active" id="pills-mechanical-tab" data-toggle="pill" href="#pills-mechanical" role="tab" aria-controls="pills-mechanical" aria-selected="true"><h4 class = "text-center mb-0 black">Mechanical</h4></a>
 						  </li>
 						  <li class="nav-item">
 						    <a class="nav-link" id="pills-interior-tab" data-toggle="pill" href="#pills-interior" role="tab" aria-controls="pills-interior" aria-selected="false"><h4 class = "text-center mb-0 black">Interior</h4></a>
@@ -173,21 +149,10 @@ get_header(); ?>
 
 						<div class="tab-content content-wrapper p-5" id="pills-tabContent p-5">
 						  
-						<div class="tab-pane fade show active" id="pills-mechanics" role="tabpanel" aria-labelledby="pills-mechanics-tab">
+						<div class="tab-pane fade show active" id="pills-mechanical" role="tabpanel" aria-labelledby="pills-mechanical-tab">
 							<ul class = "list-unstyled">
 							  <?php
 							    $list = get_field('mechanics');
-							    $items = explode(PHP_EOL, $list);
-							    foreach($items as $item) {
-							    echo '<li class = "d-flex">' . $item . '</li>';
-							  } ?>
-							</ul>
-						</div>
-
-						<div class="tab-pane fade" id="pills-body" role="tabpanel" aria-labelledby="pills-body-tab">
-							<ul class = "list-unstyled">
-							  <?php
-							    $list = get_field('body');
 							    $items = explode(PHP_EOL, $list);
 							    foreach($items as $item) {
 							    echo '<li class = "d-flex">' . $item . '</li>';
@@ -227,7 +192,7 @@ get_header(); ?>
 					<div id = "financing" class="row">
 						<div class="col-sm-12">
 							<div class="content-wrapper pt-4 pb-5 text-center">
-								<p id = "financeBullets" class = "font-weight-bold mb-5">Same Day Approval &middot Simple Process &middot Competitive Rates &middot Industry Experts &middot We Cater to the Funeral Industry</p>
+								<p id = "financeBullets" class = "font-weight-bold mb-5">Same Day Approval &middot Simple Process &middot Competitive Rates &middot Industry Experts &middot We Cater to the Funeral Industry Specialists</p>
 								<div class="px-5">
 									<p class = "mb-3">We specialize in financing & leasing of both New and Pre-Owned Funeral Cars.</p>
 									<p class = "mb-5">We offer a simple half page credit application, and can have you all approved in about an hour.  Offering terms from 24 to 72 months, we will custom tailor a finance or lease program around your specific needs.  Call today to find out just how quick and easy it is to get into the funeral car of your dreams.</p>

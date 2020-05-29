@@ -11843,6 +11843,10 @@ a {
       font-family: "Roboto", sans-serif;
       color: #fff;
       text-transform: uppercase; }
+  #wrapper-navbar .dropdown-item {
+    color: #000 !important; }
+    #wrapper-navbar .dropdown-item:active {
+      background-color: #fff; }
   @media (min-width: 992px) {
     #wrapper-navbar #logo {
       position: absolute;
@@ -11988,14 +11992,18 @@ a {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column;
-  height: 75vh; }
+          flex-direction: column; }
+  @media (min-width: 768px) {
+    #hero {
+      min-height: 500px; } }
 
 #homepage section {
-  height: 75vh;
-  background-size: contain !important;
+  background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important; }
+  @media (min-width: 768px) {
+    #homepage section {
+      min-height: 500px; } }
 
 #homepage #sectionOne {
   background: #000; }
@@ -12022,7 +12030,11 @@ a {
 
 #singleCar .contact-buttons button {
   font-size: 1.25rem;
-  font-weight: bold; }
+  font-weight: bold;
+  padding: 10px 20px; }
+
+#singleCar .contact-buttons #callUs {
+  border: solid 5px #CC9F53 !important; }
 
 #singleCar .spec {
   background: black;
@@ -12063,8 +12075,7 @@ a {
   background: #000; }
 
 #allModels #hero {
-  height: 75vh;
-  background-size: contain !important;
+  background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   display: -webkit-box;
@@ -12080,6 +12091,9 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
+  @media (min-width: 768px) {
+    #allModels #hero {
+      min-height: 500px; } }
 
 #allModels .fancy:before, #allModels .fancy:after {
   margin: 0; }

@@ -220,6 +220,12 @@ a {
       text-transform: uppercase;
     }
   }
+  .dropdown-item {
+    color: #000 !important;
+    &:active {
+      background-color: #fff;
+    }
+  }
   #logo {
     @include media-breakpoint-up(lg) {
       position: absolute;
@@ -366,16 +372,20 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 75vh;
+  @include media-breakpoint-up(md) {
+    min-height: 500px;
+  }
 }
 
 //HOMEPAGE
 #homepage {
   section {
-    height: 75vh;
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    @include media-breakpoint-up(md) {
+      min-height: 500px;
+    }
   }
   #sectionOne {
     background: #000;
@@ -413,6 +423,10 @@ a {
     button {
       font-size: 1.25rem;
       font-weight: bold;
+      padding: 10px 20px;
+    }
+    #callUs {
+     border: solid 5px $gold !important;
     }
   }
   .spec {
@@ -457,14 +471,16 @@ a {
 //ALL MODELS
 #allModels {
   #hero {
-    height: 75vh;
-    background-size: contain !important;
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @include media-breakpoint-up(md) {
+      min-height: 500px;
+    }
   }
   .fancy {
     &:before, &:after {

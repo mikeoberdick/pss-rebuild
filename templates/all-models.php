@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header(); ?>
 
-<div id="allModels" class = "page-wrapper">
+<div id="tallModels" class = "page-wrapper">
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
