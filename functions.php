@@ -211,3 +211,138 @@ function wpse_hide_cat_descr() { ?>
 
 add_action( 'admin_head-term.php', 'wpse_hide_cat_descr' );
 add_action( 'admin_head-edit-tags.php', 'wpse_hide_cat_descr' );
+
+//Only show posts in search results
+if (!is_admin()) {
+    function psc_search_filter($query) {
+        if ($query->is_search) {
+            $query->set('post_type', 'post');
+        }
+    return $query;
+}
+add_filter('pre_get_posts','psc_search_filter');
+}
+
+function ajax_assets() {
+    wp_enqueue_script('psc ajax', get_stylesheet_directory_uri() . '/js/ajax.js', ['jquery'], null, true);
+    wp_localize_script( 'psc ajax', 'psc', array(
+        'nonce'    => wp_create_nonce( 'psc' ),
+        'ajax_url' => admin_url( 'admin-ajax.php' )
+    ));
+}
+add_action('wp_enqueue_scripts', 'ajax_assets', 100);
+
+//AJAX filter posts and display the content
+function psc_posts() {
+if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'psc' ) )
+    die('Permission denied');
+
+    $value = ($_POST['params']['value']);
+    $term = sanitize_text_field($_POST['params']['term']);
+    $page = intval($_POST['params']['page']);
+    $qty  = intval($_POST['params']['qty']);
+    
+    if ( $term == 'all-terms' ) : 
+        $tax_qry[] = [
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => $term,
+            'operator' => 'NOT IN'
+        ];
+    else :
+        $tax_qry[] = [
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms'    => $term,
+        ];
+endif;
+
+//Setup the query args for wp query
+$args = [
+    'paged'          => $page,
+    'post_status'    => 'publish',
+    'posts_per_page' => $qty,
+    'tax_query'      => $tax_qry
+];
+$qry = new WP_Query($args);
+ob_start();
+    if ($qry->have_posts()) : ?>
+        <?php while ($qry->have_posts()) : $qry->the_post(); ?>
+            <article class="col-sm-12 mb-5">
+                                <h3 class="mb-3"><?php the_title(); ?></h3>
+                                <div class="row">
+                                    <div class="col md-5">
+                                        <div class = "mb-3"><?php the_post_thumbnail('blog-large'); ?></div>
+                                    </div><!-- .col md-5 -->
+                                    <div class="col-md-7">
+                                        <div><?php the_excerpt(); ?></div>
+                                        <a href = '<?php the_permalink(); ?>'><button role = 'button' class = 'btn black-button w-100 mb-3 mb-lg-0'>READ NOW</button></a>
+                                    </div><!-- .col-md-7 -->
+                                    </div><!-- .row -->
+                                </article>
+        <?php endwhile; ?>
+
+        <nav class = "container mt-3 text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php psc_ajax_pager($qry,$page); ?>
+                </div><!-- .col-sm-12 -->
+            </div><!-- .row -->
+        </nav>
+
+<?php $response = [
+    'status'=> 200,
+    'found' => $qry->found_posts
+    ];
+else :
+    $response = [
+        'status'  => 201,
+        'message' => 'No posts found'
+    ];
+endif;
+$response['content'] = ob_get_clean();
+die(json_encode($response));
+}
+add_action('wp_ajax_filter_posts', 'psc_posts');
+add_action('wp_ajax_nopriv_filter_posts', 'psc_posts');
+
+//Pagination function
+function psc_ajax_pager( $query = null, $paged = 1 ) {
+    if (!$query)
+        return;
+    $paginate = paginate_links([
+        'base'      => '%_%',
+        'type'      => 'array',
+        'total'     => $query->max_num_pages,
+        'format'    => '#page=%#%',
+        'current'   => max( 1, $paged ),
+        'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ]);
+    if ($query->max_num_pages > 1) : ?>
+        <div id = "postsPagination">
+        <ul class="pagination mb-5 justify-content-center">
+            <?php foreach ( $paginate as $page ) :?>
+                <li><?php echo $page; ?></li>
+            <?php endforeach; ?>
+        </ul>    
+        </div>
+    <?php endif;
+}
+
+// Add featured image sizes
+add_image_size( 'blog-large', 500, 9999 );
+add_image_size( 'blog-small', 350, 9999 );
+add_image_size( 'staff-large', 600, 9999 );
+add_image_size( 'staff-small', 250, 250, array( 'center', 'top' ));
+
+//Modify the excerpt template tag
+if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
+    function understrap_all_excerpts_get_more_link( $post_excerpt ) {
+        if ( ! is_admin() ) {
+            $post_excerpt = $post_excerpt . '...</p>';
+        }
+        return $post_excerpt;
+    }
+}
+add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );

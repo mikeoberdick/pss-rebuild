@@ -124,13 +124,20 @@ defined( 'ABSPATH' ) || exit;
 
 <?php if ( is_page( 'all-models' ) ) { ?>
 	<script>
-	    var containerEl = document.querySelector('#cars');
+	    var containerEl = document.querySelector('#models');
 	    var mixer = mixitup(containerEl, {
 	    	load: {
 	        	filter: '.all'
 	    	}
 		});
 	</script>
+<?php } ?>
+
+<?php if ( is_page( 'homepage' ) ) { ?>
+	<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
+<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
 <?php } ?>
 
 </body>

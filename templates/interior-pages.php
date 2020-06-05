@@ -41,5 +41,5 @@ get_header(); ?>
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->
-</div><!-- #auction -->
+</div><!-- #interiorPage -->
 <?php get_footer(); ?>

@@ -13,9 +13,16 @@ get_header(); ?>
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				
 				<?php $hero = get_field('hero'); ?>
-				<section id="hero" style = "background: url('<?php echo $hero['background']['url']; ?>');" class = "inset">
-					<div class="container">
+
+				<?php if ( $hero['video_background'] ) { ?>
+				<section id="hero">
+					<video autoplay muted loop>
+					  <source src="<?php echo $hero['video_background']['url']; ?>" type="video/mp4">
+					</video>
+					
+					<div class="container position-absolute">
 						<div class="row">
 							<div class="col-sm-12 text-center">
 								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
@@ -26,8 +33,21 @@ get_header(); ?>
 					
 				</section><!-- #hero -->
 
+				<?php } else { ?>
+					<section id="hero" style = "background: url('<?php echo $hero['background']['url']; ?>');" class = "inset">
+					<div class="container p-relative">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
+								<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+				</section><!-- #hero -->
+				<?php } ?>
+
 				<?php $sectionOne = get_field('section_one'); ?>
-				<section id="sectionOne" class = "py-5">
+				<section id="sectionOne" class = "py-5 p-relative">
 					<h1 class="h3 fancy"><?php echo $sectionOne['header']; ?></h1>
 					[ SLIDER HERE ]
 				</section><!-- #sectionOne -->
@@ -47,9 +67,9 @@ get_header(); ?>
 				<?php get_template_part( 'snippets/about_video'); ?>
 
 				<?php $sectionFour = get_field('section_four'); ?>
-				<section id="sectionFour" style = "background: url('<?php echo $sectionFour['background']['url']; ?>');" class = "py-5">
-					<div class="container h-100">
-						<div class="row d-flex flex-column justify-content-center h-100">
+				<section id="sectionFour" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFour['background']['url']; ?>');" class = "py-5">
+					<div class="container">
+						<div class="row">
 							<div id = "testimonialContent" class="col-md-5">
 								<h1 class="mb-3 text-shadow"><?php echo $sectionFour['header']; ?></h1>
 								<p class = "mb-5"><?php echo $sectionFour['sub_header']; ?></p>
@@ -65,13 +85,15 @@ get_header(); ?>
 				</section><!-- #sectionFour -->
 
 				<?php $sectionFive = get_field('section_five'); ?>
-				<section id="sectionFive" style = "background: url('<?php echo $sectionFive['background']['url']; ?>');">
-					<div class="container h-100">
-						<div class="row d-flex flex-column justify-content-center h-100">
+				<section id="sectionFive" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFive['background']['url']; ?>');">
+					<div class="container">
+						<div class="row">
 							<div class="col-md-5 offset-md-7 text-right">
 							<h1 class="mb-3 text-shadow"><?php echo $sectionFive['header']; ?></h1>
-							<p class = "mb-5"><?php echo $sectionFive['sub_header']; ?></p>
-							<div>[ FORM HERE ]<?php echo $sectionFive['button_text']; ?></div>
+							<p class = "mb-3"><?php echo $sectionFive['sub_header']; ?></p>
+							<!-- Constant Contact Inline Form -->
+							<div class="ctct-inline-form" data-form-id="93ac4dba-c1c0-447f-a6a1-aaf4b874b73b"></div>
+							<!-- End Constant Contact Form -->
 						</div><!-- .col-md-5 offset-md-7 -->	
 						</div><!-- .row -->
 					</div><!-- .container -->

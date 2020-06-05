@@ -77,6 +77,13 @@ body {
   transform: rotate(180deg);
 }
 
+.underlined {
+  padding-bottom: .5rem;
+  border-bottom: solid 8px $gold;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
 /*------------------------------------------------*/
 /*--------------------[LINKS]---------------------*/
 /*------------------------------------------------*/
@@ -202,6 +209,7 @@ a {
 
 #wrapper-navbar {
   background: #262626;
+  z-index: 1;
   #menuLeft {
     @include media-breakpoint-down(md) {
       order: 3;
@@ -377,6 +385,18 @@ a {
   }
 }
 
+#searchForm {
+  .search-query {
+    border: solid 5px #000;
+    border-radius: 0;
+    @include media-breakpoint-down(md) {
+      height: 55px !important;
+      margin-bottom: 1rem;
+      flex: 0 0 100% !important;
+    }
+  }
+}
+
 //HOMEPAGE
 #homepage {
   section {
@@ -385,6 +405,12 @@ a {
     background-repeat: no-repeat !important;
     @include media-breakpoint-up(md) {
       min-height: 500px;
+    }
+  }
+  #hero {
+    video {
+      position: relative;
+      min-width: 100%;
     }
   }
   #sectionOne {
@@ -403,6 +429,47 @@ a {
     }
     iframe {
       @include shadow;
+    }
+  }
+  #sectionFive {
+    .ctct-inline-form {
+      .ctct-form-defaults {
+        background: transparent;
+        .ctct-gdpr-text {
+          display: none !important;
+        }
+        #email_address_label_1 {
+          color: #fff;
+        }
+        #success_message_1 {
+          background: rgba(255,255,255,.75);
+          padding: 25px;
+          text-align: center;
+        }
+        #success_message_1 h2, #success_message_1 p {
+          color: #000;
+        }
+        #success_message_1 p {
+          margin-bottom: 0;
+        }
+        button {
+          width: 100%;
+          white-space: normal !important;
+          font-family: $unica;
+          font-size: 1.75rem;
+          text-transform: uppercase !important;
+          border: 0 !important;
+          height: auto !important;
+          @include border-radius(65px);
+          padding: 10px 50px;
+          color: $gold !important;
+          background-color: #000 !important;
+          &:hover {
+            border: 0;
+            background-color: darken( #000, 10% ) !important;
+          }
+        }
+      } 
     }
   }
 }
@@ -580,5 +647,131 @@ a {
     .question-wrapper:last-of-type {
       border: 0;
     }
+  }
+}
+
+//CONTACT
+#contactUs {
+  #contactFormWrapper {
+    background-color: #000;
+    padding: 15px;
+    #logo {
+      width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  #virtualTour {
+    background-size: cover !important;
+    background-position: center center !important;
+  } 
+  .nf-form-content input[type=button] {
+    width: 100% !important;
+    font-size: 1.5rem !important;
+  }
+}
+
+//SINGLE POST
+#singlePost {
+  #content {
+    #backToBlog {
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    #theContent {
+      padding-bottom: 1rem;
+      border-bottom: solid 3px $gold;
+      margin-bottom: 1rem;
+    }
+    .addtoany_shortcode {
+      a {
+        padding: 0;
+      }
+      a:first-of-type {
+        span {
+          margin-right: 1rem;
+        }
+      }
+      span {
+        border: solid 2px $gold;
+        border-radius: 50% !important;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+//BLOG
+#blog {
+  #featuredPost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+      border: solid 5px $gold;
+    }
+  }
+  #ajaxFilter {
+    border-bottom: solid 5px $gold;
+    width: 100%;
+    li {
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+        @include media-breakpoint-down(sm) {
+          font-size: 1.5em;
+        }
+      }
+    }
+    .active {
+      a {
+        color: $gold; 
+      }
+    }
+  }
+  #ajaxPosts {
+    .article-wrapper {
+      height: 100%;
+      padding-bottom: 15px;
+      border-bottom: solid 2px $gold;
+
+    }
+  }
+  .pagination {
+    li {
+      color: $gold;
+      margin-right: 25px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      a {
+        color: #fff;
+      }
+    }
+    .page-numbers {
+      font-size: 2rem;
+    }
+  }
+}
+#ajaxFilter li:not(last-of-type) {
+  margin-right: 40px;
+}
+
+//Meet The Team
+#meetTheTeam {
+  .staff-pic {
+    img {
+      border-radius: 50%;
+    }
+  }
+  .modal-trigger {
+    font-size: 1.25rem;
   }
 }
