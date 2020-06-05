@@ -580,7 +580,7 @@ a {
 //TAXONOMY
 .tax-model {
   #taxHero {
-    height: 50vh;
+    height: 75vh;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: cover !important;
@@ -773,5 +773,18 @@ a {
   }
   .modal-trigger {
     font-size: 1.25rem;
+  }
+}
+
+#ourProcess {
+  .step-wrapper {
+    background: #fff;
+    h3 {
+      background: #000;
+      color: $gold;
+    }
+    * {
+      color: #000;
+    }
   }
 }
