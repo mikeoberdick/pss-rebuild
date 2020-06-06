@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
 <body <?php body_class(); ?>>
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
-	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite" class = "position-relative">
+	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite" class = "fixed-top">
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
     	<nav class="navbar navbar-expand-lg">
@@ -69,7 +69,7 @@ defined( 'ABSPATH' ) || exit;
 					<div class="col-md-4 position-relative">
 						<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
 						<?php $logo = get_field('logo', 'options'); ?>
-						<img id = "logo" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
+						<img id = "logo" class = "hvr-buzz-out" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 							<i class="fa fa-bars fa-2x" aria-hidden="true"></i>

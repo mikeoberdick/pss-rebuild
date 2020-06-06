@@ -101,6 +101,59 @@ a {
   color: $gold;
 }
 
+@keyframes hvr-buzz-out {
+  10% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+      -webkit-transform: translateX(3px) rotate(2deg);
+      transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+      -webkit-transform: translateX(-3px) rotate(-2deg);
+      transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+      -webkit-transform: translateX(2px) rotate(1deg);
+      transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+      -webkit-transform: translateX(-2px) rotate(-1deg);
+      transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+      -webkit-transform: translateX(1px) rotate(0);
+      transform: translateX(1px) rotate(0);
+  }
+  100% {
+      -webkit-transform: translateX(-1px) rotate(0);
+      transform: translateX(-1px) rotate(0);
+  }
+}
+
+.hvr-buzz-out {
+  transform: perspective(1px) translateZ(0);
+    &:hover {
+      animation-name: hvr-buzz-out;
+      animation-duration: 0.75s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1; 
+  }
+}
+
 /*------------------------------------------------*/
 /*-------------------[BUTTONS]--------------------*/
 /*------------------------------------------------*/
@@ -237,8 +290,9 @@ a {
   #logo {
     @include media-breakpoint-up(lg) {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 0 auto;
+      left: 0;
+      right: 0;
     }
   }
 }

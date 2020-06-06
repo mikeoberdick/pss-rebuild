@@ -41,6 +41,10 @@ $('#auctionContent .question').on( 'click', function() {
     $(this).find('.fa-chevron-down').toggleClass('rotate');
 });
 
+//Push page down to acommodate the fixed nav
+var navHeight = ( $('#wrapper-navbar').height() ) - 30;
+$('.page-wrapper').css('padding-top', navHeight);
+
 //end of document ready call
 });
 

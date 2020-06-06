@@ -66,8 +66,12 @@ get_header(); ?>
 						    <div class = "col-md-4 mb-3 car mix all <?php echo $parent->slug; ?>">
 											
 									<article <?php post_class(); ?> data-link = "<?php echo get_term_link( $the_term ) ?>">
-										<?php $image = get_field('hero_image', $the_term->taxonomy . '_' . $the_term->term_id); ?>
-										<img class = "mb-3" src = "<?php echo $image['url']; ?>">
+										<?php
+										$image = get_field('hero_image', $the_term->taxonomy . '_' . $the_term->term_id);
+										$size = 'blog-large';
+    									$thumb = $image['sizes'][ $size ];
+										?>
+										<img class = "mb-3" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 										<h5><?php echo $the_term->name;; ?></h5>
 								    </article>
 
