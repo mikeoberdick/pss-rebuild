@@ -24,7 +24,7 @@ get_header(); ?>
 				<!-- Desktop Sorting -->
 				<div class="fancy my-3 controls">
 					<a class = "catButton" data-filter=".all"><h4 class = "mb-0">All Models</h4></a>
-						<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false ) ); ?>
+						<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group' ) ); ?>
 		    		<?php foreach ( $terms as $term ) { ?>
 		    		<a class = "catButton" data-filter=".<?php echo $term->slug; ?>"><h4 class = "mb-0"><?php echo $term->name; ?></h4></a>
 		        	<?php } ?>
@@ -41,7 +41,7 @@ get_header(); ?>
 				<div class="container">
 					<div id="models" class="row">
 
-						<?php $models = get_terms( array ('taxonomy'=> 'model', 'hide_empty' => false ) );  
+						<?php $models = get_terms( array ('taxonomy'=> 'model', 'hide_empty' => false, 'orderby' => 'term_group' ) );  
 						//Get an array of their IDs
 						$term_ids = wp_list_pluck($models,'term_id');
 

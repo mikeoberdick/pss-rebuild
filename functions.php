@@ -39,7 +39,14 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 function d4tw_enqueue_files () {
     wp_enqueue_style( 'Google Fonts', 'https://fonts.googleapis.com/css?family=Roboto|Unica+One&display=swap' );
     wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
-    wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
+    if ( is_page('all-models') ) {
+        wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
+    }
+    if ( is_page_template('templates/general.php') ) {
+        wp_enqueue_style( 'Slick CSS', get_stylesheet_directory_uri() . '/slick/slick.css' );
+        wp_enqueue_style( 'Slick Theme CSS', get_stylesheet_directory_uri() . '/slick/slick-theme.css' );
+        wp_enqueue_script( 'Slick JS', get_stylesheet_directory_uri() . '/slick/slick.min.js', array('jquery'), '1.0.0', true );
+    }
 }
 
 add_action('wp_enqueue_scripts', 'd4tw_enqueue_files');
@@ -194,6 +201,7 @@ function create_model_taxonomy() {
     'rewrite' => array( 'slug' => 'model' ),
     'labels' => $labels,
     'hierarchical' => true,
+    'orderby' => 'term_order'
   );
   register_taxonomy( 'model', array( 'car' ), $args );
 }
@@ -346,3 +354,44 @@ if ( ! function_exists( 'understrap_all_excerpts_get_more_link' ) ) {
     }
 }
 add_filter( 'wp_trim_excerpt', 'understrap_all_excerpts_get_more_link' );
+
+/**
+ * Append Fields To Term Edit Page
+ * @param Term Object $term
+ * @param string $taxonomy
+ */
+function term_order_field( $term, $taxonomy ) {
+  ?>
+    <tr class="form-field">
+        <th scope="row" valign="top">
+            <label for="meta-order"><?php _e( 'Category Order' ); ?></label>
+        </th>
+        <td>
+            <input type="text" name="_term_order" size="3" style="width:5%;" value="<?php echo ( ! empty( $term->term_group ) ) ? $term->term_group : '0'; ?>" />
+            <span class="description"><?php _e( 'Categories are ordered Smallest to Largest' ); ?></span>
+        </td> 
+    </tr>
+  <?php
+}
+add_action( 'model_edit_form_fields', 'term_order_field', 10, 2 );
+
+/**
+ * Save Term Order
+ * @param int $term_id
+ */
+function save_term_order( $term_id ) {
+    global $wpdb;
+
+    if( isset( $_POST['_term_order'] ) ) {
+        $wpdb->update( 
+            $wpdb->terms,
+            array(
+                'term_group' => $_POST['_term_order']
+            ),
+            array( 
+                'term_id'    => $term_id
+            )
+        );
+    }
+} // END Function
+add_action( 'edited_model', 'save_term_order' );

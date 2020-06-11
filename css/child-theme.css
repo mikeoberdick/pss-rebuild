@@ -11909,7 +11909,9 @@ a {
 /*------------------------------------------------*/
 #wrapper-navbar {
   background: #262626;
-  z-index: 1; }
+  z-index: 3;
+  -webkit-box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5) !important; }
   @media (max-width: 991.98px) {
     #wrapper-navbar #menuLeft {
       -webkit-box-ordinal-group: 4;
@@ -12390,6 +12392,86 @@ a {
     color: #CC9F53; }
   #ourProcess .step-wrapper * {
     color: #000; }
+
+#general #sliderGallery {
+  display: none; }
+  #general #sliderGallery.slick-initialized {
+    display: block; }
+  #general #sliderGallery .slide .slide-caption {
+    padding: 15px;
+    background: black;
+    color: #cc9f53;
+    text-align: center; }
+  #general #sliderGallery .slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer; }
+    #general #sliderGallery .slick-dots li button {
+      display: none; }
+    #general #sliderGallery .slick-dots li:before {
+      -webkit-transition: all .5s;
+      transition: all .5s;
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: solid 3px #000;
+      border-radius: 50%;
+      background-color: #ffffff;
+      position: absolute; }
+    #general #sliderGallery .slick-dots li.slick-active:before {
+      width: 20px;
+      height: 20px;
+      background-color: #CC9F53; }
+
+#general .arrows {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%; }
+  @media (max-width: 991.98px) {
+    #general .arrows {
+      top: unset;
+      bottom: 50px;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      #general .arrows i {
+        position: initial !important;
+        -webkit-transform: none !important;
+                transform: none !important; }
+        #general .arrows i:first-of-type {
+          margin-right: 25px; } }
+  #general .arrows i {
+    height: 100px;
+    width: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 100px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); }
+  #general .arrows .prev-arrow {
+    left: 0; }
+  #general .arrows .next-arrow {
+    right: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and

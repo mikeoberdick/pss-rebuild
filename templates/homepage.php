@@ -26,7 +26,7 @@ get_header(); ?>
 						<div class="row">
 							<div class="col-sm-12 text-center">
 								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
-								<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
+								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
@@ -39,7 +39,7 @@ get_header(); ?>
 						<div class="row">
 							<div class="col-sm-12 text-center">
 								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
-								<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
+								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
@@ -58,7 +58,7 @@ get_header(); ?>
 						<div class="row d-flex flex-column justify-content-center h-100">
 							<div class="col-md-4">
 								<h1 class = "mb-3 text-shadow"><?php echo $sectionTwo['header']; ?></h1>
-								<a href = '<?php echo $sectionTwo['button_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $sectionTwo['button_text']; ?></button></a>
+								<a href = '<?php echo $sectionTwo['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $sectionTwo['button_text']; ?></button></a>
 							</div><!-- .col-md-4 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
@@ -108,8 +108,9 @@ get_header(); ?>
 								<h5 class = "mb-3"><?php echo $sectionSix['sub_header']; ?></h5>
 								<p class = "mb-5"><?php echo $sectionSix['copy']; ?></p>
 								<div>
-								<a href = '<?php echo $sectionSix['button_one_link']; ?>' class = "mr-3"><button role = 'button' class = 'btn gold-button'><?php echo $sectionSix['button_one_text']; ?></button></a>
-								<a href = '<?php echo $sectionSix['button_two_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $sectionSix['button_two_text']; ?></button></a>	
+								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
+								<a class = "mr-3" href="tel:<?php echo $phone ?>"><button role = 'button' class = 'btn gold-button'>Call Us</button></a>
+								<a href = '/contact-us'><button role = 'button' class = 'btn gold-button'>Contact Us</button></a>	
 							</div>	
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->

@@ -140,6 +140,22 @@ defined( 'ABSPATH' ) || exit;
 <!-- End Constant Contact Active Forms -->
 <?php } ?>
 
+<?php if ( is_page_template('templates/general.php') ) { ?>
+	<script>
+		jQuery('#sliderGallery').slick({
+			adaptiveHeight: true,
+		    infinite: true,
+		    dots: true,
+		    fade: true,
+		    arrows: true,
+		    appendArrows: '.arrows',
+		    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+	  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>',
+		    cssEase: 'linear'
+	  	});
+	</script>
+<?php } ?>
+
 </body>
 
 </html>
