@@ -127,7 +127,7 @@ defined( 'ABSPATH' ) || exit;
 	    var containerEl = document.querySelector('#models');
 	    var mixer = mixitup(containerEl, {
 	    	load: {
-	        	filter: '.all'
+	        	filter: '.hearse'
 	    	}
 		});
 	</script>

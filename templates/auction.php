@@ -15,7 +15,7 @@ get_header(); ?>
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 				
 				<?php get_template_part( 'snippets/page_header'); ?>
-				
+
 				<?php $hero = get_field('hero'); ?>
 				<div id="hero" class = "mb-5 inset" style = "background: url('<?php echo $hero['background']['url']; ?>');">
 					<div class="container">
@@ -26,6 +26,17 @@ get_header(); ?>
 						</div><!-- .row col-sm-12 -->
 					</div><!-- .container -->
 				</div><!-- #hero -->
+
+				<div id="auctionCars">
+					<h3 class="fancy mb-5">
+						This Week's Auction
+					</h3><!-- .fancy -->
+					<div class="container mb-3">
+						<div class="row">
+							auction cars here...make it conditional
+						</div><!-- .row -->
+					</div><!-- .container -->
+				</div><!-- #auctionCars -->
 				
 				<?php $content = get_field('content_box'); ?>
 				<div id="auctionContent" class="container mb-5">
@@ -76,16 +87,6 @@ get_header(); ?>
 					</div><!-- .row -->
 				</div><!-- #auctionContent -->
 
-				<div id="auctionCars">
-					<h3 class="fancy mb-3">
-						This Week's Auction
-					</h3><!-- .fancy -->
-					<div class="container mb-3">
-						<div class="row">
-							auction cars here...make it conditional
-						</div><!-- .row -->
-					</div><!-- .container -->
-				</div><!-- #auctionCars -->
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->

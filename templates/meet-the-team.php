@@ -26,7 +26,7 @@ get_header(); ?>
 					
 					<div class="row mt-3">
 						<div class="col-sm-12 mb-3">
-							<h3 class = "gold d-flex underlined">Sales</h3>
+							<h3 class = "fancy">Sales</h3>
 						</div><!-- .col-sm-12 -->
 						<?php $salesCount = 0; ?>
 						<?php while( have_rows('sales_staff') ): the_row(); ?>
@@ -71,7 +71,7 @@ get_header(); ?>
 
 					<div class="row mt-3">
 						<div class="col-sm-12 mb-3">
-							<h3 class = "gold d-flex underlined">Service</h3>
+							<h3 class = "fancy">Service</h3>
 						</div><!-- .col-sm-12 -->
 						<?php $serviceCount = 0; ?>
 						<?php while( have_rows('service_staff') ): the_row(); ?>
@@ -116,7 +116,7 @@ get_header(); ?>
 
 					<div class="row mt-3">
 						<div class="col-sm-12 mb-3">
-							<h3 class = "gold d-flex underlined">Office</h3>
+							<h3 class = "fancy">Office</h3>
 						</div><!-- .col-sm-12 -->
 						<?php $officeCount = 0; ?>
 						<?php while( have_rows('office_staff') ): the_row(); ?>
@@ -161,7 +161,7 @@ get_header(); ?>
 
 					<div class="row mt-3">
 						<div class="col-sm-12 mb-3">
-							<h3 class = "gold d-flex underlined">Drivers</h3>
+							<h3 class = "fancy">Drivers</h3>
 						</div><!-- .col-sm-12 -->
 						<?php $driversCount = 0; ?>
 						<?php while( have_rows('drivers_staff') ): the_row(); ?>

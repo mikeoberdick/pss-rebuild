@@ -21,6 +21,7 @@ get_header(); ?>
 				$term = get_queried_object();
 				$tax = 'model_' . $term->term_id;
 				$background = get_field('hero_image', $tax); ?>
+				
 				<div id="taxHero" class = "mb-3" style = "background: url('<?php echo $background['url']; ?>');">
 				</div><!-- #taxHero -->
 
@@ -64,6 +65,9 @@ get_header(); ?>
 				        </div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
+				
+				<?php $footerHero = get_field('footer_hero_image', $tax); ?>
+				<img src="<?php echo $footerHero['url']; ?>" alt="<?php echo $footerImg['alt']; ?>">
 				
 			</article>
 		</main><!-- .site-main -->

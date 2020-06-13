@@ -23,8 +23,7 @@ get_header(); ?>
 				
 				<!-- Desktop Sorting -->
 				<div class="fancy my-3 controls">
-					<a class = "catButton" data-filter=".all"><h4 class = "mb-0">All Models</h4></a>
-						<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group' ) ); ?>
+					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group' ) ); ?>
 		    		<?php foreach ( $terms as $term ) { ?>
 		    		<a class = "catButton" data-filter=".<?php echo $term->slug; ?>"><h4 class = "mb-0"><?php echo $term->name; ?></h4></a>
 		        	<?php } ?>
@@ -33,7 +32,7 @@ get_header(); ?>
 				<div class = "container">
 					<div class="row">
 						<div id="catCurrentlyShown" class = "mb-3 col-sm-12 text-center">
-							<h5>Currently Viewing: <span id = "currentCat">All Models</span></h5>
+							<h5>Currently Viewing: <span id = "currentCat">Hearses</span></h5>
 						</div>
 					</div><!-- .row -->
 				</div><!-- .container -->
@@ -63,7 +62,7 @@ get_header(); ?>
 						        $parent  = get_term( $term_id, 'model');
 						    } ?>
 
-						    <div class = "col-md-4 mb-3 car mix all <?php echo $parent->slug; ?>">
+						    <div class = "col-md-4 mb-3 car mix <?php echo $parent->slug; ?>">
 											
 									<article <?php post_class(); ?> data-link = "<?php echo get_term_link( $the_term ) ?>">
 										<?php

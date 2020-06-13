@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 					<div id = "menuLeft" class="col-md-4 d-flex flex-column">
 						<div class = "align-items-center underlined mb-3 d-none d-lg-flex">
 							<i class="fa fa-question-circle-o fa-2x gold mr-2" aria-hidden="true"></i>
-							<h4 class = "gold mb-0">Ask a Question</h4>
+							<a><h4 class = "gold mb-0">Ask a Question</h4></a>
 						</div>
 						<?php wp_nav_menu(
 							array(
@@ -105,9 +105,3 @@ defined( 'ABSPATH' ) || exit;
 
 		</nav><!-- .site-navigation -->
 	</div><!-- #wrapper-navbar end -->
-<div id="floatingSocial">
-	<a class = "social-link youtube mb-2" rel="noreferrer" target = "_blank" href="<?php the_field('youtube_url', 'options') ?>"><i class="fa fa-youtube" aria-hidden="true"></i><span class = "sr-only sr-only-focusable">YouTube</span></a>	
-	<a class = "social-link facebook mb-2" rel="noreferrer" target = "_blank" href="<?php the_field('facebook_url', 'options') ?>"><i class="fa fa-facebook" aria-hidden="true"></i><span class = "sr-only sr-only-focusable">Facebook</span></a>
-	<a class = "social-link linked-in mb-2" rel="noreferrer" target = "_blank" href="<?php the_field('linkedin_url', 'options') ?>"><i class="fa fa-linkedin" aria-hidden="true"></i><span class = "sr-only sr-only-focusable">Linked In</span></a>
-	<a class = "social-link instagram" rel="noreferrer" target = "_blank" href="<?php the_field('instagram_url', 'options') ?>"><i class="fa fa-instagram" aria-hidden="true"></i><span class = "sr-only sr-only-focusable">Instagram</span></a>
-</div><!-- #floatingSocial -->

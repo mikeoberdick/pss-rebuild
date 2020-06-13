@@ -27,7 +27,7 @@ $('.more-photos').on( 'click', function() {
 
 //NOW SHOWING ON ALL MODELS PAGE
 $( ".catButton" ).click(function() {
-	$( "span#currentCat" ).text( jQuery(this).text() );
+	$( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
 //FULL CAR DIV CLICKABLE LINK
@@ -42,7 +42,7 @@ $('#auctionContent .question').on( 'click', function() {
 });
 
 //Push page down to acommodate the fixed nav
-var navHeight = ( $('#wrapper-navbar').height() ) - 35;
+var navHeight = ( $('#wrapper-navbar').height() );
 $('.page-wrapper').css('padding-top', navHeight);
 
 //end of document ready call

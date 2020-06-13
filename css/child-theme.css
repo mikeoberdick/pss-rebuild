@@ -11940,44 +11940,6 @@ a {
       left: 0;
       right: 0; } }
 
-#floatingSocial {
-  position: fixed;
-  left: 15px;
-  top: 175px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  z-index: 2; }
-  #floatingSocial i {
-    font-size: 24px;
-    background: #fff;
-    padding: 15px;
-    border: solid 3px #262626;
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-  #floatingSocial .youtube {
-    color: #c4302b; }
-  #floatingSocial .facebook {
-    color: #3b5998; }
-  #floatingSocial .linked-in {
-    color: #0e76a8; }
-  #floatingSocial .instagram {
-    color: #833AB4; }
-
 /*------------------------------------------------*/
 /*---------------------[FOOTER]-------------------*/
 /*------------------------------------------------*/
@@ -11995,6 +11957,8 @@ a {
       text-transform: uppercase;
       padding: 1rem;
       text-align: center; }
+  #wrapper-footer #footerSocial a {
+    color: #CC9F53; }
 
 .modal-content {
   background: #000;
@@ -12023,6 +11987,10 @@ a {
   cursor: pointer; }
   .modal-close i {
     color: #fff; }
+
+#hero video {
+  position: relative;
+  min-width: 100%; }
 
 .entry-header {
   background-color: #4b4b4b; }
@@ -12101,10 +12069,6 @@ a {
   @media (min-width: 768px) {
     #homepage section {
       min-height: 500px; } }
-
-#homepage #hero video {
-  position: relative;
-  min-width: 100%; }
 
 #homepage #sectionOne {
   background: #000; }
@@ -12472,6 +12436,9 @@ a {
     left: 0; }
   #general .arrows .next-arrow {
     right: 0; }
+
+#virtualTour .video-wrapper {
+  background: #fff; }
 
 /*
 * Use existing Bootstrap 4 classes and

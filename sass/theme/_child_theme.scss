@@ -298,39 +298,6 @@ a {
   }
 }
 
-#floatingSocial {
-    position: fixed;
-    left: 15px;
-    top: 175px;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    i {
-      font-size: 24px;
-      background: #fff;
-      padding: 15px;
-      border: solid 3px #262626;
-      border-radius: 25px;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .youtube {
-      color: #c4302b;
-    }
-    .facebook {
-      color: #3b5998;
-    }
-    .linked-in {
-      color: #0e76a8;
-    }
-    .instagram {
-      color: #833AB4;
-    }
-}
-
 /*------------------------------------------------*/
 /*---------------------[FOOTER]-------------------*/
 /*------------------------------------------------*/
@@ -350,6 +317,11 @@ a {
       text-transform: uppercase;
       padding: 1rem;
       text-align: center;
+    }
+  }
+  #footerSocial {
+    a {
+      color: $gold;
     }
   }
 }
@@ -380,6 +352,13 @@ a {
   }
 
 //GENERAL
+#hero {
+  video {
+    position: relative;
+    min-width: 100%;
+  }
+}
+
 .entry-header {
   background-color: #4b4b4b;
 }
@@ -460,12 +439,6 @@ a {
     background-repeat: no-repeat !important;
     @include media-breakpoint-up(md) {
       min-height: 500px;
-    }
-  }
-  #hero {
-    video {
-      position: relative;
-      min-width: 100%;
     }
   }
   #sectionOne {
@@ -926,4 +899,11 @@ a {
         right: 0;
       }
     }
+}
+
+//Virtual Tour
+#virtualTour {
+  .video-wrapper {
+    background: #fff;
+  }
 }
