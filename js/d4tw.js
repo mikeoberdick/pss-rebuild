@@ -16,15 +16,6 @@ else {
 /////////////////  PUSH DOWN FOOTER  \\\\\\\\\\\\\\\\\
 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
 
-//LOAD MORE PHOTOS IN GALLERY
-$('.more-photos').on( 'click', function() {
-    $('#carGallery .gallery-photo:gt(12)').toggleClass('hidden');
-    $(this).find('h5 span').text(function(i, text){
-          return text === "LESS PHOTOS" ? "MORE PHOTOS" : "LESS PHOTOS";
-      })
-    $(this).find('.fa-caret-down').toggleClass('rotate');
-});
-
 //NOW SHOWING ON ALL MODELS PAGE
 $( ".catButton" ).click(function() {
 	$( "span#currentCat" ).text( $(this).text() + 's' );
@@ -44,6 +35,11 @@ $('#auctionContent .question').on( 'click', function() {
 //Push page down to acommodate the fixed nav
 var navHeight = ( $('#wrapper-navbar').height() );
 $('.page-wrapper').css('padding-top', navHeight);
+
+//Image carousel
+$('.gallery-thumb img').click(function(){
+    $('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+});
 
 //end of document ready call
 });

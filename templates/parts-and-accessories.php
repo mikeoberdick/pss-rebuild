@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Services
+ * Template Name: Parts & Accessories
  * @package understrap
 **/
 
@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header(); ?>
 
-<div id="services" class = "page-wrapper landing-page">
+<div id="partsAndAccessories" class = "page-wrapper landing-page">
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -35,14 +35,14 @@ get_header(); ?>
 							$copy = get_sub_field('copy');
 							$text = get_sub_field('button_text');
 							$link = get_sub_field('link'); ?>
-							<div class="col-md-4 service-bucket d-flex flex-column">
+							<div class="col-md-6 service-bucket d-flex flex-column">
 								<img class = "mb-3" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 								<h4 class = "text-center gold mb-3"><?php echo $header; ?></h4>
 								<p class = "mb-3"><?php echo $copy; ?></p>
 								<div class = "text-center mt-auto">
 									<a href = '<?php echo $link; ?>'><button role = 'button' class = 'btn text-center gold-button'><?php echo $text; ?></button></a>
 								</div>
-							</div><!-- .col-md-4 -->
+							</div><!-- .col-md-6 -->
 						<?php endwhile; ?>
 					</div><!-- .row -->
 				</div><!-- #serviceBuckets -->
@@ -50,5 +50,5 @@ get_header(); ?>
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->
-</div><!-- #services -->
+</div><!-- #partsAndAccessories -->
 <?php get_footer(); ?>

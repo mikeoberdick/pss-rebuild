@@ -11642,7 +11642,8 @@ h1, h2, h3, h4, h5, h6,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  white-space: nowrap; }
+  white-space: nowrap;
+  margin-bottom: 3rem; }
   .fancy:before {
     content: '';
     display: block;
@@ -11710,6 +11711,9 @@ body {
 
 .red {
   color: #D80000 !important; }
+
+.gray {
+  color: #888888 !important; }
 
 .rotate {
   -webkit-transform: rotate(180deg);
@@ -12062,6 +12066,9 @@ a {
           -ms-flex: 0 0 100% !important;
               flex: 0 0 100% !important; } }
 
+.landing-page {
+  background: #000; }
+
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
@@ -12217,15 +12224,30 @@ a {
   width: 100%;
   height: 500px; }
 
-.page-template-services {
-  background: #000; }
-  .page-template-services #serviceBuckets .gold-button {
-    font-size: 1rem; }
-  .page-template-services .callout-wrapper {
-    height: 50vh;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important; }
+.tax-model #imageCarousel .slick-slide {
+  margin: 0 10px; }
+
+.tax-model #imageCarousel .slick-prev:before, .tax-model #imageCarousel .slick-next:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 25px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
+  color: #CC9F53; }
+
+.tax-model #imageCarousel .slick-prev:before {
+  content: "\f053"; }
+
+.tax-model #imageCarousel .slick-next:before {
+  content: "\f054"; }
+
+.page-template-services .callout-wrapper {
+  height: 50vh;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important; }
 
 #auction #auctionContent #auctionHeader {
   text-align: center;
@@ -12356,6 +12378,9 @@ a {
     color: #CC9F53; }
   #ourProcess .step-wrapper * {
     color: #000; }
+
+#general .contact-border {
+  border-left: solid 3px #000; }
 
 #general #sliderGallery {
   display: none; }

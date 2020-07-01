@@ -42,30 +42,68 @@ get_header(); ?>
 								</div><!-- .content-wrapper -->
 							</div><!-- .col-sm-12 -->
 						</div><!-- #description -->
+					</div><!-- .container -->
 
+					<h1 class="fancy mb-3"><?php the_field('gallery_title', $tax) ?></h1>
+
+					<div class="container">
+						<?php $images = get_field('gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
-								<?php echo get_field('video', $tax); ?>
+								<img src="<?php echo $images[0]["sizes"]["large"]; ?>" id = "largeImage">
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
-						
-						<?php $images = get_field('gallery', $tax); ?>
-						<div id = "carGallery" class="row mb-5">
-						<?php $i = 0; ?>
-						<?php foreach( $images as $image ): ?>
-				            <div class = "col-md-2 gallery-photo mb-3<?php if ( $i >= 12 ) {echo ' hidden';} ?>">
-				                <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-				            </div><!-- .col-md-2 -->
-				            <?php $i++; ?>
-				        <?php endforeach; ?>
-				        <div class="col-sm-12">
-				        	<div class="more-photos">
-				        		<h5><span>More Photos</span><i class="fa fa-caret-down ml-3" aria-hidden="true"></i></h5>
-				        	</div><!-- .more-photos -->
-				        </div><!-- .col-sm-12 -->
+						<div class="row">
+							<div id = "imageCarousel" class="col-sm-12">
+
+							<?php foreach( $images as $image ): ?>
+				                <div class = "slide gallery-thumb">
+				                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+				                </div>
+				            <?php endforeach; ?>
+				            <div class="arrows"></div>	
+						</div><!-- #imageCarousel -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+
+				<h3 class="fancy mb-3">Video</h1>
+					
+				<div class="container">
+					<div class="row mb-3">
+						<div class="col-sm-12">
+							<?php echo get_field('video', $tax); ?>
+						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
-				
+
+				<h3 class="fancy mb-3">Options</h1>
+
+				<div class="container">
+					<?php if( have_rows( 'options', $tax ) ): ?>
+					<div id = "carOptions" class="row mb-5">
+						<?php while( have_rows( 'options', $tax ) ): the_row(); ?>
+							<div class="col-md-6">
+								<h3 class = "mb-3"><?php the_sub_field('header'); ?></h3>
+								<?php $images = get_sub_field('gallery'); ?>
+								<?php if( $images ): ?>
+									<div class="row">
+        <?php foreach( $images as $image ): ?>
+		<div class="col-md-6 mb-3">
+	      <img class = "w-100 mb-3" src="<?php echo $image['sizes']['blog-small']; ?>" alt="<?php echo $image['alt']; ?>" />
+	      	<?php if ( $image['caption'] ) : ?>
+	      <p class = "small font-italic text-center px-3"><?php echo $image['caption']; ?></p>
+	  		<?php endif; ?>
+	  	</div><!-- .col-md-6 -->
+        <?php endforeach; ?>
+    </div><!-- .row for images -->
+     <?php endif; ?>
+     </div><!-- .col-md-6 -->
+ <?php endwhile; ?>
+<?php endif; ?>	
+						
+					</div><!-- .row -->
+				</div><!-- .container -->
+
 				<?php $footerHero = get_field('footer_hero_image', $tax); ?>
 				<img src="<?php echo $footerHero['url']; ?>" alt="<?php echo $footerImg['alt']; ?>">
 				

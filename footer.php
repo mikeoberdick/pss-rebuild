@@ -156,6 +156,19 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
+<?php if ( is_tax() ) { ?>
+	<script>
+		jQuery('#imageCarousel').slick({
+			infinite: true,
+			slidesToShow: 5,
+			slidesToScroll: 1,
+		    arrows: true,
+		    centerMode: true,
+		    centerPadding: '40px'
+	  	});
+	</script>
+<?php } ?>
+
 </body>
 
 </html>

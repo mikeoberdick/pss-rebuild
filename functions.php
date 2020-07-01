@@ -42,7 +42,7 @@ function d4tw_enqueue_files () {
     if ( is_page('all-models') ) {
         wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
     }
-    if ( is_page_template('templates/general.php') ) {
+    if ( is_page_template('templates/general.php')  || is_tax() ) {
         wp_enqueue_style( 'Slick CSS', get_stylesheet_directory_uri() . '/slick/slick.css' );
         wp_enqueue_style( 'Slick Theme CSS', get_stylesheet_directory_uri() . '/slick/slick-theme.css' );
         wp_enqueue_script( 'Slick JS', get_stylesheet_directory_uri() . '/slick/slick.min.js', array('jquery'), '1.0.0', true );
@@ -341,6 +341,8 @@ function psc_ajax_pager( $query = null, $paged = 1 ) {
 // Add featured image sizes
 add_image_size( 'blog-large', 500, 9999 );
 add_image_size( 'blog-small', 350, 9999 );
+add_image_size( 'gallery-large', 1150, 9999 );
+add_image_size( 'gallery-thumb', 525, 9999 );
 add_image_size( 'staff-large', 600, 9999 );
 add_image_size( 'staff-small', 250, 250, array( 'center', 'top' ));
 
