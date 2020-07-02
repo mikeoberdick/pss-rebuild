@@ -440,6 +440,12 @@ a {
   background: #000;
 }
 
+.wp-editor {
+  h4 {
+    color: $gold;
+  }
+}
+
 //HOMEPAGE
 #homepage {
   section {
@@ -849,7 +855,7 @@ a {
 }
 
 //General Page Template
-#general {
+#service {
   .contact-border {
     border-left: solid 3px #000;
   }
@@ -932,6 +938,9 @@ a {
       .next-arrow {
         right: 0;
       }
+    }
+    .additional-services-buttons li:not(:last-child) {
+      margin-right: 1rem;
     }
 }
 

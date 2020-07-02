@@ -140,7 +140,7 @@ defined( 'ABSPATH' ) || exit;
 <!-- End Constant Contact Active Forms -->
 <?php } ?>
 
-<?php if ( is_page_template('templates/general.php') ) { ?>
+<?php if ( is_page_template('templates/service.php') ) { ?>
 	<script>
 		jQuery('#sliderGallery').slick({
 			adaptiveHeight: true,

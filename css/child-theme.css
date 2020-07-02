@@ -12069,6 +12069,9 @@ a {
 .landing-page {
   background: #000; }
 
+.wp-editor h4 {
+  color: #CC9F53; }
+
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
@@ -12379,28 +12382,28 @@ a {
   #ourProcess .step-wrapper * {
     color: #000; }
 
-#general .contact-border {
+#service .contact-border {
   border-left: solid 3px #000; }
 
-#general #sliderGallery {
+#service #sliderGallery {
   display: none; }
-  #general #sliderGallery.slick-initialized {
+  #service #sliderGallery.slick-initialized {
     display: block; }
-  #general #sliderGallery .slide .slide-caption {
+  #service #sliderGallery .slide .slide-caption {
     padding: 15px;
     background: black;
     color: #cc9f53;
     text-align: center; }
-  #general #sliderGallery .slick-dots li {
+  #service #sliderGallery .slick-dots li {
     position: relative;
     display: inline-block;
     width: 20px;
     height: 20px;
     padding: 0;
     cursor: pointer; }
-    #general #sliderGallery .slick-dots li button {
+    #service #sliderGallery .slick-dots li button {
       display: none; }
-    #general #sliderGallery .slick-dots li:before {
+    #service #sliderGallery .slick-dots li:before {
       -webkit-transition: all .5s;
       transition: all .5s;
       content: '';
@@ -12410,18 +12413,18 @@ a {
       border-radius: 50%;
       background-color: #ffffff;
       position: absolute; }
-    #general #sliderGallery .slick-dots li.slick-active:before {
+    #service #sliderGallery .slick-dots li.slick-active:before {
       width: 20px;
       height: 20px;
       background-color: #CC9F53; }
 
-#general .arrows {
+#service .arrows {
   position: absolute;
   left: 0;
   right: 0;
   top: 50%; }
   @media (max-width: 991.98px) {
-    #general .arrows {
+    #service .arrows {
       top: unset;
       bottom: 50px;
       display: -webkit-inline-box;
@@ -12433,13 +12436,13 @@ a {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-      #general .arrows i {
+      #service .arrows i {
         position: initial !important;
         -webkit-transform: none !important;
                 transform: none !important; }
-        #general .arrows i:first-of-type {
+        #service .arrows i:first-of-type {
           margin-right: 25px; } }
-  #general .arrows i {
+  #service .arrows i {
     height: 100px;
     width: 100px;
     display: -webkit-box;
@@ -12457,10 +12460,13 @@ a {
     position: absolute;
     -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%); }
-  #general .arrows .prev-arrow {
+  #service .arrows .prev-arrow {
     left: 0; }
-  #general .arrows .next-arrow {
+  #service .arrows .next-arrow {
     right: 0; }
+
+#service .additional-services-buttons li:not(:last-child) {
+  margin-right: 1rem; }
 
 #virtualTour .video-wrapper {
   background: #fff; }
