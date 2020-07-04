@@ -31,7 +31,7 @@ get_header(); ?>
 				
 				<?php $content = get_field('content_section'); ?>
 				
-				<?php if ($video) { ?>
+				<?php if ($video['url']) { ?>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6">
@@ -48,7 +48,7 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 
-				<?php } elseif ( !$video ) { ?>
+				<?php } elseif ( !$video['url'] ) { ?>
 					<h3 class = "fancy"><?php echo $content['header']; ?></h3>
 					<div class="container">
 						<div class="row">
@@ -58,6 +58,25 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				<?php } ?>
+
+				<?php if ( have_rows('service_options') ) : ?>
+					<div class="container">
+				<?php while( have_rows('service_options') ): the_row(); ?>
+					<h3 class = "mb-3 text-center gold"><?php the_sub_field('header'); ?></h3>
+				<?php if( have_rows('services') ): ?>
+					<div class="row">
+				<?php while( have_rows('services') ): the_row(); ?>
+					<div class="col-md-4">
+						<h5 class="gold mb-3"><?php the_sub_field('header'); ?></h5>
+						<p><?php the_sub_field('copy'); ?></p>
+					</div><!-- .col-md-4 -->
+				<?php endwhile; ?>
+					</div><!-- .row -->
+				<?php endif; ?>
+			<?php endwhile; ?>
+		</div><!-- .container -->
+	<?php endif; ?>
+				
 
 				<?php 
 				$images = get_field('slideshow');
@@ -119,12 +138,15 @@ get_header(); ?>
 							<div class="pl-3">
 							<h3 class = "mb-0 red"><?php echo $contact['name']; ?></h3>
 							<h5 class = "mb-3 gray font-weight-bold"><?php echo $contact['title']; ?></h5>
+							<?php if ($contact['office_number']) : ?>
 							<?php $office = preg_replace('/[^0-9]/', '', $contact['office_number']); ?>
 
 							<a href="tel:<?php echo $office ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-3" aria-hidden="true"></i>Call Office</button></a>
-							
+							<?php endif; ?>
+							<?php if ($contact['mobile_number']) : ?>
 							<?php $mobile = preg_replace('/[^0-9]/', '', $contact['mobile_number']); ?>
 							<a href="tel:<?php echo $mobile ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-mobile mr-3" aria-hidden="true"></i>Call Mobile</button></a>
+							<?php endif; ?>
 							<?php $first = explode(' ',trim($contact['name'])); ?>
 							<a target = '_blank' href = 'mailto:<?php echo $contact['email']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-envelope-o mr-3" aria-hidden="true"></i>Email <?php echo $first[0]; ?></button></a>	
 							</div>

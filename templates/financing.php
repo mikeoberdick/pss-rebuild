@@ -1,0 +1,141 @@
+<?php
+/**
+ * Template Name: Financing
+ * @package understrap
+**/
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+get_header(); ?>
+
+<div id="financing" class = "page-wrapper">
+	<div id="content" tabindex="-1">
+		<main class="site-main" id="main">
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				
+				<?php get_template_part( 'snippets/page_header'); ?>
+
+				<?php $hero = get_field('hero'); ?>
+				<div id="hero" class = "mb-5 inset" style = "background: url('<?php echo $hero['background']['url']; ?>');">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+							<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
+							<h3 class = "mb-3 text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>
+							<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn btn-primary gold-button'><?php echo $hero['button_text']; ?></button></a>	
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+				</div><!-- #hero -->
+				
+				<?php $main = get_field('main_copy'); ?>
+				<h3 class = "fancy"><?php echo $main['header']; ?></h3>
+				<div class="container">
+					<div class="row mb-5">
+						<div class="col-sm-12 text-center">
+							<p><?php echo $main['copy']; ?></p>
+							<?php $creditApp = get_field('credit_application_file'); ?>
+							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+					<div class="row mb-5">
+						<div class="col-sm-12">
+							<div class="p-4 content-wrapper">
+								<?php while( have_rows('content_boxes') ) : the_row(); ?>
+									<div class="content-box row mb-3">
+									<div class="col-md-6">
+										<?php $img = get_sub_field('image'); ?>
+										<img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+									</div><!-- .col-md-6 -->
+									<div class="col-md-6">
+										<h3 class="underlined">
+											<?php the_sub_field('header'); ?>
+										</h3>
+										<div class = "wp-editor"><?php the_sub_field('copy'); ?></div>
+									</div><!-- .col-md-6 -->	
+									</div>
+								<?php endwhile; ?>
+							</div><!-- .container-wrapper -->
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+					<div class="row mb-5">
+						<div class="col-md-6">
+							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
+						</div><!-- .col-md-6 -->
+						<div class="col-md-6">
+							<a href = '#'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-upload mr-3" aria-hidden="true"></i>Submit A Credit Application</button></a>
+						</div><!-- .col-md-6 -->
+					</div><!-- .row -->
+					<div class="row mb-5">
+						<?php while( have_rows('callouts') ) : the_row(); ?>
+							<div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+								<?php $icon = get_sub_field('icon'); ?>
+								<div class="icon-wrapper mb-3">
+								<img class = "callout-icon" src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>"></div>
+								<h4 class="gold text-center mt-auto"><?php the_sub_field('header'); ?></h4>
+							</div><!-- .col-md-4 -->
+						<?php endwhile; ?>
+					</div><!-- .row -->
+				</div><!-- .container -->
+				<h3 class="fancy">Frequently Asked Questions</h3>
+				<section id = "faqs">
+					<div class="container">
+				<?php if( have_rows('frequently_asked_questions') ): ?>
+					<div class="w-100 accordion md-accordion" id="faqAccordion" role="tablist" aria-multiselectable="true">
+						<?php $i = 0; ?>
+ 				<?php while ( have_rows('frequently_asked_questions') ) : the_row(); ?>
+			        <div class="question">
+			        	<div class="card-wrapper text-center" role="tab" id="<?php echo 'question-' . $i; ?>">
+      						<a data-toggle="collapse" data-target="<?php echo '#collapse-question-' . $i; ?>" aria-expanded="<?php if ( $i == 0 ) {echo 'true';} else {echo 'false';}; ?>" aria-controls="<?php echo 'collapse-question-' . $i; ?>">
+        					<h3 class="mb-3"><?php the_sub_field('question'); ?><i class="ml-3 fa fa-angle-down rotate-icon" aria-hidden="true"></i></h2>
+        					
+        				<div id="<?php echo 'collapse-question-' . $i; ?>"
+        					class = "<?php if ( $i == 0 ) {echo 'collapse show';} else {echo 'collapse';}; ?>" role="tabpanel" aria-labelledby="<?php echo 'question-' . $i; ?>" data-parent="#faqAccordion">
+					      <div class="card-body">
+							<?php the_sub_field('answer'); ?>
+					      </div><!-- .card-body -->
+    					</div><!-- .collapse -->
+      					</a>
+    					</div><!-- card-wrapper -->
+    				</div><!-- .question -->
+    				<?php $i++ ?>
+				<?php endwhile; ?>
+				</div><!-- .accordion -->
+			<?php endif; ?>				
+			</div><!-- .container -->
+		</section><!-- #questions -->
+
+		<?php $contact = get_field('contact'); ?>
+				<h3 class = "fancy">Contact The <?php echo $contact['department']; ?> Today</h3>
+				<div class="container mb-5">
+					<div class="row content-wrapper p-5">
+						<div class="col-md-5 text-right">
+							<?php $img = $contact['image']; ?>
+							<img class = "pr-3 w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+						</div><!-- .col-md-5 -->
+						<div class="col-md-7 contact-border">
+							<div class="pl-3">
+							<h3 class = "mb-0 red"><?php echo $contact['name']; ?></h3>
+							<h5 class = "mb-3 gray font-weight-bold"><?php echo $contact['title']; ?></h5>
+							<?php if ($contact['office_number']) : ?>
+							<?php $office = preg_replace('/[^0-9]/', '', $contact['office_number']); ?>
+
+							<a href="tel:<?php echo $office ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-3" aria-hidden="true"></i>Call Office</button></a>
+							<?php endif; ?>
+							<?php if ($contact['mobile_number']) : ?>
+							<?php $mobile = preg_replace('/[^0-9]/', '', $contact['mobile_number']); ?>
+							<a href="tel:<?php echo $mobile ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-mobile mr-3" aria-hidden="true"></i>Call Mobile</button></a>
+							<?php endif; ?>
+							<?php $first = explode(' ',trim($contact['name'])); ?>
+							<a target = '_blank' href = 'mailto:<?php echo $contact['email']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-envelope-o mr-3" aria-hidden="true"></i>Email <?php echo $first[0]; ?></button></a>	
+							</div>
+						</div><!-- .col-md-7 -->
+					</div><!-- .row -->
+				</div><!-- .container -->
+
+			</article><!-- #post-## -->
+		</main><!-- #main -->
+	</div><!-- #content -->
+</div><!-- #financing -->
+<?php get_footer(); ?>

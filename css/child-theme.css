@@ -12471,6 +12471,38 @@ a {
 #virtualTour .video-wrapper {
   background: #fff; }
 
+#financing .icon-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px; }
+
+#financing #faqs .card-wrapper {
+  padding: 35px;
+  border: 0; }
+  #financing #faqs .card-wrapper a {
+    cursor: pointer; }
+  #financing #faqs .card-wrapper i {
+    font-size: 50px;
+    color: #CC9F53; }
+
+#financing #faqs .question {
+  background-color: #000;
+  margin-bottom: 15px; }
+
+#financing #faqs [data-toggle="collapse"][aria-expanded="true"] > .rotate-icon {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style

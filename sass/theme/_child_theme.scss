@@ -950,3 +950,41 @@ a {
     background: #fff;
   }
 }
+
+//Financing
+#financing {
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #faqs {
+  .card-wrapper {
+    padding: 35px;
+    border: 0;
+    a {
+      cursor: pointer;
+    }
+    i {
+      font-size: 50px;
+      color: $gold;
+    }
+  }
+  .question {
+    background-color: #000;
+    margin-bottom: 15px;
+  }
+  [data-toggle="collapse"][aria-expanded="true"] > .rotate-icon
+        {
+            -webkit-transform: rotate(180deg);
+            -moz-transform:    rotate(180deg);
+            -ms-transform:     rotate(180deg);
+            -o-transform:      rotate(180deg);
+            transform:         rotate(180deg);
+        }
+}
+}
