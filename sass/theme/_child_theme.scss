@@ -166,7 +166,7 @@ a {
 .btn {
   white-space: normal !important;
   font-family: $unica;
-  font-size: 1.75rem;
+  font-size: 1.25rem !important;
   text-transform: uppercase !important;
   border: 0 !important;
   height: auto !important;
@@ -732,7 +732,6 @@ a {
   } 
   .nf-form-content input[type=button] {
     width: 100% !important;
-    font-size: 1.5rem !important;
   }
 }
 
@@ -987,4 +986,13 @@ a {
             transform:         rotate(180deg);
         }
 }
+}
+
+//PARTS
+#parts {
+  .content-wrapper {
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }

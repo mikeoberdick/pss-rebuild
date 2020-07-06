@@ -11822,7 +11822,7 @@ a {
 .wpcf7 input[type=submit] {
   white-space: normal !important;
   font-family: "Unica One", sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.25rem !important;
   text-transform: uppercase !important;
   border: 0 !important;
   height: auto !important;
@@ -12298,8 +12298,7 @@ a {
   background-position: center center !important; }
 
 #contactUs .nf-form-content input[type=button] {
-  width: 100% !important;
-  font-size: 1.5rem !important; }
+  width: 100% !important; }
 
 #singlePost #content #backToBlog a {
   text-decoration: none; }
@@ -12502,6 +12501,9 @@ a {
 #financing #faqs [data-toggle="collapse"][aria-expanded="true"] > .rotate-icon {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg); }
+
+#parts .content-wrapper p:last-of-type {
+  margin-bottom: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and

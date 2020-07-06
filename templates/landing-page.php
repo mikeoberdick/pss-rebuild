@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header(); ?>
 
-<div id="Landing Page Buckets" class = "page-wrapper landing-page">
+<div id="landingPageBuckets" class = "page-wrapper landing-page">
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -19,12 +19,26 @@ get_header(); ?>
 				<?php $hero = get_field('hero'); ?>
 				<div id="hero" class = "mb-5 inset" style = "background: url('<?php echo $hero['background']['url']; ?>');">
 					<div class="container">
-						<div class="row col-sm-12">
-							<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
-							<h3 class = "text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>
-						</div><!-- .row col-sm-12 -->
+						<div class="row">
+							<div class="col-sm-12">
+								<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
+								<h3 class = "text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>	
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #hero -->
+
+				<?php if ( get_field('content') ) : ?>
+				<div class="container mb-5">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="p-4 content-wrapper">
+								<?php the_field('content'); ?>
+							</div><!-- .content-wrapper -->
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</div><!-- .container -->
+				<?php endif; ?>
 				
 				<div id="buckets" class = "container pb-5">
 					<div class="row">
@@ -37,7 +51,7 @@ get_header(); ?>
 							$text = get_sub_field('button_text');
 							$link = get_sub_field('link');
 							?>
-							<div class="<?php if ($count == 2) {echo 'col-md-6 ';} else {echo 'col-md-4 ';} ?> service-bucket d-flex flex-column">
+							<div class="<?php if ($count == 2) {echo 'col-md-6 ';} else {echo 'col-md-4 ';} ?> service-bucket d-flex flex-column mb-5">
 								<img class = "mb-3" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 								<h4 class = "text-center gold mb-3"><?php echo $header; ?></h4>
 								<p class = "mb-3"><?php echo $copy; ?></p>
@@ -52,5 +66,5 @@ get_header(); ?>
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->
-</div><!-- #partsAndAccessories -->
+</div><!-- #landingPageBuckets -->
 <?php get_footer(); ?>

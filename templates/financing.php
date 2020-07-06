@@ -64,7 +64,7 @@ get_header(); ?>
 							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
 						</div><!-- .col-md-6 -->
 						<div class="col-md-6">
-							<a href = '#'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-upload mr-3" aria-hidden="true"></i>Submit A Credit Application</button></a>
+							<a data-toggle="modal" data-target="#submitCreditApplication"><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-upload mr-3" aria-hidden="true"></i>Submit A Credit Application</button></a>
 						</div><!-- .col-md-6 -->
 					</div><!-- .row -->
 					<div class="row mb-5">
@@ -133,6 +133,19 @@ get_header(); ?>
 						</div><!-- .col-md-7 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
+
+				<div class="modal fade p-5" id="submitCreditApplication" tabindex="-1" role="dialog" aria-labelledby="Submit Credit Application" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-5">
+        <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+			<div class = "text-center">
+				<?php echo do_shortcode('[ninja_form id=4]'); ?>
+			</div>
+      </div><!-- .modal-body -->
+    </div><!-- .modal-content -->
+  </div><!-- .modal-dialog -->
+</div><!-- .modal -->
 
 			</article><!-- #post-## -->
 		</main><!-- #main -->
