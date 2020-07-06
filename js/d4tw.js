@@ -37,8 +37,13 @@ var navHeight = ( $('#wrapper-navbar').height() );
 $('.page-wrapper').css('padding-top', navHeight);
 
 //Image carousel
-$('.gallery-thumb img').click(function(){
+$('#primaryCarousel .gallery-thumb img').click(function(){
     $('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+});
+
+//Alternate Image Carousel on All Models Page
+$('#secondaryCarousel .gallery-thumb img').click(function(){
+    $('#altLargeImage').attr('src',$(this).attr('src').replace('thumb','large'));
 });
 
 //end of document ready call

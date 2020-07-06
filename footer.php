@@ -166,6 +166,14 @@ defined( 'ABSPATH' ) || exit;
 		    centerMode: true,
 		    centerPadding: '40px'
 	  	});
+	  	jQuery('#alternateImageCarousel').slick({
+			infinite: true,
+			slidesToShow: 5,
+			slidesToScroll: 1,
+		    arrows: true,
+		    centerMode: true,
+		    centerPadding: '40px'
+	  	});
 	</script>
 <?php } ?>
 

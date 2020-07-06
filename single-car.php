@@ -197,8 +197,9 @@ get_header(); ?>
 									<p class = "mb-3">We specialize in financing & leasing of both New and Pre-Owned Funeral Cars.</p>
 									<p class = "mb-5">We offer a simple half page credit application, and can have you all approved in about an hour.  Offering terms from 24 to 72 months, we will custom tailor a finance or lease program around your specific needs.  Call today to find out just how quick and easy it is to get into the funeral car of your dreams.</p>
 									<div>
-										<a href = '#' class = "mr-3"><button role = 'button' class = 'btn gold-button'>Download Credit Application</button></a>
-										<a href = '/financing'><button role = 'button' class = 'btn gold-button'>Learn More</button></a>	
+										<?php $creditApp = get_field('credit_application_file', 270); ?>
+							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button mr-3'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
+							<a href = '/financing'><button role = 'button' class = 'btn gold-button'>Learn More</button></a>	
 									</div>
 								</div>
 							</div><!-- .content-wrapper -->

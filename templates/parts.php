@@ -23,7 +23,6 @@ get_header(); ?>
 							<div class="col-sm-12 text-center">
 							<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
 							<h3 class = "mb-3 text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>
-							<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn btn-primary gold-button'><?php echo $hero['button_text']; ?></button></a>	
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->

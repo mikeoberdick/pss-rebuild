@@ -37,8 +37,8 @@ get_header(); ?>
 									<div class="text-center mb-3">
 										<a href = '<?php echo $pdf['url']; ?>'><button role = 'button' class = 'btn gold-button'>Download PDF</button></a>
 									</div>
-									
-									<p class = "mb-0 callout">We love these cars...let us show you the Parks Difference! Call us today at <a href = 'tel:<?php echo $phone ?>'><?php the_field('phone_number', 'option'); ?>.</a></p>
+									<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
+									<p class = "mb-0 callout">We love these cars...let us show you the Parks Difference! Call us today at <a href = 'tel:<?php echo $phone; ?>'><?php the_field('phone_number', 'option'); ?>.</a></p>
 								</div><!-- .content-wrapper -->
 							</div><!-- .col-sm-12 -->
 						</div><!-- #description -->
@@ -46,7 +46,7 @@ get_header(); ?>
 
 					<h1 class="fancy mb-3"><?php the_field('gallery_title', $tax) ?></h1>
 
-					<div class="container">
+					<div id = "primaryCarousel" class="container mb-5">
 						<?php $images = get_field('gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
@@ -65,6 +65,31 @@ get_header(); ?>
 						</div><!-- #imageCarousel -->
 						</div><!-- .row -->
 					</div><!-- .container -->
+
+					<?php if ( get_field('alternate_gallery_title', $tax) ) : ?>
+					<h1 class="fancy mb-3"><?php the_field('alternate_gallery_title', $tax) ?></h1>
+					<?php endif; ?>
+					<?php if( get_field('alternate_gallery', $tax) ) : ?>
+					<div id = "secondaryCarousel" class="mb-5 container">
+						<?php $altImages = get_field('alternate_gallery', $tax); ?>
+						<div class="row mb-3">
+							<div class="col-sm-12">
+								<img src="<?php echo $altImages[0]["sizes"]["large"]; ?>" id = "altLargeImage">
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
+						<div class="row">
+							<div id = "alternateImageCarousel" class="col-sm-12">
+
+							<?php foreach( $altImages as $altImage ): ?>
+				                <div class = "slide gallery-thumb">
+				                    <img src="<?php echo esc_url($altImage['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($altImage['alt']); ?>">
+				                </div>
+				            <?php endforeach; ?>
+				            <div class="arrows"></div>	
+						</div><!-- #alternateIageCarousel -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+				<?php endif; ?>
 
 				<h3 class="fancy mb-3">Video</h1>
 					

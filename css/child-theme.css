@@ -12033,7 +12033,7 @@ a {
 
 #aboutVideo {
   height: 75vh;
-  background-size: contain !important;
+  background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important; }
 
@@ -12227,10 +12227,10 @@ a {
   width: 100%;
   height: 500px; }
 
-.tax-model #imageCarousel .slick-slide {
+.tax-model .slick-slide {
   margin: 0 10px; }
 
-.tax-model #imageCarousel .slick-prev:before, .tax-model #imageCarousel .slick-next:before {
+.tax-model .slick-prev:before, .tax-model .slick-next:before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 25px;
@@ -12240,10 +12240,10 @@ a {
   opacity: 1;
   color: #CC9F53; }
 
-.tax-model #imageCarousel .slick-prev:before {
+.tax-model .slick-prev:before {
   content: "\f053"; }
 
-.tax-model #imageCarousel .slick-next:before {
+.tax-model .slick-next:before {
   content: "\f054"; }
 
 .page-template-services .callout-wrapper {
@@ -12504,6 +12504,12 @@ a {
 
 #parts .content-wrapper p:last-of-type {
   margin-bottom: 0; }
+
+#testimonials #customerTestimonials .fa {
+  color: #CC9F53 !important; }
+
+#testimonials #customerTestimonials hr {
+  border-top: 3px solid #CC9F53; }
 
 /*
 * Use existing Bootstrap 4 classes and

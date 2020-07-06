@@ -20,7 +20,7 @@ get_header(); ?>
 				<div id="hero" class = "mb-5 inset" style = "background: url('<?php echo $hero['background']['url']; ?>');">
 					<div class="container">
 						<div class="row">
-							<div class="col-sm-12">
+							<div class="col-sm-12 text-center">
 								<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
 								<h3 class = "text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>	
 							</div><!-- .col-sm-12 -->
