@@ -51,8 +51,11 @@ $.fn.prevOrLast = function (selector) {
 $(".video-thumb").click(function () {
   $("#imageViewer").addClass("d-none");
   $("#videoViewer").removeClass("d-none");
- $("#carGallery").children().removeClass("selected");
+  $("#carGallery").children().removeClass("selected");
   $(this).addClass("selected");
+  $('html,body').animate({
+    scrollTop: $('.entry-header').offset().top
+  }, 0);
 });
 
 $(".gallery-thumb").click(function () {
@@ -61,10 +64,12 @@ $(".gallery-thumb").click(function () {
   $("#videoViewer iframe").attr("src",video);
   $("#videoViewer").addClass("d-none");
   $("#imageViewer").removeClass("d-none");
-  var img = $(this).find("img").attr("src");
   $("#carGallery").children().removeClass("selected");
   $(this).addClass("selected");
-  $("#imageViewer img").attr("src", img);
+  var img = $(this).find("img").attr("src");
+  var index = $(this).find('img').attr('data-slide-to');
+  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#modalLauncher").attr("data-slide-to",index);
   $('html,body').animate({
     scrollTop: $('.entry-header').offset().top
   }, 0);
@@ -73,18 +78,29 @@ $(".gallery-thumb").click(function () {
 $("#prev").click(function () {
   var prev = $(".selected").prevOrLast(".gallery-thumb");
   var img = prev.find("img").attr("src");
-  $("#imageViewer img").attr("src", img);
- $("#carGallery").children().removeClass("selected");
+  var index = prev.find("img").attr("data-slide-to");
+  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#modalLauncher").attr("data-slide-to",index);
+  $("#carGallery").children().removeClass("selected");
   prev.addClass("selected");
 });
 
 $("#next").click(function () {
   var next = $(".selected").nextOrFirst(".gallery-thumb");
   var img = next.find("img").attr("src");
-  $("#imageViewer img").attr("src", img);
- $("#carGallery").children().removeClass("selected");
+  var index = next.find("img").attr("data-slide-to");
+  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#modalLauncher").attr("data-slide-to",index);
+  $("#carGallery").children().removeClass("selected");
   next.addClass("selected");
 });
+
+//Load up the image last viewed in modal when close button was clicked
+//Use on modal close to set the .selected class on that thumb and also set the src for the featured image
+$('#exampleModal').on('hidden.bs.modal', function (e) {
+  var currentIndex = $('.carousel-item.active').index();
+  $('.gallery-thumb').eq(currentIndex).trigger('click');
+})
 
 
 //LOAD MORE PHOTOS IN Single Car GALLERY

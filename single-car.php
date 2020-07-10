@@ -32,36 +32,21 @@ get_header(); ?>
 					<div class = "row mb-3">
 						<div class="col-md-8">
 							<div id="imageViewer" class = "position-relative">
-								<img src="<?php echo $images[0]; ?>" alt="Featured Image">
+								<div data-toggle="modal" data-target="#exampleModal">
+								<a id = "modalLauncher" class = "position-absolute"  data-target="#carouselExample" data-slide-to="0" class = "position-absolute" href = '<?php echo bloginfo('url'); ?>/'><button role = 'button' class = 'btn gold-button'>VIEW HD IMAGES</button></a></div>
+								<img id = "featuredImage" src="<?php echo $images[0]; ?>" alt="Featured Image" data-slide-to = "0">
 								<div id="galleryNav" class = "position-absolute">
-									<div id="prev">
-										<div class = "icon-wrapper">
-										<i class="fa fa-chevron-circle-left" aria-hidden="true" title = "Previous Image"></i></div>	
-										</div>
+									<div id="prev" class = "mb-3">
+										<img src="<?php echo get_stylesheet_directory_uri() . '/img/prev.png' ?>" alt="Previous Image">
+									</div>	
 									<div id="next">
-										<div class="icon-wrapper">
-										<i class="fa fa-chevron-circle-right" aria-hidden="true" title = "Next Image"></i>	
-										</div>
+										<img src="<?php echo get_stylesheet_directory_uri() . '/img/next.png' ?>" alt="Next Image">	
 									</div>
 								</div><!-- #galleryNav -->
 							</div><!-- #imageViewer -->
 							<div id="videoViewer" class = "d-none embed-responsive embed-responsive-16by9">
-								<?php $iframe = get_field('video');
-								preg_match('/src="(.+?)"/', $iframe, $matches);
-								$src = $matches[1];
-								$params = array(
-								    'controls'  => 0,
-								    'hd'        => 1,
-								    'autohide'  => 1
-								);
-								$new_src = add_query_arg($params, $src);
-								$iframe = str_replace($src, $new_src, $iframe);
-								$attributes = 'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen';
-$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-
-echo $iframe; ?>
-
-
+							<?php $videoURL = get_field('video'); $videoID = substr($videoURL, -11); ?>
+							<iframe class = "embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
 						</div><!-- .col-md-8 -->
 						<div class="col-md-4">
@@ -112,17 +97,18 @@ echo $iframe; ?>
 						</div><!-- .col-md-4 -->
 					</div><!-- .row -->
 					<div id = "carGallery" class="row mb-3">
-<div class = "col-md-2 video-thumb mb-3">
+<div class = "col-md-2 thumb video-thumb mb-3">
 	<div class="video-image-wrapper position-relative d-flex justify-content-center align-items-center">
-		<img src="http://placehold.it/550x350" alt="">
+
+		<img src="http://img.youtube.com/vi/<?php echo $videoID ?>/1.jpg" alt="">
 		<i class="fa fa-youtube-play" aria-hidden="true"></i>
 	</div>
 </div>
 						<?php $i = 0; ?>
 						<?php foreach ($images as $image) { ?>
-<div class = "col-md-2 gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 ) {echo 'hidden';} ?>">
+<div class = "col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 ) {echo 'hidden';} ?>">
 							<div class="image-wrapper position-relative">
-								<img src="<?php echo $image; ?>" alt="">
+								<img src="<?php echo $image; ?>" alt="" data-slide-to = "<?php echo $i; ?>">
 							</div><!-- .image-wrapper -->
 				        </div><!-- .col-md-2 -->
 						<?php $i++; } ?>
@@ -277,6 +263,41 @@ echo $iframe; ?>
 							</div><!-- .row -->
 						</div><!-- .container-fluid -->
 					</div><!-- #relatedCars -->
+
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="mb-3">
+      <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+          	<?php $i = 1; ?>
+						<?php foreach ($images as $image) { ?>
+
+
+<div class="carousel-item <?php if ( $i === 1 ) {echo 'active';} ?>">
+              <img class="img-fluid" src="<?php echo $image; ?>" data-slide-to = "<?php echo $i; ?>">
+            </div>
+						<?php $i++; } ?> 
+          </div>
+        </div>
+      </div>
+      <div class="d-flex mb-3 justify-content-center align-items-center">
+      	<a class="" href="#carouselExample" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left mr-5 fa-2x" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+        <button type="button" class="btn gold-button" data-dismiss="modal">Close</button>
+        <a class="" href="#carouselExample" role="button" data-slide="next">
+            <i class="fa fa-chevron-right ml-5 fa-2x" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 			</article><!-- #post-## -->
 		</main><!-- #main -->
