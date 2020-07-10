@@ -36,7 +36,67 @@ $('#auctionContent .question').on( 'click', function() {
 var navHeight = ( $('#wrapper-navbar').height() );
 $('.page-wrapper').css('padding-top', navHeight);
 
-//Image carousel
+//Image gallery functionality on single car page
+
+$.fn.nextOrFirst = function (selector) {
+  var next = this.next(selector);
+  return next.length ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast = function (selector) {
+  var prev = this.prev(selector);
+  return prev.length ? prev : this.nextAll(selector).last();
+};
+
+$(".video-thumb").click(function () {
+  $("#imageViewer").addClass("d-none");
+  $("#videoViewer").removeClass("d-none");
+ $("#carGallery").children().removeClass("selected");
+  $(this).addClass("selected");
+});
+
+$(".gallery-thumb").click(function () {
+  var video = $("#videoViewer iframe").attr("src");
+  $("#videoViewer iframe").attr("src","");
+  $("#videoViewer iframe").attr("src",video);
+  $("#videoViewer").addClass("d-none");
+  $("#imageViewer").removeClass("d-none");
+  var img = $(this).find("img").attr("src");
+  $("#carGallery").children().removeClass("selected");
+  $(this).addClass("selected");
+  $("#imageViewer img").attr("src", img);
+  $('html,body').animate({
+    scrollTop: $('.entry-header').offset().top
+  }, 0);
+});
+
+$("#prev").click(function () {
+  var prev = $(".selected").prevOrLast(".gallery-thumb");
+  var img = prev.find("img").attr("src");
+  $("#imageViewer img").attr("src", img);
+ $("#carGallery").children().removeClass("selected");
+  prev.addClass("selected");
+});
+
+$("#next").click(function () {
+  var next = $(".selected").nextOrFirst(".gallery-thumb");
+  var img = next.find("img").attr("src");
+  $("#imageViewer img").attr("src", img);
+ $("#carGallery").children().removeClass("selected");
+  next.addClass("selected");
+});
+
+
+//LOAD MORE PHOTOS IN Single Car GALLERY
+$('.more-photos').on( 'click', function() {
+    $('#carGallery .gallery-thumb:gt(10)').toggleClass('hidden');
+    $(this).find('h5 span').text(function(i, text){
+          return text === "LESS PHOTOS" ? "MORE PHOTOS" : "LESS PHOTOS";
+      })
+    $(this).find('.fa-caret-down').toggleClass('rotate');
+});
+
+//Image carousel on All models page
 $('#primaryCarousel .gallery-thumb img').click(function(){
     $('#largeImage').attr('src',$(this).attr('src').replace('thumb','large'));
 });
@@ -45,6 +105,8 @@ $('#primaryCarousel .gallery-thumb img').click(function(){
 $('#secondaryCarousel .gallery-thumb img').click(function(){
     $('#altLargeImage').attr('src',$(this).attr('src').replace('thumb','large'));
 });
+
+
 
 //end of document ready call
 });

@@ -73,7 +73,7 @@ get_header(); ?>
 							<div id = "testimonialContent" class="col-md-5">
 								<h1 class="mb-3 text-shadow"><?php echo $sectionFour['header']; ?></h1>
 								<p class = "mb-5"><?php echo $sectionFour['sub_header']; ?></p>
-								<a href = '<?php echo $sectionFour['button_link']; ?>'><button role = 'button' class = 'btn black-button'><?php echo $sectionFour['button_text']; ?></button></a>
+								<a href = '<?php echo $sectionFour['page_link']; ?>'><button role = 'button' class = 'btn black-button'><?php echo $sectionFour['button_text']; ?></button></a>
 							</div><!-- .col-md-5 -->
 							<div class="col-md-7">
 								<div>

@@ -44,7 +44,7 @@ get_header(); ?>
 						</div><!-- #description -->
 					</div><!-- .container -->
 
-					<h1 class="fancy mb-3"><?php the_field('gallery_title', $tax) ?></h1>
+					<h3 class="mb-3 text-center underlined d-block"><?php the_field('gallery_title', $tax) ?></h3>
 
 					<div id = "primaryCarousel" class="container mb-5">
 						<?php $images = get_field('gallery', $tax); ?>
@@ -67,7 +67,7 @@ get_header(); ?>
 					</div><!-- .container -->
 
 					<?php if ( get_field('alternate_gallery_title', $tax) ) : ?>
-					<h1 class="fancy mb-3"><?php the_field('alternate_gallery_title', $tax) ?></h1>
+					<h3 class="mb-3 text-center underlined d-block"><?php the_field('alternate_gallery_title', $tax) ?></h3>
 					<?php endif; ?>
 					<?php if( get_field('alternate_gallery', $tax) ) : ?>
 					<div id = "secondaryCarousel" class="mb-5 container">

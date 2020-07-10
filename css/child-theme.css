@@ -12009,28 +12009,6 @@ a {
     .content-wrapper .callout a {
       color: #000; }
 
-#carGallery .gallery-photo img {
-  width: 100%; }
-
-#carGallery .hidden {
-  display: none; }
-
-#carGallery .fa {
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s; }
-
-#carGallery .more-photos {
-  text-align: center;
-  border-top: solid 10px #CC9F53; }
-  #carGallery .more-photos h5 {
-    background: #cc9f53;
-    color: black;
-    display: inline-block;
-    padding: 10px 50px;
-    cursor: pointer; }
-
 #aboutVideo {
   height: 75vh;
   background-size: cover !important;
@@ -12125,9 +12103,6 @@ a {
       border: 0;
       background-color: black !important; }
 
-#singleCar .hero-content iframe {
-  width: 100%; }
-
 #singleCar .price {
   background: #4b4b4b;
   padding: 25px;
@@ -12155,6 +12130,111 @@ a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 10px 15px; }
+  #singleCar .spec img {
+    -webkit-filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1); }
+
+#singleCar #galleryNav {
+  bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%; }
+  #singleCar #galleryNav .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: solid 5px #000;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    #singleCar #galleryNav .icon-wrapper .fa {
+      color: #CC9F53;
+      font-size: 60px;
+      cursor: pointer; }
+
+#singleCar #carGallery .video-thumb .video-image-wrapper img {
+  height: 100%;
+  width: 100%; }
+
+#singleCar #carGallery .video-thumb .video-image-wrapper .fa {
+  z-index: 1;
+  font-size: 60px;
+  position: absolute; }
+
+#singleCar #carGallery .video-thumb .video-image-wrapper:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.5; }
+
+#singleCar #carGallery .gallery-thumb .image-wrapper img {
+  height: 100%;
+  width: 100%; }
+
+#singleCar #carGallery .gallery-thumb .image-wrapper:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #CC9F53;
+  opacity: 0; }
+
+#singleCar #carGallery .selected .image-wrapper:after, #singleCar #carGallery .selected .video-image-wrapper:after {
+  opacity: .5; }
+
+#singleCar #carGallery .selected .video-image-wrapper:after {
+  background-color: #CC9F53; }
+
+#singleCar #carGallery .hidden {
+  display: none; }
+
+#singleCar #carGallery .fa {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s; }
+
+#singleCar #carGallery .more-photos {
+  text-align: center;
+  border-top: solid 10px #CC9F53; }
+  #singleCar #carGallery .more-photos h5 {
+    background: #cc9f53;
+    color: black;
+    display: inline-block;
+    padding: 10px 50px;
+    cursor: pointer; }
+
+#singleCar .list-info .gold {
+  color: #CC9F53 !important; }
+
+#singleCar .list-info h4 {
+  display: inline-block; }
+
+@media (min-width: 768px) {
+  #singleCar #pills-options {
+    -webkit-columns: 2;
+       -moz-columns: 2;
+            columns: 2; } }
 
 #singleCar #specifications .nav-item {
   background: #888888;
