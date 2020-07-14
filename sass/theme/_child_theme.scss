@@ -219,6 +219,22 @@ a {
   box-shadow: rgba(0,0,0, .5) 0 0 0 500px inset;
 }
 
+.hidden {
+  display: none;
+}
+
+.more-photos {
+    text-align: center;
+    border-top: solid 10px $gold;
+  h5 {
+    background: #cc9f53;
+    color: black;
+    display: inline-block;
+    padding: 10px 50px; 
+    cursor: pointer;  
+  }  
+}
+
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
@@ -604,22 +620,8 @@ a {
         }
       }
   }
-  .hidden {
-    display: none;
-  }
   .fa {
     transition: transform .5s;
-  }
-  .more-photos {
-      text-align: center;
-      border-top: solid 10px $gold;
-    h5 {
-      background: #cc9f53;
-      color: black;
-      display: inline-block;
-      padding: 10px 50px; 
-      cursor: pointer;  
-    }  
   }
 }
   .list-info {

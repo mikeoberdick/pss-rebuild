@@ -11864,6 +11864,19 @@ a {
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
           box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
 
+.hidden {
+  display: none; }
+
+.more-photos {
+  text-align: center;
+  border-top: solid 10px #CC9F53; }
+  .more-photos h5 {
+    background: #cc9f53;
+    color: black;
+    display: inline-block;
+    padding: 10px 50px;
+    cursor: pointer; }
+
 /*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
@@ -12207,24 +12220,11 @@ a {
 #singleCar #carGallery .selected .video-image-wrapper:after {
   background-color: #CC9F53; }
 
-#singleCar #carGallery .hidden {
-  display: none; }
-
 #singleCar #carGallery .fa {
   -webkit-transition: -webkit-transform .5s;
   transition: -webkit-transform .5s;
   transition: transform .5s;
   transition: transform .5s, -webkit-transform .5s; }
-
-#singleCar #carGallery .more-photos {
-  text-align: center;
-  border-top: solid 10px #CC9F53; }
-  #singleCar #carGallery .more-photos h5 {
-    background: #cc9f53;
-    color: black;
-    display: inline-block;
-    padding: 10px 50px;
-    cursor: pointer; }
 
 #singleCar .list-info .gold {
   color: #CC9F53 !important; }

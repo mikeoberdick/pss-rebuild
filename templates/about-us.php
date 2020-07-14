@@ -15,9 +15,9 @@ get_header(); ?>
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
   				<?php get_template_part( 'snippets/page_header'); ?>
-
-  				<?php $img = get_field('group_image'); ?>
-				<img class = "mb-3 w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+				<div class="embed-responsive embed-responsive-16by9">
+				    <?php the_field('video_url'); ?>
+				</div>
 				<?php $team = get_field('meet_the_team'); ?>
 				<h3 class="fancy"><?php echo $team['header']; ?></h3>
 				<div class="container my-5">

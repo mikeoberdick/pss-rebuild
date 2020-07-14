@@ -116,6 +116,7 @@ get_header(); ?>
 							<div class="row">
 					<?php while( have_rows('service_videos') ) : the_row(); ?>
 					<div class="col-md-6 mb-3">
+						<h5 class="mb-3"><?php the_sub_field('video_title'); ?></h5>
 						<div class="embed-responsive embed-responsive-16by9">
     						<?php the_sub_field('video_url'); ?>
 						</div><!-- .embed-responsive -->

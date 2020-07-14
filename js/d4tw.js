@@ -36,18 +36,21 @@ $('#auctionContent .question').on( 'click', function() {
 var navHeight = ( $('#wrapper-navbar').height() );
 $('.page-wrapper').css('padding-top', navHeight);
 
-//Image gallery functionality on single car page
+//SINGLE CAR PAGE GALLERY
 
+//If thumb is last in gallery go to first one (after video)
 $.fn.nextOrFirst = function (selector) {
   var next = this.next(selector);
   return next.length ? next : this.prevAll(selector).last();
 };
 
+//If thumb is first in gallery go to last one
 $.fn.prevOrLast = function (selector) {
   var prev = this.prev(selector);
   return prev.length ? prev : this.nextAll(selector).last();
 };
 
+//Handle the video thumb
 $(".video-thumb").click(function () {
   $("#imageViewer").addClass("d-none");
   $("#videoViewer").removeClass("d-none");
@@ -58,6 +61,7 @@ $(".video-thumb").click(function () {
   }, 0);
 });
 
+//Handle the image thumbs
 $(".gallery-thumb").click(function () {
   var video = $("#videoViewer iframe").attr("src");
   $("#videoViewer iframe").attr("src","");
@@ -75,6 +79,7 @@ $(".gallery-thumb").click(function () {
   }, 0);
 });
 
+//Previous button functionality
 $("#prev").click(function () {
   var prev = $(".selected").prevOrLast(".gallery-thumb");
   var img = prev.find("img").attr("src");
@@ -85,6 +90,7 @@ $("#prev").click(function () {
   prev.addClass("selected");
 });
 
+//Next button functionality
 $("#next").click(function () {
   var next = $(".selected").nextOrFirst(".gallery-thumb");
   var img = next.find("img").attr("src");
@@ -96,16 +102,24 @@ $("#next").click(function () {
 });
 
 //Load up the image last viewed in modal when close button was clicked
-//Use on modal close to set the .selected class on that thumb and also set the src for the featured image
 $('#exampleModal').on('hidden.bs.modal', function (e) {
   var currentIndex = $('.carousel-item.active').index();
   $('.gallery-thumb').eq(currentIndex).trigger('click');
 })
 
-
 //LOAD MORE PHOTOS IN Single Car GALLERY
-$('.more-photos').on( 'click', function() {
+$('#singleCar .more-photos').on( 'click', function() {
     $('#carGallery .gallery-thumb:gt(10)').toggleClass('hidden');
+    $(this).find('h5 span').text(function(i, text){
+          return text === "LESS PHOTOS" ? "MORE PHOTOS" : "LESS PHOTOS";
+      })
+    $(this).find('.fa-caret-down').toggleClass('rotate');
+});
+
+//LOAD MORE PHOTOS IN ALL GALLERY
+$('#modelTaxonomy .more-photos').on( 'click', function() {
+    //$(this).parent('.option-group .option:gt(1)').toggleClass('hidden');
+    $(this).parent().parent().find('.option:gt(1)').toggleClass('hidden');
     $(this).find('h5 span').text(function(i, text){
           return text === "LESS PHOTOS" ? "MORE PHOTOS" : "LESS PHOTOS";
       })

@@ -103,25 +103,33 @@ get_header(); ?>
 
 				<h3 class="fancy mb-3">Options</h1>
 
-				<div class="container">
-					<?php if( have_rows( 'options', $tax ) ): ?>
-					<div id = "carOptions" class="row mb-5">
-						<?php while( have_rows( 'options', $tax ) ): the_row(); ?>
-							<div class="col-md-6">
-								<h3 class = "mb-3"><?php the_sub_field('header'); ?></h3>
-								<?php $images = get_sub_field('gallery'); ?>
-								<?php if( $images ): ?>
-									<div class="row">
-        <?php foreach( $images as $image ): ?>
-		<div class="col-md-6 mb-3">
-	      <img class = "w-100 mb-3" src="<?php echo $image['sizes']['blog-small']; ?>" alt="<?php echo $image['alt']; ?>" />
-	      	<?php if ( $image['caption'] ) : ?>
-	      <p class = "small font-italic text-center px-3"><?php echo $image['caption']; ?></p>
-	  		<?php endif; ?>
-	  	</div><!-- .col-md-6 -->
-        <?php endforeach; ?>
-    </div><!-- .row for images -->
-     <?php endif; ?>
+			<div class="container">
+		<?php if( have_rows( 'options', $tax ) ): ?>
+				<div id = "carOptions" class="row mb-5">
+		<?php while( have_rows( 'options', $tax ) ): the_row(); ?>
+					<div class="col-md-6 option-group mb-3">
+							<h3 class = "mb-3"><?php the_sub_field('header'); ?></h3>
+					<?php $images = get_sub_field('gallery'); ?>
+				<?php if( $images ) : ?>
+					<div class="row">
+        		<?php $count = count($images); $i = 1; 
+        		foreach( $images as $image ) : ?>
+					<div class="option col-md-6 <?php if ( $i >= 3 ) {echo 'hidden';} ?>">
+	      			<img class = "w-100 mb-3" src="<?php echo $image['sizes']['blog-small']; ?>" alt="<?php echo $image['alt']; ?>" />
+	      		<?php if ( $image['caption'] ) : ?>
+	      			<p class = "small font-italic text-center px-3"><?php echo $image['caption']; ?></p>
+	  			<?php endif; ?>
+	  				</div><!-- .col-md-6 -->
+        		<?php $i++; endforeach; ?>
+        <?php if ( $count >= 3 ) : ?>
+	        <div class="col-sm-12">
+	        	<div class="more-photos">
+	        		<h5><span>More Photos</span><i class="fa fa-caret-down ml-3" aria-hidden="true"></i></h5>
+	        	</div><!-- .more-photos -->
+	        </div><!-- .col-sm-12 -->
+    	<?php endif; ?>
+    			</div><!-- .row for images -->
+     <?php endif; ?><!-- if( $images ) -->
      </div><!-- .col-md-6 -->
  <?php endwhile; ?>
 <?php endif; ?>	
