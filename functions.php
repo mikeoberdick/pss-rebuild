@@ -42,7 +42,7 @@ function d4tw_enqueue_files () {
     if ( is_page('all-models') ) {
         wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
     }
-    if ( is_page_template('templates/service.php')  || is_tax() ) {
+    if ( is_page_template('templates/service.php')  || is_tax() || is_page_template('templates/accessories.php') ) {
         wp_enqueue_style( 'Slick CSS', get_stylesheet_directory_uri() . '/slick/slick.css' );
         wp_enqueue_style( 'Slick Theme CSS', get_stylesheet_directory_uri() . '/slick/slick-theme.css' );
         wp_enqueue_script( 'Slick JS', get_stylesheet_directory_uri() . '/slick/slick.min.js', array('jquery'), '1.0.0', true );

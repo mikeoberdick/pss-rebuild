@@ -177,6 +177,25 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
+<?php if ( is_page_template('templates/accessories.php') ) { ?>
+	<script>
+		jQuery('.accessory-image-gallery' ).each( function() {
+			jQuery(this).slick({
+				adaptiveHeight: true,
+			    infinite: true,
+			    dots: true,
+			    fade: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			    arrows: true,
+			    appendArrows: jQuery(this).parents('#imageGallery').find('.arrows'),
+			    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+		  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>'
+		  	});
+		  });
+	</script>
+<?php } ?>
+
 </body>
 
 </html>
