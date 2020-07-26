@@ -44,7 +44,7 @@ get_header(); ?>
 						</div><!-- #description -->
 					</div><!-- .container -->
 
-					<h3 class="mb-3 text-center underlined d-block"><?php the_field('gallery_title', $tax) ?></h3>
+					<h3 class="fancy mb-3"><?php the_field('gallery_title', $tax) ?></h3>
 
 					<div id = "primaryCarousel" class="container mb-5">
 						<?php $images = get_field('gallery', $tax); ?>
@@ -67,7 +67,7 @@ get_header(); ?>
 					</div><!-- .container -->
 
 					<?php if ( get_field('alternate_gallery_title', $tax) ) : ?>
-					<h3 class="mb-3 text-center underlined d-block"><?php the_field('alternate_gallery_title', $tax) ?></h3>
+					<h3 class="fancy mb-3"><?php the_field('alternate_gallery_title', $tax) ?></h3>
 					<?php endif; ?>
 					<?php if( get_field('alternate_gallery', $tax) ) : ?>
 					<div id = "secondaryCarousel" class="mb-5 container">
@@ -91,15 +91,41 @@ get_header(); ?>
 					</div><!-- .container -->
 				<?php endif; ?>
 
-				<h3 class="fancy mb-3">Video</h1>
-					
-				<div class="container">
-					<div class="row mb-3">
-						<div class="col-sm-12">
-							<?php echo get_field('video', $tax); ?>
-						</div><!-- .col-sm-12 -->
-					</div><!-- .row -->
+				<?php
+				$video = get_field('videos', $tax);
+				$count = count($video); ?>
+				<?php if ( $video && $count === 1 ) {
+					$title = 'video';
+				} elseif ($video && $count > 1 ) {
+					$title = 'videos';
+				} ?>
+
+				<h3 class="fancy mb-3"><?php echo $title; ?></h1>
+				
+				<?php if( have_rows('videos', $tax) ): ?>
+					<div class="container">
+						<div class="row mb-3">
+							<?php if ($count === 1) { ?>
+	    						<?php while( have_rows('videos', $tax) ) : the_row(); ?>
+	        					<div class="col-sm-12">
+									<h3 class = "gold mb-3 text-center"><?php the_sub_field('title'); ?></h3>
+									<div class="video-wrapper mb-3 text-center">
+										<?php the_sub_field('video'); ?>
+									</div><!-- .video-wrapper -->
+								</div><!-- .col-sm-12 -->
+   								<?php endwhile; } else { ?>
+   									<?php while( have_rows('videos', $tax) ) : the_row(); ?>
+   							<div class="col-md-6">
+								<h3 class = "gold mb-3 text-center"><?php the_sub_field('title'); ?></h3>
+								<div class="video-wrapper">
+									<?php the_sub_field('video'); ?>
+								</div><!-- .video-wrapper -->
+							</div><!-- .col-md-6 -->
+						<?php endwhile; } ?>
+						</div><!-- .row -->
 				</div><!-- .container -->
+			<?php endif; ?>
+
 
 				<h3 class="fancy mb-3">Options</h1>
 

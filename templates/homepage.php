@@ -18,19 +18,26 @@ get_header(); ?>
 
 				<?php if ( $hero['video_background'] ) { ?>
 				<section id="hero">
-					<video autoplay muted loop>
+					<div id = "videoWrapper">
+					<video autoplay muted loop width = "100%" height = "auto">
 					  <source src="<?php echo $hero['video_background']['url']; ?>" type="video/mp4">
-					</video>
+					</video>	
+					</div><!-- #videoWrapper -->
 					
-					<div class="container position-absolute">
+					<div class="container position-absolute" id = "heroContent">
 						<div class="row">
-							<div class="col-sm-12 text-center">
+							<div class="col-sm-12 text-center mb-5">
 								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
 								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 							</div><!-- .col-sm-12 -->
+							<div class="col-sm-12 text-center">
+								<a href = "#sectionOne" id="scrollDown">
+									<i class="fa fa-arrow-down fa-2x mb-4" aria-hidden="true"></i><br>
+									<h5 class = "d-inline-block">SCROLL DOWN</h5>
+								</a><!-- #scrollDown -->
+							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
-					
 				</section><!-- #hero -->
 
 				<?php } else { ?>
@@ -46,12 +53,60 @@ get_header(); ?>
 				</section><!-- #hero -->
 				<?php } ?>
 
-				<?php $sectionOne = get_field('section_one'); ?>
-				<section id="sectionOne" class = "py-5 p-relative">
-					<h1 class="h3 fancy"><?php echo $sectionOne['header']; ?></h1>
-					[ SLIDER HERE ]
-				</section><!-- #sectionOne -->
+				<?php $posts = get_posts(array(
+					'posts_per_page'	=> -1,
+					'post_type'			=> 'car',
+					'meta_key'		=> 'flag',
+					'meta_value'	=> 'featured'
+				));
 
+				//If there are cars marked as featured
+				if( $posts ): ?>
+			<?php $sectionOne = get_field('section_one'); ?>
+			<section id="sectionOne" class = "py-5 p-relative container-fluid">
+				<div class="row">
+					<div class="col-sm-12 p-0">
+						<h1 class="h3 fancy"><?php echo $sectionOne['header']; ?></h1>	
+					</div><!-- .col-sm-12 -->	
+				</div><!-- .row -->
+
+				<div class="row">
+					<div id="featuredSlider" class="col-sm-12">
+					<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
+						<?php
+						$string = get_field('images');
+						$array = explode (",", $string); ?>
+						<div class="slide" data-link = "<?php the_permalink(); ?>">
+							<img src="<?php echo $array[0]; ?>">
+							<div class="featured-info content-wrapper p-3 mt-auto">
+		                    	<h5 class = "mb-3"><?php the_title(); ?></h5>
+		                    	<hr>
+		                    	<div class="d-flex justify-content-between align-items-center">
+		                    		<div class="price">
+		                    			<h4 class = "font-weight-bold">
+		                    				<?php $price = get_field('price'); ?>
+		                    				<?php if ($price) { echo '$' . $price; } else {
+												echo 'Call For Pricing';
+		                    				} ?></h4>
+		                    		</div><!-- .price -->
+		                    		<?php if (get_field('video')) : ?>
+		                    		<div class="video-icon d-flex justify-content-center align-items-center">
+		                    			<i class="gold fa-2x fa fa-youtube-play mr-2" aria-hidden="true"></i>
+		                    			<span class = "gold">Video<br>Available</span>
+		                    		</div><!-- .video-icon -->
+		                    		<?php endif; ?>
+		                    	</div>
+		                    </div><!-- .featured-info -->	
+						</div><!-- .slide -->  
+					<?php endforeach; ?>
+					</div><!-- #featuredSlider -->
+				</div><!-- .row -->
+			</section><!-- #sectionOne -->
+	
+				<?php wp_reset_postdata(); ?>
+
+				<?php endif; ?>
+	
 				<?php $sectionTwo = get_field('section_two'); ?>
 				<section id="sectionTwo" style = "background: url('<?php echo $sectionTwo['background']['url']; ?>');" class = "py-5">
 					<div class="container h-100">

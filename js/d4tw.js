@@ -27,6 +27,15 @@ $('.car article').on('click', function(e){
   window.location.href=$(this).data('link');
 });
 
+//Make each slide fully clickable on homepage featured slider
+$('#homepage #sectionOne .slide').on('click', function(e){
+  e.preventDefault();
+  window.location.href=$(this).data('link');
+});
+
+//Force each featured car slide to be the full height of the slider primarily for when there is no video which means there is no video icon
+//$("#homepage #sectionOne .slide").css({'height':($("#homepage #sectionOne .slick-track").height()+'px')});
+
 //TOGGLE CHEVRON FLIP ON FAQ AUCTION QUESTIONS
 $('#auctionContent .question').on( 'click', function() {
     $(this).find('.fa-chevron-down').toggleClass('rotate');
@@ -62,7 +71,7 @@ $(".video-thumb").click(function () {
 });
 
 //Handle the image thumbs
-$(".gallery-thumb").click(function () {
+$("#singleCar .gallery-thumb").click(function () {
   var video = $("#videoViewer iframe").attr("src");
   $("#videoViewer iframe").attr("src","");
   $("#videoViewer iframe").attr("src",video);

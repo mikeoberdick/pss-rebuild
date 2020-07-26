@@ -134,10 +134,31 @@ defined( 'ABSPATH' ) || exit;
 <?php } ?>
 
 <?php if ( is_page( 'homepage' ) ) { ?>
-	<!-- Begin Constant Contact Active Forms -->
+<!-- Begin Constant Contact Active Forms -->
 <script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
 <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 <!-- End Constant Contact Active Forms -->
+
+<script>
+	jQuery('#featuredSlider').slick({
+	    infinite: true,
+	    slidesToShow: 4,
+		slidesToScroll: 1,
+		dots: true,
+		arrows: false,
+		autoplay: true,
+  		autoplaySpeed: 2000,
+  	});
+</script>
+
+<script>
+    var offset = jQuery('.navbar').height();
+    jQuery("#scrollDown").on( "click", function(e) {
+    	e.preventDefault();
+        jQuery("html, body").animate({
+            scrollTop: jQuery('#homepage #sectionOne').offset().top - offset}, 0);
+    });
+</script>
 <?php } ?>
 
 <?php if ( is_page_template('templates/service.php') ) { ?>
