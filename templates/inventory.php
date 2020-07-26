@@ -17,10 +17,25 @@ get_header(); ?>
 				
 				<!-- Desktop Sorting -->
 				<div class="fancy my-3 controls">
-					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group' ) ); ?>
-		    		<?php foreach ( $terms as $term ) { ?>
-		    		<a class = "catButton" data-filter=".<?php echo $term->slug; ?>"><h4 class = "mb-0"><?php echo $term->name; ?></h4></a>
-		        	<?php } ?>
+		    		<a class = "catButton" data-filter=".all"><h4 class = "mb-0">All</h4></a>
+		    		<a class = "catButton" data-filter=".new_car"><h4 class = "mb-0">New</h4></a>
+		    		<a class = "catButton" data-filter=".pre_owned"><h4 class = "mb-0">Pre-Owned</h4></a>
+		    		
+		    		<?php //if there are auction cars we need to include a button for sorting
+		    		$query = new WP_Query(array(
+	    				'post_type' => 'car',
+	    				'meta_key' => 'flag',
+						'meta_value' => 'auction'
+					));
+					?>
+
+					<?php if( $query->have_posts() ) { ?>
+						    <a class = "catButton" data-filter=".auction"><h4 class = "mb-0">Auction</h4></a>
+						<?php } else {
+						    //do nothing
+						} ?>
+						<?php wp_reset_postdata(); ?>
+
 				</div><!-- .controls -->
 
 				<div class = "container">
@@ -33,20 +48,88 @@ get_header(); ?>
 
 				<div class="container">
 					<div id="cars" class="row">
-						<div class = "col-md-4 text-center mb-3 all car mix <?php echo $parent->slug; ?>">
-											
-									<article <?php post_class(); ?> data-link = "<?php echo get_term_link( $the_term ) ?>">
-										<?php
-										$image = get_field('transparent_thumbnail', $the_term->taxonomy . '_' . $the_term->term_id);
-										$size = 'blog-large';
-    									$thumb = $image['sizes'][ $size ];
-										?>
-										<img class = "mb-3" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-										<h5><?php echo $the_term->name;; ?></h5>
-								    </article>
+						<?php $args = array(  
+				        'post_type' => 'car',
+				        'post_status' => 'publish',
+				        'posts_per_page' => -1, 
+        				'orderby' => 'title', 
+        				'order' => 'DESC', 
+    					);
 
-								</div><!-- .car -->
-						    <?php } ?>
+    					$loop = new WP_Query( $args );
+    					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+    					<?php
+    					
+    					$status = strtolower(get_field('new-preowned'));
+    					if ( !empty($status) ) {
+	    					$status = preg_replace("/[^a-z0-9_\s-]/", "", $status);
+	    					$status = preg_replace("/[\s-]+/", " ", $status);
+	    					$status = ' ' . preg_replace("/[\s_]/", "_", $status);
+    					} else {
+    						$status = '';
+    					}
+    					
+    					$year = strtolower(get_field('year'));
+    					if ( !empty($year) ) {
+	    					$year = preg_replace("/[^a-z0-9_\s-]/", "", $year);
+	    					$year = preg_replace("/[\s-]+/", " ", $year);
+	    					$year = ' ' . preg_replace("/[\s_]/", "_", $year);
+	    				} else {
+	    					$year = '';
+	    				}
+    					
+    					$make = strtolower(get_field('coachbuilder'));
+    					if ( !empty($make) ) {
+    					$make = preg_replace("/[^a-z0-9_\s-]/", "", $make);
+    					$make = preg_replace("/[\s-]+/", " ", $make);
+    					$make = ' ' . preg_replace("/[\s_]/", "_", $make);
+	    				} else {
+	    					$make = '';
+	    				}
+    					
+    					$model = strtolower(get_field('model'));
+    					if ( !empty($model) ) {
+    					$model = preg_replace("/[^a-z0-9_\s-]/", "", $model);
+    					$model = preg_replace("/[\s-]+/", " ", $model);
+    					$model = ' ' . preg_replace("/[\s_]/", "_", $model);
+    					} else {
+	    					$model = '';
+	    				}
+    					
+    					$price = get_field('price');
+    					if ( is_numeric($price) && !empty($price) ) {
+							$price = number_format($price);
+							$price = strtolower($price);
+	    					$price = preg_replace("/[^a-z0-9_\s-]/", "", $price);
+	    					$price = preg_replace("/[\s-]+/", " ", $price);
+	    					$price = ' ' . preg_replace("/[\s_]/", "_", $price);
+    					} else {
+    						$price = ' call_for_pricing';
+    					}
+    					
+    					$flag = get_field('flag');
+    					//May need to add an additional condition to make it if it's not empty and it's equal to 'auction'
+    					if (!empty($flag)) {
+    						$flag = strtolower(get_field('flag'));
+    						$flag = preg_replace("/[^a-z0-9_\s-]/", "", $flag);
+    					$flag = preg_replace("/[\s-]+/", " ", $flag);
+    					$flag = ' ' . preg_replace("/[\s_]/", "_", $flag);
+    					} else {
+    						$flag = '';
+    					}
+    					?>
+
+    					<?php //grab variables to use for sorting
+    					$vars = $status . $year . $make . $model . $price . $flag;
+    					?>
+
+						<div class = "col-md-4 car mb-3 all<?php echo $vars; ?> mix">
+											
+						<?php get_template_part( 'snippets/car'); ?>
+
+						</div><!-- .col-md-4 -->
+					<?php endwhile; wp_reset_postdata(); ?>
 					</div><!-- .row -->
 				</div><!-- .container -->
 			</article><!-- #post-## -->

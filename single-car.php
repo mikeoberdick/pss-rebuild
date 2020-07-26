@@ -29,7 +29,7 @@ get_header(); ?>
 							</a><!-- #back -->	
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
-					<div class = "row mb-3">
+					<div id = "mainInfo" class = "row mb-3">
 						<div class="col-md-8">
 							<div id="imageViewer" class = "position-relative">
 								<div data-toggle="modal" data-target="#exampleModal">
@@ -51,7 +51,11 @@ get_header(); ?>
 						</div><!-- .col-md-8 -->
 						<div class="col-md-4">
 							<?php $price = get_field('price'); ?>
-							<h3 class="price mb-3"><?php if ($price) {echo '$' . $price;} else { echo 'Call For Pricing'; }
+							<h3 class="price mb-3 text-center">
+								<?php if ( !empty($price) ) {
+								$formattedPrice = number_format($price);
+								echo '$' . $formattedPrice;
+							} else { echo 'Call For Pricing'; }
 								?>
 							</h3>
 							<div class="contact-buttons mb-3">
@@ -253,14 +257,7 @@ get_header(); ?>
 						</div><!-- .container -->
 					</div><!-- #contactForm -->
 
-					<div id="relatedCars" class = "py-5">
-						<h3 class="fancy mb-3">Related Cars</h3>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-sm-12">
-									
-
-								<?php
+					<?php
 
 //get the taxonomy terms of custom post type
 $customTaxonomyTerms = wp_get_object_terms( $post->ID, 'model', array('fields' => 'ids') );
@@ -285,17 +282,23 @@ $args = array(
 $relatedPosts = new WP_Query( $args );
 
 //loop through query
-if($relatedPosts->have_posts()){
-    echo '<ul>';
-    while($relatedPosts->have_posts()){ 
-        $relatedPosts->the_post();
-?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-<?php
-    }
-    echo '</ul>';
-}else{
-    //no posts found
+if ( $relatedPosts->have_posts() ) { ?>
+	<div id="relatedCars" class = "py-5">
+		<h3 class="fancy mb-3">Related Cars</h3>
+			<div class="container-fluid">
+				<div class="row">
+    <?php while ( $relatedPosts->have_posts() ) { 
+        $relatedPosts-> the_post(); ?>
+        <div class="col-md-3">
+        	<?php get_template_part( 'snippets/car'); ?>
+        </div><!-- .col-md-3 -->
+<?php } ?>
+</div><!-- .row -->
+</div><!-- .container-fluid -->
+</div><!-- #relatedCars -->
+
+<?php } else {
+    //nothing to show
 }
 
 //restore original post data

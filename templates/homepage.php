@@ -73,31 +73,9 @@ get_header(); ?>
 				<div class="row">
 					<div id="featuredSlider" class="col-sm-12">
 					<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
-						<?php
-						$string = get_field('images');
-						$array = explode (",", $string); ?>
-						<div class="slide" data-link = "<?php the_permalink(); ?>">
-							<img src="<?php echo $array[0]; ?>">
-							<div class="featured-info content-wrapper p-3 mt-auto">
-		                    	<h5 class = "mb-3"><?php the_title(); ?></h5>
-		                    	<hr>
-		                    	<div class="d-flex justify-content-between align-items-center">
-		                    		<div class="price">
-		                    			<h4 class = "font-weight-bold">
-		                    				<?php $price = get_field('price'); ?>
-		                    				<?php if ($price) { echo '$' . $price; } else {
-												echo 'Call For Pricing';
-		                    				} ?></h4>
-		                    		</div><!-- .price -->
-		                    		<?php if (get_field('video')) : ?>
-		                    		<div class="video-icon d-flex justify-content-center align-items-center">
-		                    			<i class="gold fa-2x fa fa-youtube-play mr-2" aria-hidden="true"></i>
-		                    			<span class = "gold">Video<br>Available</span>
-		                    		</div><!-- .video-icon -->
-		                    		<?php endif; ?>
-		                    	</div>
-		                    </div><!-- .featured-info -->	
-						</div><!-- .slide -->  
+						
+						<?php get_template_part( 'snippets/car'); ?>
+					
 					<?php endforeach; ?>
 					</div><!-- #featuredSlider -->
 				</div><!-- .row -->

@@ -12147,6 +12147,20 @@ a {
   .arrows .next-arrow {
     right: 0; }
 
+.catButton {
+  padding: 0 20px; }
+  .catButton:hover h4 {
+    color: #CC9F53; }
+
+.mixitup-control-active h4 {
+  color: #CC9F53; }
+
+#currentCat {
+  border-bottom: solid 3px #CC9F53; }
+
+.link {
+  cursor: pointer; }
+
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
@@ -12199,10 +12213,6 @@ a {
     #homepage #sectionOne #featuredSlider .slick-list .slick-slide {
       cursor: pointer;
       margin: 0 10px; }
-      #homepage #sectionOne #featuredSlider .slick-list .slick-slide .slide {
-        background: white; }
-        #homepage #sectionOne #featuredSlider .slick-list .slick-slide .slide hr {
-          border-top: 3px solid #CC9F53; }
 
 #homepage #sectionFour #testimonialContent {
   color: #000; }
@@ -12246,20 +12256,20 @@ a {
       border: 0;
       background-color: black !important; }
 
-#singleCar .price {
+#singleCar #mainInfo .price {
   background: #4b4b4b;
   padding: 25px;
   border: solid #000; }
 
-#singleCar .contact-buttons button {
+#singleCar #mainInfo .contact-buttons button {
   font-size: 1.25rem;
   font-weight: bold;
   padding: 10px 20px; }
 
-#singleCar .contact-buttons #callUs {
+#singleCar #mainInfo .contact-buttons #callUs {
   border: solid 5px #CC9F53 !important; }
 
-#singleCar .spec {
+#singleCar #mainInfo .spec {
   background: black;
   font-weight: bold;
   display: -webkit-box;
@@ -12273,7 +12283,7 @@ a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 10px 15px; }
-  #singleCar .spec img {
+  #singleCar #mainInfo .spec img {
     -webkit-filter: brightness(0) invert(1);
             filter: brightness(0) invert(1); }
 
@@ -12408,23 +12418,6 @@ a {
   @media (min-width: 768px) {
     #allModels #hero {
       min-height: 500px; } }
-
-#allModels .fancy:before, #allModels .fancy:after {
-  margin: 0; }
-
-#allModels .catButton {
-  padding: 0 20px; }
-  #allModels .catButton:hover h4 {
-    color: #CC9F53; }
-
-#allModels .mixitup-control-active h4 {
-  color: #CC9F53; }
-
-#allModels #currentCat {
-  border-bottom: solid 3px #CC9F53; }
-
-#allModels .car article {
-  cursor: pointer; }
 
 .tax-model #taxHero {
   height: 75vh;
@@ -12657,6 +12650,16 @@ a {
 
 #accessoryDetail .accessory-section:last-of-type hr {
   display: none; }
+
+#inventory .car-wrapper {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+#inventory .car:hover .car-wrapper {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 /*
 * Use existing Bootstrap 4 classes and

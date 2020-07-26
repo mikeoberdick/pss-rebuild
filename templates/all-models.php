@@ -62,9 +62,9 @@ get_header(); ?>
 						        $parent  = get_term( $term_id, 'model');
 						    } ?>
 
-						    <div class = "col-md-4 text-center mb-3 car mix <?php echo $parent->slug; ?>">
+						    <div class = "col-md-4 text-center mb-3 model mix <?php echo $parent->slug; ?>">
 											
-									<article <?php post_class(); ?> data-link = "<?php echo get_term_link( $the_term ) ?>">
+									<div class = 'model-wrapper link' data-link = "<?php echo get_term_link( $the_term ) ?>">
 										<?php
 										$image = get_field('transparent_thumbnail', $the_term->taxonomy . '_' . $the_term->term_id);
 										$size = 'blog-large';
@@ -72,9 +72,8 @@ get_header(); ?>
 										?>
 										<img class = "mb-3" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 										<h5><?php echo $the_term->name;; ?></h5>
-								    </article>
-
-								</div><!-- .car -->
+								    </div><!-- .model-wrapper -->
+								</div><!-- .model -->
 						    <?php } ?>
 					</div><!-- .row -->
 				</div><!-- .container -->

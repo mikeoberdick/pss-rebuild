@@ -482,7 +482,6 @@ a {
     }
   }
 }
-
 .arrows {
     position: absolute;
     left: 0;
@@ -520,6 +519,26 @@ a {
   .next-arrow {
     right: 0;
   }
+}
+
+.catButton {
+  padding: 0 20px;
+  &:hover {
+    h4 {
+      color: $gold;  
+    } 
+  }
+}
+.mixitup-control-active {
+  h4 {
+    color: $gold;
+  }
+}
+#currentCat {
+  border-bottom: solid 3px $gold;
+}
+.link {
+  cursor: pointer;
 }
 
 //HOMEPAGE
@@ -569,12 +588,6 @@ a {
         .slick-slide {
           cursor: pointer;
           margin: 0 10px;
-          .slide {
-            background: white;
-            hr {
-              border-top: 3px solid $gold; 
-            }
-          }
         }
       }  
     }
@@ -639,31 +652,33 @@ a {
 
 //SINGLE CAR
 #singleCar {
-  .price {
-    background: #4b4b4b;
-    padding: 25px;
-    border: solid #000;
-  }
-  .contact-buttons {
-    button {
-      font-size: 1.25rem;
+  #mainInfo {
+     .price {
+      background: #4b4b4b;
+      padding: 25px;
+      border: solid #000;
+    }
+    .contact-buttons {
+      button {
+        font-size: 1.25rem;
+        font-weight: bold;
+        padding: 10px 20px;
+      }
+      #callUs {
+       border: solid 5px $gold !important;
+      }
+    }
+    .spec {
+      background: black;
       font-weight: bold;
-      padding: 10px 20px;
-    }
-    #callUs {
-     border: solid 5px $gold !important;
-    }
-  }
-  .spec {
-    background: black;
-    font-weight: bold;
-    display: flex;
-    margin-bottom: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    img {
-      filter: brightness(0) invert(1);
+      display: flex;
+      margin-bottom: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      img {
+        filter: brightness(0) invert(1);
+      }
     }
   }
   #modalLauncher {
@@ -805,32 +820,6 @@ a {
     flex-direction: column;
     @include media-breakpoint-up(md) {
       min-height: 500px;
-    }
-  }
-  .fancy {
-    &:before, &:after {
-      margin: 0;
-    }
-  }
-  .catButton {
-    padding: 0 20px;
-    &:hover {
-      h4 {
-        color: $gold;  
-      } 
-    }
-  }
-  .mixitup-control-active {
-    h4 {
-      color: $gold;
-    }
-  }
-  #currentCat {
-    border-bottom: solid 3px $gold;
-  }
-  .car {
-    article {
-      cursor: pointer;
     }
   }
 }
@@ -1165,6 +1154,19 @@ a {
       hr {
         display: none;
       }
+    }
+  }
+}
+
+//INVENTORY
+#inventory {
+  .car-wrapper {
+    transition: all 0.2s ease-in-out;
+  }
+  .car:hover {
+    .car-wrapper {
+      transform: scale(1.05);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
   }
 }

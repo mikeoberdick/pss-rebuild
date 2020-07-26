@@ -17,18 +17,28 @@ else {
 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
 
 //NOW SHOWING ON ALL MODELS PAGE
-$( ".catButton" ).click(function() {
+$( "#allModels .catButton" ).click(function() {
 	$( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
+$( "#inventory .catButton" ).click(function() {
+  $( "span#currentCat" ).text( $(this).text() );
+});
+
 //FULL CAR DIV CLICKABLE LINK
-$('.car article').on('click', function(e){
+$('.link').on('click', function(e){
   e.preventDefault();
   window.location.href=$(this).data('link');
 });
 
 //Make each slide fully clickable on homepage featured slider
 $('#homepage #sectionOne .slide').on('click', function(e){
+  e.preventDefault();
+  window.location.href=$(this).data('link');
+});
+
+//Make each related car fully clickable in related cars section
+$('#singleCar #relatedCars .related-car').on('click', function(e){
   e.preventDefault();
   window.location.href=$(this).data('link');
 });

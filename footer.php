@@ -133,6 +133,17 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
+<?php if ( is_page( 'inventory' ) ) { ?>
+	<script>
+	    var containerEl = document.querySelector('#cars');
+	    var mixer = mixitup(containerEl, {
+	    	load: {
+	        	filter: '.all'
+	    	}
+		});
+	</script>
+<?php } ?>
+
 <?php if ( is_page( 'homepage' ) ) { ?>
 <!-- Begin Constant Contact Active Forms -->
 <script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
