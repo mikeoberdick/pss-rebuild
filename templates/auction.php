@@ -27,16 +27,34 @@ get_header(); ?>
 					</div><!-- .container -->
 				</div><!-- #hero -->
 
-				<div id="auctionCars">
-					<h3 class="fancy mb-5">
-						This Week's Auction
+				<?php $posts = get_posts(array(
+					'posts_per_page'	=> -1,
+					'post_type'			=> 'car',
+					'meta_key'		=> 'flag',
+					'meta_value'	=> 'Parks Auction'
+				));
+
+				//If there are cars marked as parks_featured
+				if( $posts ): ?>
+					<h3 class="fancy mb-0">
+						Currently Up For Auction
 					</h3><!-- .fancy -->
-					<div class="container mb-3">
+					
+					<section id="auctioncars" class = "py-5 p-relative container-fluid">
 						<div class="row">
-							auction cars here...make it conditional
+							<div id="auctionSlider" class="col-sm-12">
+							<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
+								
+								<?php get_template_part( 'snippets/car'); ?>
+							
+							<?php endforeach; ?>
+							</div><!-- #auctionSlider -->
 						</div><!-- .row -->
-					</div><!-- .container -->
-				</div><!-- #auctionCars -->
+					</section><!-- #auctionCars -->
+					
+					<?php wp_reset_postdata(); ?>
+
+				<?php endif; ?>
 				
 				<?php $content = get_field('content_box'); ?>
 				<div id="auctionContent" class="container mb-5">

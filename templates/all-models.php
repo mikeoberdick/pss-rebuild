@@ -23,7 +23,7 @@ get_header(); ?>
 				
 				<!-- Desktop Sorting -->
 				<div class="fancy my-3 controls">
-					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group' ) ); ?>
+					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group', 'exclude' => array( 241, 246, 274 ), ) ); ?>
 		    		<?php foreach ( $terms as $term ) { ?>
 		    		<a class = "catButton" data-filter=".<?php echo $term->slug; ?>"><h4 class = "mb-0"><?php echo $term->name; ?></h4></a>
 		        	<?php } ?>

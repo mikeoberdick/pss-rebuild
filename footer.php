@@ -228,6 +228,20 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
+<?php if ( is_page_template('templates/auction.php') ) { ?>
+	<script>
+		jQuery('#auctionSlider').slick({
+		    infinite: true,
+		    slidesToShow: 4,
+			slidesToScroll: 1,
+			dots: true,
+			arrows: false,
+			autoplay: true,
+	  		autoplaySpeed: 2000,
+	  	});
+	</script>
+<?php } ?>
+
 </body>
 
 </html>

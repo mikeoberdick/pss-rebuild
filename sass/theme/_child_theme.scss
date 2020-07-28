@@ -540,6 +540,107 @@ a {
 .link {
   cursor: pointer;
 }
+.car {
+  .ribbon {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    text-align: right;
+    span {
+      font-size: 12px;
+      font-weight: bold;
+      color: #FFF;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 28px;
+      transform: rotate(45deg);
+      width: 145px;
+      display: block;
+      background: $gold;
+      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+      position: absolute;
+      top: 28px;
+      right: -31px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 100%;
+        z-index: -1;
+        border: 3px solid;
+        border-right-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 100%;
+        z-index: -1;
+        border: 3px solid;
+        border-left-color: transparent !important;
+        border-bottom-color: transparent !important;
+      }
+    }
+  }
+  .deal-pending {
+    //Green
+    span {
+      background: linear-gradient(#45A116 0%, #4A6606 100%);
+      &:before, &:after {
+        border-color: #4A6606;
+      }
+    }
+  }
+  .consignment {
+    //Blue
+    span {
+      background: linear-gradient(#0E62A1 0%, #284773 100%);
+      &:before, &:after {
+        border-color: #284773;
+      }
+    }
+  }
+  .parks-auction {
+    //Yellow
+    span {
+      color: #000;
+      background: linear-gradient(#FFE014 0%, #D9D216 100%);
+      &:before, &:after {
+        border-color: #D9D216;
+      }
+    }
+  }
+  .as-is {
+    //Red
+    span {
+      background: linear-gradient(#F70505 0%, #8F0808 100%);
+      &:before, &:after {
+        border-color: #8F0808;
+      }
+    }
+  }
+  .ebay-auction {
+    //Orange
+    span {
+      background: linear-gradient(#F79E05 0%, #8F5408 100%);
+      &:before, &:after {
+        border-color: #8F5408;
+      }
+    }
+  }
+}
+.car-wrapper {
+  transition: all 0.2s ease-in-out;
+}
+.car:hover > .car-wrapper {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 //HOMEPAGE
 #homepage {
@@ -584,13 +685,17 @@ a {
     background: #000;
     #featuredSlider {
       .slick-list {
-        margin: 0 -10px;
         .slick-slide {
           cursor: pointer;
-          margin: 0 10px;
+          .car-wrapper {
+            transform: scale(.90);
+          }
         }
       }  
     }
+  }
+  #featuredSlider .car:hover>.car-wrapper {
+    transform: scale(.95) !important;
   }
   #sectionFour {
     #testimonialContent {
@@ -877,6 +982,19 @@ a {
 
 //Auction
 #auction {
+  #auctionSlider {
+      .slick-list {
+        .slick-slide {
+          cursor: pointer;
+          .car-wrapper {
+            transform: scale(.90);
+          }
+        }
+      }  
+    }
+  #auctionSlider .car:hover>.car-wrapper {
+    transform: scale(.95);
+  }
   #auctionContent {
     #auctionHeader {
       text-align: center;
@@ -1158,15 +1276,6 @@ a {
   }
 }
 
-//INVENTORY
-#inventory {
-  .car-wrapper {
-    transition: all 0.2s ease-in-out;
-  }
-  .car:hover {
-    .car-wrapper {
-      transform: scale(1.05);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
-  }
+#shipping {
+  background-attachment: fixed !important;
 }

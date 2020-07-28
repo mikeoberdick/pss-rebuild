@@ -45,7 +45,9 @@ get_header(); ?>
 								</div><!-- #galleryNav -->
 							</div><!-- #imageViewer -->
 							<div id="videoViewer" class = "d-none embed-responsive embed-responsive-16by9">
-							<?php $videoURL = get_field('video'); $videoID = substr($videoURL, -11); ?>
+							<?php //Get the video url and then strip everything after and including the ? so it's just the ID
+							$videoURL = get_field('video');
+							$videoID = strtok($videoURL, '?'); ?>
 							<iframe class = "embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
 						</div><!-- .col-md-8 -->
@@ -261,6 +263,7 @@ get_header(); ?>
 
 //get the taxonomy terms of custom post type
 $customTaxonomyTerms = wp_get_object_terms( $post->ID, 'model', array('fields' => 'ids') );
+$year = get_field('year');
 
 //query arguments
 $args = array(
@@ -275,6 +278,19 @@ $args = array(
             'terms' => $customTaxonomyTerms
         )
     ),
+    'meta_query' => array(
+    	'relation' => 'AND',
+    	array(
+            'key' => 'year',
+            'value' => $year,
+            'compare' => '='
+        ),
+		array(
+			'key'		=> 'flag',
+			'value'		=> 'parks_auction',
+			'compare'	=> '!='
+		)
+	),
     'post__not_in' => array ($post->ID),
 );
 

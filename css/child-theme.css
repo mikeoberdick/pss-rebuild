@@ -12161,6 +12161,92 @@ a {
 .link {
   cursor: pointer; }
 
+.car .ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  text-align: right; }
+  .car .ribbon span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 28px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    width: 145px;
+    display: block;
+    background: #CC9F53;
+    -webkit-box-shadow: 0 3px 10px -5px black;
+            box-shadow: 0 3px 10px -5px black;
+    position: absolute;
+    top: 28px;
+    right: -31px; }
+    .car .ribbon span:before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 100%;
+      z-index: -1;
+      border: 3px solid;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important; }
+    .car .ribbon span:after {
+      content: "";
+      position: absolute;
+      right: 0px;
+      top: 100%;
+      z-index: -1;
+      border: 3px solid;
+      border-left-color: transparent !important;
+      border-bottom-color: transparent !important; }
+
+.car .deal-pending span {
+  background: -webkit-gradient(linear, left top, left bottom, from(#45A116), to(#4A6606));
+  background: linear-gradient(#45A116 0%, #4A6606 100%); }
+  .car .deal-pending span:before, .car .deal-pending span:after {
+    border-color: #4A6606; }
+
+.car .consignment span {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0E62A1), to(#284773));
+  background: linear-gradient(#0E62A1 0%, #284773 100%); }
+  .car .consignment span:before, .car .consignment span:after {
+    border-color: #284773; }
+
+.car .parks-auction span {
+  color: #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFE014), to(#D9D216));
+  background: linear-gradient(#FFE014 0%, #D9D216 100%); }
+  .car .parks-auction span:before, .car .parks-auction span:after {
+    border-color: #D9D216; }
+
+.car .as-is span {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F70505), to(#8F0808));
+  background: linear-gradient(#F70505 0%, #8F0808 100%); }
+  .car .as-is span:before, .car .as-is span:after {
+    border-color: #8F0808; }
+
+.car .ebay-auction span {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F79E05), to(#8F5408));
+  background: linear-gradient(#F79E05 0%, #8F5408 100%); }
+  .car .ebay-auction span:before, .car .ebay-auction span:after {
+    border-color: #8F5408; }
+
+.car-wrapper {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+.car:hover > .car-wrapper {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
@@ -12208,11 +12294,15 @@ a {
 
 #homepage #sectionOne {
   background: #000; }
-  #homepage #sectionOne #featuredSlider .slick-list {
-    margin: 0 -10px; }
-    #homepage #sectionOne #featuredSlider .slick-list .slick-slide {
-      cursor: pointer;
-      margin: 0 10px; }
+  #homepage #sectionOne #featuredSlider .slick-list .slick-slide {
+    cursor: pointer; }
+    #homepage #sectionOne #featuredSlider .slick-list .slick-slide .car-wrapper {
+      -webkit-transform: scale(0.9);
+              transform: scale(0.9); }
+
+#homepage #featuredSlider .car:hover > .car-wrapper {
+  -webkit-transform: scale(0.95) !important;
+          transform: scale(0.95) !important; }
 
 #homepage #sectionFour #testimonialContent {
   color: #000; }
@@ -12453,6 +12543,16 @@ a {
   background-position: center !important;
   background-repeat: no-repeat !important; }
 
+#auction #auctionSlider .slick-list .slick-slide {
+  cursor: pointer; }
+  #auction #auctionSlider .slick-list .slick-slide .car-wrapper {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9); }
+
+#auction #auctionSlider .car:hover > .car-wrapper {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95); }
+
 #auction #auctionContent #auctionHeader {
   text-align: center;
   text-transform: uppercase;
@@ -12651,15 +12751,8 @@ a {
 #accessoryDetail .accessory-section:last-of-type hr {
   display: none; }
 
-#inventory .car-wrapper {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
-
-#inventory .car:hover .car-wrapper {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+#shipping {
+  background-attachment: fixed !important; }
 
 /*
 * Use existing Bootstrap 4 classes and
