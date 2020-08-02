@@ -757,6 +757,13 @@ a {
 
 //SINGLE CAR
 #singleCar {
+  #auctionLink {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
   #mainInfo {
      .price {
       background: #4b4b4b;

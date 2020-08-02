@@ -2,12 +2,12 @@
 $images = get_field('images');
 $imageList = explode (",", $images);
 
-$year = get_field('year');
-$make = get_field('make');
-$coachbuilder = get_field('coachbuilder');
-$model = get_field('model');
-$chassis = get_field('chassis');
-$body = get_field('body');
+$year = get_field('year'); //2020
+$make = get_field('make'); //Cadillac
+$coachbuilder = get_field('coachbuilder');  //Platinum Coach
+$model = get_field('model'); //Phoenix
+$chassis = get_field('chassis'); //XTS
+$body = get_field('body'); //Hearse
 ?>
 
 <div class="car link" data-link = "<?php the_permalink(); ?>">

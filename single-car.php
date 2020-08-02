@@ -29,9 +29,15 @@ get_header(); ?>
 							</a><!-- #back -->	
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
+
 					<div id = "mainInfo" class = "row mb-3">
 						<div class="col-md-8">
+							<?php $flag = get_field('flag'); ?>
 							<div id="imageViewer" class = "position-relative">
+								<?php if ($flag === 'Parks Auction') : ?>
+									<a href="/auction">
+									<img id = "auctionLink" src="<?php echo get_stylesheet_directory_uri() . '/img/click_to_bid.png' ?>" alt="Parks Auction Car: Click to Bid!"></a>
+								<?php endif;?>
 								<div data-toggle="modal" data-target="#exampleModal">
 								<a id = "modalLauncher" class = "position-absolute"  data-target="#carouselExample" data-slide-to="0" class = "position-absolute" href = '<?php echo bloginfo('url'); ?>/'><button role = 'button' class = 'btn gold-button'>VIEW HD IMAGES</button></a></div>
 								<img id = "featuredImage" src="<?php echo $images[0]; ?>" alt="Featured Image" data-slide-to = "0">
@@ -261,11 +267,11 @@ get_header(); ?>
 
 					<?php
 
-//get the taxonomy terms of custom post type
+//get the taxonomy terms of this car as well as the year for our query
 $customTaxonomyTerms = wp_get_object_terms( $post->ID, 'model', array('fields' => 'ids') );
 $year = get_field('year');
 
-//query arguments
+//Set the query to car post type, get 4 published posts, randomly ordered, and including the model taxonomy terms for this car
 $args = array(
     'post_type' => 'car',
     'post_status' => 'publish',
@@ -278,44 +284,46 @@ $args = array(
             'terms' => $customTaxonomyTerms
         )
     ),
+    //Get cars that match this year as well as those one year newer and one year older
     'meta_query' => array(
-    	'relation' => 'AND',
     	array(
             'key' => 'year',
             'value' => $year,
             'compare' => '='
-        ),
-		array(
-			'key'		=> 'flag',
-			'value'		=> 'parks_auction',
-			'compare'	=> '!='
-		)
-	),
+        )
+    ),
+    'meta_query' => array(
+    	array(
+            'key' => 'year',
+            'value' => array($year - 2, $year + 2 ),
+            'type' => 'numeric',
+            'compare' => 'between'
+        )
+    ),
     'post__not_in' => array ($post->ID),
 );
 
-//the query
-$relatedPosts = new WP_Query( $args );
+	//the query
+	$relatedPosts = new WP_Query( $args );
+		
+		//Loop through the query
+		if ( $relatedPosts->have_posts() ) : ?>
+			<div id="relatedCars" class = "py-5">
+				<h3 class="fancy mb-3">Related Cars</h3>
+					<div class="container-fluid">
+						<div class="row">
+						    <?php while ( $relatedPosts->have_posts() ) { 
+						        $relatedPosts-> the_post(); ?>
+						        <div class="col-md-3">
+						        	<?php get_template_part( 'snippets/car'); ?>
+						        </div><!-- .col-md-3 -->
+							<?php } ?>
 
-//loop through query
-if ( $relatedPosts->have_posts() ) { ?>
-	<div id="relatedCars" class = "py-5">
-		<h3 class="fancy mb-3">Related Cars</h3>
-			<div class="container-fluid">
-				<div class="row">
-    <?php while ( $relatedPosts->have_posts() ) { 
-        $relatedPosts-> the_post(); ?>
-        <div class="col-md-3">
-        	<?php get_template_part( 'snippets/car'); ?>
-        </div><!-- .col-md-3 -->
-<?php } ?>
-</div><!-- .row -->
-</div><!-- .container-fluid -->
+		</div><!-- .row -->
+	</div><!-- .container-fluid -->
 </div><!-- #relatedCars -->
 
-<?php } else {
-    //nothing to show
-}
+<?php endif;
 
 //restore original post data
 wp_reset_postdata();

@@ -25,12 +25,12 @@ get_header(); ?>
 		    		$query = new WP_Query(array(
 	    				'post_type' => 'car',
 	    				'meta_key' => 'flag',
-						'meta_value' => 'auction'
+						'meta_value' => 'Parks Auction'
 					));
 					?>
 
 					<?php if( $query->have_posts() ) { ?>
-						    <a class = "catButton" data-filter=".auction"><h4 class = "mb-0">Auction</h4></a>
+						    <a class = "catButton" data-filter=".parks_auction"><h4 class = "mb-0">Auction</h4></a>
 						<?php } else {
 						    //do nothing
 						} ?>

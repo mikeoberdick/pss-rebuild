@@ -12346,6 +12346,14 @@ a {
       border: 0;
       background-color: black !important; }
 
+#singleCar #auctionLink {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%); }
+
 #singleCar #mainInfo .price {
   background: #4b4b4b;
   padding: 25px;
