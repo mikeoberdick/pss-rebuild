@@ -69,39 +69,13 @@ get_header(); ?>
 		</div><!-- .container -->
 	<?php endif; ?>
 
-	<?php $contact = get_field('contact'); ?>
-				<h3 class = "fancy">Contact The <?php echo $contact['department']; ?> Today</h3>
-				<div class="container mb-5">
-					<div class="row content-wrapper p-5">
-						<div class="col-md-5 text-right">
-							<?php $img = $contact['image']; ?>
-							<img class = "pr-3 w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
-						</div><!-- .col-md-5 -->
-						<div class="col-md-7 contact-border">
-							<div class="pl-3">
-							<h3 class = "mb-0 red"><?php echo $contact['name']; ?></h3>
-							<h5 class = "mb-3 gray font-weight-bold"><?php echo $contact['title']; ?></h5>
-							<?php if ($contact['office_number']) : ?>
-							<?php $office = preg_replace('/[^0-9]/', '', $contact['office_number']); ?>
-
-							<a href="tel:<?php echo $office ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-3" aria-hidden="true"></i>Call Office</button></a>
-							<?php endif; ?>
-							<?php if ($contact['mobile_number']) : ?>
-							<?php $mobile = preg_replace('/[^0-9]/', '', $contact['mobile_number']); ?>
-							<a href="tel:<?php echo $mobile ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-mobile mr-3" aria-hidden="true"></i>Call Mobile</button></a>
-							<?php endif; ?>
-							<?php $first = explode(' ',trim($contact['name'])); ?>
-							<a target = '_blank' href = 'mailto:<?php echo $contact['email']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-envelope-o mr-3" aria-hidden="true"></i>Email <?php echo $first[0]; ?></button></a>	
-							</div>
-						</div><!-- .col-md-7 -->
-					</div><!-- .row -->
-				</div><!-- .container -->
+	<?php get_template_part( 'snippets/contact-box'); ?>
 				
 				<h3 class="fancy">Additional Accessories</h3>
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-12">
-						<ul class="additional-services-buttons list-unstyled d-flex justify-content-around w-100">
+						<ul class="additional-services-buttons list-unstyled d-flex align-items-center w-100">
 				<?php wp_list_pages(array(
 				    'child_of' => $post->post_parent,
 				    'exclude' => $post->ID,
@@ -113,6 +87,16 @@ get_header(); ?>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container-fluid -->
+
+				<h3 class="fancy">Related Department</h3>
+				<div class="container mb-5">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+						<a href="/parts-accessories/parts"><button role="button" class="btn gold-button mb-3">Parts</button></a>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				
+				</div><!-- .container -->
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->

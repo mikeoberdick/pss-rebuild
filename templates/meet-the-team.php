@@ -16,18 +16,17 @@ get_header(); ?>
 
   				<?php get_template_part( 'snippets/page_header'); ?>
 				
-				<div class="container mt-3">
-					
-					<div class="row">
+				<div class="container mt-5">
+					<div class="row mb-5">
 						<div class="col-sm-12">
-							<p><?php the_field('general_copy'); ?></p>
+							<p class = "p-3"><?php the_field('general_copy'); ?></p>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
+				</div><!-- .container -->
 					
+					<h3 class = "fancy">Sales</h3>
+					<div class="container">
 					<div class="row mt-3">
-						<div class="col-sm-12 mb-3">
-							<h3 class = "fancy">Sales</h3>
-						</div><!-- .col-sm-12 -->
 						<?php $salesCount = 0; ?>
 						<?php while( have_rows('sales_staff') ): the_row(); ?>
 						<div class="col-md-3 col-lg-4 mb-5 text-center">
@@ -68,11 +67,11 @@ get_header(); ?>
 						</div>
 						<?php $salesCount++; endwhile; ?>
 					</div><!-- .row -->
-
+				</div><!-- .container -->
+					
+					<h3 class = "fancy">Service</h3>
+					<div class="container">
 					<div class="row mt-3">
-						<div class="col-sm-12 mb-3">
-							<h3 class = "fancy">Service</h3>
-						</div><!-- .col-sm-12 -->
 						<?php $serviceCount = 0; ?>
 						<?php while( have_rows('service_staff') ): the_row(); ?>
 						<div class="col-md-3 col-lg-4 mb-3 text-center">
@@ -113,11 +112,11 @@ get_header(); ?>
 						</div>
 						<?php $serviceCount++; endwhile; ?>
 					</div><!-- .row -->
-
-					<div class="row mt-3">
-						<div class="col-sm-12 mb-3">
-							<h3 class = "fancy">Office</h3>
-						</div><!-- .col-sm-12 -->
+					</div><!-- .container -->
+					
+					<h3 class = "fancy">Office</h3>
+					<div class="container">
+						<div class="row mt-3">
 						<?php $officeCount = 0; ?>
 						<?php while( have_rows('office_staff') ): the_row(); ?>
 						<div class="col-md-3 col-lg-4 mb-5 text-center">
@@ -158,11 +157,11 @@ get_header(); ?>
 						</div>
 						<?php $salesCount++; endwhile; ?>
 					</div><!-- .row -->
-
-					<div class="row mt-3">
-						<div class="col-sm-12 mb-3">
-							<h3 class = "fancy">Drivers</h3>
-						</div><!-- .col-sm-12 -->
+					</div><!-- .container -->
+					
+					<h3 class = "fancy">Drivers</h3>
+					<div class="container">
+						<div class="row mt-3">
 						<?php $driversCount = 0; ?>
 						<?php while( have_rows('drivers_staff') ): the_row(); ?>
 						<div class="col-md-3 col-lg-4 mb-5 text-center">
@@ -203,7 +202,6 @@ get_header(); ?>
 						</div>
 						<?php $salesCount++; endwhile; ?>
 					</div><!-- .row -->
-
 				</div><!-- .container -->
 
 			</article><!-- #post-## -->

@@ -12,17 +12,33 @@ else {
 	alert('NEED TO REMOVE NOINDEX FROM HEADER & THIS LINE FROM JS');
 }
 
-
 /////////////////  PUSH DOWN FOOTER  \\\\\\\\\\\\\\\\\
 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
 
-//NOW SHOWING ON ALL MODELS PAGE
+//NOW SHOWING ON ALL MODELS - DESKTOP
 $( "#allModels .catButton" ).click(function() {
 	$( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
-$( "#inventory .catButton" ).click(function() {
-  $( "span#currentCat" ).text( $(this).text() );
+//NOW SHOWING ON INVENTORY - DESKTOP
+$( "#inventory #status .catButton" ).click(function() {
+  $( "span#first" ).text( $(this).text() );
+});
+$( "#inventory #body .catButton" ).click(function() {
+  $( "span#second" ).text( $(this).text() + 's' );
+});
+
+//NOW SHOWING ON ALL MODELS - MOBILE
+$( "#allModels #mobileControls select" ).on('change', function(e){
+  $( "span#currentCat" ).text( this.value + 's' );
+});
+
+//NOW SHOWING ON ALL INVENTORY - MOBILE
+$( "#inventory #mobileStatus select" ).on('change', function(e){
+  $( "span#first" ).text( $(this).find('option:selected').text() );
+});
+$( "#inventory #mobileBody select" ).on('change', function(e){
+  $( "span#second" ).text( $(this).find('option:selected').text() + 's' );
 });
 
 //FULL CAR DIV CLICKABLE LINK
@@ -43,20 +59,19 @@ $('#singleCar #relatedCars .related-car').on('click', function(e){
   window.location.href=$(this).data('link');
 });
 
-//Force each featured car slide to be the full height of the slider primarily for when there is no video which means there is no video icon
-//$("#homepage #sectionOne .slide").css({'height':($("#homepage #sectionOne .slick-track").height()+'px')});
-
 //TOGGLE CHEVRON FLIP ON FAQ AUCTION QUESTIONS
 $('#auctionContent .question').on( 'click', function() {
     $(this).find('.fa-chevron-down').toggleClass('rotate');
 });
 
 //Push page down to acommodate the fixed nav
-var navHeight = ( $('#wrapper-navbar').height() );
-$('.page-wrapper').css('padding-top', navHeight);
+$(window).load(function(){
+var navHeight = $('.navbar').outerHeight();
+$('.page-wrapper').css('padding-top', navHeight + 'px');
+});
+
 
 //SINGLE CAR PAGE GALLERY
-
 //If thumb is last in gallery go to first one (after video)
 $.fn.nextOrFirst = function (selector) {
   var next = this.next(selector);
@@ -124,7 +139,7 @@ $("#next").click(function () {
 $('#exampleModal').on('hidden.bs.modal', function (e) {
   var currentIndex = $('.carousel-item.active').index();
   $('.gallery-thumb').eq(currentIndex).trigger('click');
-})
+});
 
 //LOAD MORE PHOTOS IN Single Car GALLERY
 $('#singleCar .more-photos').on( 'click', function() {
@@ -155,7 +170,34 @@ $('#secondaryCarousel .gallery-thumb img').click(function(){
     $('#altLargeImage').attr('src',$(this).attr('src').replace('thumb','large'));
 });
 
+//Dynamically add the stock number and first image url to the Message Us form's hidden fields in order to send along in the notification emamil
+var stock = $('#stock').text();
+var image = $('#featuredImage').attr('src');
+//Add the stock number
+$("#nf-field-63").val(stock).trigger('change');
+//Add the image url
+$("#nf-field-64").val(image).trigger('change');
 
+//Get the largest height of the featured cars and make them all match that height
+var featuredHeights = $("#featuredSlider .car-wrapper").map(function() {
+  return $(this).height();
+  }).get();
+
+var featuredMaxHeight = Math.max.apply(null, featuredHeights);
+$('#featuredSlider .car-wrapper').each(function() {
+  $(this).css('height', featuredMaxHeight + 'px');
+});
+
+//Get the largest height of the related cars and make them all match that height
+$(window).on("load", function() {
+  var relatedHeights = $("#relatedCars .car-wrapper").map(function() {
+  return $(this).height();
+  }).get();
+var relatedMaxHeight = Math.max.apply(null, relatedHeights);
+$('#relatedCars .car-wrapper').each(function() {
+  $(this).css('height', relatedMaxHeight + 'px');
+});
+});
 
 //end of document ready call
 });

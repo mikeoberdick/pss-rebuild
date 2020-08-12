@@ -60,9 +60,9 @@ get_header(); ?>
 				                <div class = "slide gallery-thumb">
 				                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
 				                </div>
-				            <?php endforeach; ?>
-				            <div class="arrows"></div>	
+				            <?php endforeach; ?>  	
 						</div><!-- #imageCarousel -->
+						<div class="arrows"></div>
 						</div><!-- .row -->
 					</div><!-- .container -->
 

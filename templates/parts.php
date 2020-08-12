@@ -42,9 +42,23 @@ get_header(); ?>
 				<div id="partsCatalog" class = "container">
 					<div class="row">
 						<?php while ( have_rows('parts') ) : the_row(); ?>
-							<div class="col-md-4 mb-3">
-								<?php $img = get_sub_field('image'); ?>
-								<img class = "mb-3" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+							<div class="part col-md-4 mb-3">
+								<div class="image-wrapper position-relative">
+									<?php $images = get_sub_field('images');
+									$count = count($images); ?>
+									<?php if( $count == 1 ) { ?>
+									<img class = "mb-3" src="<?php echo $images[0]['url']; ?>" alt="<?php echo $images[0]['alt']; ?>">
+									<?php } else { ?>
+									<div class = "parts-image-gallery">
+					        			<?php foreach( $images as $image ): ?>
+					                		<div class = "slide">
+					                    		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					                		</div>
+					            		<?php endforeach; ?>
+					            	</div><!-- .parts-image-gallery -->
+				            	<div class="arrows"></div><!-- .arrows -->
+								<?php } ?>
+								</div><!-- .image-wrapper -->
 								<h4 class="gold mb-3 text-center"><?php the_sub_field('name'); ?></h4>
 								<p><?php the_sub_field('description'); ?></p>
 							</div><!-- .col-md-4 -->
@@ -52,32 +66,16 @@ get_header(); ?>
 					</div><!-- .row -->
 				</div><!-- #partsCatalog -->
 
-				<?php $contact = get_field('contact'); ?>
-				<h3 class = "fancy">Contact The <?php echo $contact['department']; ?> Today</h3>
-				<div class="container mb-5">
-					<div class="row content-wrapper p-5">
-						<div class="col-md-5 text-right">
-							<?php $img = $contact['image']; ?>
-							<img class = "pr-3 w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
-						</div><!-- .col-md-5 -->
-						<div class="col-md-7 contact-border">
-							<div class="pl-3">
-							<h3 class = "mb-0 red"><?php echo $contact['name']; ?></h3>
-							<h5 class = "mb-3 gray font-weight-bold"><?php echo $contact['title']; ?></h5>
-							<?php if ($contact['office_number']) : ?>
-							<?php $office = preg_replace('/[^0-9]/', '', $contact['office_number']); ?>
+				<?php get_template_part( 'snippets/contact-box'); ?>
 
-							<a href="tel:<?php echo $office ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-3" aria-hidden="true"></i>Call Office</button></a>
-							<?php endif; ?>
-							<?php if ($contact['mobile_number']) : ?>
-							<?php $mobile = preg_replace('/[^0-9]/', '', $contact['mobile_number']); ?>
-							<a href="tel:<?php echo $mobile ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-mobile mr-3" aria-hidden="true"></i>Call Mobile</button></a>
-							<?php endif; ?>
-							<?php $first = explode(' ',trim($contact['name'])); ?>
-							<a target = '_blank' href = 'mailto:<?php echo $contact['email']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-envelope-o mr-3" aria-hidden="true"></i>Email <?php echo $first[0]; ?></button></a>	
-							</div>
-						</div><!-- .col-md-7 -->
+				<h3 class="fancy">Related Department</h3>
+				<div class="container mb-5">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+						<a href="/parts-accessories/accessories"><button role="button" class="btn gold-button mb-3">Accessories</button></a>
+						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
+				
 				</div><!-- .container -->
 
 			</article><!-- #post-## -->

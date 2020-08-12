@@ -20,11 +20,12 @@ get_header(); ?>
 				
 				<?php $imageList = get_field('images');
 				$images = explode(',', $imageList); ?>
+				<?php $imageCount = count($images); ?>
 
 				<div class="container mt-3">
 					<div class="row mb-3">
 						<div class="col-sm-12 text-right">
-						<a href = "/inventory" id = "backToInventory" class="back d-inline-flex justify-content-end align-items-center">
+						<a href = "/inventory" class="back d-inline-flex justify-content-end align-items-center">
 								<i class="fa fa-chevron-left mr-2" aria-hidden="true"></i><h5 class = "gold mb-0">Back to Inventory</h5>
 							</a><!-- #back -->	
 						</div><!-- .col-sm-12 -->
@@ -36,11 +37,18 @@ get_header(); ?>
 							<div id="imageViewer" class = "position-relative">
 								<?php if ($flag === 'Parks Auction') : ?>
 									<a href="/auction">
-									<img id = "auctionLink" src="<?php echo get_stylesheet_directory_uri() . '/img/click_to_bid.png' ?>" alt="Parks Auction Car: Click to Bid!"></a>
+									<img id = "auctionLink" src="<?php echo get_stylesheet_directory_uri() . '/img/parks_auction_button.png' ?>" alt="Parks Auction Car: Click to Bid!"></a>
 								<?php endif;?>
+								<?php if ($flag === 'EBay Auction') : ?>
+									<a target = "_blank" href="https://www.ebay.com/str/parkssuperiorsalesinc">
+									<img id = "auctionLink" src="<?php echo get_stylesheet_directory_uri() . '/img/ebay_auction_button.png' ?>" alt="Parks Auction Car: Click to Bid!"></a>
+								<?php endif;?>
+								<?php if ($imageCount > 1) : ?>
 								<div data-toggle="modal" data-target="#exampleModal">
 								<a id = "modalLauncher" class = "position-absolute"  data-target="#carouselExample" data-slide-to="0" class = "position-absolute" href = '<?php echo bloginfo('url'); ?>/'><button role = 'button' class = 'btn gold-button'>VIEW HD IMAGES</button></a></div>
+								<?php endif; ?>
 								<img id = "featuredImage" src="<?php echo $images[0]; ?>" alt="Featured Image" data-slide-to = "0">
+								<?php if ($imageCount > 1) : ?>
 								<div id="galleryNav" class = "position-absolute">
 									<div id="prev" class = "mb-3">
 										<img src="<?php echo get_stylesheet_directory_uri() . '/img/prev.png' ?>" alt="Previous Image">
@@ -49,13 +57,17 @@ get_header(); ?>
 										<img src="<?php echo get_stylesheet_directory_uri() . '/img/next.png' ?>" alt="Next Image">	
 									</div>
 								</div><!-- #galleryNav -->
+							<?php endif; ?>
 							</div><!-- #imageViewer -->
-							<div id="videoViewer" class = "d-none embed-responsive embed-responsive-16by9">
+							
 							<?php //Get the video url and then strip everything after and including the ? so it's just the ID
 							$videoURL = get_field('video');
 							$videoID = strtok($videoURL, '?'); ?>
-							<iframe class = "embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-								</div>
+							<?php if ($videoURL) : ?>
+							<div id="videoViewer" class = "d-none embed-responsive embed-responsive-16by9">
+								<iframe class = "embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div><!-- #videoViewer -->
+						<?php endif; ?>
 						</div><!-- .col-md-8 -->
 						<div class="col-md-4">
 							<?php $price = get_field('price'); ?>
@@ -69,7 +81,7 @@ get_header(); ?>
 							<div class="contact-buttons mb-3">
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
 								<a href = 'tel:<?php echo $phone ?>'><button id = "callUs" role = 'button' class = 'mr-2 btn gold-button'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
-								<a href = '#'><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
+								<a href = '#contactForm'><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
 							</div><!-- .contact-buttons -->
 							<div class="spec">
 								<div class="icon-title">
@@ -99,7 +111,7 @@ get_header(); ?>
 								<div class="icon-title">
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/stock_number.png" alt="" class="mr-3"> Stock #
 								</div><!-- .icon-title -->
-								<div class="value gold">
+								<div id = "stock" class="value gold">
 									<?php the_field('stock'); ?>
 								</div><!-- .value -->
 							</div><!-- .spec -->
@@ -108,14 +120,17 @@ get_header(); ?>
 							</div><!-- .jump-link -->
 						</div><!-- .col-md-4 -->
 					</div><!-- .row -->
+					<?php if ($imageCount > 1) : ?>
 					<div id = "carGallery" class="row mb-3">
+<?php if ($videoURL) : ?>
 <div class = "col-md-2 thumb video-thumb mb-3">
 	<div class="video-image-wrapper position-relative d-flex justify-content-center align-items-center">
 
 		<img src="http://img.youtube.com/vi/<?php echo $videoID ?>/1.jpg" alt="">
 		<i class="fa fa-youtube-play" aria-hidden="true"></i>
 	</div>
-</div>
+</div><!-- .video-thumb -->
+<?php endif; ?>
 						<?php $i = 0; ?>
 						<?php foreach ($images as $image) { ?>
 <div class = "col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 ) {echo 'hidden';} ?>">
@@ -124,12 +139,16 @@ get_header(); ?>
 							</div><!-- .image-wrapper -->
 				        </div><!-- .col-md-2 -->
 						<?php $i++; } ?>
+						
+						<?php if($imageCount >= 11 ) : ?>
 				        <div class="col-sm-12">
 				        	<div class="more-photos">
 				        		<h5><span>More Photos</span><i class="fa fa-caret-down ml-3" aria-hidden="true"></i></h5>
 				        	</div><!-- .more-photos -->
 				        </div><!-- .col-sm-12 -->
+						<?php endif; ?>
 					</div><!-- .row -->
+				<?php endif; ?>
 				</div><!-- .container -->
 
 				<h3 class="fancy mb-3">Description</h3>
@@ -192,7 +211,7 @@ get_header(); ?>
 							<ul class = "list-unstyled">
 							  <?php
 							    $list = get_field('options');
-							    $items = explode('-', $list);
+							    $items = explode(' - ', $list);
 							    foreach($items as $item) {
 							    echo '<li><h5>' . $item . '</h5></li>';
 							  } ?>
@@ -223,16 +242,15 @@ get_header(); ?>
 								</li>
 							</ul>
 						</div>
-
 						</div><!-- .content-wrapper -->
 					</div><!-- .row -->
 				</div><!-- .container -->
 
 				<h3 class="fancy mb-3">Financing</h3>
 
-				<div class="container mb-3">
+				<div class="container">
 					<div id = "financing" class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-12 pb-5">
 							<div class="content-wrapper pt-4 pb-5 text-center">
 								<p id = "financeBullets" class = "font-weight-bold mb-5">Same Day Approval &middot Simple Process &middot Competitive Rates &middot Industry Experts &middot We Cater to the Funeral Industry Specialists</p>
 								<div class="px-5">
@@ -249,27 +267,10 @@ get_header(); ?>
 					</div><!-- #description -->
 				</div><!-- .container -->
 
-				<?php get_template_part( 'snippets/about_video'); ?>
-				
-				<?php $contact = get_field('contact_form', 'option'); ?>
-					<div id = "contactForm" style = "background: url('/wp-content/themes/understrap-child/img/contact_bg.png');" class = 'py-5'>
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-12 text-center">
-									<h3 class = "mb-0 black text-shadow">See Something You Like?</h3>
-									<h1 class="black text-shadow">Contact Us</h1>
-									<p class = "mb-5 black text-shadow">Send an email to our team using the form below and a member of our staff will contact you as soon as possible.</p>
-									<?php echo do_shortcode('[ninja_form id=1]'); ?>
-								</div><!-- .col-sm-12 -->	
-							</div><!-- .row -->
-						</div><!-- .container -->
-					</div><!-- #contactForm -->
-
-					<?php
-
-//get the taxonomy terms of this car as well as the year for our query
-$customTaxonomyTerms = wp_get_object_terms( $post->ID, 'model', array('fields' => 'ids') );
+<?php
 $year = get_field('year');
+$make = get_field('make');
+$body = get_field('body');
 
 //Set the query to car post type, get 4 published posts, randomly ordered, and including the model taxonomy terms for this car
 $args = array(
@@ -277,66 +278,83 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => 4,
     'orderby' => 'rand',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'model',
-            'field' => 'id',
-            'terms' => $customTaxonomyTerms
-        )
-    ),
-    //Get cars that match this year as well as those one year newer and one year older
+    'post__not_in' => array ($post->ID),
     'meta_query' => array(
+    	'relation' => 'AND',
     	array(
             'key' => 'year',
             'value' => $year,
             'compare' => '='
+        ),
+        array(
+            'key' => 'body',
+            'value' => $body,
+            'compare' => '='
         )
-    ),
-    'meta_query' => array(
-    	array(
-            'key' => 'year',
-            'value' => array($year - 2, $year + 2 ),
-            'type' => 'numeric',
-            'compare' => 'between'
-        )
-    ),
-    'post__not_in' => array ($post->ID),
+	),
 );
 
-	//the query
-	$relatedPosts = new WP_Query( $args );
+//the query
+$relatedPosts = new WP_Query( $args );
+$relatedCount = $relatedPosts->post_count;
+
+if ($relatedCount < 4) { ?>
+	<h1>run the secondary query</h1>
+<?php //get the IDs of the related posts so we don't show them again
+	if ( $relatedPosts->have_posts() ) : $relatedPostIds = array(); while ( $relatedPosts->have_posts() ) :  $relatedPosts-> the_post();
+		$relatedPostIds[] = get_the_ID();
+	endwhile; endif; wp_reset_postdata();
+
+	$newCount = 4 - $relatedCount;
+	$args = array(
+    'post_type' => 'car',
+    'post_status' => 'publish',
+    'posts_per_page' => $newCount,
+    'orderby' => 'rand',
+    'post__not_in' => array($relatedPostIds, $post->ID)
+);
+}
+$secondaryPosts = new WP_Query( $args );
 		
 		//Loop through the query
-		if ( $relatedPosts->have_posts() ) : ?>
+		if ( $relatedPosts->have_posts() || $secondaryPosts->have_posts()  ) { ?>
 			<div id="relatedCars" class = "py-5">
 				<h3 class="fancy mb-3">Related Cars</h3>
+				<?php  ?>
 					<div class="container-fluid">
 						<div class="row">
 						    <?php while ( $relatedPosts->have_posts() ) { 
 						        $relatedPosts-> the_post(); ?>
-						        <div class="col-md-3">
+						        <div class="col-md-3 related-post">
 						        	<?php get_template_part( 'snippets/car'); ?>
 						        </div><!-- .col-md-3 -->
 							<?php } ?>
+							<?php if ($relatedCount < 4) :
+								while ( $secondaryPosts->have_posts() ) { 
+						        $secondaryPosts-> the_post(); ?>
+						        <div class="col-md-3 secondary-post">
+						        	<?php get_template_part( 'snippets/car'); ?>
+						        </div><!-- .col-md-3 -->
+							<?php } endif; ?>
+					</div><!-- .row -->
+				</div><!-- .container-fluid -->
+			</div><!-- #relatedCars -->
+		<?php } else {
+			echo 'no posts';
+		}
 
-		</div><!-- .row -->
-	</div><!-- .container-fluid -->
-</div><!-- #relatedCars -->
+		//restore original post data
+		wp_reset_postdata();
 
-<?php endif;
+		?>
+		<div id = "backToInventory" class = "text-center pb-5">
+			<a href="/inventory" class="d-inline-flex justify-content-end align-items-center">
+				<i class="fa fa-3x fa-chevron-left mr-4" aria-hidden="true"></i><h1 class="gold mb-0">Back to Inventory</h1>
+			</a>	
+		</div><!-- #backToInventory -->
 
-//restore original post data
-wp_reset_postdata();
-
-?>
-
-
-
-
-								</div><!-- .col-sm-12 -->
-							</div><!-- .row -->
-						</div><!-- .container-fluid -->
-					</div><!-- #relatedCars -->
+		<?php get_template_part( 'snippets/about_video' ); ?>
+		<?php get_template_part( 'snippets/contact_form' ); ?>
 
 					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">

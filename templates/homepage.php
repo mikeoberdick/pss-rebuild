@@ -26,14 +26,14 @@ get_header(); ?>
 					
 					<div class="container position-absolute" id = "heroContent">
 						<div class="row">
-							<div class="col-sm-12 text-center mb-5">
-								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
+							<div class="col-sm-12 text-center mb-3 mb-lg-5">
+								<h1 class = "mb-3 mb-lg-5 text-shadow"><?php echo $hero['header']; ?></h1>
 								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 							</div><!-- .col-sm-12 -->
 							<div class="col-sm-12 text-center">
 								<a href = "#sectionOne" id="scrollDown">
 									<i class="fa fa-arrow-down fa-2x mb-4" aria-hidden="true"></i><br>
-									<h5 class = "d-inline-block">SCROLL DOWN</h5>
+									<h5 class = "d-none d-lg-inline-block">SCROLL DOWN</h5>
 								</a><!-- #scrollDown -->
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
@@ -66,7 +66,7 @@ get_header(); ?>
 			<section id="sectionOne" class = "py-5 p-relative container-fluid">
 				<div class="row">
 					<div class="col-sm-12 p-0">
-						<h1 class="h3 fancy"><?php echo $sectionOne['header']; ?></h1>	
+						<h1 class="h2 fancy"><?php echo $sectionOne['header']; ?></h1>	
 					</div><!-- .col-sm-12 -->	
 				</div><!-- .row -->
 
@@ -89,10 +89,10 @@ get_header(); ?>
 				<section id="sectionTwo" style = "background: url('<?php echo $sectionTwo['background']['url']; ?>');" class = "py-5">
 					<div class="container h-100">
 						<div class="row d-flex flex-column justify-content-center h-100">
-							<div class="col-md-4">
+							<div class="col-lg-4 text-center text-lg-left">
 								<h1 class = "mb-3 text-shadow"><?php echo $sectionTwo['header']; ?></h1>
 								<a href = '<?php echo $sectionTwo['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $sectionTwo['button_text']; ?></button></a>
-							</div><!-- .col-md-4 -->
+							</div><!-- .col-lg-4 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</section><!-- #sectionTwo -->
@@ -103,13 +103,13 @@ get_header(); ?>
 				<section id="sectionFour" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFour['background']['url']; ?>');" class = "py-5">
 					<div class="container">
 						<div class="row">
-							<div id = "testimonialContent" class="col-md-5">
+							<div id = "testimonialContent" class="col-lg-5 text-center text-lg-left mb-3 mb-lg-0">
 								<h1 class="mb-3 text-shadow"><?php echo $sectionFour['header']; ?></h1>
 								<p class = "mb-5"><?php echo $sectionFour['sub_header']; ?></p>
 								<a href = '<?php echo $sectionFour['page_link']; ?>'><button role = 'button' class = 'btn black-button'><?php echo $sectionFour['button_text']; ?></button></a>
-							</div><!-- .col-md-5 -->
-							<div class="col-md-7">
-								<div>
+							</div><!-- .col-lg-5 -->
+							<div class="col-lg-7 mb-3 mb-lg-0">
+								<div class = "embed-responsive embed-responsive-16by9">
 									<?php echo $sectionFour['video']; ?>	
 								</div>
 							</div><!-- .col-md-7 -->
@@ -121,13 +121,13 @@ get_header(); ?>
 				<section id="sectionFive" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFive['background']['url']; ?>');">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-5 offset-md-7 text-right">
+							<div class="col-lg-5 offset-lg-7 text-center text-lg-right">
 							<h1 class="mb-3 text-shadow"><?php echo $sectionFive['header']; ?></h1>
 							<p class = "mb-3"><?php echo $sectionFive['sub_header']; ?></p>
 							<!-- Constant Contact Inline Form -->
 							<div class="ctct-inline-form" data-form-id="93ac4dba-c1c0-447f-a6a1-aaf4b874b73b"></div>
 							<!-- End Constant Contact Form -->
-						</div><!-- .col-md-5 offset-md-7 -->	
+						</div><!-- .col-lg-5 offset-lg-7 -->	
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</section><!-- #sectionFive -->

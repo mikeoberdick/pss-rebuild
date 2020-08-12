@@ -16,10 +16,10 @@ get_header(); ?>
 
   				<?php get_template_part( 'snippets/page_header'); ?>
 				
-				<div class="container mt-3">
-					<div class="row">
+				<div class="container mt-5">
+					<div class="row mb-5">
 						<div class="col-sm-12">
-							<p><?php the_field('copy'); ?></p>
+							<p class = "p-3"><?php the_field('copy'); ?></p>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 					<div class="row mt-3">

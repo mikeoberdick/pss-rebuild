@@ -40,7 +40,7 @@ get_header(); ?>
 					<?php wp_reset_postdata(); ?>
 					</div><!-- #featuredPost -->
 
-					<div class="row mb-4">
+					<div class="row mb-4 d-none d-md-block">
 						<div class="cat-search col-sm-12 d-flex justify-content-between">	
 						<?php $terms  = get_terms('category'); ?>
 				    	<?php if (count($terms)) : ?>
@@ -60,6 +60,23 @@ get_header(); ?>
 				                    <?php endforeach; ?>
                 				</ul>
             				</div>
+		        		<?php endif; ?>
+						</div><!-- .cat-search -->
+					</div><!-- .row -->
+
+					<div class="row mb-4 d-md-none">
+						<div class="cat-search col-sm-12">	
+						<?php $terms  = get_terms('category'); ?>
+				    	<?php if (count($terms)) : ?>
+							<div id="ajaxFilter" data-paged="4" class="sc-ajax-filter">
+								<select name="" id="" class = "nav-filter">
+									 <option value = "all-terms" data-filter="<?php echo $terms[1]->taxonomy; ?>"  data-term="all-terms" data-page="1">All Topics</option>
+									  
+									  <?php foreach ($terms as $term) : ?>
+									  	<option value="<?php echo $term->slug; ?>" href="<?php echo get_term_link( $term, $term->taxonomy ); ?>" data-filter="<?php echo $term->taxonomy; ?>" data-term="<?php echo $term->slug; ?>" data-page="1" ><?php echo $term->name; ?></option>
+				                    <?php endforeach; ?>
+				                    </select>
+            				</div><!-- #ajaxFilter -->
 		        		<?php endif; ?>
 						</div><!-- .cat-search -->
 					</div><!-- .row -->

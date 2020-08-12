@@ -41,8 +41,9 @@ function d4tw_enqueue_files () {
     wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
     if ( is_page('all-models') || is_page('inventory') ) {
         wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
+        wp_enqueue_script( 'MIU-Multifilter JS', get_stylesheet_directory_uri() . '/js/mixitup-multifilter.min.js', array('jquery'), '1.0.0', true );
     }
-    if ( is_page_template('templates/auction.php')  || is_page_template('templates/service.php')  || is_tax() || is_page_template('templates/accessories.php') || is_page( 'homepage' ) ) {
+    if (is_page_template(array('templates/auction.php', 'templates/service.php', 'templates/accessories.php', 'templates/parts.php', 'templates/homepage.php')) || is_tax()) {
         wp_enqueue_style( 'Slick CSS', get_stylesheet_directory_uri() . '/slick/slick.css' );
         wp_enqueue_style( 'Slick Theme CSS', get_stylesheet_directory_uri() . '/slick/slick-theme.css' );
         wp_enqueue_script( 'Slick JS', get_stylesheet_directory_uri() . '/slick/slick.min.js', array('jquery'), '1.0.0', true );
@@ -245,6 +246,10 @@ function psc_posts() {
 if( !isset( $_POST['nonce'] ) || !wp_verify_nonce( $_POST['nonce'], 'psc' ) )
     die('Permission denied');
 
+//Get the post ID of the most recent post so we don't show it again as it's already featured at the top
+$recent_posts = wp_get_recent_posts( array( 'numberposts' => '1' ) );
+$thePostID = $recent_posts[0]['ID'];
+
     $value = ($_POST['params']['value']);
     $term = sanitize_text_field($_POST['params']['term']);
     $page = intval($_POST['params']['page']);
@@ -270,7 +275,8 @@ $args = [
     'paged'          => $page,
     'post_status'    => 'publish',
     'posts_per_page' => $qty,
-    'tax_query'      => $tax_qry
+    'tax_query'      => $tax_qry,
+    'post__not_in' => array($thePostID)
 ];
 $qry = new WP_Query($args);
 ob_start();
@@ -397,3 +403,21 @@ function save_term_order( $term_id ) {
     }
 } // END Function
 add_action( 'edited_model', 'save_term_order' );
+
+//Dynamically populate the form on the single car page with some info from the listing
+function nf_hidden_field_values( $value, $field_type, $field_settings ) {
+    global $post;
+    $value = '';
+    if ( $field_settings['key'] == 'stock_number_1596831863069' ) {
+        $value =  get_field('stock', $post->ID);
+    }
+
+    if ( $field_settings['key'] == 'image_url_1596831901715' ) {
+        $imageList = get_field('images', $post->ID);
+        $images = explode(',', $imageList);
+        $value = $images[0];
+    }
+
+    return $value;
+}
+add_filter( 'ninja_forms_render_default_value', 'nf_hidden_field_values', 10, 3 );

@@ -10,7 +10,7 @@ $chassis = get_field('chassis'); //XTS
 $body = get_field('body'); //Hearse
 ?>
 
-<div class="car link" data-link = "<?php the_permalink(); ?>">
+<div class="link" data-link = "<?php the_permalink(); ?>">
     <div class="car-wrapper">
         <div class="image-wrapper position-relative">
         <img src="<?php echo $imageList[0]; ?>">  
@@ -21,7 +21,8 @@ $body = get_field('body'); //Hearse
         <?php } ?>
         </div><!-- .image-wrapper -->
         
-        <div class="featured-info content-wrapper p-3 mt-auto">
+        <div class="featured-info content-wrapper p-3">
+            <div>
             <h5 class = "mb-3 font-weight-bold"><span class = 'gold'><?php echo $year . ' ' . $make; ?></span> <?php echo $coachbuilder . ' ' . $chassis . ' ' . $model . ' ' . $body; ?></h5>
             <div class="details small">
                 <p>Stock #: <?php the_field('stock'); ?>
@@ -31,9 +32,10 @@ $body = get_field('body'); //Hearse
                 $options = mb_strimwidth($options, 0, 65, "..."); ?>
                 | <?php echo $options; ?></p>
                 <?php } ?>
-            </div><!-- .details -->
             <hr>
-            <div class="d-flex justify-content-between align-items-center">
+            </div><!-- .details -->    
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
                 <div class="price">
                     <h4 class = "font-weight-bold">
                         <?php $price = get_field('price'); ?>

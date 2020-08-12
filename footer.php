@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="modal-content">
       <div class="modal-body p-5">
         <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
-			<div class = "text-center">
+			<div class = "text-center embed-responsive embed-responsive-16by9">
 				<?php $aboutVideoModal = get_field('about_video', 'option'); ?>
 				<?php echo $aboutVideoModal['video']; ?>
 			</div>
@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 
 <footer id="wrapper-footer" class="wrapper pb-5">
 
-	<div id = "footerNavWrapper" class="container-fluid mb-5">
+	<div id = "footerNavWrapper" class="container-fluid mb-5 d-none d-lg-block">
 		<div class="container">
 			<div class="row">
 				<?php wp_nav_menu(
@@ -49,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
 		</div><!-- .container -->
 	</div><!-- #footerNavWrapper -->
 
-	<div class="container">
+	<div class="container mt-5 mt-lg-0">
 		<div class="row">
 			<div class="col-xl-1 text-center text-xl-left">
 				<?php $bbb = get_field('bbb_logo', 'options'); ?>
@@ -69,16 +69,21 @@ defined( 'ABSPATH' ) || exit;
 							<p class = "mb-0 d-inline">
 								<?php echo $addy1; ?>
 							</p>
+							
 							<p class = "mb-0 d-inline">
 							<?php echo $addy2; ?>
 							</p>
 							<span class = "mx-1 d-none d-md-inline"> | </span>
-							<p class = "mb-0 d-block d-md-inline">Phone: 	<a href="tel:<?php echo $phoneLink; ?>">
+							<p class = "d-block d-md-inline">Email: <a href = "mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
+							
+							<p class = "mb-0 d-block d-md-inline-block gold">Phone: <a class = "gold" href="tel:<?php echo $phoneLink; ?>">
 								<?php echo $phone; ?>
 								</a>
-							</p>
+							
 							<span class = "mx-1 d-none d-md-inline"> | </span>
-							<p class = "d-block d-md-inline">Email: <a href = "mailto:<?php echo $email; ?>"><?php echo $email; ?></a>						</div>
+							<span class = "mb-0 d-block d-md-inline gold">International:1(860)-749-2218</span></p>
+							
+						</div>
 					</div><!-- .col-xl-9 -->
 					<div id = "footerSocial" class="col-xl-3">
 						<ul class="list-unstyled d-inline-flex w-100 justify-content-center justify-content-xl-around">
@@ -98,14 +103,13 @@ defined( 'ABSPATH' ) || exit;
 							<li><a href="/privacy-policy">Privacy Policy</a></li>
 							<li><span class = "mx-1">|</span></li>
 							<li><a href="/terms-and-conditions">Terms & Conditions</a></li>
-							<li><span class = "mx-1">|</span></li>
-							<li><a href="/disclosures-and-fees">Disclosures & Fees</a></li>
 						</ul>
 					</div><!-- .col-xl-6 -->
 				</div><!-- .row -->
 			</div><!-- .col-xl-11 -->
 			<div class="col-sm-12 text-center">
 				POWERED BY <a target = "_blank" href="https://www.designs4theweb.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/d4tw.png" alt="Another WordPress website by Designs 4 The Web"></a>
+				<a class = "d-block small" href="https://parksmgmt.org/staff/login.htm">STAFF LOGIN</a>
 			</div><!-- .col-sm-12 -->
 		</div><!-- .row -->
 	</div><!-- .container -->
@@ -130,6 +134,9 @@ defined( 'ABSPATH' ) || exit;
 	        	filter: '.hearse'
 	    	}
 		});
+		jQuery('#mobileControls select').on('change', function(){
+			mixer.filter(jQuery(this).find(':selected').data('filter'));
+		});
 	</script>
 <?php } ?>
 
@@ -139,12 +146,18 @@ defined( 'ABSPATH' ) || exit;
 	    var mixer = mixitup(containerEl, {
 	    	load: {
 	        	filter: '.all'
-	    	}
+	    	},
+	    	multifilter: {
+        	enable: true // enable the multifilter extension for the mixer
+    		}
+		});
+		jQuery('#mobileControls select').on('change', function(){
+			mixer.filter(jQuery(this).find(':selected').data('filter'));
 		});
 	</script>
 <?php } ?>
 
-<?php if ( is_page( 'homepage' ) ) { ?>
+<?php if ( is_page_template( 'templates/homepage.php' ) ) { ?>
 <!-- Begin Constant Contact Active Forms -->
 <script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
 <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
@@ -157,8 +170,24 @@ defined( 'ABSPATH' ) || exit;
 		slidesToScroll: 1,
 		dots: true,
 		arrows: false,
-		autoplay: true,
+		//autoplay: true,
   		autoplaySpeed: 2000,
+  		responsive: [
+  		{
+	      breakpoint: 991,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 1
+	      }
+	    },
+	    {
+	      breakpoint: 575,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	    ]
   	});
 </script>
 
@@ -209,7 +238,44 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
-<?php if ( is_page_template('templates/accessories.php') ) { ?>
+<?php if ( is_page_template( 'templates/accessories.php' ) ) { ?>
+	<script>
+		jQuery('.accessory-image-gallery' ).each( function() {
+			jQuery(this).slick({
+				adaptiveHeight: true,
+			    infinite: true,
+			    dots: true,
+			    fade: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			    arrows: true,
+			    appendArrows: jQuery(this).parents('#imageGallery').find('.arrows'),
+			    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+		  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>'
+		  	});
+		  });
+	</script>
+<?php } ?>
+
+<?php if ( is_page_template( 'templates/parts.php') ) { ?>
+	<script>
+		jQuery('.parts-image-gallery' ).each( function() {
+			jQuery(this).slick({
+			    infinite: true,
+			    dots: true,
+			    fade: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			    arrows: true,
+			    appendArrows: jQuery(this).parents('.part').find('.arrows'),
+			    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+		  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>'
+		  	});
+		  });
+	</script>
+<?php } ?>
+
+<?php if ( is_page_template( array('templates/accessories.php', 'templates/parts.php') ) ) { ?>
 	<script>
 		jQuery('.accessory-image-gallery' ).each( function() {
 			jQuery(this).slick({

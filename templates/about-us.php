@@ -45,17 +45,36 @@ get_header(); ?>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
-				<h3 class="fancy"><?php echo $process['header']; ?></h3>
+
+				<?php $history = get_field('our_history'); ?>
+				<h3 class="fancy"><?php echo $history['header']; ?></h3>
 				<div class="container my-5">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="content-wrapper p-5">
-							<h3 class = "mb-3"><?php echo $process['subheading']; ?></h3>
-							<p><?php echo $process['copy']; ?></p>	
-							</div>
+							<img src="<?php echo $history['image']['url']; ?>" alt="<?php echo $history['image']['alt']; ?>">
+							<div class="content-wrapper p-5 text-center">
+							<p class = "mb-3"><?php echo $history['copy']; ?></p>
+							<a href = '/history'><button role = 'button' class = 'btn gold-button'><?php echo $history['button_text']; ?></button></a>
+						</div><!-- .content-wrapper -->
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
+
+				<?php $ad = get_field('current_ad'); ?>
+				<h3 class="fancy"><?php echo $ad['header']; ?></h3>
+				<div class="container my-5">
+					<div class="row">
+						<div class="col-sm-12">
+							<p class = "mb-5"><?php echo $ad['blurb']; ?></p>
+							<img class = "mb-3" src="<?php echo $ad['image']['url']; ?>" alt="<?php echo $ad['image']['alt']; ?>">
+							<div class="text-center">
+								<a target = "_blank" href = '<?php echo $ad['file']['url']; ?>'><button role = 'button' class = 'btn gold-button w-100 w-lg-50'><?php echo $ad['button_text']; ?></button></a>
+							</div>
+							
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</div><!-- .container -->
+				
 			</article><!-- #post-## -->
 		</main><!-- #main -->
 	</div><!-- #content -->

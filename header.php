@@ -47,10 +47,10 @@ defined( 'ABSPATH' ) || exit;
     	<nav class="navbar navbar-expand-lg">
 			<div class="container justify-content-around">
 				<div class="row w-100">
-					<div id = "menuLeft" class="col-md-4 d-flex flex-column">
+					<div id = "menuLeft" class="col-lg-4 d-flex flex-column">
 						<div class = "align-items-center underlined mb-3 d-none d-lg-flex">
 							<i class="fa fa-question-circle-o fa-2x gold mr-2" aria-hidden="true"></i>
-							<a><h4 class = "gold mb-0">Ask a Question</h4></a>
+							<a href = "/contact-us"><h4 class = "gold mb-0">Ask a Question</h4></a>
 						</div>
 						<?php wp_nav_menu(
 							array(
@@ -66,17 +66,17 @@ defined( 'ABSPATH' ) || exit;
 						); ?>
 					</div><!-- .col-md-4 -->
 
-					<div class="col-md-4 position-relative">
+					<div class="mobile-menu-container col-lg-4 position-relative">
 						<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
 						<?php $logo = get_field('logo', 'options'); ?>
-						<img id = "logo" class = "hvr-buzz-out" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
+						<img id = "logo" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
 						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
-							<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+						<button class="navbar-toggler" type="button" data-toggle="modal" data-target="#modalNav" aria-controls="modalNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
+							<i class="fa fa-2x fa-bars" aria-hidden="true"></i>
 						</button>
 					</div><!-- .col-md-4 -->
 
-					<div id = "menuRight" class="col-md-4 d-flex flex-column">
+					<div id = "menuRight" class="col-lg-4 d-flex flex-column">
 						<div class = "align-items-center justify-content-end underlined mb-3 d-none d-lg-flex">
 							<i class="fa fa-phone fa-2x gold mr-2" aria-hidden="true"></i>
 							<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
@@ -105,3 +105,36 @@ defined( 'ABSPATH' ) || exit;
 
 		</nav><!-- .site-navigation -->
 	</div><!-- #wrapper-navbar end -->
+
+	<!-- MODAL NAV -->
+	<div class="modal fade" id="modalNav" tabindex="-1" role="dialog" aria-labelledby="Mobile Navigation" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body p-4">
+	      	<div id = "modalTop" class = "d-flex align-items-center justify-content-center">
+		      	<a rel = "home" data-itemprop="url" title="<?php echo esc_attr( get_bloginfo( 'name') ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<img id = "headerLogo" src = "<?php echo get_stylesheet_directory_uri() . '/img/logo.png' ?>" alt = "<?php echo esc_attr( get_bloginfo( 'name') ); ?>">
+				</a>
+				<div>
+				<a class="modal-close" data-dismiss="modal"><i class="fa fa-times-thin" aria-hidden="true"></i></a>	
+				</div>
+	        		
+	      	</div>
+	      	<div>
+	      	<?php wp_nav_menu(
+				array(
+					'theme_location'  => 'menu-left',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'mobile-nav list-unstyled',
+					'fallback_cb'     => '',
+					'menu_id'         => 'mobile-menu',
+					'depth'           => 2,
+					'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+				)
+			); ?>
+	      	</div>
+	      </div><!-- .modal-body -->
+	    </div><!-- .modal-content -->
+	  </div><!-- .modal-dialog -->
+	</div><!-- .modal -->

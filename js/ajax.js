@@ -45,7 +45,6 @@ if(event.preventDefault) { event.preventDefault(); }
       $this = $('.nav-filter .active a');
       //window.scrollTo(0, '278px');
     }
-    
         $params = {
           //Bind parameters
           'page' : $page,
@@ -53,9 +52,31 @@ if(event.preventDefault) { event.preventDefault(); }
           'term' : $this.data('term'),
           'qty'  : $this.closest('#ajaxFilter').data('paged'),
         };
-          //FOR TESTING---console.log($params['qty']);
+        //FOR TESTING---console.log($params['qty']);
         //Run the query with those parameters
         get_posts($params);
+  });
+
+//Bind parameters to the select dropdown on mobile
+$('#ajaxFilter select').on('change', function(event) {
+if(event.preventDefault) { event.preventDefault(); }
+  $this = $(this);
+  $value = this.value;
+  $page = $this.data('page');
+  $term = $this.data('term');
+  $qty = $this.closest('#ajaxFilter').data('paged')
+    
+  $params = {
+    //Bind parameters
+    'page' : $page,
+    'tax'  : $this.data('filter'),
+    'term' : $value,
+    'qty'  : $this.closest('#ajaxFilter').data('paged'),
+  };
+  //FOR TESTING---
+  console.log($params['term']);
+  //Run the query with those parameters
+  get_posts($params);
   });
 
 //end of file

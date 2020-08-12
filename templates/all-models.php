@@ -22,12 +22,23 @@ get_header(); ?>
 				</div><!-- #hero -->
 				
 				<!-- Desktop Sorting -->
-				<div class="fancy my-3 controls">
-					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group', 'exclude' => array( 241, 246, 274 ), ) ); ?>
+				<div class="fancy my-3 controls d-none d-lg-flex">
+					<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group', 'exclude' => array( 241, 274 ), ) ); ?>
 		    		<?php foreach ( $terms as $term ) { ?>
 		    		<a class = "catButton" data-filter=".<?php echo $term->slug; ?>"><h4 class = "mb-0"><?php echo $term->name; ?></h4></a>
 		        	<?php } ?>
 				</div><!-- .controls -->
+
+				<!-- MOBILE Sorting -->
+				<div id="mobileControls" class = "d-lg-none">
+					<select>
+						<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group', 'exclude' => array( 241, 274 ), ) ); ?>
+		    		<?php foreach ( $terms as $term ) { ?>
+		    		<option value = "<?php echo $term->name; ?>" data-filter=".<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+		        	<?php } ?>
+					</select>
+
+				</div><!-- #mobileControls -->
 
 				<div class = "container">
 					<div class="row">

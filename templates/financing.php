@@ -60,7 +60,7 @@ get_header(); ?>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 					<div class="row mb-5">
-						<div class="col-md-6">
+						<div class="col-md-6 mb-3 mb-md-0">
 							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
 						</div><!-- .col-md-6 -->
 						<div class="col-md-6">
@@ -69,7 +69,7 @@ get_header(); ?>
 					</div><!-- .row -->
 					<div class="row mb-5">
 						<?php while( have_rows('callouts') ) : the_row(); ?>
-							<div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+							<div class="col-md-4 d-flex flex-column justify-content-center align-items-center mb-3 mb-md-0">
 								<?php $icon = get_sub_field('icon'); ?>
 								<div class="icon-wrapper mb-3">
 								<img class = "callout-icon" src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>"></div>
@@ -88,7 +88,7 @@ get_header(); ?>
 			        <div class="question">
 			        	<div class="card-wrapper text-center" role="tab" id="<?php echo 'question-' . $i; ?>">
       						<a data-toggle="collapse" data-target="<?php echo '#collapse-question-' . $i; ?>" aria-expanded="<?php if ( $i == 0 ) {echo 'true';} else {echo 'false';}; ?>" aria-controls="<?php echo 'collapse-question-' . $i; ?>">
-        					<h3 class="mb-3"><?php the_sub_field('question'); ?><i class="ml-3 fa fa-angle-down rotate-icon" aria-hidden="true"></i></h2>
+        					<h3 class="mb-3"><?php the_sub_field('question'); ?><i class="ml-3 fa fa-angle-down" aria-hidden="true"></i></h2>
         					
         				<div id="<?php echo 'collapse-question-' . $i; ?>"
         					class = "<?php if ( $i == 0 ) {echo 'collapse show';} else {echo 'collapse';}; ?>" role="tabpanel" aria-labelledby="<?php echo 'question-' . $i; ?>" data-parent="#faqAccordion">
@@ -106,33 +106,7 @@ get_header(); ?>
 			</div><!-- .container -->
 		</section><!-- #questions -->
 
-		<?php $contact = get_field('contact'); ?>
-				<h3 class = "fancy">Contact The <?php echo $contact['department']; ?> Today</h3>
-				<div class="container mb-5">
-					<div class="row content-wrapper p-5">
-						<div class="col-md-5 text-right">
-							<?php $img = $contact['image']; ?>
-							<img class = "pr-3 w-100" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
-						</div><!-- .col-md-5 -->
-						<div class="col-md-7 contact-border">
-							<div class="pl-3">
-							<h3 class = "mb-0 red"><?php echo $contact['name']; ?></h3>
-							<h5 class = "mb-3 gray font-weight-bold"><?php echo $contact['title']; ?></h5>
-							<?php if ($contact['office_number']) : ?>
-							<?php $office = preg_replace('/[^0-9]/', '', $contact['office_number']); ?>
-
-							<a href="tel:<?php echo $office ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-phone mr-3" aria-hidden="true"></i>Call Office</button></a>
-							<?php endif; ?>
-							<?php if ($contact['mobile_number']) : ?>
-							<?php $mobile = preg_replace('/[^0-9]/', '', $contact['mobile_number']); ?>
-							<a href="tel:<?php echo $mobile ?>"><button role = 'button' class = 'btn gold-button w-100 mb-3'><i class="fa fa-mobile mr-3" aria-hidden="true"></i>Call Mobile</button></a>
-							<?php endif; ?>
-							<?php $first = explode(' ',trim($contact['name'])); ?>
-							<a target = '_blank' href = 'mailto:<?php echo $contact['email']; ?>'><button role = 'button' class = 'btn gold-button w-100'><i class="fa fa-envelope-o mr-3" aria-hidden="true"></i>Email <?php echo $first[0]; ?></button></a>	
-							</div>
-						</div><!-- .col-md-7 -->
-					</div><!-- .row -->
-				</div><!-- .container -->
+		<?php get_template_part( 'snippets/contact-box'); ?>
 
 				<div class="modal fade p-5" id="submitCreditApplication" tabindex="-1" role="dialog" aria-labelledby="Submit Credit Application" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
