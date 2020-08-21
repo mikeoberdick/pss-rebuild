@@ -11815,6 +11815,62 @@ a {
     cursor: pointer; }
 
 /*------------------------------------------------*/
+/*---------[CONSTANT CONTACT  FORM]--------------*/
+/*------------------------------------------------*/
+.ctct-inline-form div.ctct-form-embed form.ctct-form-custom .ctct-form-required:before {
+  color: #cc0000 !important; }
+
+.ctct-inline-form .ctct-form-defaults {
+  background-color: transparent !important;
+  padding: 0 !important; }
+  .ctct-inline-form .ctct-form-defaults .ctct-gdpr-text {
+    display: none !important; }
+  .ctct-inline-form .ctct-form-defaults .ctct-form-custom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    min-height: auto !important; }
+  .ctct-inline-form .ctct-form-defaults #email_address_field_1 {
+    -ms-flex-preferred-size: 75%;
+        flex-basis: 75%;
+    margin-right: 3rem;
+    margin-bottom: 0; }
+    .ctct-inline-form .ctct-form-defaults #email_address_field_1 input {
+      height: 50px;
+      border: solid 3px #000;
+      border-radius: 3px; }
+  .ctct-inline-form .ctct-form-defaults #email_address_label_1 {
+    color: #CC9F53; }
+  .ctct-inline-form .ctct-form-defaults #success_message_1 {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 25px;
+    text-align: center; }
+  .ctct-inline-form .ctct-form-defaults #success_message_1 h2, .ctct-inline-form .ctct-form-defaults #success_message_1 p {
+    color: #000; }
+  .ctct-inline-form .ctct-form-defaults #success_message_1 p {
+    margin-bottom: 0; }
+  .ctct-inline-form .ctct-form-defaults button {
+    width: 100%;
+    white-space: normal !important;
+    font-family: "Unica One", sans-serif;
+    font-size: 1.5rem !important;
+    text-transform: uppercase !important;
+    border: solid 3px #CC9F53 !important;
+    border-radius: 65px;
+    padding: 0 !important;
+    color: #CC9F53 !important;
+    background-color: #000 !important;
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    height: 50px !important; }
+    .ctct-inline-form .ctct-form-defaults button:hover {
+      border: 0;
+      background-color: black !important; }
+
+/*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
 .nf-form-fields-required {
@@ -11863,6 +11919,21 @@ a {
   #nf-field-33-container {
     margin-top: 25px; } }
 
+#nf-form-7-cont .nf-form-content label {
+  color: #fff; }
+
+#nf-form-7-cont .nf-form-content .nf-error-msg, #nf-form-7-cont .nf-form-content .ninja-forms-req-symbol {
+  color: #cc0000; }
+
+#nf-form-7-cont .nf-form-content .listcheckbox-wrap {
+  text-align: left; }
+
+#nf-form-7-cont .nf-form-content .listcheckbox-wrap .nf-field-element label:after {
+  border-color: #CC9F53; }
+
+#nf-form-7-cont .nf-form-content textarea {
+  border-color: #CC9F53; }
+
 /*------------------------------------------------*/
 /*---------------------[HEADER]-------------------*/
 /*------------------------------------------------*/
@@ -11871,6 +11942,12 @@ a {
   z-index: 99;
   -webkit-box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5) !important;
           box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5) !important; }
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    #wrapper-navbar .container {
+      max-width: 100%; } }
+  @media (min-width: 1200px) {
+    #wrapper-navbar .container {
+      max-width: 85%; } }
   @media (max-width: 991.98px) {
     #wrapper-navbar #menuLeft {
       -webkit-box-ordinal-group: 4;
@@ -12027,9 +12104,26 @@ a {
   .modal-close i {
     color: #fff; }
 
-#hero video {
-  position: relative;
-  min-width: 100%; }
+.contact-modal .modal-close {
+  top: 15px;
+  right: 15px; }
+
+.contact-modal .nf-form-content {
+  max-width: 100%; }
+  .contact-modal .nf-form-content .black-outline-button {
+    color: #000 !important;
+    background-color: #CC9F53 !important; }
+    .contact-modal .nf-form-content .black-outline-button:hover {
+      background-color: #b68636 !important; }
+
+.aligncenter {
+  display: block; }
+
+#hero {
+  background-color: #000; }
+  #hero video {
+    position: relative;
+    min-width: 100%; }
 
 @media (max-width: 991.98px) {
   #heroContent h1 {
@@ -12245,12 +12339,10 @@ a {
 #currentCat {
   border-bottom: solid 3px #CC9F53; }
 
-#catCurrentlyShown {
-  border-bottom: solid; }
-  #catCurrentlyShown h3 {
-    color: #CC9F53; }
-    #catCurrentlyShown h3 span {
-      color: #fff; }
+#catCurrentlyShown h3 {
+  color: #CC9F53; }
+  #catCurrentlyShown h3 span {
+    color: #fff; }
 
 .link {
   cursor: pointer; }
@@ -12334,8 +12426,8 @@ a {
 .link {
   height: 100%; }
   .link .car-wrapper {
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12354,7 +12446,7 @@ a {
               flex-direction: column;
       height: 100%; }
 
-.car:hover > .car-wrapper {
+.link:hover > .car-wrapper {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -12384,17 +12476,23 @@ a {
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
-  background-repeat: no-repeat !important; }
+  background-repeat: no-repeat !important;
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
   @media (min-width: 768px) {
     #homepage section {
       min-height: 500px; } }
 
-#homepage #videoWrapper {
-  background: black; }
+#homepage #hero {
+  background: transparent url("/wp-content/themes/understrap-child/img/video_poster.jpg") no-repeat 0 0;
+  background-size: cover; }
 
 @media (min-width: 992px) {
   #homepage #heroContent {
     top: 40%; } }
+
+#homepage #heroContent button {
+  font-size: 2rem !important; }
 
 #homepage #heroContent #scrollDown {
   display: -webkit-box;
@@ -12438,8 +12536,17 @@ a {
   #homepage #sectionOne #featuredSlider .slick-dots {
     position: relative;
     bottom: 0; }
+  #homepage #sectionOne #featuredSlider .ribbon {
+    display: none; }
+  #homepage #sectionOne .arrows i {
+    color: #CC9F53;
+    text-shadow: 0 10px 6px rgba(0, 0, 0, 0.75); }
+  #homepage #sectionOne .arrows .prev-arrow {
+    left: 15px; }
+  #homepage #sectionOne .arrows .next-arrow {
+    right: 15px; }
 
-#homepage #featuredSlider .car:hover > .car-wrapper {
+#homepage #featuredSlider .link:hover > .car-wrapper {
   -webkit-transform: scale(0.95) !important;
           transform: scale(0.95) !important; }
 
@@ -12454,36 +12561,6 @@ a {
 #homepage #sectionFour iframe {
   -webkit-box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.5) !important;
           box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.5) !important; }
-
-#homepage #sectionFive .ctct-inline-form .ctct-form-defaults {
-  background: transparent; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults .ctct-gdpr-text {
-    display: none !important; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults #email_address_label_1 {
-    color: #fff; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults #success_message_1 {
-    background: rgba(255, 255, 255, 0.75);
-    padding: 25px;
-    text-align: center; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults #success_message_1 h2, #homepage #sectionFive .ctct-inline-form .ctct-form-defaults #success_message_1 p {
-    color: #000; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults #success_message_1 p {
-    margin-bottom: 0; }
-  #homepage #sectionFive .ctct-inline-form .ctct-form-defaults button {
-    width: 100%;
-    white-space: normal !important;
-    font-family: "Unica One", sans-serif;
-    font-size: 1.75rem;
-    text-transform: uppercase !important;
-    border: 0 !important;
-    height: auto !important;
-    border-radius: 65px;
-    padding: 10px 50px;
-    color: #CC9F53 !important;
-    background-color: #000 !important; }
-    #homepage #sectionFive .ctct-inline-form .ctct-form-defaults button:hover {
-      border: 0;
-      background-color: black !important; }
 
 #inventory #cars {
   min-height: 75px; }
@@ -12631,7 +12708,7 @@ a {
   margin-right: 1rem; }
 
 #singleCar #financeBullets {
-  background: #f2e6d3;
+  background: #CC9F53;
   padding: 15px;
   text-align: center; }
 
@@ -12658,6 +12735,16 @@ a {
   @media (min-width: 768px) {
     #allModels #hero {
       min-height: 500px; } }
+
+#allModels .model-wrapper {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+
+#allModels .model:hover > .model-wrapper {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05); }
 
 .tax-model #taxHero {
   height: 75vh;
@@ -12985,9 +13072,7 @@ a {
   @media (min-width: 992px) {
     #accessoryDetail .additional-services-buttons {
       -ms-flex-pack: distribute;
-          justify-content: space-around;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap; } }
+          justify-content: space-around; } }
   #accessoryDetail .additional-services-buttons li {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 100%;
@@ -12996,11 +13081,20 @@ a {
     @media (min-width: 576px) {
       #accessoryDetail .additional-services-buttons li {
         -ms-flex-preferred-size: 50%;
-            flex-basis: 50%; } }
+            flex-basis: 50%;
+        padding: 0 1rem; }
+        #accessoryDetail .additional-services-buttons li button {
+          height: 80px !important; } }
     @media (min-width: 992px) {
       #accessoryDetail .additional-services-buttons li {
         -ms-flex-preferred-size: 33%;
             flex-basis: 33%; } }
+    #accessoryDetail .additional-services-buttons li button {
+      width: 100%;
+      height: auto; }
+    @media (min-width: 1200px) {
+      #accessoryDetail .additional-services-buttons li button {
+        height: auto !important; } }
 
 #shipping {
   background-attachment: fixed !important; }

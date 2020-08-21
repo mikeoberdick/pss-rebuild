@@ -81,7 +81,7 @@ get_header(); ?>
 							<div class="contact-buttons mb-3">
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
 								<a href = 'tel:<?php echo $phone ?>'><button id = "callUs" role = 'button' class = 'mr-2 btn gold-button'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
-								<a href = '#contactForm'><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
+								<a data-toggle = "modal" data-target = "#contactModal"><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
 							</div><!-- .contact-buttons -->
 							<div class="spec">
 								<div class="icon-title">
@@ -177,7 +177,7 @@ get_header(); ?>
 
 									
 									<?php if (get_field('warranty_other')) : ?>
-									<li><h4 class = "mr-3 gold">Warranty Other</h4><h4><?php the_field('warranty_other'); ?></h4></li>
+									<li><h4 class = "mr-3 gold">Details</h4><h4><?php the_field('warranty_other'); ?></h4></li>
 								<?php endif; ?>
 								</ul>
 							</div><!-- .content-wrapper -->
@@ -299,7 +299,6 @@ $relatedPosts = new WP_Query( $args );
 $relatedCount = $relatedPosts->post_count;
 
 if ($relatedCount < 4) { ?>
-	<h1>run the secondary query</h1>
 <?php //get the IDs of the related posts so we don't show them again
 	if ( $relatedPosts->have_posts() ) : $relatedPostIds = array(); while ( $relatedPosts->have_posts() ) :  $relatedPosts-> the_post();
 		$relatedPostIds[] = get_the_ID();
@@ -387,6 +386,26 @@ $secondaryPosts = new WP_Query( $args );
     </div>
   </div>
 </div>
+
+<div class="modal fade contact-modal" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="Contact Form" aria-hidden="true">
+  	<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	    	<div class="modal-body p-3 p-md-5">
+	    		<a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="text-center">
+							<?php $logo = get_field('logo', 'options'); ?>
+						<img id = "logo" class = "d-block mx-auto" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
+						</div>
+						<h3>Like what you see?</h3>
+					<?php echo do_shortcode('[ninja_form id=6]'); ?>
+					</div><!-- .col-sm-12 -->   	
+				</div><!-- .row -->
+	    	</div><!-- .modal-body -->
+	  	</div><!-- .modal-content -->
+	</div><!-- .modal-dialog -->
+</div><!-- .modal -->
 
 
 

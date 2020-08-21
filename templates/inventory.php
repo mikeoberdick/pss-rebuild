@@ -22,11 +22,8 @@ get_header(); ?>
 				</div><!-- #hero -->
 				
 				<!-- Desktop Sorting -->
-				<form>
-					
-
-				</form>
-				<div data-filter-group id = "status" class="fancy mt-3 mb-0 controls d-none d-lg-flex">
+				<form class = "fancy mt-3">
+				<div data-filter-group id = "status" class="mb-0 controls d-none d-lg-inline-flex">
 		    		<a class = "catButton" data-filter=".all"><h4 class = "mb-0">All</h4></a>
 		    		<a class = "catButton" data-filter=".new_car"><h4 class = "mb-0">New</h4></a>
 		    		<a class = "catButton" data-filter=".pre_owned"><h4 class = "mb-0">Pre-Owned</h4></a>
@@ -47,12 +44,13 @@ get_header(); ?>
 						<?php wp_reset_postdata(); ?>
 				</div><!-- .controls -->
 
-				<div data-filter-group id = "body" class="fancy mb-5 controls d-none d-lg-flex">
+				<div data-filter-group id = "body" class="controls d-none d-lg-inline-flex">
 					<a class = "catButton" data-filter=".hearse"><h4 class = "mb-0">Hearse</h4></a>
 		    		<a class = "catButton" data-filter=".limousine"><h4 class = "mb-0">Limousine</h4></a>
 		    		<a class = "catButton" data-filter=".first_call"><h4 class = "mb-0">First Call Van</h4></a>
 		    		<a class = "catButton" data-filter=".flower_car"><h4 class = "mb-0">Flower Car</h4></a>
 				</div><!-- .controls -->
+			</form>
 
 				<!-- MOBILE Sorting -->
 				<div id="mobileControls" class = "d-lg-none">
@@ -99,7 +97,7 @@ get_header(); ?>
 					</div><!-- .row -->
 				</div><!-- .container -->
 
-				<div id="cars" class="container">
+				<div id="cars" class="container mb-5">
 					<div class="row">
 						<div class="fail-message col-sm-12"><h3>No vehicles were found</h3></div>
 

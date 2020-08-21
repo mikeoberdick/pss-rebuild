@@ -57,6 +57,17 @@ $bg = get_field('page_background');
 						<?php endwhile; endif; ?>
 					</div><!-- .row -->
 				</div><!-- .container -->
+
+				<div class="container mb-5">
+					<div class="col-sm-6 offset-sm-3">
+						<div id = "videoWrapper">
+	  					<?php $vid = get_field('video'); ?>
+						<video autoplay muted loop width = "100%" height = "auto" poster="">
+						  <source src="<?php echo $vid['url']; ?>" type="video/mp4">
+						</video>	
+					</div><!-- #videoWrapper -->
+					</div><!-- .col-sm-6 -->
+				</div><!-- .container -->
 				
 				<?php $content = get_field('content_section'); ?>
 				<h3 class="fancy mb-3"><?php echo $content['header']; ?></h3>

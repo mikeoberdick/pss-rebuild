@@ -15,9 +15,14 @@ get_header(); ?>
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
   				<?php get_template_part( 'snippets/page_header'); ?>
-				<div class="embed-responsive embed-responsive-16by9">
-				    <?php the_field('video_url'); ?>
-				</div>
+  				<div id="hero">
+	  				<div id = "videoWrapper">
+	  					<?php $vid = get_field('video_file'); ?>
+						<video autoplay muted loop width = "100%" height = "auto" poster="<?php echo get_stylesheet_directory_uri() . '/img/video_poster.png'; ?>">
+						  <source src="<?php echo $vid['url']; ?>" type="video/mp4">
+						</video>	
+					</div><!-- #videoWrapper -->
+				</div><!-- #hero -->
 				<?php $team = get_field('meet_the_team'); ?>
 				<h3 class="fancy"><?php echo $team['header']; ?></h3>
 				<div class="container my-5">
@@ -60,7 +65,7 @@ get_header(); ?>
 					</div><!-- .row -->
 				</div><!-- .container -->
 
-				<?php $ad = get_field('current_ad'); ?>
+				<?php $ad = get_field('current_ad', 'option'); ?>
 				<h3 class="fancy"><?php echo $ad['header']; ?></h3>
 				<div class="container my-5">
 					<div class="row">

@@ -19,7 +19,7 @@ get_header(); ?>
 				<?php if ( $hero['video_background'] ) { ?>
 				<section id="hero">
 					<div id = "videoWrapper">
-					<video autoplay muted loop width = "100%" height = "auto">
+					<video autoplay muted loop width = "100%" height = "100%" poster="<?php echo get_stylesheet_directory_uri() . '/img/transparent.png'; ?>">
 					  <source src="<?php echo $hero['video_background']['url']; ?>" type="video/mp4">
 					</video>	
 					</div><!-- #videoWrapper -->
@@ -54,14 +54,21 @@ get_header(); ?>
 				<?php } ?>
 
 				<?php $posts = get_posts(array(
-					'posts_per_page'	=> -1,
-					'post_type'			=> 'car',
-					'meta_key'		=> 'flag',
-					'meta_value'	=> 'featured'
-				));
+					'post_type' => 'car',
+					'order' => 'desc',
+					'posts_per_page' => 8,
+					'orderby' => 'title',
+					'meta_query'   => array (
+                        array (
+                            'key'     => 'creation_date',
+                            'value'   => array( date("Y-m-d", strtotime("-1 weeks")), date('Y-m-d') ),
+                            'type'    => 'DATE', 
+                            'compare' => 'BETWEEN'
+                        )
+                    ),
+    			)); 
 
-				//If there are cars marked as featured
-				if( $posts ): ?>
+			if( $posts ): ?>
 			<?php $sectionOne = get_field('section_one'); ?>
 			<section id="sectionOne" class = "py-5 p-relative container-fluid">
 				<div class="row">
@@ -70,7 +77,7 @@ get_header(); ?>
 					</div><!-- .col-sm-12 -->	
 				</div><!-- .row -->
 
-				<div class="row">
+				<div class="row position-relative">
 					<div id="featuredSlider" class="col-sm-12">
 					<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
 						
@@ -78,6 +85,7 @@ get_header(); ?>
 					
 					<?php endforeach; ?>
 					</div><!-- #featuredSlider -->
+					<div class="arrows"></div>
 				</div><!-- .row -->
 			</section><!-- #sectionOne -->
 	
@@ -109,8 +117,8 @@ get_header(); ?>
 								<a href = '<?php echo $sectionFour['page_link']; ?>'><button role = 'button' class = 'btn black-button'><?php echo $sectionFour['button_text']; ?></button></a>
 							</div><!-- .col-lg-5 -->
 							<div class="col-lg-7 mb-3 mb-lg-0">
-								<div class = "embed-responsive embed-responsive-16by9">
-									<?php echo $sectionFour['video']; ?>	
+								<div class = "img-fluid">
+									<img src="<?php echo $sectionFour['image']['url']; ?>" alt="<?php echo $sectionFour['image']['alt']; ?>">
 								</div>
 							</div><!-- .col-md-7 -->
 						</div><!-- .row -->	
@@ -121,16 +129,34 @@ get_header(); ?>
 				<section id="sectionFive" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFive['background']['url']; ?>');">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-5 offset-lg-7 text-center text-lg-right">
+							<div class="col-lg-6 offset-lg-6 text-center text-lg-right">
 							<h1 class="mb-3 text-shadow"><?php echo $sectionFive['header']; ?></h1>
 							<p class = "mb-3"><?php echo $sectionFive['sub_header']; ?></p>
-							<!-- Constant Contact Inline Form -->
-							<div class="ctct-inline-form" data-form-id="93ac4dba-c1c0-447f-a6a1-aaf4b874b73b"></div>
-							<!-- End Constant Contact Form -->
-						</div><!-- .col-lg-5 offset-lg-7 -->	
+							<a data-toggle = "modal" data-target = "#carRequestModal"><button role = "button" class = "btn black-button w-100">Tell Us Your Dream Car</button></a>
+						</div><!-- .col-lg-6 offset-lg-6 -->	
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</section><!-- #sectionFive -->
+
+				<div class="modal fade contact-modal" id="carRequestModal" tabindex="-1" role="dialog" aria-labelledby="Request a Specific Car Contact Form" aria-hidden="true">
+				  	<div class="modal-dialog modal-xl modal-dialog-centered" role="document" style = "background: url('/wp-content/themes/understrap-child/img/contact_bg.png');">
+					    <div class="modal-content">
+					    	<div class="modal-body p-3 p-md-5">
+					    		<a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="text-center">
+											<?php $logo = get_field('logo', 'options'); ?>
+										<img id = "logo" class = "d-block mx-auto" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
+										</div>
+										<h3>Get the Car you’re looking for!</h3>
+									<?php echo do_shortcode('[ninja_form id=7]'); ?>
+									</div><!-- .col-sm-12 -->   	
+								</div><!-- .row -->
+					    	</div><!-- .modal-body -->
+					  	</div><!-- .modal-content -->
+					</div><!-- .modal-dialog -->
+				</div><!-- .modal -->
 
 				<?php $sectionSix = get_field('section_six'); ?>
 				<section id="sectionSix" style = "background: url('<?php echo $sectionSix['background']['url']; ?>');" class = "py-5 text-center inset">
@@ -143,7 +169,7 @@ get_header(); ?>
 								<div>
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
 								<a class = "mr-3" href="tel:<?php echo $phone ?>"><button role = 'button' class = 'btn gold-button'>Call Us</button></a>
-								<a href = '/contact-us'><button role = 'button' class = 'btn gold-button'>Contact Us</button></a>	
+								<a data-toggle = "modal" data-target = "#headerContactModal"><button role = 'button' class = 'btn gold-button'>Contact Us</button></a>	
 							</div>	
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->

@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 					<div id = "menuLeft" class="col-lg-4 d-flex flex-column">
 						<div class = "align-items-center underlined mb-3 d-none d-lg-flex">
 							<i class="fa fa-question-circle-o fa-2x gold mr-2" aria-hidden="true"></i>
-							<a href = "/contact-us"><h4 class = "gold mb-0">Ask a Question</h4></a>
+							<a data-toggle = "modal" data-target = "#headerContactModal"><h4 class = "gold mb-0">Ask a Question</h4></a>
 						</div>
 						<?php wp_nav_menu(
 							array(
@@ -138,3 +138,23 @@ defined( 'ABSPATH' ) || exit;
 	    </div><!-- .modal-content -->
 	  </div><!-- .modal-dialog -->
 	</div><!-- .modal -->
+
+<div class="modal fade contact-modal" id="headerContactModal" tabindex="-1" role="dialog" aria-labelledby="Header Contact Form" aria-hidden="true">
+  	<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	    	<div class="modal-body p-3 p-md-5">
+	    		<a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="text-center">
+							<?php $logo = get_field('logo', 'options'); ?>
+						<img id = "logo" class = "d-block mx-auto" src="<?php echo $logo['url']; ?>" alt="<?php echo get_bloginfo( 'name'); ?>">
+						</div>
+						<h3>How can we help?</h3>
+					<?php echo do_shortcode('[ninja_form id=1]'); ?>
+					</div><!-- .col-sm-12 -->   	
+				</div><!-- .row -->
+	    	</div><!-- .modal-body -->
+	  	</div><!-- .modal-content -->
+	</div><!-- .modal-dialog -->
+</div><!-- .modal -->

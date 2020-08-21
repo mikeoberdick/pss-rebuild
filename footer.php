@@ -55,27 +55,17 @@ defined( 'ABSPATH' ) || exit;
 				<?php $bbb = get_field('bbb_logo', 'options'); ?>
 				<img class = "mb-3 mb-xl-0" src="<?php echo $bbb['url']; ?>" alt="Better Business Bureau A+ Rating">
 			</div><!-- .col-xl-1 -->
-			<div class="col-xl-11 mb-5">
+			<div class="col-xl-11">
 				<div class = "row">
 					<div class="col-xl-9 mb-3">
 						<?php
-						$addy1 = get_field('address_line_1', 'option');
-						$addy2 = get_field('address_line_2', 'option');
 						$phone = get_field('phone_number', 'option');
 						$phoneLink = preg_replace('/[^0-9]/', '', $phone);
 						$email = get_field('email_address', 'option');
 						?>
 						<div class = "text-center text-xl-left">
-							<p class = "mb-0 d-inline">
-								<?php echo $addy1; ?>
-							</p>
-							
-							<p class = "mb-0 d-inline">
-							<?php echo $addy2; ?>
-							</p>
-							<span class = "mx-1 d-none d-md-inline"> | </span>
 							<p class = "d-block d-md-inline">Email: <a href = "mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
-							
+							<span class = "mx-1 d-none d-md-inline"> | </span>
 							<p class = "mb-0 d-block d-md-inline-block gold">Phone: <a class = "gold" href="tel:<?php echo $phoneLink; ?>">
 								<?php echo $phone; ?>
 								</a>
@@ -107,6 +97,12 @@ defined( 'ABSPATH' ) || exit;
 					</div><!-- .col-xl-6 -->
 				</div><!-- .row -->
 			</div><!-- .col-xl-11 -->
+			<div class="col-sm-12 text-center my-3">
+				<h4 class = "gold font-weight-bold mb-0">Subscribe To The Parks Newsletter</h4>
+				<!-- Constant Contact Inline Form -->
+				<div class="ctct-inline-form" data-form-id="93ac4dba-c1c0-447f-a6a1-aaf4b874b73b"></div>
+				<!-- End Constant Contact Form -->
+			</div><!-- .col-sm-12 -->
 			<div class="col-sm-12 text-center">
 				POWERED BY <a target = "_blank" href="https://www.designs4theweb.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/d4tw.png" alt="Another WordPress website by Designs 4 The Web"></a>
 				<a class = "d-block small" href="https://parksmgmt.org/staff/login.htm">STAFF LOGIN</a>
@@ -125,6 +121,11 @@ defined( 'ABSPATH' ) || exit;
 </div><!-- #page we need this extra closing tag here from header file -->
 
 <?php wp_footer(); ?>
+
+<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
+<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
 
 <?php if ( is_page( 'all-models' ) ) { ?>
 	<script>
@@ -158,18 +159,16 @@ defined( 'ABSPATH' ) || exit;
 <?php } ?>
 
 <?php if ( is_page_template( 'templates/homepage.php' ) ) { ?>
-<!-- Begin Constant Contact Active Forms -->
-<script> var _ctct_m = "e3a16cb0afe1e33e72196768d25c80a5"; </script>
-<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
-<!-- End Constant Contact Active Forms -->
-
 <script>
 	jQuery('#featuredSlider').slick({
 	    infinite: true,
 	    slidesToShow: 4,
 		slidesToScroll: 1,
 		dots: true,
-		arrows: false,
+		arrows: true,
+		appendArrows: '.arrows',
+	    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>',
 		//autoplay: true,
   		autoplaySpeed: 2000,
   		responsive: [

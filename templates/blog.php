@@ -44,7 +44,7 @@ get_header(); ?>
 						<div class="cat-search col-sm-12 d-flex justify-content-between">	
 						<?php $terms  = get_terms('category'); ?>
 				    	<?php if (count($terms)) : ?>
-							<div id="ajaxFilter" data-paged="4" class="sc-ajax-filter">
+							<div id="ajaxFilter" data-paged="-1" class="sc-ajax-filter">
                 				<ul class="nav-filter list-unstyled d-flex flex-wrap mb-2">
 				                    <li class="active">
 				                        <a href="#" data-filter="<?php echo $terms[1]->taxonomy; ?>" data-term="all-terms" data-page="1" class = "h5">
@@ -68,7 +68,7 @@ get_header(); ?>
 						<div class="cat-search col-sm-12">	
 						<?php $terms  = get_terms('category'); ?>
 				    	<?php if (count($terms)) : ?>
-							<div id="ajaxFilter" data-paged="4" class="sc-ajax-filter">
+							<div id="ajaxFilter" data-paged="-1" class="sc-ajax-filter">
 								<select name="" id="" class = "nav-filter">
 									 <option value = "all-terms" data-filter="<?php echo $terms[1]->taxonomy; ?>"  data-term="all-terms" data-page="1">All Topics</option>
 									  
@@ -83,7 +83,7 @@ get_header(); ?>
 
 					<?php $args = array(
 						'post_type' => 'post',
-						'posts_per_page' => 4,
+						'posts_per_page' => -1,
 						'offset' => 1
 					); ?>
 					<?php $post_query = new WP_Query($args); ?>
@@ -102,13 +102,6 @@ get_header(); ?>
 									</div><!-- .row -->
 								</article>
 						<?php endwhile; ?>
-							<nav id = "pagination" class = "container mt-3 text-center navigation">
-					            <div class="row">
-					                <div class="col-sm-12">
-					                    <?php psc_ajax_pager($post_query,$page); ?>
-					                </div><!-- .col-sm-12 -->
-					            </div><!-- .row -->
-					        </nav>
 						</div><!-- .row -->
 					<?php wp_reset_postdata(); ?>
 					

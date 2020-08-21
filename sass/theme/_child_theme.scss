@@ -198,6 +198,69 @@ a {
 }
 
 /*------------------------------------------------*/
+/*---------[CONSTANT CONTACT  FORM]--------------*/
+/*------------------------------------------------*/
+.ctct-inline-form {
+  div.ctct-form-embed form.ctct-form-custom .ctct-form-required:before {
+    color: #cc0000 !important;
+  }
+  .ctct-form-defaults {
+    background-color: transparent !important;
+    padding: 0 !important;
+    .ctct-gdpr-text {
+      display: none !important;
+    }
+    .ctct-form-custom {
+      display: flex;
+      align-items: flex-end;
+      min-height: auto !important;
+    }
+    #email_address_field_1 {
+      flex-basis: 75%;
+      margin-right: 3rem;
+      margin-bottom: 0;
+      input {
+        height: 50px;
+        border: solid 3px #000;
+        border-radius: 3px;
+      }
+    }
+    #email_address_label_1 {
+      color: $gold;
+    }
+    #success_message_1 {
+      background: rgba(255,255,255,.75);
+      padding: 25px;
+      text-align: center;
+    }
+    #success_message_1 h2, #success_message_1 p {
+      color: #000;
+    }
+    #success_message_1 p {
+      margin-bottom: 0;
+    }
+    button {
+      width: 100%;
+      white-space: normal !important;
+      font-family: $unica;
+      font-size: 1.5rem !important;
+      text-transform: uppercase !important;
+      border: solid 3px $gold !important;
+      @include border-radius(65px);
+      padding: 0 !important;
+      color: $gold !important;
+      background-color: #000 !important;
+      flex-basis: 25%;
+      height: 50px !important;
+      &:hover {
+        border: 0;
+        background-color: darken( #000, 10% ) !important;
+      }
+    }
+  } 
+}
+
+/*------------------------------------------------*/
 /*------------------[NINJA FORMS]-----------------*/
 /*------------------------------------------------*/
 .nf-form-fields-required {
@@ -251,6 +314,26 @@ a {
   }
 }
 
+#nf-form-7-cont {
+  .nf-form-content {
+    label {
+      color: #fff;
+    }
+    .nf-error-msg, .ninja-forms-req-symbol {
+      color: #cc0000;
+    }
+    .listcheckbox-wrap {
+      text-align: left;
+    }
+    .listcheckbox-wrap .nf-field-element label:after {
+      border-color: $gold;
+    }
+    textarea {
+      border-color: $gold;
+    }
+  }
+}
+
 /*------------------------------------------------*/
 /*---------------------[HEADER]-------------------*/
 /*------------------------------------------------*/
@@ -259,6 +342,14 @@ a {
   background: #262626;
   z-index: 99;
   box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.50) !important;
+  .container {
+    @include media-breakpoint-only(lg) {
+      max-width: 100%;
+    }
+    @include media-breakpoint-only(xl) {
+      max-width: 85%
+    }
+  }
   #menuLeft {
     @include media-breakpoint-down(md) {
       order: 3;
@@ -437,8 +528,30 @@ a {
     }
   }
 
+.contact-modal {
+  .modal-close {
+    top: 15px;
+    right: 15px;
+  }
+  .nf-form-content {
+    max-width: 100%;
+    .black-outline-button {
+      color: #000 !important;
+      background-color: $gold !important;
+      &:hover {
+        background-color: darken( $gold, 10% ) !important;
+      }
+    }
+  }
+}
+
 //GENERAL
+.aligncenter {
+  display: block;
+}
+
 #hero {
+  background-color: #000;
   video {
     position: relative;
     min-width: 100%;
@@ -678,7 +791,6 @@ a {
   border-bottom: solid 3px $gold;
 }
 #catCurrentlyShown {
-  border-bottom: solid;
   h3 {
     color: $gold;
     span {
@@ -786,7 +898,7 @@ a {
 .link {
   height: 100%;
   .car-wrapper {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -798,7 +910,7 @@ a {
   }  
 }
 
-.car:hover > .car-wrapper {
+.link:hover > .car-wrapper {
   transform: scale(1.05);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -836,16 +948,22 @@ a {
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     @include media-breakpoint-up(md) {
       min-height: 500px;
     }
   }
-  #videoWrapper {
-    background: black;
+  #hero {
+    background: transparent url('/wp-content/themes/understrap-child/img/video_poster.jpg') no-repeat 0 0; 
+    background-size:cover; 
   }
   #heroContent {
     @include media-breakpoint-up(lg) {
       top: 40%;
+    }
+    button {
+      font-size: 2rem !important;
     }
     #scrollDown {
       display: flex;
@@ -886,9 +1004,24 @@ a {
         position: relative;
         bottom: 0;
       }
+      .ribbon {
+        display: none;
+      }
+    }
+    .arrows {
+      i {
+        color: $gold;
+        text-shadow: 0 10px 6px rgba(0,0,0,.75);
+      }
+      .prev-arrow {
+        left: 15px;
+      }
+      .next-arrow {
+        right: 15px;
+      }
     }
   }
-  #featuredSlider .car:hover>.car-wrapper {
+  #featuredSlider .link:hover>.car-wrapper {
     transform: scale(.95) !important;
   }
   #sectionFour {
@@ -904,47 +1037,6 @@ a {
     }
     iframe {
       @include shadow;
-    }
-  }
-  #sectionFive {
-    .ctct-inline-form {
-      .ctct-form-defaults {
-        background: transparent;
-        .ctct-gdpr-text {
-          display: none !important;
-        }
-        #email_address_label_1 {
-          color: #fff;
-        }
-        #success_message_1 {
-          background: rgba(255,255,255,.75);
-          padding: 25px;
-          text-align: center;
-        }
-        #success_message_1 h2, #success_message_1 p {
-          color: #000;
-        }
-        #success_message_1 p {
-          margin-bottom: 0;
-        }
-        button {
-          width: 100%;
-          white-space: normal !important;
-          font-family: $unica;
-          font-size: 1.75rem;
-          text-transform: uppercase !important;
-          border: 0 !important;
-          height: auto !important;
-          @include border-radius(65px);
-          padding: 10px 50px;
-          color: $gold !important;
-          background-color: #000 !important;
-          &:hover {
-            border: 0;
-            background-color: darken( #000, 10% ) !important;
-          }
-        }
-      } 
     }
   }
 }
@@ -1112,7 +1204,7 @@ a {
     }
   }
   #financeBullets {
-    background: #f2e6d3;
+    background: $gold;
     padding: 15px;
     text-align: center;
   }
@@ -1134,6 +1226,13 @@ a {
     @include media-breakpoint-up(md) {
       min-height: 500px;
     }
+  }
+  .model-wrapper {
+    transform: scale(.90);
+    transition: all 0.5s ease-in-out;
+  }
+  .model:hover > .model-wrapper {
+    transform: scale(1.05);
   }
 }
 
@@ -1563,16 +1662,28 @@ a {
     flex-wrap: wrap;
     @include media-breakpoint-up(lg) {
       justify-content: space-around;
-      flex-wrap: nowrap;
     }
     li {
       flex: 1 1 100%;
       text-align: center;
       @include media-breakpoint-up(sm) {
         flex-basis: 50%;
+        padding: 0 1rem;
+        button {
+          height: 80px !important;
+        }
       }
       @include media-breakpoint-up(lg) {
         flex-basis: 33%;
+      }
+      button {
+        width: 100%;
+        height: auto;
+      }
+      @include media-breakpoint-only(xl) {
+        button {
+          height: auto !important;
+        }
       }
     }
   }

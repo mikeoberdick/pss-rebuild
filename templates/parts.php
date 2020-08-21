@@ -67,6 +67,7 @@ get_header(); ?>
 				</div><!-- #partsCatalog -->
 
 				<?php get_template_part( 'snippets/contact-box'); ?>
+				<img class = "d-block mx-auto" src="<?php echo get_stylesheet_directory_uri() . '/img/credit_cards.png'; ?>" alt="Credit Cards Accepted">
 
 				<h3 class="fancy">Related Department</h3>
 				<div class="container mb-5">

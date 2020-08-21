@@ -296,14 +296,6 @@ ob_start();
                                 </article>
         <?php endwhile; ?>
 
-        <nav class = "container mt-3 text-center">
-            <div class="row">
-                <div class="col-sm-12">
-                    <?php psc_ajax_pager($qry,$page); ?>
-                </div><!-- .col-sm-12 -->
-            </div><!-- .row -->
-        </nav>
-
 <?php $response = [
     'status'=> 200,
     'found' => $qry->found_posts
