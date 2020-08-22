@@ -160,7 +160,7 @@ get_header(); ?>
 								<h3><?php the_title(); ?></h3>
 								<h5 class = "mb-3"><span class = "font-weight-bold">Stock Number: </span><?php the_field('stock'); ?></h5>
 								<p><?php the_field('description'); ?></p>
-								<p class = "mb-0 callout">We love these cars...let us show you the Parks Difference! Call us today at <a href = 'tel:<?php echo $phone ?>'><?php the_field('phone_number', 'option'); ?>.</a></p>
+								<p class = "mb-0 callout"><?php the_field('description_box_footer','option'); ?></p>
 							</div><!-- .content-wrapper -->
 						</div><!-- .col-sm-12 -->
 					</div><!-- #description -->

@@ -56,9 +56,15 @@ get_header(); ?>
 				<?php $posts = get_posts(array(
 					'post_type' => 'car',
 					'order' => 'desc',
-					'posts_per_page' => 8,
+					'posts_per_page' => -1,
 					'orderby' => 'title',
 					'meta_query'   => array (
+						'relation' => 'OR',
+						array (
+							'key'     => 'flag',
+							'value'   => 'featured',
+							'compare' => '='
+						),
                         array (
                             'key'     => 'creation_date',
                             'value'   => array( date("Y-m-d", strtotime("-1 weeks")), date('Y-m-d') ),
@@ -78,7 +84,7 @@ get_header(); ?>
 				</div><!-- .row -->
 
 				<div class="row position-relative">
-					<div id="featuredSlider" class="col-sm-12">
+					<div id="featuredSlider" class="col-sm-10 offset-sm-1">
 					<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
 						
 						<?php get_template_part( 'snippets/car'); ?>
