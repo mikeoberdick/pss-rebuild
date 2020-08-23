@@ -23,6 +23,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php $aboutVideoModal = get_field('about_video', 'option'); ?>
 				<?php echo $aboutVideoModal['video']; ?>
 			</div>
+			
       </div><!-- .modal-body -->
     </div><!-- .modal-content -->
   </div><!-- .modal-dialog -->

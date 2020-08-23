@@ -17,13 +17,14 @@ get_header(); ?>
 				<?php get_template_part( 'snippets/page_header'); ?>
 
 				<?php $hero = get_field('hero'); ?>
+				<?php $creditApp = get_field('credit_application_file'); ?>
 				<div id="hero" class = "mb-5 inset" style = "background: url('<?php echo $hero['background']['url']; ?>');">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 text-center">
 							<h1 class = "mb-3 text-shadow"><?php echo $hero['header']; ?></h1>
 							<h3 class = "mb-3 text-shadow mb-0"><?php echo $hero['subheader']; ?></h3>
-							<a href = '<?php echo $hero['button_link']; ?>'><button role = 'button' class = 'btn btn-primary gold-button'><?php echo $hero['button_text']; ?></button></a>	
+							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn btn-primary gold-button'><?php echo $hero['button_text']; ?></button></a>	
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
@@ -35,7 +36,6 @@ get_header(); ?>
 					<div class="row mb-5">
 						<div class="col-sm-12 text-center">
 							<p><?php echo $main['copy']; ?></p>
-							<?php $creditApp = get_field('credit_application_file'); ?>
 							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
@@ -111,7 +111,7 @@ get_header(); ?>
 				<div class="modal fade p-5" id="submitCreditApplication" tabindex="-1" role="dialog" aria-labelledby="Submit Credit Application" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
-      <div class="modal-body p-5">
+      <div class="modal-body p-lg-5">
         <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
 			<div class = "text-center">
 				<?php echo do_shortcode('[ninja_form id=4]'); ?>

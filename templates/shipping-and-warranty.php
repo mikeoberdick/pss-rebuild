@@ -23,6 +23,8 @@ $bg = get_field('page_background');
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
+				<?php get_template_part( 'snippets/page_header'); ?>
+
   				<?php
 	  			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
   				?>
@@ -58,19 +60,23 @@ $bg = get_field('page_background');
 					</div><!-- .row -->
 				</div><!-- .container -->
 
+				<?php if ($id == 272) : ?>
+
 				<div class="container mb-5">
 					<div class="col-sm-6 offset-sm-3">
 						<div id = "videoWrapper">
 	  					<?php $vid = get_field('video'); ?>
-						<video autoplay muted loop width = "100%" height = "auto" poster="">
+						<video muted loop width = "100%" height = "auto" poster="">
 						  <source src="<?php echo $vid['url']; ?>" type="video/mp4">
 						</video>	
 					</div><!-- #videoWrapper -->
 					</div><!-- .col-sm-6 -->
 				</div><!-- .container -->
+
+				<?php endif; ?>
 				
 				<?php $content = get_field('content_section'); ?>
-				<h3 class="fancy mb-3"><?php echo $content['header']; ?></h3>
+				<h3 class="fancy mb-5"><?php echo $content['header']; ?></h3>
 				<div class="container mb-5">
 					<div class="row">
 						<div class="col-sm-12">

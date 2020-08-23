@@ -54,7 +54,7 @@ get_header(); ?>
 							<div class="<?php if ($count == 2) {echo 'col-md-6 ';} else {echo 'col-md-4 ';} ?> service-bucket d-flex flex-column mb-5">
 								<img class = "mb-3" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 								<h4 class = "text-center gold mb-3"><?php echo $header; ?></h4>
-								<p class = "mb-3"><?php echo $copy; ?></p>
+								<p class = "mb-3 text-center text-lg-left"><?php echo $copy; ?></p>
 								<div class = "text-center mt-auto">
 									<a href = '<?php echo $link; ?>'><button role = 'button' class = 'btn text-center gold-button'><?php echo $text; ?></button></a>
 								</div>

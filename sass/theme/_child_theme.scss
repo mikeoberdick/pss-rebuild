@@ -21,6 +21,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   @include media-breakpoint-down(md) {
     position: relative;
     text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
     &:after {
       content: '';
       display: block;
@@ -215,11 +217,20 @@ a {
       align-items: flex-end;
       justify-content: center;
       min-height: auto !important;
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      };
     }
     #email_address_field_1 {
       flex-basis: 35%;
       margin-right: 1.5rem;
       margin-bottom: 0;
+      @include media-breakpoint-down(md) {
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 1rem;
+        width: 100%;
+      };
       input {
         height: 50px;
         border: solid 3px #000;
@@ -257,6 +268,9 @@ a {
         border: 0;
         background-color: darken( #000, 10% ) !important;
       }
+      @include media-breakpoint-down(md) {
+        flex-basis: auto;
+      };
     }
   } 
 }
@@ -376,7 +390,12 @@ a {
     }
   }
   #logo {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      max-width: 150px;
+      margin-right: 1.5rem;
+    }
+    @include media-breakpoint-only(md) {
       width: 100%;
       max-width: 250px;
       margin-right: 1.5rem;
@@ -556,7 +575,16 @@ a {
   video {
     position: relative;
     min-width: 100%;
+    display: flex;
   }
+  @include media-breakpoint-down(md) {
+    h1 {
+      font-size: 8vw;
+    }
+    h3 {
+      font-size: 6vw;
+    }  
+  };
 } 
 
 #heroContent {
@@ -959,13 +987,21 @@ a {
     background: transparent url('/wp-content/themes/understrap-child/img/video_poster.jpg') no-repeat 0 0; 
     padding-top: 0;
     padding-bottom: 0;
+    @include media-breakpoint-down(md) {
+      min-height: auto;
+      padding: 0;
+    }  
   }
   #heroContent {
-    @include media-breakpoint-up(lg) {
-      top: 40%;
+    @include media-breakpoint-down(sm) {
+      h1 {
+        font-size: 8vw;  
+      }
     }
-    button {
-      font-size: 2rem !important;
+    @include media-breakpoint-up(lg) {
+      button {
+        font-size: 2rem !important;
+      }
     }
     #scrollDown {
       display: flex;
@@ -1005,12 +1041,20 @@ a {
       .slick-dots {
         position: relative;
         bottom: 0;
+        @include media-breakpoint-down(md) {
+          display: none !important;
+        }
       }
       .ribbon {
         display: none;
       }
     }
     .arrows {
+       @include media-breakpoint-down(md) {
+          position: relative;
+          margin: 0 auto;
+          bottom: 0;
+        }
       i {
         color: $gold;
         text-shadow: 0 10px 6px rgba(0,0,0,.75);
@@ -1039,6 +1083,14 @@ a {
     }
     iframe {
       @include shadow;
+    }
+  }
+  #sectionSix {
+    button {
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        width: auto;
+      }    
     }
   }
 }
@@ -1293,14 +1345,17 @@ a {
 #auction {
   #auctionSlider {
       .slick-list {
+        @include media-breakpoint-down(md) {
+          width: 100% !important;
+        };
         .slick-track {
           @include media-breakpoint-down(md) {
-            min-width: 50%;
+            width: 100% !important;
           }
           .slick-slide {
             cursor: pointer;
             @include media-breakpoint-down(md) {
-              min-width: 100% !important;
+              width: 100% !important;
             }
             .car-wrapper {
               transform: scale(.90);
@@ -1534,8 +1589,18 @@ a {
 
 //Service Page Template
 #service {
+  .additional-services-buttons {
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      button {
+        width: 100%;
+      }
+    };
+  }
     .additional-services-buttons li:not(:last-child) {
-      margin-right: 1rem;
+      @include media-breakpoint-up(lg) {
+        margin-right: 1rem;  
+      };
     }
 }
 
@@ -1693,4 +1758,14 @@ a {
 
 #shipping {
   background-attachment: fixed !important;
+}
+
+//About Us Page
+#aboutUs {
+  #hero {
+    @include media-breakpoint-down(md) {
+    padding: 0;
+    min-height: auto;
+    }
+  }
 }

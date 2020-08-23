@@ -14,6 +14,8 @@ get_header(); ?>
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
+				<?php get_template_part( 'snippets/page_header'); ?>
+
   				<?php
 	  			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	  			$video = get_field('video');
@@ -93,7 +95,9 @@ get_header(); ?>
 				        			<?php foreach( $images as $image ): ?>
 				                		<div class = "slide">
 				                    		<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+				                    		<?php if ($image['caption']) : ?>
 				                    		<p class = 'slide-caption'><?php echo esc_html($image['caption']); ?></p>
+				                    		<?php endif; ?>
 				                		</div>
 				            		<?php endforeach; ?>
 				            	</div><!-- #sliderGallery -->

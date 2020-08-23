@@ -17,7 +17,7 @@ get_header(); ?>
   				<?php get_template_part( 'snippets/page_header'); ?>
 
 				<?php $ad = get_field('current_ad', 'option'); ?>
-				<h3 class="fancy"><?php echo $ad['header']; ?></h3>
+				<h3 class="fancy mt-3"><?php echo $ad['header']; ?></h3>
 				<div class="container my-5">
 					<div class="row">
 						<div class="col-sm-12">

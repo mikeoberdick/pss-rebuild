@@ -15,22 +15,20 @@ get_header(); ?>
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 				
 				<?php $hero = get_field('hero'); ?>
-
 				<?php if ( $hero['video_background'] ) { ?>
 				<section id="hero">
 					<div id = "videoWrapper">
-					<video autoplay muted loop width = "100%" height = "100%" poster="<?php echo get_stylesheet_directory_uri() . '/img/transparent.png'; ?>">
+					<video autoplay muted loop width = "100%" height = "100%" poster="<?php echo get_stylesheet_directory_uri() . '/img/transparent.png'; ?>" class = "d-flex">
 					  <source src="<?php echo $hero['video_background']['url']; ?>" type="video/mp4">
 					</video>	
 					</div><!-- #videoWrapper -->
-					
-					<div class="container position-absolute" id = "heroContent">
+					<div id = "heroContent" class="container position-absolute">
 						<div class="row">
 							<div class="col-sm-12 text-center mb-3 mb-lg-5">
 								<h1 class = "mb-3 mb-lg-5 text-shadow"><?php echo $hero['header']; ?></h1>
 								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 							</div><!-- .col-sm-12 -->
-							<div class="col-sm-12 text-center">
+							<div class="col-sm-12 text-center d-none d-md-block">
 								<a href = "#sectionOne" id="scrollDown">
 									<i class="fa fa-arrow-down fa-2x mb-4" aria-hidden="true"></i><br>
 									<h5 class = "d-none d-lg-inline-block">SCROLL DOWN</h5>
@@ -174,7 +172,7 @@ get_header(); ?>
 								<p class = "mb-5"><?php echo $sectionSix['copy']; ?></p>
 								<div>
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
-								<a class = "mr-3" href="tel:<?php echo $phone ?>"><button role = 'button' class = 'btn gold-button'>Call Us</button></a>
+								<a class = "mr-3" href="tel:<?php echo $phone ?>"><button role = 'button' class = 'btn gold-button mb-3 mb-md-0'>Call Us</button></a>
 								<a data-toggle = "modal" data-target = "#headerContactModal"><button role = 'button' class = 'btn gold-button'>Contact Us</button></a>	
 							</div>	
 							</div><!-- .col-sm-12 -->

@@ -30,7 +30,7 @@ get_header(); ?>
 				</div><!-- .controls -->
 
 				<!-- MOBILE Sorting -->
-				<div id="mobileControls" class = "d-lg-none">
+				<div id="mobileControls" class = "d-lg-none px-3 my-3">
 					<select>
 						<?php $terms = get_terms( array ('taxonomy'=> 'model', 'parent' => 0, 'hide_empty' => false, 'orderby' => 'term_group', 'exclude' => array( 241, 274 ), ) ); ?>
 		    		<?php foreach ( $terms as $term ) { ?>
