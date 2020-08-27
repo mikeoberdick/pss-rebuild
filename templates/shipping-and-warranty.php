@@ -66,7 +66,7 @@ $bg = get_field('page_background');
 					<div class="col-sm-6 offset-sm-3">
 						<div id = "videoWrapper">
 	  					<?php $vid = get_field('video'); ?>
-						<video muted loop width = "100%" height = "auto" poster="">
+						<video controls loop width = "100%" height = "auto" poster="">
 						  <source src="<?php echo $vid['url']; ?>" type="video/mp4">
 						</video>	
 					</div><!-- #videoWrapper -->

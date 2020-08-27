@@ -3,7 +3,6 @@
  * Template Name: Homepage
  * @package understrap
 **/
-
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -121,6 +120,16 @@ get_header(); ?>
 								<a href = '<?php echo $sectionFour['page_link']; ?>'><button role = 'button' class = 'btn black-button'><?php echo $sectionFour['button_text']; ?></button></a>
 							</div><!-- .col-lg-5 -->
 							<div class="col-lg-7 mb-3 mb-lg-0">
+								<?php 
+								$images = $sectionFour['image_gallery'];
+								$rand = array_rand($images, 1);
+	
+								if( $images ): ?>
+									<div class = "img-fluid">
+										<img src="<?php echo $images[$rand]['url']; ?>" alt="<?php echo $images[$rand]['alt']; ?>">
+									</div><!-- .img-fluid -->
+								<?php endif; ?>
+
 								<div class = "img-fluid">
 									<img src="<?php echo $sectionFour['image']['url']; ?>" alt="<?php echo $sectionFour['image']['alt']; ?>">
 								</div>

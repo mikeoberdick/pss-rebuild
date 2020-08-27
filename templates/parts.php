@@ -28,6 +28,8 @@ get_header(); ?>
 					</div><!-- .container -->
 				</div><!-- #hero -->
 
+
+				<?php if ( !is_page('sales-team') ) : ?>
 				<div class="container mb-5">
 					<div class="row">
 						<div class="col-sm-12">
@@ -37,8 +39,9 @@ get_header(); ?>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
-
+				
 				<h3 class="fancy">Parts</h3>
+				<?php endif; ?>
 				<div id="partsCatalog" class = "container">
 					<div class="row">
 						<?php while ( have_rows('parts') ) : the_row(); ?>
@@ -65,7 +68,8 @@ get_header(); ?>
 						<?php endwhile; ?>
 					</div><!-- .row -->
 				</div><!-- #partsCatalog -->
-
+				
+				<?php if ( !is_page('sales-team') ) : ?>
 				<?php get_template_part( 'snippets/contact-box'); ?>
 				<img class = "d-block mx-auto" src="<?php echo get_stylesheet_directory_uri() . '/img/credit_cards.png'; ?>" alt="Credit Cards Accepted">
 
@@ -76,8 +80,8 @@ get_header(); ?>
 						<a href="/parts-accessories/accessories"><button role="button" class="btn gold-button mb-3">Accessories</button></a>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
-				
 				</div><!-- .container -->
+				<?php endif; ?>
 
 			</article><!-- #post-## -->
 		</main><!-- #main -->

@@ -106,7 +106,10 @@ get_header(); ?>
 			        'post_status' => 'publish',
 			        'posts_per_page' => -1, 
     				'orderby' => 'title', 
-    				'order' => 'DESC', 
+    				'order' => 'DESC',
+					'meta_key' => 'flag', 
+					'meta_value' => 'sold', 
+					'meta_compare' => '!='
 					);
 
 					$loop = new WP_Query( $args ); $i = 1;

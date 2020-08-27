@@ -65,11 +65,8 @@ $('#auctionContent .question').on( 'click', function() {
 });
 
 //Push page down to acommodate the fixed nav
-$(window).load(function(){
 var navHeight = $('.navbar').outerHeight();
 $('.page-wrapper').css('padding-top', navHeight + 'px');
-});
-
 
 //SINGLE CAR PAGE GALLERY
 //If thumb is last in gallery go to first one (after video)

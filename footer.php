@@ -145,9 +145,14 @@ defined( 'ABSPATH' ) || exit;
 <?php if ( is_page( 'inventory' ) ) { ?>
 	<script>
 	    var containerEl = document.querySelector('#cars');
+	    var filters = document.location.hash.substring(1).split('&');
+	    if (filters) {
+	   		var firstFilter = filters[0];
+	    	var secondFilter = filters[1];	
+	    }
 	    var mixer = mixitup(containerEl, {
 	    	load: {
-	        	filter: '.all'
+			filter: document.location.hash == '' ? '.all' : ('.' + firstFilter + '.' + secondFilter)
 	    	},
 	    	multifilter: {
         	enable: true // enable the multifilter extension for the mixer

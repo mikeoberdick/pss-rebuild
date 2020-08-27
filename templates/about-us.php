@@ -8,7 +8,6 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header(); ?>
-
 <div id="aboutUs" class = "page-wrapper">
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">

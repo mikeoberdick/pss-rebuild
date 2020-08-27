@@ -12130,17 +12130,19 @@ a {
   .modal-close i {
     color: #fff; }
 
-.contact-modal .modal-close {
-  top: 15px;
-  right: 15px; }
-
-.contact-modal .nf-form-content {
-  max-width: 100%; }
-  .contact-modal .nf-form-content .black-outline-button {
-    color: #000 !important;
-    background-color: #CC9F53 !important; }
-    .contact-modal .nf-form-content .black-outline-button:hover {
-      background-color: #b68636 !important; }
+.contact-modal .modal-content {
+  background-image: url("/wp-content/themes/understrap-child/img/modal_contact_bg.jpg"); }
+  .contact-modal .modal-content .modal-close {
+    background: transparent;
+    top: 15px;
+    right: 15px; }
+  .contact-modal .modal-content .nf-form-content {
+    max-width: 100%; }
+    .contact-modal .modal-content .nf-form-content .black-outline-button {
+      color: #000 !important;
+      background-color: #CC9F53 !important; }
+      .contact-modal .modal-content .nf-form-content .black-outline-button:hover {
+        background-color: #b68636 !important; }
 
 .aligncenter {
   display: block; }

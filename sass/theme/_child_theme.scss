@@ -6,13 +6,11 @@ html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
   scroll-behavior: smooth;
 }
-
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color: #fff;
 	font-family: $unica;
   text-transform: uppercase;
 }
-
 .fancy {
   display: flex;
   justify-content: center;
@@ -549,19 +547,23 @@ a {
   }
 
 .contact-modal {
-  .modal-close {
-    top: 15px;
-    right: 15px;
-  }
-  .nf-form-content {
-    max-width: 100%;
-    .black-outline-button {
-      color: #000 !important;
-      background-color: $gold !important;
-      &:hover {
-        background-color: darken( $gold, 10% ) !important;
-      }
+  .modal-content {
+    background-image: url('/wp-content/themes/understrap-child/img/modal_contact_bg.jpg');
+    .modal-close {
+      background: transparent;
+      top: 15px;
+      right: 15px;
     }
+    .nf-form-content {
+      max-width: 100%;
+      .black-outline-button {
+        color: #000 !important;
+        background-color: $gold !important;
+        &:hover {
+          background-color: darken( $gold, 10% ) !important;
+        }
+      }
+    }    
   }
 }
 
@@ -569,7 +571,6 @@ a {
 .aligncenter {
   display: block;
 }
-
 #hero {
   background-color: #000;
   video {

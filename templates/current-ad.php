@@ -13,9 +13,8 @@ get_header(); ?>
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
+				
   				<?php get_template_part( 'snippets/page_header'); ?>
-
 				<?php $ad = get_field('current_ad', 'option'); ?>
 				<h3 class="fancy mt-3"><?php echo $ad['header']; ?></h3>
 				<div class="container my-5">

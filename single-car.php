@@ -251,7 +251,7 @@ get_header(); ?>
 				<div class="container">
 					<div id = "financing" class="row">
 						<div class="col-sm-12 pb-5">
-							<div class="content-wrapper pt-4 pb-5 text-center">
+							<div class="content-wrapper pt-4 pb-5 text-center" style = "background: url('<?php echo get_stylesheet_directory_uri() . '/img/finance_bg.png' ?>');">
 								<p id = "financeBullets" class = "font-weight-bold mb-5">Same Day Approval &middot Simple Process &middot Competitive Rates &middot Industry Experts &middot We Cater to the Funeral Industry Specialists</p>
 								<div class="px-5">
 									<p class = "mb-3">We specialize in financing & leasing of both New and Pre-Owned Funeral Cars.</p>
