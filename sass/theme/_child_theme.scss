@@ -831,97 +831,96 @@ a {
 .link {
   cursor: pointer;
 }
-.car {
-  .ribbon {
+
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  text-align: right;
+  span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 28px;
+    transform: rotate(45deg);
+    width: 145px;
+    display: block;
+    background: $gold;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
     position: absolute;
-    right: -5px;
-    top: -5px;
-    z-index: 1;
-    overflow: hidden;
-    width: 120px;
-    height: 120px;
-    text-align: right;
-    span {
-      font-size: 12px;
-      font-weight: bold;
-      color: #FFF;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 28px;
-      transform: rotate(45deg);
-      width: 145px;
-      display: block;
-      background: $gold;
-      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    top: 28px;
+    right: -31px;
+    &:before {
+      content: "";
       position: absolute;
-      top: 28px;
-      right: -31px;
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0px;
-        top: 100%;
-        z-index: -1;
-        border: 3px solid;
-        border-right-color: transparent !important;
-        border-bottom-color: transparent !important;
-      }
-      &:after {
-        content: "";
-        position: absolute;
-        right: 0px;
-        top: 100%;
-        z-index: -1;
-        border: 3px solid;
-        border-left-color: transparent !important;
-        border-bottom-color: transparent !important;
-      }
+      left: 0px;
+      top: 100%;
+      z-index: -1;
+      border: 3px solid;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0px;
+      top: 100%;
+      z-index: -1;
+      border: 3px solid;
+      border-left-color: transparent !important;
+      border-bottom-color: transparent !important;
     }
   }
-  .deal-pending {
-    //Green
-    span {
-      background: linear-gradient(#45A116 0%, #4A6606 100%);
-      &:before, &:after {
-        border-color: #4A6606;
-      }
+}
+.deal-pending {
+  //Green
+  span {
+    background: linear-gradient(#45A116 0%, #4A6606 100%);
+    &:before, &:after {
+      border-color: #4A6606;
     }
   }
-  .consignment {
-    //Blue
-    span {
-      background: linear-gradient(#0E62A1 0%, #284773 100%);
-      &:before, &:after {
-        border-color: #284773;
-      }
+}
+.consignment {
+  //Blue
+  span {
+    background: linear-gradient(#0E62A1 0%, #284773 100%);
+    &:before, &:after {
+      border-color: #284773;
     }
   }
-  .parks-auction {
-    //Yellow
-    span {
-      color: #000;
-      background: linear-gradient(#FFE014 0%, #D9D216 100%);
-      &:before, &:after {
-        border-color: #D9D216;
-      }
+}
+.parks-auction {
+  //Yellow
+  span {
+    color: #000;
+    background: linear-gradient(#FFE014 0%, #D9D216 100%);
+    &:before, &:after {
+      border-color: #D9D216;
     }
   }
-  .as-is {
-    //Red
-    span {
-      background: linear-gradient(#F70505 0%, #8F0808 100%);
-      &:before, &:after {
-        border-color: #8F0808;
-      }
+}
+.as-is {
+  //Red
+  span {
+    background: linear-gradient(#F70505 0%, #8F0808 100%);
+    &:before, &:after {
+      border-color: #8F0808;
     }
   }
-  .ebay-auction {
-    //Orange
-    span {
-      background: linear-gradient(#F79E05 0%, #8F5408 100%);
-      &:before, &:after {
-        border-color: #8F5408;
-      }
+}
+.ebay-auction {
+  //Orange
+  span {
+    background: linear-gradient(#F79E05 0%, #8F5408 100%);
+    &:before, &:after {
+      border-color: #8F5408;
     }
   }
 }

@@ -30,11 +30,6 @@ defined( 'ABSPATH' ) || exit;
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	<!-- STOPS GOOGLE FROM INDEXING SITE ON STAGING -->
-	<!-- NEED TO REMOVE ON PRODUCTION -->
-	<meta name="robots" content="noindex">
-	<!-- NEED TO REMOVE ON PRODUCTION -->
-
 	<?php wp_head(); ?>
 </head>
 
@@ -49,7 +44,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="row w-100">
 					<div id = "menuLeft" class="col-lg-4 d-flex flex-column">
 						<div class = "align-items-center underlined mb-3 d-none d-lg-flex">
-							<i class="fa fa-question-circle-o fa-2x gold mr-2" aria-hidden="true"></i>
+							<i class="fa fa fa-question-circle fa-2x gold mr-2" aria-hidden="true"></i>
 							<a data-toggle = "modal" data-target = "#headerContactModal"><h4 class = "gold mb-0">Ask a Question</h4></a>
 						</div>
 						<?php wp_nav_menu(
