@@ -9,7 +9,7 @@
 		$subtitle = 'How Can We Help?';
 		$form = 1;
 	} ?>
-			<div id = "contactForm" style = "background: url('/wp-content/themes/understrap-child/img/contact_bg.png');" class = 'py-5'>
+			<div id = "contactForm" class = 'py-5 lazy' data-bg = "/wp-content/themes/understrap-child/img/contact_bg.png">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 text-center">

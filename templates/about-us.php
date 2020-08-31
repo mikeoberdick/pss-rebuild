@@ -70,7 +70,7 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-sm-12">
 							<p class = "mb-5"><?php echo $ad['blurb']; ?></p>
-							<img class = "mb-3" src="<?php echo $ad['image']['url']; ?>" alt="<?php echo $ad['image']['alt']; ?>">
+							<img class = "mb-3 lazy" data-src="<?php echo $ad['image']['url']; ?>" alt="<?php echo $ad['image']['alt']; ?>">
 							<div class="text-center">
 								<a target = "_blank" href = '<?php echo $ad['file']['url']; ?>'><button role = 'button' class = 'btn gold-button w-100 w-lg-50'><?php echo $ad['button_text']; ?></button></a>
 							</div>

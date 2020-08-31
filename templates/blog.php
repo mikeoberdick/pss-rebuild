@@ -93,7 +93,8 @@ get_header(); ?>
 								<h3 class="mb-3"><?php the_title(); ?></h3>
 								<div class="row">
 									<div class="col md-5">
-										<div class = "mb-3"><?php the_post_thumbnail('blog-large'); ?></div>
+										<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'blog-large' ); ?>
+										<div class = "mb-3"><img class = "lazy" data-src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?>"></div>
 									</div><!-- .col md-5 -->
 									<div class="col-md-7">
 										<div><?php the_excerpt(); ?></div>

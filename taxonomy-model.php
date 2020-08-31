@@ -22,7 +22,7 @@ get_header(); ?>
 				$tax = 'model_' . $term->term_id;
 				$background = get_field('hero_image', $tax); ?>
 				
-				<div id="taxHero" class = "mb-3" style = "background: url('<?php echo $background['url']; ?>');">
+				<div id="taxHero" class = "mb-3 lazy" data-bg = "<?php echo $background['url']; ?>">
 				</div><!-- #taxHero -->
 
 				<h3 class="fancy mb-3">Description</h1>
@@ -50,7 +50,7 @@ get_header(); ?>
 						<?php $images = get_field('gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
-								<img src="<?php echo $images[0]["sizes"]["large"]; ?>" id = "largeImage">
+								<img id = "largeImage" class = "lazy" data-src="<?php echo $images[0]["sizes"]["large"]; ?>">
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 						<div class="row">
@@ -58,7 +58,7 @@ get_header(); ?>
 
 							<?php foreach( $images as $image ): ?>
 				                <div class = "slide gallery-thumb">
-				                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+				                    <img class = "lazy" data-src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
 				                </div>
 				            <?php endforeach; ?>  	
 						</div><!-- #imageCarousel -->
@@ -74,7 +74,7 @@ get_header(); ?>
 						<?php $altImages = get_field('alternate_gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
-								<img src="<?php echo $altImages[0]["sizes"]["large"]; ?>" id = "altLargeImage">
+								<img id = "altLargeImage" class = "lazy" data-src="<?php echo $altImages[0]["sizes"]["large"]; ?>">
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 						<div class="row">
@@ -82,7 +82,7 @@ get_header(); ?>
 
 							<?php foreach( $altImages as $altImage ): ?>
 				                <div class = "slide gallery-thumb">
-				                    <img src="<?php echo esc_url($altImage['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($altImage['alt']); ?>">
+				                    <img class = "lazy" data-src="<?php echo esc_url($altImage['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($altImage['alt']); ?>">
 				                </div>
 				            <?php endforeach; ?>
 				            <div class="arrows"></div>	
@@ -141,7 +141,7 @@ get_header(); ?>
         		<?php $count = count($images); $i = 1; 
         		foreach( $images as $image ) : ?>
 					<div class="option col-md-6 <?php if ( $i >= 3 ) {echo 'hidden';} ?>">
-	      			<img class = "w-100 mb-3" src="<?php echo $image['sizes']['blog-small']; ?>" alt="<?php echo $image['alt']; ?>" />
+	      			<img class = "w-100 mb-3 lazy" data-src="<?php echo $image['sizes']['blog-small']; ?>" alt="<?php echo $image['alt']; ?>" />
 	      		<?php if ( $image['caption'] ) : ?>
 	      			<p class = "small font-italic text-center px-3"><?php echo $image['caption']; ?></p>
 	  			<?php endif; ?>
@@ -164,7 +164,7 @@ get_header(); ?>
 				</div><!-- .container -->
 
 				<?php $footerHero = get_field('footer_hero_image', $tax); ?>
-				<img src="<?php echo $footerHero['url']; ?>" alt="<?php echo $footerImg['alt']; ?>">
+				<img class = "lazy" data-src="<?php echo $footerHero['url']; ?>" alt="<?php echo $footerImg['alt']; ?>">
 				
 			</article>
 		</main><!-- .site-main -->

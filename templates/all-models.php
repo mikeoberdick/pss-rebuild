@@ -81,7 +81,7 @@ get_header(); ?>
 										$size = 'blog-large';
     									$thumb = $image['sizes'][ $size ];
 										?>
-										<img class = "mb-3" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+										<img class = "mb-3 lazy" data-src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 										<h5><?php echo $the_term->name;; ?></h5>
 								    </div><!-- .model-wrapper -->
 								</div><!-- .model -->

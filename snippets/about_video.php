@@ -1,5 +1,5 @@
 <?php $aboutVideo = get_field('about_video', 'option'); ?>
-<section id="aboutVideo" style = "background: url('<?php echo $aboutVideo['background']['url']; ?>');" class = "py-5 d-flex flex-column justify-content-center">
+<section id="aboutVideo" data-bg = "<?php echo $aboutVideo['background']['url']; ?>" class = "py-5 d-flex flex-column justify-content-center lazy">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 text-center">

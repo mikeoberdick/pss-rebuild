@@ -81,7 +81,7 @@ get_header(); ?>
 									
 								<p><?php echo $content['copy']; ?></p>
 								<div class="text-center">
-									<a href = '<?php echo the_field('auction_link'); ?>'><button role = 'button' class = 'btn gold-button'><img class = "mr-3" src="/wp-content/themes/understrap-child/img/gavel.png" alt="Auction Gavel">Enter Auction</button></a>
+									<a target = "_blank" href = '<?php echo $content['auction_link']; ?>'><button role = 'button' class = 'btn gold-button'><img class = "mr-3" src="/wp-content/themes/understrap-child/img/gavel.png" alt="Auction Gavel">Enter Auction</button></a>
 								</div><!-- .text-center -->
 							</div><!-- .content-wrapper -->
 						</div><!-- .col-md-8 -->

@@ -13,24 +13,38 @@ defined( 'ABSPATH' ) || exit;
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<!-- OPTIONAL GOOGLE TRACKING ID SET WITH CUSTOM FIELD -->
-	<?php if( get_field('tracking_code', 'option') ): $tracking_code = get_field('tracking_code', 'option'); ?>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $tracking_code; ?>"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37665217-1"></script>
 	<script>
-	  	window.dataLayer = window.dataLayer || [];
-	  	function gtag(){dataLayer.push(arguments);}
-	  	gtag('js', new Date());
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-		gtag('config', '<?php echo $tracking_code; ?>');
+	  gtag('config', 'UA-37665217-1');
 	</script>
-	<?php endif; ?>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
 	<?php wp_head(); ?>
+
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?5YnpUu6uHmrXRG0F7RgUBRKy1gO7K4vk";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->
 </head>
 
 <body <?php body_class(); ?>>

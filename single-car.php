@@ -32,11 +32,11 @@ get_header(); ?>
 					</div><!-- .row -->
 
 					<div id = "mainInfo" class = "row mb-3">
-						<div class="col-md-8">
+						<div class="col-lg-8">
 							<?php $flag = get_field('flag'); ?>
 							<div id="imageViewer" class = "position-relative">
 								<?php if ($flag === 'Parks Auction') : ?>
-									<a href="/auction">
+									<a href="http://auction.parkssuperior.com/">
 									<img id = "auctionLink" src="<?php echo get_stylesheet_directory_uri() . '/img/parks_auction_button.png' ?>" alt="Parks Auction Car: Click to Bid!"></a>
 								<?php endif;?>
 								<?php if ($flag === 'EBay Auction') : ?>
@@ -47,7 +47,7 @@ get_header(); ?>
 								<div data-toggle="modal" data-target="#exampleModal">
 								<a id = "modalLauncher" class = "position-absolute"  data-target="#carouselExample" data-slide-to="0" class = "position-absolute" href = '<?php echo bloginfo('url'); ?>/'><button role = 'button' class = 'btn gold-button'>VIEW HD IMAGES</button></a></div>
 								<?php endif; ?>
-								<img id = "featuredImage" src="<?php echo $images[0]; ?>" alt="Featured Image" data-slide-to = "0">
+								<img id = "featuredImage" class = "lazy w-100" src="<?php echo $images[0] . '?h=460&w=730'; ?>" alt="Featured Image" data-slide-to = "0">
 								<?php if ($imageCount > 1) : ?>
 								<div id="galleryNav" class = "position-absolute">
 									<div id="prev" class = "mb-3">
@@ -65,11 +65,11 @@ get_header(); ?>
 							$videoID = strtok($videoURL, '?'); ?>
 							<?php if ($videoURL) : ?>
 							<div id="videoViewer" class = "d-none embed-responsive embed-responsive-16by9">
-								<iframe class = "embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<iframe class = "embed-responsive-item lazy" width="560" height="315" data-src="https://www.youtube.com/embed/<?php echo $videoID; ?>?version=3&loop=1&playlist=<?php echo $videoID; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</div><!-- #videoViewer -->
 						<?php endif; ?>
-						</div><!-- .col-md-8 -->
-						<div class="col-md-4">
+						</div><!-- .col-lg-8 -->
+						<div class="col-lg-4 mt-3 mt-lg-0">
 							<?php $price = get_field('price'); ?>
 							<h3 class="price mb-3 text-center">
 								<?php if ( !empty($price) ) {
@@ -118,7 +118,7 @@ get_header(); ?>
 							<div class="jump-link">
 								<a href="#specifications"><h5 class = "gold text-center"><span>More Details</span> <i class="ml-1 fa fa-arrow-down" aria-hidden="true"></i></h5></a>
 							</div><!-- .jump-link -->
-						</div><!-- .col-md-4 -->
+						</div><!-- .col-lg-4 -->
 					</div><!-- .row -->
 					<?php if ($imageCount > 1) : ?>
 					<div id = "carGallery" class="row mb-3">
@@ -133,14 +133,15 @@ get_header(); ?>
 <?php endif; ?>
 						<?php $i = 0; ?>
 						<?php foreach ($images as $image) { ?>
-<div class = "col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 ) {echo 'hidden';} ?>">
+							<span class="d-none"><?php var_dump('$videoURL'); ?></span>
+<div class = "col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 && !empty($videoURL) ) {echo 'hidden';} elseif ( $i >= 12 && empty($videoURL) ) {echo 'hidden';} ?>">
 							<div class="image-wrapper position-relative">
-								<img src="<?php echo $image; ?>" alt="" data-slide-to = "<?php echo $i; ?>">
+								<img class = "lazy" src="<?php echo $image . '?h=107&w=160'; ?>" alt="" data-slide-to = "<?php echo $i; ?>">
 							</div><!-- .image-wrapper -->
 				        </div><!-- .col-md-2 -->
 						<?php $i++; } ?>
 						
-						<?php if($imageCount >= 11 ) : ?>
+						<?php if($imageCount >= 10) : ?>
 				        <div class="col-sm-12">
 				        	<div class="more-photos">
 				        		<h5><span>More Photos</span><i class="fa fa-caret-down ml-3" aria-hidden="true"></i></h5>

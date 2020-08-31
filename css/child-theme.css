@@ -12126,7 +12126,8 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   font-weight: bold;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 2; }
   .modal-close i {
     color: #fff; }
 

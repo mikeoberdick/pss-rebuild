@@ -39,6 +39,7 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 function d4tw_enqueue_files () {
     wp_enqueue_style( 'Google Fonts', 'https://fonts.googleapis.com/css?family=Roboto|Unica+One&display=swap' );
     wp_enqueue_script( 'D4TW Theme JS', get_stylesheet_directory_uri() . '/js/d4tw.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'Lazy Load JS', 'https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.2/dist/lazyload.min.js', array('jquery'), '1.0.0', true );
     if ( is_page('all-models') || is_page('inventory') ) {
         wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'MIU-Multifilter JS', get_stylesheet_directory_uri() . '/js/mixitup-multifilter.min.js', array('jquery'), '1.0.0', true );

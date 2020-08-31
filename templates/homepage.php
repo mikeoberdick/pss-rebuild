@@ -38,7 +38,7 @@ get_header(); ?>
 				</section><!-- #hero -->
 
 				<?php } else { ?>
-					<section id="hero" style = "background: url('<?php echo $hero['background']['url']; ?>');" class = "inset">
+					<section id="hero" class = "lazy" data-bg = "<?php echo $hero['background']['url']; ?>" class = "inset">
 					<div class="container p-relative">
 						<div class="row">
 							<div class="col-sm-12 text-center">
@@ -97,7 +97,7 @@ get_header(); ?>
 				<?php endif; ?>
 	
 				<?php $sectionTwo = get_field('section_two'); ?>
-				<section id="sectionTwo" style = "background: url('<?php echo $sectionTwo['background']['url']; ?>');" class = "py-5">
+				<section id="sectionTwo" class = "lazy py-5" data-bg = "<?php echo $sectionTwo['background']['url']; ?>" >
 					<div class="container h-100">
 						<div class="row d-flex flex-column justify-content-center h-100">
 							<div class="col-lg-4 text-center text-lg-left">
@@ -111,7 +111,7 @@ get_header(); ?>
 				<?php get_template_part( 'snippets/about_video'); ?>
 
 				<?php $sectionFour = get_field('section_four'); ?>
-				<section id="sectionFour" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFour['background']['url']; ?>');" class = "py-5">
+				<section id="sectionFour" class="d-flex flex-column justify-content-center lazy py-5" data-bg = "<?php echo $sectionFour['background']['url']; ?>">
 					<div class="container">
 						<div class="row">
 							<div id = "testimonialContent" class="col-lg-5 text-center text-lg-left mb-3 mb-lg-0">
@@ -139,7 +139,7 @@ get_header(); ?>
 				</section><!-- #sectionFour -->
 
 				<?php $sectionFive = get_field('section_five'); ?>
-				<section id="sectionFive" class="d-flex flex-column justify-content-center" style = "background: url('<?php echo $sectionFive['background']['url']; ?>');">
+				<section id="sectionFive" class="d-flex flex-column justify-content-center lazy" data-bg = "<?php echo $sectionFive['background']['url']; ?>">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-6 offset-lg-6 text-center text-lg-right">
@@ -172,7 +172,7 @@ get_header(); ?>
 				</div><!-- .modal -->
 
 				<?php $sectionSix = get_field('section_six'); ?>
-				<section id="sectionSix" style = "background: url('<?php echo $sectionSix['background']['url']; ?>');" class = "py-5 text-center inset">
+				<section id="sectionSix" data-bg = "<?php echo $sectionSix['background']['url']; ?>" class = "py-5 text-center inset lazy">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12">

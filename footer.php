@@ -170,7 +170,7 @@ defined( 'ABSPATH' ) || exit;
 	    infinite: true,
 	    slidesToShow: 4,
 		slidesToScroll: 1,
-		dots: true,
+		dots: false,
 		arrows: true,
 		appendArrows: '.arrows',
 	    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
@@ -211,7 +211,7 @@ defined( 'ABSPATH' ) || exit;
 		jQuery('#sliderGallery').slick({
 			adaptiveHeight: true,
 		    infinite: true,
-		    dots: true,
+		    dots: false,
 		    fade: true,
 		    arrows: true,
 		    appendArrows: '.arrows',
@@ -249,7 +249,7 @@ defined( 'ABSPATH' ) || exit;
 			jQuery(this).slick({
 				adaptiveHeight: true,
 			    infinite: true,
-			    dots: true,
+			    dots: false,
 			    fade: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -267,7 +267,7 @@ defined( 'ABSPATH' ) || exit;
 		jQuery('.parts-image-gallery' ).each( function() {
 			jQuery(this).slick({
 			    infinite: true,
-			    dots: true,
+			    dots: false,
 			    fade: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -286,7 +286,7 @@ defined( 'ABSPATH' ) || exit;
 			jQuery(this).slick({
 				adaptiveHeight: true,
 			    infinite: true,
-			    dots: true,
+			    dots: false,
 			    fade: true,
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -305,13 +305,19 @@ defined( 'ABSPATH' ) || exit;
 		    infinite: true,
 		    slidesToShow: 4,
 			slidesToScroll: 1,
-			dots: true,
+			dots: false,
 			arrows: false,
 			autoplay: true,
 	  		autoplaySpeed: 2000,
 	  	});
 	</script>
 <?php } ?>
+
+<script>
+var lazyLoadInstance = new LazyLoad({
+  // Your custom settings go here
+});	
+</script>
 
 </body>
 

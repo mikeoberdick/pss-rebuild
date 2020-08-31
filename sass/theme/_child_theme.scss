@@ -6,6 +6,7 @@ html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
   scroll-behavior: smooth;
 }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color: #fff;
 	font-family: $unica;
@@ -541,6 +542,7 @@ a {
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
+    z-index: 2;
     i {
       color: #fff;
     }

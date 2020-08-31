@@ -1,17 +1,6 @@
 jQuery(function($){
 	$(document).ready(function() {
 
-/////////////////  NO FOLLOW ON STAGING  \\\\\\\\\\\\\\\\\
-if ( window.location.href.indexOf("captchaintherye.com") > -1 ) {
-	console.log('on captcha');
-} else if ( window.location.href.indexOf(".d4tw") > -1) {
-	console.log('on d4tw');
-	//alert('NEED TO UPDATE WP CONFIG FILE DB SETTINGS');
-	}
-else {
-	alert('NEED TO REMOVE NOINDEX FROM HEADER & THIS LINE FROM JS');
-}
-
 /////////////////  PUSH DOWN FOOTER  \\\\\\\\\\\\\\\\\
 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
 
@@ -101,9 +90,12 @@ $("#singleCar .gallery-thumb").click(function () {
   $("#imageViewer").removeClass("d-none");
   $("#carGallery").children().removeClass("selected");
   $(this).addClass("selected");
+  //Need to remove the thumbnail size and add the larger size parameters
   var img = $(this).find("img").attr("src");
+  var imgRaw= img.substr(0, img.indexOf('?'));
+  var imgFull = imgRaw + '?h=460&w=730';
   var index = $(this).find('img').attr('data-slide-to');
-  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#imageViewer #featuredImage").attr({"src": imgFull, "data-slide-to": index});
   $("#modalLauncher").attr("data-slide-to",index);
   $('html,body').animate({
     scrollTop: $('.entry-header').offset().top
