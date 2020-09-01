@@ -11642,7 +11642,7 @@ h1, h2, h3, h4, h5, h6,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem !important; }
   @media (max-width: 991.98px) {
     .fancy {
       position: relative;
@@ -12429,35 +12429,35 @@ a {
       border-left-color: transparent !important;
       border-bottom-color: transparent !important; }
 
-.deal-pending span {
+.deal-pending > span {
   background: -webkit-gradient(linear, left top, left bottom, from(#45A116), to(#4A6606));
   background: linear-gradient(#45A116 0%, #4A6606 100%); }
-  .deal-pending span:before, .deal-pending span:after {
+  .deal-pending > span:before, .deal-pending > span:after {
     border-color: #4A6606; }
 
-.consignment span {
+.consignment > span {
   background: -webkit-gradient(linear, left top, left bottom, from(#0E62A1), to(#284773));
   background: linear-gradient(#0E62A1 0%, #284773 100%); }
-  .consignment span:before, .consignment span:after {
+  .consignment > span:before, .consignment > span:after {
     border-color: #284773; }
 
-.parks-auction span {
+.parks-auction > span {
   color: #000;
   background: -webkit-gradient(linear, left top, left bottom, from(#FFE014), to(#D9D216));
   background: linear-gradient(#FFE014 0%, #D9D216 100%); }
-  .parks-auction span:before, .parks-auction span:after {
+  .parks-auction > span:before, .parks-auction > span:after {
     border-color: #D9D216; }
 
-.as-is span {
+.as-is > span {
   background: -webkit-gradient(linear, left top, left bottom, from(#F70505), to(#8F0808));
   background: linear-gradient(#F70505 0%, #8F0808 100%); }
-  .as-is span:before, .as-is span:after {
+  .as-is > span:before, .as-is > span:after {
     border-color: #8F0808; }
 
-.ebay-auction span {
+.ebay-auction > span {
   background: -webkit-gradient(linear, left top, left bottom, from(#F79E05), to(#8F5408));
   background: linear-gradient(#F79E05 0%, #8F5408 100%); }
-  .ebay-auction span:before, .ebay-auction span:after {
+  .ebay-auction > span:before, .ebay-auction > span:after {
     border-color: #8F5408; }
 
 .link {
@@ -12638,7 +12638,8 @@ a {
 #singleCar #mainInfo .contact-buttons button {
   font-size: 1.25rem;
   font-weight: bold;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  width: 100%; }
 
 #singleCar #mainInfo .contact-buttons #callUs {
   border: solid 5px #CC9F53 !important; }
@@ -12761,13 +12762,19 @@ a {
   #singleCar #specifications .nav-item:hover {
     background: #CC9F53; }
 
-#singleCar #specifications ul li:not(:last-child) {
-  margin-right: 1rem; }
+@media (min-width: 768px) {
+  #singleCar #specifications ul li:not(:last-child) {
+    margin-right: 1rem; } }
 
-#singleCar #financeBullets {
+#singleCar #financing #financeBullets {
   background: #CC9F53;
   padding: 15px;
   text-align: center; }
+
+@media (max-width: 767.98px) {
+  #singleCar #financing .btn,
+  #singleCar #financing .wpcf7 input[type=submit], .wpcf7 #singleCar #financing input[type=submit] {
+    width: 100%; } }
 
 #singleCar #relatedCars, #singleCar #backToInventory {
   background: #000; }

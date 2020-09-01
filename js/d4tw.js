@@ -1,12 +1,12 @@
 jQuery(function($){
-	$(document).ready(function() {
+  $(document).ready(function() {
 
 /////////////////  PUSH DOWN FOOTER  \\\\\\\\\\\\\\\\\
 $('#js-heightControl').css('height', $(window).height() - $('html').height() +'px');
 
 //NOW SHOWING ON ALL MODELS - DESKTOP
 $( "#allModels .catButton" ).click(function() {
-	$( "span#currentCat" ).text( $(this).text() + 's' );
+  $( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
 //NOW SHOWING ON INVENTORY - DESKTOP
@@ -106,8 +106,10 @@ $("#singleCar .gallery-thumb").click(function () {
 $("#prev").click(function () {
   var prev = $(".selected").prevOrLast(".gallery-thumb");
   var img = prev.find("img").attr("src");
+  var imgRaw= img.substr(0, img.indexOf('?'));
+  var imgFull = imgRaw + '?h=460&w=730';
   var index = prev.find("img").attr("data-slide-to");
-  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#imageViewer #featuredImage").attr({"src": imgFull, "data-slide-to": index});
   $("#modalLauncher").attr("data-slide-to",index);
   $("#carGallery").children().removeClass("selected");
   prev.addClass("selected");
@@ -117,8 +119,10 @@ $("#prev").click(function () {
 $("#next").click(function () {
   var next = $(".selected").nextOrFirst(".gallery-thumb");
   var img = next.find("img").attr("src");
+  var imgRaw= img.substr(0, img.indexOf('?'));
+  var imgFull = imgRaw + '?h=460&w=730';
   var index = next.find("img").attr("data-slide-to");
-  $("#imageViewer #featuredImage").attr({"src": img, "data-slide-to": index});
+  $("#imageViewer #featuredImage").attr({"src": imgFull, "data-slide-to": index});
   $("#modalLauncher").attr("data-slide-to",index);
   $("#carGallery").children().removeClass("selected");
   next.addClass("selected");

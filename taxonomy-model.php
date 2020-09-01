@@ -58,7 +58,7 @@ get_header(); ?>
 
 							<?php foreach( $images as $image ): ?>
 				                <div class = "slide gallery-thumb">
-				                    <img class = "lazy" data-src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+				                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
 				                </div>
 				            <?php endforeach; ?>  	
 						</div><!-- #imageCarousel -->
@@ -82,7 +82,7 @@ get_header(); ?>
 
 							<?php foreach( $altImages as $altImage ): ?>
 				                <div class = "slide gallery-thumb">
-				                    <img class = "lazy" data-src="<?php echo esc_url($altImage['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($altImage['alt']); ?>">
+				                    <img src="<?php echo esc_url($altImage['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($altImage['alt']); ?>">
 				                </div>
 				            <?php endforeach; ?>
 				            <div class="arrows"></div>	

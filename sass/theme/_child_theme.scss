@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem !important;
   @include media-breakpoint-down(md) {
     position: relative;
     text-align: center;
@@ -880,50 +880,40 @@ a {
     }
   }
 }
-.deal-pending {
-  //Green
-  span {
-    background: linear-gradient(#45A116 0%, #4A6606 100%);
-    &:before, &:after {
-      border-color: #4A6606;
-    }
-  }
+//GREEN
+.deal-pending > span {
+	background: linear-gradient(#45A116 0%, #4A6606 100%);
+	&:before, &:after {
+	  border-color: #4A6606;
+	}
 }
-.consignment {
-  //Blue
-  span {
+//BLUE
+.consignment > span {
     background: linear-gradient(#0E62A1 0%, #284773 100%);
     &:before, &:after {
       border-color: #284773;
-    }
   }
 }
-.parks-auction {
-  //Yellow
-  span {
+//YELLOW
+.parks-auction > span {
     color: #000;
     background: linear-gradient(#FFE014 0%, #D9D216 100%);
     &:before, &:after {
       border-color: #D9D216;
-    }
   }
 }
-.as-is {
-  //Red
-  span {
+//RED
+.as-is > span {
     background: linear-gradient(#F70505 0%, #8F0808 100%);
     &:before, &:after {
       border-color: #8F0808;
-    }
   }
 }
-.ebay-auction {
-  //Orange
-  span {
+//ORANGE
+.ebay-auction > span {
     background: linear-gradient(#F79E05 0%, #8F5408 100%);
     &:before, &:after {
       border-color: #8F5408;
-    }
   }
 }
 .link {
@@ -1124,6 +1114,7 @@ a {
         font-size: 1.25rem;
         font-weight: bold;
         padding: 10px 20px;
+        width: 100%;
       }
       #callUs {
        border: solid 5px $gold !important;
@@ -1255,14 +1246,23 @@ a {
     }
     ul {
       li:not(:last-child) {
-        margin-right: 1rem;
+        @include media-breakpoint-up(md) {
+          margin-right: 1rem;
+        }
       }
     }
   }
-  #financeBullets {
-    background: $gold;
-    padding: 15px;
-    text-align: center;
+  #financing {
+    #financeBullets {
+      background: $gold;
+      padding: 15px;
+      text-align: center;
+    }
+    .btn {
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+      }
+    }
   }
   #relatedCars, #backToInventory {
     background: #000;

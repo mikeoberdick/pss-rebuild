@@ -47,7 +47,7 @@ get_header(); ?>
 								<div data-toggle="modal" data-target="#exampleModal">
 								<a id = "modalLauncher" class = "position-absolute"  data-target="#carouselExample" data-slide-to="0" class = "position-absolute" href = '<?php echo bloginfo('url'); ?>/'><button role = 'button' class = 'btn gold-button'>VIEW HD IMAGES</button></a></div>
 								<?php endif; ?>
-								<img id = "featuredImage" class = "lazy w-100" src="<?php echo $images[0] . '?h=460&w=730'; ?>" alt="Featured Image" data-slide-to = "0">
+								<img id = "featuredImage" class = "w-100" src="<?php echo $images[0] . '?h=460&w=730'; ?>" alt="Featured Image" data-slide-to = "0">
 								<?php if ($imageCount > 1) : ?>
 								<div id="galleryNav" class = "position-absolute">
 									<div id="prev" class = "mb-3">
@@ -80,7 +80,7 @@ get_header(); ?>
 							</h3>
 							<div class="contact-buttons mb-3">
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>
-								<a href = 'tel:<?php echo $phone ?>'><button id = "callUs" role = 'button' class = 'mr-2 btn gold-button'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
+								<a href = 'tel:<?php echo $phone ?>'><button id = "callUs" role = 'button' class = 'mr-2 btn gold-button mb-3'><i class="fa fa-phone mr-2" aria-hidden="true"></i>Call Us</button></a>
 								<a data-toggle = "modal" data-target = "#contactModal"><button role = 'button' class = 'btn white-outline-button'><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Message Us</button></a>
 							</div><!-- .contact-buttons -->
 							<div class="spec">
@@ -123,7 +123,7 @@ get_header(); ?>
 					<?php if ($imageCount > 1) : ?>
 					<div id = "carGallery" class="row mb-3">
 <?php if ($videoURL) : ?>
-<div class = "col-md-2 thumb video-thumb mb-3">
+<div class = "col-6 col-md-2 thumb video-thumb mb-3">
 	<div class="video-image-wrapper position-relative d-flex justify-content-center align-items-center">
 
 		<img src="http://img.youtube.com/vi/<?php echo $videoID ?>/1.jpg" alt="">
@@ -133,10 +133,9 @@ get_header(); ?>
 <?php endif; ?>
 						<?php $i = 0; ?>
 						<?php foreach ($images as $image) { ?>
-							<span class="d-none"><?php var_dump('$videoURL'); ?></span>
-<div class = "col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 && !empty($videoURL) ) {echo 'hidden';} elseif ( $i >= 12 && empty($videoURL) ) {echo 'hidden';} ?>">
+<div class = "col-6 col-md-2 thumb gallery-thumb mb-3 <?php if ( $i === 0 ) {echo 'selected';} ?><?php if ( $i >= 11 && !empty($videoURL) ) {echo 'hidden';} elseif ( $i >= 12 && empty($videoURL) ) {echo 'hidden';} ?>">
 							<div class="image-wrapper position-relative">
-								<img class = "lazy" src="<?php echo $image . '?h=107&w=160'; ?>" alt="" data-slide-to = "<?php echo $i; ?>">
+								<img src="<?php echo $image . '?h=180&w=240'; ?>" alt="" data-slide-to = "<?php echo $i; ?>">
 							</div><!-- .image-wrapper -->
 				        </div><!-- .col-md-2 -->
 						<?php $i++; } ?>
@@ -167,6 +166,7 @@ get_header(); ?>
 					</div><!-- #description -->
 				</div><!-- .container -->
 
+			<?php if ( get_field('warranty') || get_field('warranty_other') ) : ?>
 				<h3 class="fancy mb-3">Buyer's Guide</h3>
 
 				<div class="container mb-3">
@@ -174,8 +174,9 @@ get_header(); ?>
 						<div class="col-sm-12">
 							<div class="content-wrapper p-5">
 								<ul class = "list-info list-inline">
+									<?php if (get_field('warranty')) : ?>
 									<li><h4 class = "mr-3 gold">Warranty</h4><h4><?php the_field('warranty'); ?></h4></li>
-
+									<?php endif; ?>
 									
 									<?php if (get_field('warranty_other')) : ?>
 									<li><h4 class = "mr-3 gold">Details</h4><h4><?php the_field('warranty_other'); ?></h4></li>
@@ -185,6 +186,7 @@ get_header(); ?>
 						</div><!-- .col-sm-12 -->
 					</div><!-- #buyersGuide -->
 				</div><!-- .container -->
+			<?php endif; ?>
 
 				<h3 class="fancy mb-3">Specifications</h3>
 
@@ -221,26 +223,38 @@ get_header(); ?>
 
 						<div class="tab-pane fade" id="pills-mechanical" role="tabpanel" aria-labelledby="pills-mechanical-tab">
 							<ul class = "list-info list-inline">
+								<?php if ( get_field('drivetrain') ) : ?>
 								<li><h4 class = "mr-3 gold">Drivetrain</h4><h4><?php the_field('drivetrain'); ?></h4></li>
+								<?php endif; ?>
+								<?php if ( get_field('transmission') ) : ?>
 								<li><h4 class = "mr-3 gold">Transmision</h4><h4><?php the_field('transmission'); ?></h4></li>
+								<?php endif; ?>
+								<?php if ( get_field('engine') ) : ?>
 								<li><h4 class = "mr-3 gold">Engine</h4><h4><?php the_field('engine'); ?></h4></li>
+								<?php endif; ?>
 								</ul>
 						</div>
 
 						<div class="tab-pane fade" id="pills-colors" role="tabpanel" aria-labelledby="pills-colors-tab">
 							<ul class = "list-info list-inline">
+							<?php if ( get_field('exterior_color') ) : ?>
 								<li>
 								<h4 class = "mr-3 gold">Exterior Color</h4>
 								<h4><?php the_field('exterior_color'); ?></h4>
 								</li>
+							<?php endif; ?>
+							<?php if ( get_field('interior_color') ) : ?>
 								<li>
 								<h4 class = "mr-3 gold">Interior Color</h4>
 								<h4><?php the_field('interior_color'); ?></h4>
 								</li>
+							<?php endif; ?>
+							<?php if ( get_field('top_color') ) : ?>
 								<li>
 								<h4 class = "mr-3 gold">Top Color</h4>
 								<h4><?php the_field('top_color'); ?></h4>
 								</li>
+							<?php endif; ?>
 							</ul>
 						</div>
 						</div><!-- .content-wrapper -->
@@ -259,8 +273,8 @@ get_header(); ?>
 									<p class = "mb-5">We offer a simple half page credit application, and can have you all approved in about an hour.  Offering terms from 24 to 72 months, we will custom tailor a finance or lease program around your specific needs.  Call today to find out just how quick and easy it is to get into the funeral car of your dreams.</p>
 									<div>
 										<?php $creditApp = get_field('credit_application_file', 270); ?>
-							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button mr-3'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
-							<a href = '/financing'><button role = 'button' class = 'btn gold-button'>Learn More</button></a>	
+							<a target = "_blank" href = '<?php echo $creditApp['url']; ?>'><button role = 'button' class = 'btn gold-button mr-3 mb-3 mb-md-0'><i class="fa fa-check-circle mr-3" aria-hidden="true"></i>Download Credit Application</button></a>
+							<a href = '/financing'><button role = 'button' class = 'btn gold-button'><i class="fa fa-question mr-3" aria-hidden="true"></i>Learn More</button></a>	
 									</div>
 								</div>
 							</div><!-- .content-wrapper -->
@@ -325,14 +339,14 @@ $secondaryPosts = new WP_Query( $args );
 						<div class="row">
 						    <?php while ( $relatedPosts->have_posts() ) { 
 						        $relatedPosts-> the_post(); ?>
-						        <div class="col-md-3 related-post">
+						        <div class="col-sm-6 col-lg-3 related-post mb-3 mb-lg-0">
 						        	<?php get_template_part( 'snippets/car'); ?>
 						        </div><!-- .col-md-3 -->
 							<?php } ?>
 							<?php if ($relatedCount < 4) :
 								while ( $secondaryPosts->have_posts() ) { 
 						        $secondaryPosts-> the_post(); ?>
-						        <div class="col-md-3 secondary-post">
+						        <div class="col-sm-6 col-lg-3 secondary-post mb-3 mb-lg-0">
 						        	<?php get_template_part( 'snippets/car'); ?>
 						        </div><!-- .col-md-3 -->
 							<?php } endif; ?>
