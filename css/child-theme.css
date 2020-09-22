@@ -13182,6 +13182,25 @@ a {
     padding: 0;
     min-height: auto; } }
 
+#seoLandingPage .fancy {
+  margin-bottom: 1rem !important; }
+
+@media (min-width: 992px) {
+  #seoLandingPage #cars .row .car:first-of-type {
+    border-right: double 10px; } }
+
+@media (max-width: 991.98px) {
+  #seoLandingPage #cars .row .car {
+    margin-bottom: 1rem;
+    border-bottom: double 10px; } }
+
+@media (min-width: 992px) {
+  #seoLandingPage #cars .car-wrapper {
+    border-bottom: double 10px; } }
+
+#seoLandingPage #cars .car-wrapper:last-of-type {
+  border-bottom: 0; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style

@@ -40,7 +40,7 @@ get_header(); ?>
 						Currently Up For Auction
 					</h3><!-- .fancy -->
 					
-					<section id="auctioncars" class = "py-5 p-relative container-fluid">
+					<section id="auctioncars" class = "py-3 p-relative container-fluid">
 						<div class="row">
 							<div id="auctionSlider" class="col-sm-12">
 							<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
@@ -53,10 +53,13 @@ get_header(); ?>
 					</section><!-- #auctionCars -->
 					
 					<?php wp_reset_postdata(); ?>
+					<?php $content = get_field('content_box'); ?>
+					<div class="text-center mb-3">
+						<a target = "_blank" href = '<?php echo $content['auction_link']; ?>'><button role = 'button' class = 'btn gold-button'><img class = "mr-3" src="/wp-content/themes/understrap-child/img/gavel.png" alt="Auction Gavel">Enter Auction</button></a>
+					</div><!-- .text-center -->
 
 				<?php endif; ?>
 				
-				<?php $content = get_field('content_box'); ?>
 				<div id="auctionContent" class="container mb-5">
 					<div class="row">
 						<div class="col-md-8">
@@ -80,9 +83,6 @@ get_header(); ?>
 								</div><!-- .float-right -->
 									
 								<p><?php echo $content['copy']; ?></p>
-								<div class="text-center">
-									<a target = "_blank" href = '<?php echo $content['auction_link']; ?>'><button role = 'button' class = 'btn gold-button'><img class = "mr-3" src="/wp-content/themes/understrap-child/img/gavel.png" alt="Auction Gavel">Enter Auction</button></a>
-								</div><!-- .text-center -->
 							</div><!-- .content-wrapper -->
 						</div><!-- .col-md-8 -->
 						<div class="col-md-4">

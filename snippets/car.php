@@ -13,7 +13,7 @@ $body = get_field('body'); //Hearse
 <div class="link" data-link = "<?php the_permalink(); ?>">
     <div class="car-wrapper">
         <div class="image-wrapper position-relative">
-        <img class = "lazy w-100" src="<?php echo $imageList[0] . '?h=340&w=510'; ?>">  
+        <img class = "lazy w-100" src="<?php echo $imageList[0] . '?auto=compress&fit=clamp&h=340&w=510'; ?>">  
         <?php $flag = get_field('flag'); ?>
         <?php if ( $flag != 'New' && $flag != 'Pre-Owned' && $flag != 'Featured' && $flag != 'Sold' ) { ?>
 

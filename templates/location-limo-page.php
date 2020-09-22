@@ -27,7 +27,7 @@ $towns = get_field('town_list');
 						<div class="row">
 							<div class="col-sm-12 text-center">
 								<h1 class = "mb-3 text-shadow"><?php echo $hero['header'] . ' ' . $location; ?></h1>
-								<h3 class = "text-shadow mb-0"><?php echo $hero['sub_header']; ?></h3>	
+								<h3 class = "text-shadow mb-0"><?php echo $hero['sub_header'] . ' ' . $location; ?></h3>	
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->

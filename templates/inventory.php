@@ -27,6 +27,7 @@ get_header(); ?>
 		    		<a class = "catButton" data-filter=".all"><h4 class = "mb-0">All</h4></a>
 		    		<a class = "catButton" data-filter=".new_car"><h4 class = "mb-0">New</h4></a>
 		    		<a class = "catButton" data-filter=".pre_owned"><h4 class = "mb-0">Pre-Owned</h4></a>
+		    		<a class = "catButton" data-filter=".coming_soon"><h4 class = "mb-0">Coming Soon</h4></a>
 		    		
 		    		<?php //if there are auction cars we need to include a button for sorting
 		    		$query = new WP_Query(array(
@@ -60,6 +61,7 @@ get_header(); ?>
 						<option value=".all">ALL</option>
 						<option value=".new_car">NEW</option>
 						<option value=".pre_owned">PRE-OWNED</option>
+						<option value=".coming_soon">COMING SOON</option>
 
 		    		<?php //if there are auction cars we need to include a button for sorting
 		    		$query = new WP_Query(array(

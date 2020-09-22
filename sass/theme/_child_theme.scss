@@ -1771,3 +1771,32 @@ a {
     }
   }
 }
+
+#seoLandingPage {
+  .fancy {
+    margin-bottom: 1rem !important;
+  }
+  #cars {
+    .row {
+      @include media-breakpoint-up(lg) {
+        .car:first-of-type {
+          border-right: double 10px;
+        }  
+      }
+      .car {
+        @include media-breakpoint-down(md) {
+          margin-bottom: 1rem; 
+          border-bottom: double 10px;
+        }
+      }
+    }
+    .car-wrapper {
+      @include media-breakpoint-up(lg) {
+        border-bottom: double 10px; 
+      } 
+    }
+    .car-wrapper:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
