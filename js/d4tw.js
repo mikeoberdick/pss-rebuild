@@ -192,6 +192,8 @@ $('#relatedCars .car-wrapper').each(function() {
 });
 });
 
+$(".car-wrapper > .embed-item").attr('src', $(".car-wrapper > .embed-item").attr('src'));
+
 //end of document ready call
 });
 

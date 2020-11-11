@@ -12161,6 +12161,16 @@ a {
       font-size: 8vw; }
     #hero h3 {
       font-size: 6vw; } }
+  @media (max-width: 767.98px) {
+    #hero .button-group a {
+      display: block;
+      margin-bottom: 1rem; } }
+  @media (min-width: 768px) {
+    #hero .button-group a {
+      margin-right: 1rem; } }
+  #hero .button-group a:last-of-type {
+    margin-right: 0;
+    margin-bottom: 0; }
 
 @media (max-width: 991.98px) {
   #heroContent h1 {
@@ -12510,6 +12520,89 @@ a {
     border-left-color: transparent !important;
     border-right-color: #CC9F53 !important; } }
 
+#homepage .main-slider .slick-slide, #homepage .main-slider .slick-slide::before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+#homepage .main-slider .slick-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+#homepage .main-slider {
+  background: black;
+  position: relative;
+  width: 100%;
+  height: 600px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 1.2s ease;
+  transition: all 1.2s ease;
+  padding: 0 !important; }
+  #homepage .main-slider.slick-initialized {
+    opacity: 1;
+    visibility: visible; }
+  #homepage .main-slider .slick-slide {
+    position: relative;
+    height: 600px; }
+    #homepage .main-slider .slick-slide::before {
+      background-color: #000;
+      opacity: .3;
+      z-index: 1; }
+    #homepage .main-slider .slick-slide iframe {
+      position: relative;
+      pointer-events: none; }
+    #homepage .main-slider .slick-slide .image-slide {
+      height: 600px;
+      background-size: cover !important; }
+
+#homepage .hero-content {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2; }
+  @media (max-width: 767.98px) {
+    #homepage .hero-content h1 {
+      font-size: 8vw; } }
+  @media (min-width: 992px) {
+    #homepage .hero-content button {
+      font-size: 2rem !important; } }
+  #homepage .hero-content #scrollDown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5)); }
+    #homepage .hero-content #scrollDown i {
+      color: #fff;
+      -webkit-animation: MoveUpDown 2s linear infinite;
+              animation: MoveUpDown 2s linear infinite;
+      position: absolute; }
+    #homepage .hero-content #scrollDown h5 {
+      position: absolute;
+      top: 50px; }
+
+@-webkit-keyframes MoveUpDown {
+  0%, 100% {
+    top: 0; }
+  50% {
+    top: 10px; } }
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    top: 0; }
+  50% {
+    top: 10px; } }
+
 #homepage section {
   background-size: cover !important;
   background-position: center !important;
@@ -12528,46 +12621,6 @@ a {
     #homepage #hero {
       min-height: auto;
       padding: 0; } }
-
-@media (max-width: 767.98px) {
-  #homepage #heroContent h1 {
-    font-size: 8vw; } }
-
-@media (min-width: 992px) {
-  #homepage #heroContent button {
-    font-size: 2rem !important; } }
-
-#homepage #heroContent #scrollDown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5)); }
-  #homepage #heroContent #scrollDown i {
-    color: #fff;
-    -webkit-animation: MoveUpDown 2s linear infinite;
-            animation: MoveUpDown 2s linear infinite;
-    position: absolute; }
-  #homepage #heroContent #scrollDown h5 {
-    position: absolute;
-    top: 50px; }
-
-@-webkit-keyframes MoveUpDown {
-  0%, 100% {
-    top: 0; }
-  50% {
-    top: 10px; } }
-
-@keyframes MoveUpDown {
-  0%, 100% {
-    top: 0; }
-  50% {
-    top: 10px; } }
 
 #homepage #sectionOne {
   background: #000; }
@@ -12916,6 +12969,9 @@ a {
     width: 200px;
     margin: 0 auto;
     display: block; }
+  #contactUs #contactFormWrapper .nf-response-msg {
+    border: solid #CC9F53 !important;
+    color: #CC9F53 !important; }
 
 #contactUs #virtualTour {
   background-size: cover !important;
@@ -13200,6 +13256,74 @@ a {
 
 #seoLandingPage #cars .car-wrapper:last-of-type {
   border-bottom: 0; }
+
+#seoLandingPage .additional-section a {
+  width: 100%; }
+  #seoLandingPage .additional-section a .btn,
+  #seoLandingPage .additional-section a .wpcf7 input[type=submit], .wpcf7 #seoLandingPage .additional-section a input[type=submit] {
+    width: 100%; }
+
+#seoLandingPage .additional-section .two-buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media (min-width: 992px) {
+    #seoLandingPage .additional-section .two-buttons {
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+  #seoLandingPage .additional-section .two-buttons a {
+    width: 75%; }
+    #seoLandingPage .additional-section .two-buttons a:first-of-type {
+      margin-bottom: 1rem; }
+      @media (min-width: 992px) {
+        #seoLandingPage .additional-section .two-buttons a:first-of-type {
+          margin-right: 1rem !important;
+          margin-bottom: 0; } }
+
+#generalLandingPage .section {
+  margin-bottom: 50px; }
+  #generalLandingPage .section .wysiwyg iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; }
+  #generalLandingPage .section .has-bg-img {
+    background-position: center center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
+            box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
+  @media (max-width: 767.98px) {
+    #generalLandingPage .section .button-group a {
+      display: block;
+      margin-bottom: 1rem; } }
+  @media (min-width: 768px) {
+    #generalLandingPage .section .button-group a {
+      margin-right: 1rem; } }
+  #generalLandingPage .section .button-group a:last-of-type {
+    margin-right: 0;
+    margin-bottom: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and

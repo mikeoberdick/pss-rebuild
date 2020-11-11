@@ -12,64 +12,50 @@ get_header(); ?>
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-				
-				<?php $hero = get_field('hero'); ?>
-				<?php if ( $hero['video_background'] ) { ?>
-				<section id="hero">
-					<div id = "videoWrapper">
-					<video autoplay muted loop width = "100%" height = "100%" poster="<?php echo get_stylesheet_directory_uri() . '/img/transparent.png'; ?>" class = "d-flex">
-					  <source src="<?php echo $hero['video_background']['url']; ?>" type="video/mp4">
-					</video>	
-					</div><!-- #videoWrapper -->
-					<div id = "heroContent" class="container position-absolute">
-						<div class="row">
-							<div class="col-sm-12 text-center mb-3 mb-lg-5">
-								<h1 class = "mb-3 mb-lg-5 text-shadow"><?php echo $hero['header']; ?></h1>
-								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
-							</div><!-- .col-sm-12 -->
-							<div class="col-sm-12 text-center d-none d-md-block">
-								<a href = "#sectionOne" id="scrollDown">
-									<i class="fa fa-arrow-down fa-2x mb-4" aria-hidden="true"></i><br>
-									<h5 class = "d-none d-lg-inline-block">SCROLL DOWN</h5>
-								</a><!-- #scrollDown -->
-							</div><!-- .col-sm-12 -->
-						</div><!-- .row -->
-					</div><!-- .container -->
-				</section><!-- #hero -->
 
-				<?php } else { ?>
-					<section id="hero" class = "lazy" data-bg = "<?php echo $hero['background']['url']; ?>" class = "inset">
-					<div class="container p-relative">
-						<div class="row">
-							<div class="col-sm-12 text-center">
-								<h1 class = "mb-5 text-shadow"><?php echo $hero['header']; ?></h1>
-								<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
-							</div><!-- .col-sm-12 -->
-						</div><!-- .row -->
-					</div><!-- .container -->
-				</section><!-- #hero -->
-				<?php } ?>
+			<?php get_template_part( 'snippets/hp-hero-two'); ?>
 
 				<?php $posts = get_posts(array(
 					'post_type' => 'car',
-					'order' => 'desc',
-					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'meta_query'   => array (
-						'relation' => 'OR',
-						array (
-							'key'     => 'flag',
-							'value'   => 'featured',
-							'compare' => '='
+					'posts_per_page' => 8,
+					'meta_query' => array(
+						'relation' => 'AND',
+						array(
+							'key' => 'creation_date',
 						),
-                        array (
-                            'key'     => 'creation_date',
-                            'value'   => array( date("Y-m-d", strtotime("-1 weeks")), date('Y-m-d') ),
-                            'type'    => 'DATE', 
-                            'compare' => 'BETWEEN'
-                        )
-                    ),
-    			)); 
+						array(
+							'key' => 'flag',
+							'value' => 'Sold',
+							'compare' => '!='
+						),
+						array(
+							'key' => 'flag',
+							'value' => 'Deal Pending',
+							'compare' => '!='
+						),
+						array(
+							'key' => 'flag',
+							'value' => 'Coming Soon',
+							'compare' => '!='
+						),
+					),
+					'orderby' => 'meta_value title',
+					'order' => 'DESC'
+    				));
+
+				//If we are alphabetizing so newest years show first
+				//foreach ($posts as $key => $value) {
+				    //$returned_posts[] = get_the_ID();
+				//}
+
+				//$sorted = get_posts( array(
+				    //'post_type'         => 'car',
+				    //'post__in'          =>  $returned_posts,
+				    //'orderby'           => 'title',
+				    //'order'             => 'DESC',
+				//);
+
+    		//if( $sorted ):
 
 			if( $posts ): ?>
 			<?php $sectionOne = get_field('section_one'); ?>
@@ -82,6 +68,7 @@ get_header(); ?>
 
 				<div class="row position-relative">
 					<div id="featuredSlider" class="col-sm-10 offset-sm-1">
+					<?php //foreach( $sorted as $post ): setup_postdata( $post ); ?>
 					<?php foreach( $posts as $post ): setup_postdata( $post ); ?>
 						
 						<?php get_template_part( 'snippets/car'); ?>

@@ -27,6 +27,8 @@ get_header(); ?>
 					</div><!-- .container -->
 				</div><!-- #hero -->
 
+				<?php $content = get_field('content_box'); ?>
+
 				<?php $posts = get_posts(array(
 					'posts_per_page'	=> -1,
 					'post_type'			=> 'car',
@@ -53,12 +55,13 @@ get_header(); ?>
 					</section><!-- #auctionCars -->
 					
 					<?php wp_reset_postdata(); ?>
-					<?php $content = get_field('content_box'); ?>
-					<div class="text-center mb-3">
+				<?php endif; ?>
+					
+					<div class="text-center mb-5">
 						<a target = "_blank" href = '<?php echo $content['auction_link']; ?>'><button role = 'button' class = 'btn gold-button'><img class = "mr-3" src="/wp-content/themes/understrap-child/img/gavel.png" alt="Auction Gavel">Enter Auction</button></a>
 					</div><!-- .text-center -->
 
-				<?php endif; ?>
+				
 				
 				<div id="auctionContent" class="container mb-5">
 					<div class="row">

@@ -165,6 +165,158 @@ defined( 'ABSPATH' ) || exit;
 <?php } ?>
 
 <?php if ( is_page_template( 'templates/homepage.php' ) ) { ?>
+
+<script src = "https://www.youtube.com/iframe_api"></script>
+
+<script type="text/javascript">
+
+		var player;
+		function onYouTubeIframeAPIReady() {
+		    var elems1 = document.getElementsByClassName('embed-player');
+		    for(var i = 0; i < elems1.length; i++) {
+		        player = new YT.Player(elems1[i], {
+		            events: {
+		                'onStateChange': onPlayerStateChange
+		            }
+		        });
+		    }
+		}
+
+		function handleVideo(playerStatus) {
+		    if (playerStatus == 0) {
+		    	//player.seekTo(0);
+		    	jQuery('.main-slider').slick('slickNext').slick('slickPlay');
+		    }
+		}
+
+		function onPlayerStateChange(event) {
+	    	handleVideo(event.data);
+	  	}
+
+		var slideWrapper = jQuery(".main-slider"),
+	    iframes = slideWrapper.find('.embed-player'),
+	    lazyImages = slideWrapper.find('.slide-image'),
+	    lazyCounter = 0;
+
+		// POST commands to YouTube
+		function postMessageToPlayer(player, command){
+		  if (player == null || command == null) return;
+		  player.contentWindow.postMessage(JSON.stringify(command), "*");
+		}
+
+		// When the slide is changing
+		function playPauseVideo(slick, control){
+		  var currentSlide, slideType, startTime, player, video;
+
+		  currentSlide = slick.find(".slick-current");
+		  slideType = currentSlide.find(".item").attr("class").split(" ")[1];
+		  player = currentSlide.find("iframe").get(0);
+		  //startTime = currentSlide.data("video-start");
+		  startTime = '0';
+
+		  if (slideType === "youtube") {
+			slideWrapper.slick('slickPause');
+		    switch (control) {
+		      case "play":
+		        postMessageToPlayer(player, {
+		          "event": "command",
+		          "func": "mute"
+		        });
+		        postMessageToPlayer(player, {
+		          "event": "command",
+		          "func": "playVideo"
+		        });
+		        break;
+		      case "pause":
+		        postMessageToPlayer(player, {
+		          "event": "command",
+		          "func": "pauseVideo"
+		        });
+		        break;
+		    }
+		  }
+		}
+
+		// Resize player
+		function resizePlayer(iframes, ratio) {
+		  if (!iframes[0]) return;
+		  var win = jQuery(".main-slider"),
+		      width = win.width(),
+		      playerWidth,
+		      height = win.height(),
+		      playerHeight,
+		      ratio = ratio || 16/9;
+
+		  iframes.each(function(){
+		    var current = jQuery(this);
+		    if (width / ratio < height) {
+		      playerWidth = Math.ceil(height * ratio);
+		      current.width(playerWidth).height(height).css({
+		        left: (width - playerWidth) / 2,
+		         top: 0
+		        });
+		    } else {
+		      playerHeight = Math.ceil(width / ratio);
+		      current.width(width).height(playerHeight).css({
+		        left: 0,
+		        top: (height - playerHeight) / 2
+		      });
+		    }
+		  });
+		}
+
+		// DOM Ready
+		jQuery(function() {
+		  slideWrapper.on("init", function(slick){
+		    slick = jQuery(slick.currentTarget);
+		    setTimeout(function(){
+		      playPauseVideo(slick,"play");
+		    }, 1000);
+		    resizePlayer(iframes, 16/9);
+		  });
+
+		  slideWrapper.on("beforeChange", function(event, slick) {
+		    slick = jQuery(slick.$slider);
+		    player.seekTo(0);
+		    playPauseVideo(slick,"play");
+		  });
+
+		  slideWrapper.on("afterChange", function(event, slick) {
+		    slick = jQuery(slick.$slider);
+		    playPauseVideo(slick,"play");
+		  });
+
+
+		  	//start the slider
+		  	slideWrapper.slick({
+		    fade:true,
+		    autoplay: true,
+		    infinite: true,
+		    autoPlaySpeed:5000,
+		    speed:600,
+		    arrows:false,
+		    dots:false,
+		    slidesToShow: 1,
+		    slidesToScroll: 1,
+		    pauseOnHover: false,
+		    pauseOnFocus: false,
+		    draggable: false,
+		    swipe: false,
+		    //cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
+		  });
+
+
+});
+
+// Resize event
+jQuery(window).on("resize.slickVideoPlayer", function(){  
+  resizePlayer(iframes, 16/9);
+});
+</script>
+
+
+
+
 <script>
 	jQuery('#featuredSlider').slick({
 	    infinite: true,

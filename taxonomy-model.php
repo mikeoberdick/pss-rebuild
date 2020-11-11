@@ -50,7 +50,7 @@ get_header(); ?>
 						<?php $images = get_field('gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
-								<img id = "largeImage" class = "lazy" data-src="<?php echo $images[0]["sizes"]["large"]; ?>">
+								<img id = "largeImage" class = "lazy d-block mx-auto" data-src="<?php echo $images[0]["sizes"]["large"]; ?>">
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 						<div class="row">
@@ -74,7 +74,7 @@ get_header(); ?>
 						<?php $altImages = get_field('alternate_gallery', $tax); ?>
 						<div class="row mb-3">
 							<div class="col-sm-12">
-								<img id = "altLargeImage" class = "lazy" data-src="<?php echo $altImages[0]["sizes"]["large"]; ?>">
+								<img id = "altLargeImage" class = "lazy d-block mx-auto" data-src="<?php echo $altImages[0]["sizes"]["large"]; ?>">
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 						<div class="row">
@@ -99,15 +99,13 @@ get_header(); ?>
 				} elseif ($video && $count > 1 ) {
 					$title = 'videos';
 				} ?>
-
-				<h3 class="fancy mb-3"><?php echo $title; ?></h1>
-				
 				<?php if( have_rows('videos', $tax) ): ?>
+				<h3 class="fancy mb-3"><?php echo $title; ?></h1>
 					<div class="container">
 						<div class="row mb-3">
 							<?php if ($count === 1) { ?>
 	    						<?php while( have_rows('videos', $tax) ) : the_row(); ?>
-	        					<div class="col-sm-12">
+	        					<div class="col-md-6 offset-md-3">
 									<h3 class = "gold mb-3 text-center"><?php the_sub_field('title'); ?></h3>
 									<div class="video-wrapper mb-3 text-center">
 										<?php the_sub_field('video'); ?>
@@ -126,15 +124,25 @@ get_header(); ?>
 				</div><!-- .container -->
 			<?php endif; ?>
 
+			<?php $warranty = get_field('warranty'); ?>
+			<?php if ($warranty) : ?>
+				<h3 class="fancy mb-3">Warranty</h1>
+					<div class="container mb-5">
+						<div class="row">
+							<div class="col-sm-12">
+								<?php echo $warranty; ?>
+							</div><!-- .col-sm-12 -->
+						</div><!-- .row -->
+					</div><!-- .container -->
+			<?php endif; ?>
 
+			<?php if( have_rows( 'options', $tax ) ): ?>
 				<h3 class="fancy mb-3">Options</h1>
-
-			<div class="container">
-		<?php if( have_rows( 'options', $tax ) ): ?>
-				<div id = "carOptions" class="row mb-5">
-		<?php while( have_rows( 'options', $tax ) ): the_row(); ?>
+					<div class="container">
+						<div id = "carOptions" class="row mb-5">
+			<?php while( have_rows( 'options', $tax ) ): the_row(); ?>
 					<div class="col-md-6 option-group mb-3">
-							<h3 class = "mb-3"><?php the_sub_field('header'); ?></h3>
+							<h3 class = "mb-3 text-center"><?php the_sub_field('header'); ?></h3>
 					<?php $images = get_sub_field('gallery'); ?>
 				<?php if( $images ) : ?>
 					<div class="row">
@@ -158,11 +166,11 @@ get_header(); ?>
      <?php endif; ?><!-- if( $images ) -->
      </div><!-- .col-md-6 -->
  <?php endwhile; ?>
-<?php endif; ?>	
+
 						
 					</div><!-- .row -->
 				</div><!-- .container -->
-
+<?php endif; ?>	
 				<?php $footerHero = get_field('footer_hero_image', $tax); ?>
 				<img class = "lazy" data-src="<?php echo $footerHero['url']; ?>" alt="<?php echo $footerImg['alt']; ?>">
 				
