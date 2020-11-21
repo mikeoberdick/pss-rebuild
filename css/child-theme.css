@@ -12470,6 +12470,13 @@ a {
   .ebay-auction > span:before, .ebay-auction > span:after {
     border-color: #8F5408; }
 
+.coming-soon > span {
+  background: -webkit-gradient(linear, left top, left bottom, from(#d6d6d6), to(#9c9c9c));
+  background: linear-gradient(#d6d6d6 0%, #9c9c9c 100%);
+  color: #4a6606; }
+  .coming-soon > span:before, .coming-soon > span:after {
+    border-color: #9c9c9c; }
+
 .link {
   height: 100%; }
   .link .car-wrapper {
@@ -12519,6 +12526,10 @@ a {
   #generalPage .cd-timeline-block:nth-child(odd) .cd-timeline-content::before {
     border-left-color: transparent !important;
     border-right-color: #CC9F53 !important; } }
+
+#homepage .btn,
+#homepage .wpcf7 input[type=submit], .wpcf7 #homepage input[type=submit] {
+  font-size: 2.25rem !important; }
 
 #homepage .main-slider .slick-slide, #homepage .main-slider .slick-slide::before {
   -webkit-backface-visibility: hidden;
@@ -12864,7 +12875,7 @@ a {
           transform: scale(1.05); }
 
 .tax-model #taxHero {
-  height: 75vh;
+  padding-top: 40%;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important; }
@@ -13293,37 +13304,46 @@ a {
           margin-right: 1rem !important;
           margin-bottom: 0; } }
 
-#generalLandingPage .section {
-  margin-bottom: 50px; }
-  #generalLandingPage .section .wysiwyg iframe {
+@media (max-width: 991.98px) {
+  #generalLandingPage #hero {
+    min-height: 200px;
+    padding: 2rem;
+    background-size: cover !important;
+    background-repeat: no-repeat !important; } }
+
+#generalLandingPage .section .wysiwyg iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; }
+
+#generalLandingPage .section .has-bg-img {
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
+          box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
+
+@media (max-width: 767.98px) {
+  #generalLandingPage .section .button-group a {
     display: block;
-    margin: 0 auto;
-    max-width: 100%; }
-  #generalLandingPage .section .has-bg-img {
-    background-position: center center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
-            box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
-  @media (max-width: 767.98px) {
-    #generalLandingPage .section .button-group a {
-      display: block;
-      margin-bottom: 1rem; } }
-  @media (min-width: 768px) {
-    #generalLandingPage .section .button-group a {
-      margin-right: 1rem; } }
-  #generalLandingPage .section .button-group a:last-of-type {
-    margin-right: 0;
-    margin-bottom: 0; }
+    margin-bottom: 1rem; } }
+
+@media (min-width: 768px) {
+  #generalLandingPage .section .button-group a {
+    margin-right: 1rem; } }
+
+#generalLandingPage .section .button-group a:last-of-type {
+  margin-right: 0;
+  margin-bottom: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and

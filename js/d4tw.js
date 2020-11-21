@@ -9,6 +9,18 @@ $( "#allModels .catButton" ).click(function() {
   $( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
+var filters = document.location.hash.substring(1).split('&');
+  if (filters) {
+    var firstFilter = '.' + filters[0];
+    var secondFilter = '.' + filters[1];
+    $('[data-filter=' + '"' + firstFilter + '"' + ']').addClass('mixitup-control-active');
+    $('[data-filter=' + '"' + secondFilter + '"' + ']').addClass('mixitup-control-active');
+    var first = $('[data-filter=' + '"' + firstFilter + '"' + ']').text();
+    var second = $('[data-filter=' + '"' + secondFilter + '"' + ']').text();
+    $( "span#first" ).text(first);
+    $( "span#second" ).text(second);
+  }
+
 //NOW SHOWING ON INVENTORY - DESKTOP
 $( "#inventory #status .catButton" ).click(function() {
   $( "span#first" ).text( $(this).text() );

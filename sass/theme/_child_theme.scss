@@ -931,6 +931,15 @@ a {
       border-color: #8F5408;
   }
 }
+
+//GREY
+.coming-soon > span {
+    background: linear-gradient(#d6d6d6 0%,#9c9c9c 100%);
+    color: #4a6606;
+    &:before, &:after {
+      border-color: #9c9c9c;
+  }
+}
 .link {
   height: 100%;
   .car-wrapper {
@@ -980,6 +989,9 @@ a {
 
 //HOMEPAGE
 #homepage {
+  .btn {
+    font-size: 2.25rem !important;
+  }
   %bv_hidden {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -1364,7 +1376,7 @@ a {
 //TAXONOMY
 .tax-model {
   #taxHero {
-    height: 75vh;
+    padding-top: 40%;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: cover !important;
@@ -1904,8 +1916,15 @@ a {
 
 //General Landing Page Template
 #generalLandingPage {
+  #hero {
+    @include media-breakpoint-down(md) {
+      min-height: 200px;
+      padding: 2rem;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+    }
+  }
   .section {
-    margin-bottom: 50px;
     .wysiwyg {
       iframe {
         display: block;

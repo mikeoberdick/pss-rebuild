@@ -142,17 +142,20 @@ defined( 'ABSPATH' ) || exit;
 	</script>
 <?php } ?>
 
-<?php if ( is_page( 'inventory' ) ) { ?>
+<?php if ( is_page( 'inventory' ) ) {  ?>
 	<script>
 	    var containerEl = document.querySelector('#cars');
+	    //allow for custom urls such as inventory/#new&hearse
 	    var filters = document.location.hash.substring(1).split('&');
 	    if (filters) {
-	   		var firstFilter = filters[0];
-	    	var secondFilter = filters[1];	
+	   		var firstFilter = '.' + filters[0];
+	    	var secondFilter = '.' + filters[1];
+	    	//If only one filter is used we will just use that for the query
+	    	var query = secondFilter === '.undefined' ? firstFilter : firstFilter + secondFilter
 	    }
 	    var mixer = mixitup(containerEl, {
 	    	load: {
-			filter: document.location.hash == '' ? '.all' : ('.' + firstFilter + '.' + secondFilter)
+			filter: document.location.hash == '' ? '.all' : (query)
 	    	},
 	    	multifilter: {
         	enable: true // enable the multifilter extension for the mixer
