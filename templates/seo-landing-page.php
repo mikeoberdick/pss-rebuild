@@ -49,34 +49,43 @@ get_header(); ?>
 									<h3 class = "mb-2 text-center font-weight-bold"><span class = "gold"><?php the_sub_field('year'); ?> </span><?php the_sub_field('title'); ?></h3>
 									<a href="<?php the_sub_field('link'); ?>"><h5 class = "text-center">Click Here For More</h5></a>
 									<div class="row">
-										<?php $url = get_sub_field('video_1');  $video = substr($url, strrpos($url, '/') + 1); ?>
+										<?php $url = get_sub_field('video_1'); ?>
 											<?php if ($url) : ?>
 										<div class="offset-md-2 col-md-8 mb-3">
 											<div class="embed-responsive embed-responsive-16by9 mb-1">
-												<iframe class = "embed-item" src="<?php echo 'https://www.youtube.com/embed/' . $video . '?t=20s'; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
+												<iframe lazy-loading class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
 											</div><!-- .embed-responsive -->
 											<h5 class = "text-center"><?php the_sub_field('video_1_title'); ?></h5>
 										</div><!-- .col-md-8 -->
 									<?php endif; ?>
-									<?php $url = get_sub_field('video_2');  $video = substr($url, strrpos($url, '/') + 1); ?>
+									<?php $url = get_sub_field('video_2'); ?>
 									<?php if ($url) : ?>
 										<div class="offset-md-2 col-md-8 mb-3">
-											<?php $url = get_sub_field('video_2');  $video = substr($url, strrpos($url, '/') + 1); ?>
+											<?php $url = get_sub_field('video_2'); ?>
 											<div class="embed-responsive embed-responsive-16by9 mb-1">
-												<iframe class = "embed-item" src="<?php echo 'https://www.youtube.com/embed/' . $video . '?t=20s'; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
+												<iframe class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
 											</div><!-- .embed-responsive -->
 											<h5 class = "text-center"><?php the_sub_field('video_2_title'); ?></h5>
 										</div><!-- .col-md-8 -->
 									<?php endif; ?>
 									</div><!-- .row -->
-									<div class="colors">
-										<h3 class = "text-center font-weight-bold">Colors</h3>
-										<?php $colors = get_sub_field('colors'); ?>
-										<img class = "mb-1 d-block mx-auto" src="<?php echo $colors['url']; ?>" alt="<?php echo $colors['alt']; ?>">
-										<p class = "text-center"><?php the_sub_field('color_names'); ?></p>
-									</div><!-- .colors -->
+									<?php 
+										$images = get_sub_field('colors');
+										if( $images ): ?>
+											<div class="colors">
+												<h3 class = "text-center font-weight-bold">Colors</h3>
+												<div id = "colorSwatchWrapper">
+										        <?php foreach( $images as $image ): ?>
+										        	<div class="color-wrapper">
+										        	<img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+													<p class = "small"><?php echo esc_html($image['caption']); ?></p>
+													</div><!-- .color-wrapper -->
+										        <?php endforeach; ?>
+										    </div><!-- #colorSwatchWrapper -->
+											</div><!-- .colors -->
+										<?php endif; ?>
 									<div class="warranty">
 										<h3 class = "text-center font-weight-bold">Warranty</h3>
 										<p class = "text-center"><?php the_sub_field('warranty'); ?></p>

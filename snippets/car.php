@@ -17,7 +17,7 @@ $body = get_field('body'); //Hearse
         <?php $flag = get_field('flag'); ?>
         <?php if ( $flag != 'New' && $flag != 'Pre-Owned' && $flag != 'Featured' && $flag != 'Sold' ) { ?>
 
-        <div class="ribbon<?php if($flag === 'Deal Pending') {echo ' deal-pending';} elseif ($flag === 'Consignment') {echo ' consignment';} elseif ($flag === 'coming_soon') {echo ' coming-soon';} elseif ($flag === 'Parks Auction') {echo ' parks-auction';} elseif ($flag === 'As Is') {echo ' as-is';} elseif ($flag === 'EBay Auction') {echo ' ebay-auction';}; ?>"><span><?php the_field('flag'); ?></span></div>
+        <div class="ribbon<?php if($flag === 'Deal Pending') {echo ' deal-pending';} elseif ($flag === 'Consignment') {echo ' consignment';} elseif ($flag === 'Coming Soon') {echo ' coming-soon';} elseif ($flag === 'Parks Auction') {echo ' parks-auction';} elseif ($flag === 'As Is') {echo ' as-is';} elseif ($flag === 'EBay Auction') {echo ' ebay-auction';}; ?>"><span><?php the_field('flag'); ?></span></div>
         <?php } ?>
         </div><!-- .image-wrapper -->
         

@@ -11642,7 +11642,8 @@ h1, h2, h3, h4, h5, h6,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 3rem !important; }
+  margin-bottom: 3rem !important;
+  text-align: center; }
   @media (max-width: 991.98px) {
     .fancy {
       position: relative;
@@ -12527,8 +12528,8 @@ a {
     border-left-color: transparent !important;
     border-right-color: #CC9F53 !important; } }
 
-#homepage .btn,
-#homepage .wpcf7 input[type=submit], .wpcf7 #homepage input[type=submit] {
+#homepage #hero .btn,
+#homepage #hero .wpcf7 input[type=submit], .wpcf7 #homepage #hero input[type=submit] {
   font-size: 2.25rem !important; }
 
 #homepage .main-slider .slick-slide, #homepage .main-slider .slick-slide::before {
@@ -13260,6 +13261,33 @@ a {
   #seoLandingPage #cars .row .car {
     margin-bottom: 1rem;
     border-bottom: double 10px; } }
+
+#seoLandingPage #cars .row .car #colorSwatchWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  #seoLandingPage #cars .row .car #colorSwatchWrapper .color-wrapper {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 19%;
+            flex: 0 1 19%;
+    text-align: center;
+    margin-right: 1%; }
+    #seoLandingPage #cars .row .car #colorSwatchWrapper .color-wrapper img {
+      height: 50px;
+      width: 50px;
+      margin-bottom: 5px; }
 
 @media (min-width: 992px) {
   #seoLandingPage #cars .car-wrapper {

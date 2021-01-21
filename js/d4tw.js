@@ -9,6 +9,7 @@ $( "#allModels .catButton" ).click(function() {
   $( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
+//Add the search query on page load from url string to the "Currently Viewing:" section
 var filters = document.location.hash.substring(1).split('&');
   if (filters) {
     var firstFilter = '.' + filters[0];
