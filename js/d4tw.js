@@ -9,18 +9,19 @@ $( "#allModels .catButton" ).click(function() {
   $( "span#currentCat" ).text( $(this).text() + 's' );
 });
 
-//Add the search query on page load from url string to the "Currently Viewing:" section
-var filters = document.location.hash.substring(1).split('&');
-  if (filters) {
-    var firstFilter = '.' + filters[0];
-    var secondFilter = '.' + filters[1];
-    $('[data-filter=' + '"' + firstFilter + '"' + ']').addClass('mixitup-control-active');
-    $('[data-filter=' + '"' + secondFilter + '"' + ']').addClass('mixitup-control-active');
-    var first = $('[data-filter=' + '"' + firstFilter + '"' + ']').text();
-    var second = $('[data-filter=' + '"' + secondFilter + '"' + ']').text();
-    $( "span#first" ).text(first);
-    $( "span#second" ).text(second);
-  }
+if(window.location.hash) {
+  var filters = document.location.hash.substring(1).split('&');
+  var firstFilter = '.' + filters[0];
+  var secondFilter = '.' + filters[1];
+  $('[data-filter=' + '"' + firstFilter + '"' + ']').addClass('mixitup-control-active');
+  $('[data-filter=' + '"' + secondFilter + '"' + ']').addClass('mixitup-control-active');
+  var first = $('[data-filter=' + '"' + firstFilter + '"' + ']').text();
+  var second = $('[data-filter=' + '"' + secondFilter + '"' + ']').text();
+  $( "span#first" ).text(first);
+  $( "span#second" ).text(second);
+} else {
+  //do nothing
+}
 
 //NOW SHOWING ON INVENTORY - DESKTOP
 $( "#inventory #status .catButton" ).click(function() {
@@ -174,6 +175,11 @@ $('#primaryCarousel .gallery-thumb img').click(function(){
 //Alternate Image Carousel on All Models Page
 $('#secondaryCarousel .gallery-thumb img').click(function(){
     $('#altLargeImage').attr('src',$(this).attr('src').replace('thumb','large'));
+});
+
+//Image carousel on SEO Landing Page template
+$('.page-template-seo-landing-page .seo-image-gallery .gallery-thumb img').click(function() {
+  $(this).parents().eq(5).siblings('.large-gallery-image').attr('src',$(this).attr('src'))
 });
 
 //Dynamically add the stock number and first image url to the Message Us form's hidden fields in order to send along in the notification emamil

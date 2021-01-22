@@ -13262,6 +13262,25 @@ a {
     margin-bottom: 1rem;
     border-bottom: double 10px; } }
 
+#seoLandingPage #cars .row .car .seo-image-gallery .slick-slide {
+  margin: 0 10px; }
+
+#seoLandingPage #cars .row .car .seo-image-gallery .slick-prev:before, #seoLandingPage #cars .row .car .seo-image-gallery .slick-next:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 25px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
+  color: #CC9F53; }
+
+#seoLandingPage #cars .row .car .seo-image-gallery .slick-prev:before {
+  content: "\f053"; }
+
+#seoLandingPage #cars .row .car .seo-image-gallery .slick-next:before {
+  content: "\f054"; }
+
 #seoLandingPage #cars .row .car #colorSwatchWrapper {
   display: -webkit-box;
   display: -ms-flexbox;

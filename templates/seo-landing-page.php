@@ -44,8 +44,25 @@ get_header(); ?>
 							<?php $i = 1; while( have_rows('cars') ) : the_row(); ?>
 							<?php if ($i >2 && $i % 2 != 0) {echo '<div class = "row car-wrapper">';} ?>
 								<div class="car col-lg-6<?php if($i >2) {echo ' pt-3';} ?>">
-									<?php $img = get_sub_field('image'); ?>
-									<img class = "mb-3" src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+									
+								<div class = "gallery-carousel">
+								<?php $images = get_sub_field('images'); $count = count($images);?>
+
+										<img class = "large-gallery-image mb-3 d-block mx-auto" src="<?php echo $images[0]["sizes"]["large"]; ?>">
+										<?php if ( $count >= 2 ) : ?>
+										<div class="gallery-wrapper position-relative">
+										<div class = "seo-image-gallery">
+										<?php foreach( $images as $image ): ?>
+							                <div class = "slide gallery-thumb">
+							                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+							                </div>
+							            <?php endforeach; ?>  	
+										</div><!-- .seo-image-gallery -->
+									<div class="arrows"></div>	
+										</div><!-- .gallery-wrapper p-relative -->
+										<?php endif; ?>
+								</div><!-- .gallery-carousel -->
+
 									<h3 class = "mb-2 text-center font-weight-bold"><span class = "gold"><?php the_sub_field('year'); ?> </span><?php the_sub_field('title'); ?></h3>
 									<a href="<?php the_sub_field('link'); ?>"><h5 class = "text-center">Click Here For More</h5></a>
 									<div class="row">

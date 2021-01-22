@@ -1876,6 +1876,33 @@ a {
           margin-bottom: 1rem; 
           border-bottom: double 10px;
         }
+        .seo-image-gallery {
+          .slick-slide {
+            margin: 0 10px;
+          }
+          .slick-prev, .slick-next {
+            &:before {
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: 25px;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              opacity: 1;
+              color: $gold;
+            }
+          }
+          .slick-prev {
+            &:before {
+              content: "\f053";
+            } 
+          }
+          .slick-next {
+            &:before {
+              content: "\f054";  
+            }
+          }
+        }
         #colorSwatchWrapper {
           display: flex;
           flex-wrap: wrap;
