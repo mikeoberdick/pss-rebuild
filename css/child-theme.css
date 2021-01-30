@@ -13265,22 +13265,6 @@ a {
 #seoLandingPage #cars .row .car .seo-image-gallery .slick-slide {
   margin: 0 10px; }
 
-#seoLandingPage #cars .row .car .seo-image-gallery .slick-prev:before, #seoLandingPage #cars .row .car .seo-image-gallery .slick-next:before {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 25px;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 1;
-  color: #CC9F53; }
-
-#seoLandingPage #cars .row .car .seo-image-gallery .slick-prev:before {
-  content: "\f053"; }
-
-#seoLandingPage #cars .row .car .seo-image-gallery .slick-next:before {
-  content: "\f054"; }
-
 #seoLandingPage #cars .row .car #colorSwatchWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13307,6 +13291,52 @@ a {
       height: 50px;
       width: 50px;
       margin-bottom: 5px; }
+
+#seoLandingPage #cars .row .car .contact-options .email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  #seoLandingPage #cars .row .car .contact-options .email i {
+    background: #CC9F53;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 28px;
+    position: relative;
+    z-index: 0;
+    border: solid 2px #000;
+    color: #000; }
+  #seoLandingPage #cars .row .car .contact-options .email span {
+    padding: .25rem 1rem .25rem 1.5rem;
+    background: #CC9F53;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    left: -22px;
+    z-index: -1;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.25rem; }
+
+@media (max-width: 991.98px) {
+  #seoLandingPage #cars .row .car .arrows {
+    top: 50% !important; }
+    #seoLandingPage #cars .row .car .arrows i {
+      position: absolute !important; } }
 
 @media (min-width: 992px) {
   #seoLandingPage #cars .car-wrapper {

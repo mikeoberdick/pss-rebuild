@@ -178,8 +178,8 @@ $('#secondaryCarousel .gallery-thumb img').click(function(){
 });
 
 //Image carousel on SEO Landing Page template
-$('.page-template-seo-landing-page .seo-image-gallery .gallery-thumb img').click(function() {
-  $(this).parents().eq(5).siblings('.large-gallery-image').attr('src',$(this).attr('src'))
+$('.page-template-seo-landing-page .seo-image-gallery .gallery-thumb img').click(function(){
+  $(this).parents().eq(6).siblings('.large-gallery-image').attr('src',$(this).attr('src'))
 });
 
 //Dynamically add the stock number and first image url to the Message Us form's hidden fields in order to send along in the notification emamil

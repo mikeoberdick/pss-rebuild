@@ -15,7 +15,8 @@ get_header(); ?>
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 				
 				<?php $hero = get_field('hero'); ?>
-				<div id="hero" class = "mb-3 inset" style = "background: url('<?php echo $hero['background_image']['url']; ?>');">
+				<div id="hero" class = "mb-3" style = "background: url('<?php echo $hero['background_image']['url']; ?>');">
+					<?php if ($hero['headline']) : ?>
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 text-center">
@@ -24,18 +25,15 @@ get_header(); ?>
 							</div><!-- .col-sm-12 -->
 						</div><!-- .row -->
 					</div><!-- .container -->
+					<?php endif; ?>
 				</div><!-- #hero -->
-
-				<div id="introductorySection" class = "mb-5">
-					<?php $intro = get_field('introductory_section'); ?>
-					<h3 class="fancy"><?php echo $intro['headline']; ?></h3>
-					<div class="mt-4 mt-lg-0 container">
-						<div class="row">
-							<div class="col-sm-12">
-								<p><?php echo $intro['copy']; ?></p>
-							</div><!-- .col-sm-12 -->
-						</div><!-- .row -->
-					</div><!-- .container -->
+				
+				<?php $intro = get_field('introductory_section'); ?>
+				<div id="introductorySection" class = "text-center mb-5">
+					<?php echo $intro['copy']; ?>
+					<?php if ($intro['button_text']) : ?>
+						<a href = "<?php echo $intro['button_link']; ?>"><button role = "button" class = "btn gold-button"><?php echo $intro['button_text']; ?></button></a>
+					<?php endif; ?>
 				</div><!-- #introductorySection -->
 
 				<div id="cars">
@@ -64,27 +62,27 @@ get_header(); ?>
 								</div><!-- .gallery-carousel -->
 
 									<h3 class = "mb-2 text-center font-weight-bold"><span class = "gold"><?php the_sub_field('year'); ?> </span><?php the_sub_field('title'); ?></h3>
-									<a href="<?php the_sub_field('link'); ?>"><h5 class = "text-center">Click Here For More</h5></a>
+									<h5 class = "text-center">Click <a class = "gold" href="<?php the_sub_field('link'); ?>">Here</a> For More</h5>
 									<div class="row">
 										<?php $url = get_sub_field('video_1'); ?>
 											<?php if ($url) : ?>
-										<div class="offset-md-2 col-md-8 mb-3">
+										<div class="col-sm-12 mb-3">
 											<div class="embed-responsive embed-responsive-16by9 mb-1">
 												<iframe lazy-loading class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
 											</div><!-- .embed-responsive -->
-											<h5 class = "text-center"><?php the_sub_field('video_1_title'); ?></h5>
+											<h5 class = "text-center gold"><?php the_sub_field('video_1_title'); ?></h5>
 										</div><!-- .col-md-8 -->
 									<?php endif; ?>
 									<?php $url = get_sub_field('video_2'); ?>
 									<?php if ($url) : ?>
-										<div class="offset-md-2 col-md-8 mb-3">
+										<div class="col-sm-12 mb-3">
 											<?php $url = get_sub_field('video_2'); ?>
 											<div class="embed-responsive embed-responsive-16by9 mb-1">
 												<iframe class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
 											</div><!-- .embed-responsive -->
-											<h5 class = "text-center"><?php the_sub_field('video_2_title'); ?></h5>
+											<h5 class = "text-center gold"><?php the_sub_field('video_2_title'); ?></h5>
 										</div><!-- .col-md-8 -->
 									<?php endif; ?>
 									</div><!-- .row -->
@@ -107,6 +105,13 @@ get_header(); ?>
 										<h3 class = "text-center font-weight-bold">Warranty</h3>
 										<p class = "text-center"><?php the_sub_field('warranty'); ?></p>
 									</div><!-- .colors -->
+									<div class="contact-options d-flex justify-content-around align-items-center mb-3">
+										<p class = "h5 gold font-weight-bold mb-3 mb-md-0">Call to Save! <a href="tel:8002295008">800-229-5008</a></p>
+										<a href = "mailto:info@parkssuperior.com" target = "_blank" class="email">
+											<i class="fa fa-envelope-o" aria-hidden="true"></i>
+											<span>Message Us</span>
+										</a><!-- .email -->
+									</div><!-- .contact-options -->
 								</div><!-- .col-lg-6 -->
 								<?php if($i % 2 == 0) {echo '</div>';} ?>
 							
@@ -114,8 +119,9 @@ get_header(); ?>
 					</div><!-- .container -->
 				</div><!-- #cars -->
 				
+				<?php $one = get_field('additional_section_one'); ?>
+				<?php if ($one['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionOne" class = "additional-section mb-5">
-					<?php $one = get_field('additional_section_one'); ?>
 					<h3 class="fancy"><?php echo $one['headline']; ?></h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
@@ -136,9 +142,11 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #addtionalSectionOne -->
-
+				<?php endif; ?>
+				
+				<?php $two = get_field('additional_section_two'); ?>
+				<?php if ($two['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionTwo" class = "additional-section mb-5">
-					<?php $two = get_field('additional_section_two'); ?>
 					<h3 class="fancy"><?php echo $two['headline']; ?></h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
@@ -153,6 +161,7 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #addtionalSectionTwo -->
+			<?php endif; ?>
 
 			</article><!-- #post-## -->
 		</main><!-- #main -->
