@@ -278,8 +278,8 @@ defined( 'ABSPATH' ) || exit;
 		    resizePlayer(iframes, 16/9);
 		  });
 
-		  slideWrapper.on("beforeChange", function(event, slick) {
-		    slick = jQuery(slick.$slider);
+		  slideWrapper.on("beforeChange", function(event, slick, currentSlide) {
+		  	slick = jQuery(slick.$slider);
 		    player.seekTo(0);
 		    playPauseVideo(slick,"play");
 		  });
@@ -295,16 +295,17 @@ defined( 'ABSPATH' ) || exit;
 		    fade:true,
 		    autoplay: true,
 		    infinite: true,
-		    autoPlaySpeed:5000,
+		    autoPlaySpeed:10000,
 		    speed:600,
 		    arrows:false,
 		    dots:false,
 		    slidesToShow: 1,
 		    slidesToScroll: 1,
-		    pauseOnHover: false,
-		    pauseOnFocus: false,
-		    draggable: false,
-		    swipe: false,
+		    pauseOnHover: true,
+		    pauseOnFocus: true,
+		    draggable: true,
+		    swipe: true,
+		    adaptiveHeight: true,
 		    //cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
 		  });
 

@@ -17,7 +17,7 @@
 				
 			</div><!-- .col-sm-12 -->
 			<div class="col-sm-12 text-center d-none d-md-block">
-				<a href = "#sectionOne" id="scrollDown">
+				<a href = "#sectionOne" id="scrollDown" style = "bottom: inherit; left: 50%; transform: translateX(-50%);">
 					<i class="fa fa-arrow-down fa-2x mb-4" aria-hidden="true"></i><br>
 					<h5 class = "d-none d-lg-inline-block">SCROLL DOWN</h5>
 				</a><!-- #scrollDown -->

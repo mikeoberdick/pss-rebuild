@@ -104,14 +104,26 @@ get_header(); ?>
 						<div class="fail-message col-sm-12"><h3>No vehicles were found</h3></div>
 
 					<?php $args = array(  
-			        'post_type' => 'car',
-			        'post_status' => 'publish',
-			        'posts_per_page' => -1, 
-    				'orderby' => 'title', 
-    				'order' => 'DESC',
-					'meta_key' => 'flag', 
-					'meta_value' => 'sold', 
-					'meta_compare' => '!='
+				        'post_type' => 'car',
+				        'post_status' => 'publish',
+				        'posts_per_page' => -1, 
+	    				'orderby' => 'title', 
+	    				'order' => 'DESC',
+						'meta_query' => array(
+							array(
+								'relation' => 'OR',
+								array(
+									'key' => 'flag',
+									'value' => array('New', 'Pre-Owned', 'Featured', 'Deal Pending', 'Consignment', 'Coming Soon', 'Parks Auction', 'As Is', 'EBay Auction'),
+									'meta_compare' => '=',
+								),
+								array(
+									'key' => 'stock',
+									'value' => 'MR151007',
+									'compare' => '=',
+								)
+							)
+						)
 					);
 
 					$loop = new WP_Query( $args ); $i = 1;

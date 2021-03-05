@@ -12528,62 +12528,10 @@ a {
     border-left-color: transparent !important;
     border-right-color: #CC9F53 !important; } }
 
-#homepage #hero .btn,
-#homepage #hero .wpcf7 input[type=submit], .wpcf7 #homepage #hero input[type=submit] {
-  font-size: 2.25rem !important; }
-
-#homepage .main-slider .slick-slide, #homepage .main-slider .slick-slide::before {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-#homepage .main-slider .slick-slide::before {
-  content: '';
+#scrollDown {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-#homepage .main-slider {
-  background: black;
-  position: relative;
-  width: 100%;
-  height: 600px;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 1.2s ease;
-  transition: all 1.2s ease;
-  padding: 0 !important; }
-  #homepage .main-slider.slick-initialized {
-    opacity: 1;
-    visibility: visible; }
-  #homepage .main-slider .slick-slide {
-    position: relative;
-    height: 600px; }
-    #homepage .main-slider .slick-slide::before {
-      background-color: #000;
-      opacity: .3;
-      z-index: 1; }
-    #homepage .main-slider .slick-slide iframe {
-      position: relative;
-      pointer-events: none; }
-    #homepage .main-slider .slick-slide .image-slide {
-      height: 600px;
-      background-size: cover !important; }
-
-#homepage .hero-content {
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 2; }
-  @media (max-width: 767.98px) {
-    #homepage .hero-content h1 {
-      font-size: 8vw; } }
-  @media (min-width: 992px) {
-    #homepage .hero-content button {
-      font-size: 2rem !important; } }
-  #homepage .hero-content #scrollDown {
+  bottom: 75px; }
+  #scrollDown a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -12594,12 +12542,12 @@ a {
         align-content: center;
     -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
             filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5)); }
-    #homepage .hero-content #scrollDown i {
+    #scrollDown a i {
       color: #fff;
       -webkit-animation: MoveUpDown 2s linear infinite;
               animation: MoveUpDown 2s linear infinite;
       position: absolute; }
-    #homepage .hero-content #scrollDown h5 {
+    #scrollDown a h5 {
       position: absolute;
       top: 50px; }
 
@@ -12614,6 +12562,68 @@ a {
     top: 0; }
   50% {
     top: 10px; } }
+
+#homepage #hero .btn,
+#homepage #hero .wpcf7 input[type=submit], .wpcf7 #homepage #hero input[type=submit] {
+  font-size: 2.25rem !important; }
+
+#homepage #mainSliderWrapper .main-slider .slick-slide, #homepage #mainSliderWrapper .main-slider .slick-slide::before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+#homepage #mainSliderWrapper .main-slider .slick-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+#homepage #mainSliderWrapper {
+  max-height: 750px; }
+  #homepage #mainSliderWrapper .main-slider {
+    background: black;
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+    padding: 0 !important; }
+    #homepage #mainSliderWrapper .main-slider.slick-initialized {
+      opacity: 1;
+      visibility: visible; }
+    #homepage #mainSliderWrapper .main-slider .slick-slide {
+      position: relative; }
+      #homepage #mainSliderWrapper .main-slider .slick-slide::before {
+        background-color: #000;
+        opacity: .3;
+        z-index: 1; }
+      #homepage #mainSliderWrapper .main-slider .slick-slide iframe {
+        position: relative;
+        pointer-events: none; }
+      #homepage #mainSliderWrapper .main-slider .slick-slide .image-slide {
+        background-size: cover !important;
+        padding-top: 35%; }
+        @media (max-width: 991.98px) {
+          #homepage #mainSliderWrapper .main-slider .slick-slide .image-slide {
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            height: 250px; } }
+
+#homepage .hero-content {
+  margin-top: -100px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2; }
+  @media (max-width: 767.98px) {
+    #homepage .hero-content h1 {
+      font-size: 8vw; } }
+  @media (min-width: 992px) {
+    #homepage .hero-content button {
+      font-size: 2rem !important; } }
 
 #homepage section {
   background-size: cover !important;
@@ -13250,6 +13260,11 @@ a {
     padding: 0;
     min-height: auto; } }
 
+@media (max-width: 991.98px) {
+  #seoLandingPage #hero {
+    background-size: contain !important;
+    background-repeat: no-repeat !important; } }
+
 #seoLandingPage .fancy {
   margin-bottom: 1rem !important; }
 
@@ -13421,6 +13436,26 @@ a {
 #generalLandingPage .section .button-group a:last-of-type {
   margin-right: 0;
   margin-bottom: 0; }
+
+#singleStaff #hero {
+  background-position: center center !important;
+  background-size: cover !important;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
+          box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
+
+#singleStaff #staffBio {
+  background-color: #888888; }
+
+#singleStaff .fancy {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important; }
+  @media (max-width: 991.98px) {
+    #singleStaff .fancy {
+      margin-bottom: 3rem !important; } }
+
+@media (max-width: 991.98px) {
+  #singleStaff #featuredCars .car-wrapper:first-of-type {
+    margin-bottom: 1.5rem; } }
 
 /*
 * Use existing Bootstrap 4 classes and

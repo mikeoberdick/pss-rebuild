@@ -209,6 +209,56 @@ function create_model_taxonomy() {
   register_taxonomy( 'model', array( 'car' ), $args );
 }
 
+///////////////////////////////////////////
+////////// STAFF CUSTOM POST TYPE ///////////
+///////////////////////////////////////////
+
+add_action( 'init', 'staff_post_type', 0 );
+
+function staff_post_type() {
+// Set UI labels
+  $labels = array(
+    'name'                => 'Staff Member',
+    'singular_name'       => 'Staff Member',
+    'menu_name'           => 'Parks Staff',
+    'parent_item_colon'   => 'Parent Staff Member',
+    'all_items'           => 'All Staff Members',
+    'view_item'           => 'View Staff Member',
+    'add_new_item'        => 'Add New Staff Member',
+    'add_new'             => 'Add Staff Member',
+    'edit_item'           => 'Edit Staff Member',
+    'update_item'         => 'Update Staff Member',
+    'search_items'        => 'Search Staff Members',
+    'not_found'           => 'No Staff Members Found',
+    'not_found_in_trash'  => 'No Staff Members Found in Trash',
+  );
+  
+// Set other options
+  $args = array(
+    'label'               => 'staff-members',
+    'description'         => 'Parks Staff Members',
+    'labels'              => $labels,
+    // Features this CPT supports in Post Editor
+    'supports'            => array( 'title', 'editor', 'author' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+    'menu_icon'           => 'dashicons-groups'
+  );
+  
+//Register the CPT
+  register_post_type( 'staff-member', $args );
+}
+
 //REMOVE DESCRIPTION TEXT EDITOR FROM TAXONOMIES
 function wpse_hide_cat_descr() { ?>
 

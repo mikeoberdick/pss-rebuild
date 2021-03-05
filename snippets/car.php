@@ -15,9 +15,9 @@ $body = get_field('body'); //Hearse
         <div class="image-wrapper position-relative">
         <img class = "lazy w-100" src="<?php echo $imageList[0] . '?auto=compress&fit=clamp&h=340&w=510'; ?>">  
         <?php $flag = get_field('flag'); ?>
-        <?php if ( $flag != 'New' && $flag != 'Pre-Owned' && $flag != 'Featured' && $flag != 'Sold' ) { ?>
+        <?php if ( $flag != 'New' && $flag != 'Pre-Owned' && $flag != 'Featured' ) { ?>
 
-        <div class="ribbon<?php if($flag === 'Deal Pending') {echo ' deal-pending';} elseif ($flag === 'Consignment') {echo ' consignment';} elseif ($flag === 'Coming Soon') {echo ' coming-soon';} elseif ($flag === 'Parks Auction') {echo ' parks-auction';} elseif ($flag === 'As Is') {echo ' as-is';} elseif ($flag === 'EBay Auction') {echo ' ebay-auction';}; ?>"><span><?php the_field('flag'); ?></span></div>
+        <div class="ribbon<?php if($flag === 'Deal Pending') {echo ' deal-pending';} elseif ($flag === 'Consignment') {echo ' consignment';} elseif ($flag === 'Coming Soon') {echo ' coming-soon';} elseif ($flag === 'Parks Auction') {echo ' parks-auction';} elseif ($flag === 'As Is') {echo ' as-is';} elseif ($flag === 'Sold') {echo ' sold';} elseif ($flag === 'EBay Auction') {echo ' ebay-auction';}; ?>"><span><?php the_field('flag'); ?></span></div>
         <?php } ?>
         </div><!-- .image-wrapper -->
         

@@ -12,8 +12,12 @@ get_header(); ?>
 	<div id="content" tabindex="-1">
 		<main class="site-main" id="main">
 			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-			<?php get_template_part( 'snippets/hp-hero-two'); ?>
+			<?php $heroToggle = get_field('hero_toggle');
+			if ($heroToggle == 'hero') {
+				get_template_part( 'snippets/hp-hero-one');
+			} else {
+				get_template_part( 'snippets/hp-hero-two');
+			} ?>
 
 				<?php $posts = get_posts(array(
 					'post_type' => 'car',
