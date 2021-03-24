@@ -58,7 +58,7 @@ get_header(); ?>
 				
 				<div data-filter-group id = "mobileStatus" class = "mobile-control-wrapper">
 					<select>
-						<option value=".all">ALL</option>
+						<option value=".all">CONDITION</option>
 						<option value=".new_car">NEW</option>
 						<option value=".pre_owned">PRE-OWNED</option>
 						<option value=".coming_soon">COMING SOON</option>
@@ -82,6 +82,7 @@ get_header(); ?>
 
 				<div data-filter-group id = "mobileBody" class = "mobile-control-wrapper">
 					<select>
+						<option value=".all">VEHICLE</option>
 						<option value=".hearse">HEARSE</option>
 						<option value=".limousine">LIMOUSINE</option>
 						<option value=".first_call">FIRST CALL VAN</option>

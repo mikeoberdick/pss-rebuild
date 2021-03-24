@@ -33,10 +33,14 @@ get_header(); ?>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="inner-container">
-								<h3 class = "gold"><?php the_title(); ?></h3>
-								<div class="wysiwyg black">
+								<div class="wysiwyg">
 									<?php the_field('bio'); ?>
 								</div><!-- .wysiwyg -->	
+								<h3 class = "gold mb-0"><?php the_title(); ?></h3>
+								<?php if (get_field('phone_number')) : ?>
+								<?php $office = preg_replace('/[^0-9]/', '', get_field('phone_number')); ?>
+								<a class = "text-white" href="tel:<?php echo $office ?>"><?php the_field('phone_number'); ?></button></a>
+							<?php endif; ?>
 								</div><!-- .inner-container -->
 							</div><!-- .col-md-6 -->
 							<div class="col-md-6 d-flex justify-content-center align-items-center">

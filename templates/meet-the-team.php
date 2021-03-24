@@ -42,6 +42,11 @@ get_header(); ?>
 							<?php if( get_sub_field('email') ): ?>
 								<div><strong>Email: </strong><a href="mailto:<?php the_sub_field('email') ?>"><?php the_sub_field('email'); ?></a></div>
 							<?php endif; ?>
+							<?php if( get_sub_field('page_link') ):
+								$name = get_sub_field('name');
+								$arr = explode(' ',trim($name)); ?>
+								<a href="<?php the_sub_field('page_link') ?>"><button role="button" class="btn gold-button mt-2">More About <?php echo $arr[0]; ?></button></a>
+							<?php endif; ?>
 							<?php if( get_sub_field('bio') ): ?>
 								<?php
 								$name = get_sub_field('name');

@@ -38,8 +38,14 @@ $( "#allModels #mobileControls select" ).on('change', function(e){
 
 //NOW SHOWING ON ALL INVENTORY - MOBILE
 $( "#inventory #mobileStatus select" ).on('change', function(e){
-  $( "span#first" ).text( $(this).find('option:selected').text() );
+  console.log($(this).find('option:selected').text());
+  if ( $(this).find('option:selected').text() == "CONDITION") {
+    $( "span#first" ).text('ALL');
+  } else {
+    $( "span#first" ).text( $(this).find('option:selected').text() );
+  }
 });
+
 $( "#inventory #mobileBody select" ).on('change', function(e){
   $( "span#second" ).text( $(this).find('option:selected').text() + 's' );
 });

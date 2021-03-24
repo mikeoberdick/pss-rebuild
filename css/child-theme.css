@@ -13108,13 +13108,82 @@ a {
 #meetTheTeam .modal-trigger {
   font-size: 1.25rem; }
 
-#ourProcess .step-wrapper {
-  background: #fff; }
-  #ourProcess .step-wrapper h3 {
-    background: #000;
-    color: #CC9F53; }
-  #ourProcess .step-wrapper * {
-    color: #000; }
+#ourProcess #hero {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important; }
+
+#ourProcess #stepsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  #ourProcess #stepsContainer .step-wrapper {
+    position: relative;
+    background: #fff;
+    margin-bottom: 25px; }
+    @media (min-width: 992px) {
+      #ourProcess #stepsContainer .step-wrapper {
+        -ms-flex-preferred-size: 45%;
+            flex-basis: 45%; } }
+    #ourProcess #stepsContainer .step-wrapper h3 {
+      background: #000;
+      color: #CC9F53; }
+    #ourProcess #stepsContainer .step-wrapper * {
+      color: #000; }
+    #ourProcess #stepsContainer .step-wrapper .images.two-images {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      #ourProcess #stepsContainer .step-wrapper .images.two-images img {
+        max-width: 49%; }
+    @media only screen and (min-width: 1640px) {
+      #ourProcess #stepsContainer .step-wrapper:nth-of-type(1):after, #ourProcess #stepsContainer .step-wrapper:nth-of-type(3):after {
+        content: '';
+        height: 127px;
+        width: 103px;
+        background: url("/wp-content/themes/understrap-child/img/double_chevron.png");
+        display: block;
+        z-index: 2;
+        position: absolute;
+        right: -120px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%); } }
+
+#ourProcess .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  @media (max-width: 991.98px) {
+    #ourProcess .buttons {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  @media (min-width: 992px) {
+    #ourProcess .buttons {
+      margin-bottom: 1rem; } }
+  #ourProcess .buttons a .btn,
+  #ourProcess .buttons a .wpcf7 input[type=submit], .wpcf7 #ourProcess .buttons a input[type=submit] {
+    width: 305px; }
+    @media (max-width: 991.98px) {
+      #ourProcess .buttons a .btn,
+      #ourProcess .buttons a .wpcf7 input[type=submit], .wpcf7 #ourProcess .buttons a input[type=submit] {
+        margin-bottom: 1rem; } }
 
 @media (max-width: 991.98px) {
   #service .additional-services-buttons {
@@ -13442,9 +13511,6 @@ a {
   background-size: cover !important;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
           box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
-
-#singleStaff #staffBio {
-  background-color: #888888; }
 
 #singleStaff .fancy {
   margin-top: 1.5rem !important;

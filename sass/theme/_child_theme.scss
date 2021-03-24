@@ -1676,14 +1676,73 @@ a {
 }
 
 #ourProcess {
-  .step-wrapper {
-    background: #fff;
-    h3 {
-      background: #000;
-      color: $gold;
+  #hero {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+  #stepsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .step-wrapper {
+      position: relative;
+      background: #fff;
+      margin-bottom: 25px;
+      @include media-breakpoint-up(lg) {
+        flex-basis: 45%;
+      }
+      h3 {
+        background: #000;
+        color: $gold;
+      }
+      * {
+        color: #000;
+      }
+      .images {
+        &.two-images {
+          display: flex;
+          justify-content: space-between;
+          img {
+            max-width: 49%;
+          }
+        }
+      }
+      &:nth-of-type(1), &:nth-of-type(3) {
+        @media only screen and (min-width: 1640px) {
+          &:after {
+            content: '';
+            height: 127px;
+            width: 103px;
+            background: url('/wp-content/themes/understrap-child/img/double_chevron.png');
+            display: block;
+            z-index: 2;
+            position: absolute;
+            right: -120px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
-    * {
-      color: #000;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
+    }
+    a {
+      .btn {
+        width: 305px;
+        @include media-breakpoint-down(md) {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 }
@@ -2049,9 +2108,6 @@ a {
     background-position: center center !important;
     background-size: cover !important;
     box-shadow:  rgba(0,0,0, .5) 0 0 0 500px inset;
-  }
-  #staffBio {
-    background-color: #888888;
   }
   .fancy {
     margin-top: 1.5rem !important;
