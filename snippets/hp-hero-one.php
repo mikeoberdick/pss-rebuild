@@ -10,10 +10,7 @@
 		<div class="row">
 			<div class="col-sm-12 text-center mb-3 mb-lg-5">
 				<h1 class = "mb-3 mb-lg-5 text-shadow"><?php echo $hero['header']; ?></h1>
-				<div class="buttons">
-					<a href = '/2020nfdaconvention/'><button role = 'button' class = 'btn gold-button mr-md-3'>2020 NFDA CONVENTION</button></a>
-					<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
-				</div><!-- .buttons -->
+				<a href = '<?php echo $hero['page_link']; ?>'><button role = 'button' class = 'btn gold-button'><?php echo $hero['button_text']; ?></button></a>
 				
 			</div><!-- .col-sm-12 -->
 			<div class="col-sm-12 text-center d-none d-md-block">

@@ -27,15 +27,7 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #hero -->
-				
-				<div class="container mt-5">
-					<div class="row mb-5">
-						<div class="col-sm-12">
-							<?php the_field('copy'); ?>
-						</div><!-- .col-sm-12 -->
-					</div><!-- .row -->
-				</div><!-- .container -->
-				
+
 				<div class="container-fluid">
 					<div class="row mt-3">
 						<div id = "stepsContainer" class="col-sm-10 offset-sm-1">
@@ -44,7 +36,7 @@ get_header(); ?>
 							<div class="d-flex flex-column step-wrapper text-center">
 								<h3 class="mb-3 p-4">Step <?php echo $i; ?></h3>
 								<h4 class = "mb-3 px-4"><?php the_sub_field('header'); ?></h4>
-								<p class = "px-4"><?php the_sub_field('copy'); ?></p>
+								<div class = "px-4"><?php the_sub_field('copy'); ?></div>
 								<?php $img = get_sub_field('image'); ?>
 								<?php $imgTwo = get_sub_field('image_two'); ?>
 								<div class = "mt-auto">
@@ -60,6 +52,14 @@ get_header(); ?>
     				</div><!-- .col-sm-8 -->
 					</div><!-- .row -->
 				</div><!-- .container-fluid -->
+
+				<div class="container mt-5">
+					<div class="row mb-5">
+						<div class="col-sm-12">
+							<?php the_field('copy'); ?>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</div><!-- .container -->
 
 				<div class="container">
 					<div class="row">

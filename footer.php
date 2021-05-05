@@ -399,12 +399,28 @@ jQuery(window).on("resize.slickVideoPlayer", function(){
 	</script>
 <?php } ?>
 
-<?php if ( is_page_template('templates/seo-landing-page.php') ) { ?>
+<?php if ( is_page_template('templates/yb-news.php') ) { ?>
 	<script>
 		jQuery('.seo-image-gallery').each( function() {
 			jQuery(this).slick({
 				infinite: true,
 				slidesToShow: 2,
+				slidesToScroll: 1,
+			    arrows: true,
+			    appendArrows: jQuery(this).siblings('.arrows'),
+			    nextArrow: '<i class="fa fa-angle-right next-arrow text-shadow"></i>',
+		  		prevArrow: '<i class="fa fa-angle-left prev-arrow text-shadow"></i>',
+			});
+		});
+	</script>
+<?php } ?>
+
+<?php if ( is_page_template('templates/seo-landing-page.php') ) { ?>
+	<script>
+		jQuery('.single-image-gallery').each( function() {
+			jQuery(this).slick({
+				infinite: true,
+				slidesToShow: 1,
 				slidesToScroll: 1,
 			    arrows: true,
 			    appendArrows: jQuery(this).siblings('.arrows'),

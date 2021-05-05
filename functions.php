@@ -44,7 +44,7 @@ function d4tw_enqueue_files () {
         wp_enqueue_script( 'MIU JS', get_stylesheet_directory_uri() . '/js/mixitup.min.js', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'MIU-Multifilter JS', get_stylesheet_directory_uri() . '/js/mixitup-multifilter.min.js', array('jquery'), '1.0.0', true );
     }
-    if (is_page_template(array('templates/auction.php', 'templates/service.php', 'templates/accessories.php', 'templates/parts.php', 'templates/seo-landing-page.php', 'templates/homepage.php')) || is_tax()) {
+    if (is_page_template(array('templates/auction.php', 'templates/service.php', 'templates/accessories.php', 'templates/parts.php', 'templates/yb-news.php','templates/seo-landing-page.php', 'templates/homepage.php')) || is_tax()) {
         console.log('yes');
         wp_enqueue_style( 'Slick CSS', get_stylesheet_directory_uri() . '/slick/slick.css' );
         wp_enqueue_style( 'Slick Theme CSS', get_stylesheet_directory_uri() . '/slick/slick-theme.css' );

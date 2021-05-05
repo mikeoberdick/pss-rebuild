@@ -42,27 +42,19 @@ get_header(); ?>
 							<?php $i = 1; while( have_rows('cars') ) : the_row(); ?>
 							<?php if ($i >2 && $i % 2 != 0) {echo '<div class = "row car-wrapper">';} ?>
 								<div class="car col-lg-6<?php if($i >2) {echo ' pt-3';} ?>">
-									
-								<div class = "gallery-carousel">
-								<?php $images = get_sub_field('images'); $count = count($images);?>
 
-										<img class = "large-gallery-image mb-3 d-block mx-auto" src="<?php echo $images[0]["sizes"]["large"]; ?>">
-										<?php if ( $count >= 2 ) : ?>
-										<div class="gallery-wrapper position-relative">
-										<div class = "seo-image-gallery">
-										<?php foreach( $images as $image ): ?>
-							                <div class = "slide gallery-thumb">
-							                    <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-							                </div>
-							            <?php endforeach; ?>  	
-										</div><!-- .seo-image-gallery -->
-									<div class="arrows"></div>	
-										</div><!-- .gallery-wrapper p-relative -->
-										<?php endif; ?>
-								</div><!-- .gallery-carousel -->
+								<?php $images = get_sub_field('images');?>
+								<div class="gallery-wrapper position-relative">
+									<div class = "single-image-gallery">
+									<?php foreach( $images as $image ): ?>
+						                <div class = "slide" style = "background-image: url('<?php echo esc_url($image['sizes']['large']); ?>')">
+						                </div>
+						            <?php endforeach; ?>  	
+									</div><!-- .single-image-gallery -->
+								<div class="arrows"></div>	
+								</div><!-- .gallery-wrapper p-relative -->
 
 									<h3 class = "mb-2 text-center font-weight-bold"><span class = "gold"><?php the_sub_field('year'); ?> </span><?php the_sub_field('title'); ?></h3>
-									<h5 class = "text-center">Click <a class = "gold" href="<?php the_sub_field('link'); ?>">Here</a> For More</h5>
 									<div class="row">
 										<?php $url = get_sub_field('video_1'); ?>
 											<?php if ($url) : ?>
@@ -101,10 +93,12 @@ get_header(); ?>
 										    </div><!-- #colorSwatchWrapper -->
 											</div><!-- .colors -->
 										<?php endif; ?>
+									<?php if (get_sub_field('warranty')) : ?>
 									<div class="warranty">
 										<h3 class = "text-center font-weight-bold">Warranty</h3>
 										<p class = "text-center"><?php the_sub_field('warranty'); ?></p>
-									</div><!-- .colors -->
+									</div><!-- .warranty -->
+									<?php endif; ?>
 									<div class="contact-options d-flex justify-content-around align-items-center mb-3">
 										<p class = "h5 gold font-weight-bold mb-3 mb-md-0">Call to Save! <a href="tel:8002295008">800-229-5008</a></p>
 										<a href = "mailto:info@parkssuperior.com" target = "_blank" class="email">
@@ -122,7 +116,7 @@ get_header(); ?>
 				<?php $one = get_field('additional_section_one'); ?>
 				<?php if ($one['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionOne" class = "additional-section mb-5">
-					<h3 class="fancy"><?php echo $one['headline']; ?></h3>
+					<h3 class="fancy"><?php echo $one['header']; ?></h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
 							<div class="col-sm-12">
@@ -147,7 +141,7 @@ get_header(); ?>
 				<?php $two = get_field('additional_section_two'); ?>
 				<?php if ($two['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionTwo" class = "additional-section mb-5">
-					<h3 class="fancy"><?php echo $two['headline']; ?></h3>
+					<h3 class="fancy"><?php echo $two['header']; ?></h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
 							<div class="col-sm-12">
