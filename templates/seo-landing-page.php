@@ -55,16 +55,29 @@ get_header(); ?>
 								</div><!-- .gallery-wrapper p-relative -->
 
 									<h3 class = "mb-2 text-center font-weight-bold"><span class = "gold"><?php the_sub_field('year'); ?> </span><?php the_sub_field('title'); ?></h3>
+
 									<div class="row">
 										<?php $url = get_sub_field('video_1'); ?>
 											<?php if ($url) : ?>
-										<div class="col-sm-12 mb-3">
-											<div class="embed-responsive embed-responsive-16by9 mb-1">
-												<iframe lazy-loading class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
+												<div class="col-sm-12">
+												<h5 class = "text-center">Click <a class = "gold" data-toggle="modal" data-target="#videoModal">Here</a> to see video.</h5>	
+												</div><!-- .col-sm-12 -->
+
+												<div class="modal fade p-5" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="<?php echo get_sub_field('year') . ' ' . get_sub_field('title'); ?>" aria-hidden="true">
+												  <div class="modal-dialog modal-xl" role="document">
+												    <div class="modal-content">
+												      <div class="modal-body p-5">
+												        <a class="modal-close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+<h5 class = "text-center gold mb-3"><?php the_sub_field('video_1_title'); ?></h5>
+															<div class = "text-center embed-responsive embed-responsive-16by9">
+																<iframe lazy-loading class = "embed-item" src="<?php echo $url; ?>" frameborder="0" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen"></iframe>
-											</div><!-- .embed-responsive -->
-											<h5 class = "text-center gold"><?php the_sub_field('video_1_title'); ?></h5>
-										</div><!-- .col-md-8 -->
+															</div>
+															
+												      </div><!-- .modal-body -->
+												    </div><!-- .modal-content -->
+												  </div><!-- .modal-dialog -->
+												</div><!-- .modal -->
 									<?php endif; ?>
 									<?php $url = get_sub_field('video_2'); ?>
 									<?php if ($url) : ?>
@@ -113,14 +126,24 @@ get_header(); ?>
 					</div><!-- .container -->
 				</div><!-- #cars -->
 				
+				<?php if (get_field('additional_text')) : ?>
+				<div class="container my-5">
+					<div class="row">
+						<div class="col-sm-12">
+							<?php the_field('additional_text'); ?>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+				</div><!-- .container -->
+				<?php endif; ?>
+				
 				<?php $one = get_field('additional_section_one'); ?>
-				<?php if ($one['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionOne" class = "additional-section mb-5">
-					<h3 class="fancy"><?php echo $one['header']; ?></h3>
+					<h3 class="fancy">Why Choose Parks Superior Sales</h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
 							<div class="col-sm-12">
-								<p class = "mb-3"><?php echo $one['copy']; ?></p>
+								<p class = "mb-3 text-center">Our Family business has been helping your Family Business find funeral vehicles for over 70 years!</p>
+								<p class = "mb-3 text-center">For three generations, our reputation for honesty & professionalism been the pillar of our business. We offer our customers the largest selection of new & pre-owned hearse, limousines, first call vans & flower cars in the world. We carry all the major Coachbuilders in the Funeral Industry. At Parks Superior Sales, we offer you more than just a car sale. You get an unmatched selection to choose from, full range of serves including, state of the art In-House Mechanical & Body Shop, Paint Shop, Detail Center and EASY financing.  We make it easy to shop for your perfect hearse, limousine or first call van. 70 years later, we are still taking care of our customers, one customer at a time.</p>
 								<div class="row mb-3">
 									<div class="col-lg-6 offset-lg-3">
 										<div class = "embed-responsive embed-responsive-16by9">
@@ -136,16 +159,14 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #addtionalSectionOne -->
-				<?php endif; ?>
 				
 				<?php $two = get_field('additional_section_two'); ?>
-				<?php if ($two['show_or_hide'] == 'show') : ?>
 				<div id="additionalSectionTwo" class = "additional-section mb-5">
-					<h3 class="fancy"><?php echo $two['header']; ?></h3>
+					<h3 class="fancy">Finance</h3>
 					<div class="mt-4 mt-lg-0 container">
 						<div class="row">
 							<div class="col-sm-12">
-								<p class = "mb-3"><?php echo $two['copy']; ?></p>
+								<p class = "mb-3 text-center">We specialize in financing & leasing of both New & Pre-Owned Funeral Cars. We offer a simple half page credit application, and can have you all approved in about an hour. Offering terms from 24 to 72 months, we will custom tailor a finance or lease program around your specific needs. Call today to find out just how quick and easy it is to get into the funeral car of your dreams.</p>
 								<div class="two-buttons">
 									<?php $creditApp = get_field('credit_application_file', 270); ?>
 									<a target = "_blank" class = "mx-auto" href = "<?php echo $creditApp['url']; ?>"><button role = "button" class = "btn gold-button">DOWNLOAD CREDIT APPLICATION</button></a>	
@@ -155,7 +176,6 @@ get_header(); ?>
 						</div><!-- .row -->
 					</div><!-- .container -->
 				</div><!-- #addtionalSectionTwo -->
-			<?php endif; ?>
 
 			</article><!-- #post-## -->
 		</main><!-- #main -->

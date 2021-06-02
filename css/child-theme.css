@@ -12510,6 +12510,22 @@ a {
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
+#videoWrapper {
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto; }
+
+#videoWrapper iframe,
+#videoWrapper object,
+#videoWrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; }
+
 #generalPage .cd-timeline-img {
   background: #000 !important; }
 
@@ -12532,8 +12548,7 @@ a {
     border-right-color: #CC9F53 !important; } }
 
 #scrollDown {
-  position: absolute;
-  bottom: 75px; }
+  margin: 0 auto; }
   #scrollDown a {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12565,10 +12580,6 @@ a {
     top: 0; }
   50% {
     top: 10px; } }
-
-#homepage #hero .btn,
-#homepage #hero .wpcf7 input[type=submit], .wpcf7 #homepage #hero input[type=submit] {
-  font-size: 2.25rem !important; }
 
 #homepage #mainSliderWrapper .main-slider .slick-slide, #homepage #mainSliderWrapper .main-slider .slick-slide::before {
   -webkit-backface-visibility: hidden;
@@ -12607,12 +12618,20 @@ a {
         pointer-events: none; }
       #homepage #mainSliderWrapper .main-slider .slick-slide .image-slide {
         background-size: cover !important;
+        background-position: center;
         padding-top: 35%; }
         @media (max-width: 991.98px) {
           #homepage #mainSliderWrapper .main-slider .slick-slide .image-slide {
             background-size: contain !important;
             background-repeat: no-repeat !important;
             height: 250px; } }
+        #homepage #mainSliderWrapper .main-slider .slick-slide .image-slide .hero-content {
+          top: inherit;
+          margin-top: 0;
+          bottom: 45px;
+          left: 50%;
+          -webkit-transform: translateX(-50%);
+                  transform: translateX(-50%); }
 
 #homepage .hero-content {
   margin-top: -100px;
@@ -12638,14 +12657,19 @@ a {
     #homepage section {
       min-height: 500px; } }
 
+#homepage .video-hero-header #heroContent {
+  bottom: 0; }
+
 #homepage #hero {
-  background: transparent url("/wp-content/themes/understrap-child/img/video_poster.jpg") no-repeat 0 0;
   padding-top: 0;
   padding-bottom: 0; }
   @media (max-width: 991.98px) {
     #homepage #hero {
       min-height: auto;
       padding: 0; } }
+  #homepage #hero .btn,
+  #homepage #hero .wpcf7 input[type=submit], .wpcf7 #homepage #hero input[type=submit] {
+    font-size: 2.25rem !important; }
 
 #homepage #sectionOne {
   background: #000; }
@@ -13371,9 +13395,7 @@ a {
 
 #seoLandingPage #hero {
   padding-top: 33.85%;
-  position: relative;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset;
-          box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 500px inset; }
+  position: relative; }
   #seoLandingPage #hero .container {
     position: absolute;
     bottom: 0; }
@@ -13482,6 +13504,42 @@ a {
           margin-right: 1rem !important;
           margin-bottom: 0; } }
 
+#landingPageBuckets .additional-section a {
+  width: 100%; }
+  #landingPageBuckets .additional-section a .btn,
+  #landingPageBuckets .additional-section a .wpcf7 input[type=submit], .wpcf7 #landingPageBuckets .additional-section a input[type=submit] {
+    width: 100%; }
+
+#landingPageBuckets .additional-section .two-buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media (min-width: 992px) {
+    #landingPageBuckets .additional-section .two-buttons {
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+  #landingPageBuckets .additional-section .two-buttons a {
+    width: 75%; }
+    #landingPageBuckets .additional-section .two-buttons a:first-of-type {
+      margin-bottom: 1rem; }
+      @media (min-width: 992px) {
+        #landingPageBuckets .additional-section .two-buttons a:first-of-type {
+          margin-right: 1rem !important;
+          margin-bottom: 0; } }
+
 #ybNews #videoWrapper {
   position: relative;
   max-height: 500px;
@@ -13554,6 +13612,9 @@ a {
 @media (max-width: 991.98px) {
   #singleStaff #featuredCars .car-wrapper:first-of-type {
     margin-bottom: 1.5rem; } }
+
+.page-template-contact .zopim {
+  display: none; }
 
 /*
 * Use existing Bootstrap 4 classes and
