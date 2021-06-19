@@ -70,13 +70,14 @@ get_header(); ?>
 						<?php endif; ?>
 						</div><!-- .col-lg-8 -->
 						<div class="col-lg-4 mt-3 mt-lg-0">
-							<?php $price = get_field('price'); ?>
+							<?php $price = get_field('price');
+							$formattedPrice = number_format($price); ?>
 							<h3 class="price mb-3 text-center">
-								<?php if ( !empty($price) ) {
-								$formattedPrice = number_format($price);
-								echo '$' . $formattedPrice;
-							} else { echo 'Call For Pricing'; }
-								?>
+								<?php if ( $flag == 'New' || empty($price) ) {
+		                            echo 'Call For Pricing';
+		                        } else {
+		                            echo '$' . $formattedPrice;
+		                        } ?>
 							</h3>
 							<div class="contact-buttons mb-3">
 								<?php $phone = preg_replace('/[^0-9]/', '', get_field('phone_number', 'option')); ?>

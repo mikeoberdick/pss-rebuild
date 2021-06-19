@@ -2,6 +2,10 @@
 $images = get_field('images');
 $imageList = explode (",", $images);
 
+$price = get_field('price');
+$formattedPrice = number_format($price); 
+$flag = get_field('flag');
+
 $year = get_field('year'); //2020
 $make = get_field('make'); //Cadillac
 $coachbuilder = get_field('coachbuilder');  //Platinum Coach
@@ -13,8 +17,8 @@ $body = get_field('body'); //Hearse
 <div class="link" data-link = "<?php the_permalink(); ?>">
     <div class="car-wrapper">
         <div class="image-wrapper position-relative">
-        <img class = "lazy w-100" src="<?php echo $imageList[0] . '?auto=compress&fit=clamp&h=340&w=510'; ?>">  
-        <?php $flag = get_field('flag'); ?>
+        <img class = "lazy w-100" src="<?php echo $imageList[0] . '?auto=compress&fit=clamp&h=340&w=510'; ?>">
+
         <?php if ( $flag != 'New' && $flag != 'Pre-Owned' && $flag != 'Featured' ) { ?>
 
         <div class="ribbon<?php if($flag === 'Deal Pending') {echo ' deal-pending';} elseif ($flag === 'Consignment') {echo ' consignment';} elseif ($flag === 'Coming Soon') {echo ' coming-soon';} elseif ($flag === 'Parks Auction') {echo ' parks-auction';} elseif ($flag === 'As Is') {echo ' as-is';} elseif ($flag === 'Sold') {echo ' sold';} elseif ($flag === 'EBay Auction') {echo ' ebay-auction';}; ?>"><span><?php the_field('flag'); ?></span></div>
@@ -38,11 +42,10 @@ $body = get_field('body'); //Hearse
             <div class="d-flex justify-content-between align-items-center mt-auto">
                 <div class="price">
                     <h4 class = "font-weight-bold">
-                        <?php $price = get_field('price'); ?>
-                        <?php if (!empty($price)) {
-                            $formattedPrice = number_format($price); 
-                            echo '$' . $formattedPrice; } else {
+                        <?php if ( $flag == 'New' || empty($price) ) {
                             echo 'Call For Pricing';
+                        } else {
+                            echo '$' . $formattedPrice;
                         } ?></h4>
                 </div><!-- .price -->
                 <?php if (get_field('video')) : ?>
